@@ -1,0 +1,104 @@
+\section{Introduction}
+Stochastic programming has grown in importance in recent decades,
+because it allows the modeler to accurately represent planning under
+uncertainty.
+With strong interest in solving such problems and in
+finding more efficient solution techniques,
+there has arisen a need
+for a test set of stochastic programming problems.
+
+\par
+One of the most popular forms of stochastic programming problems
+is the multistage stochastic linear program with recourse
+(MSSLP). See Section \ref{SEC:problem-statement}, for a
+precise  statement of the MSSLP problem.
+While MSSLPs are growing in popularity, many of the 
+applications are proprietary, and therefore the models are not 
+publicly available.  Test set collections of MSSLPs exist
+\cite{gassmann89,postswebsite}.  However, they need 
+to be enriched with newer applications.  In fact, 
+in many cases, the application associated with the existing 
+test case is not known.  Also, it would 
+be helpful if the original applications are described in the 
+notation of the original model, and related to a 
+unified notation such as in 
+Section \ref{SEC:problem-statement}.
+
+In addition, it would be desirable if the data for the test
+problems is available in SMPS \cite{SMPS87}, the (emerging)
+standard for specifying input to software for MSSLPs.
+%%
+
+To address the above needs, we have collected a 
+group of eleven problem classes from a variety of settings.
+They are all MSSLPs, but of various structures 
+and sizes, with randomness occuring in different parts in different
+problems.
+In some cases, 
+problem instances were explicitly stated in the literature.  In 
+other cases, we created the problems based solely on 
+the problem description in the literature, and in some 
+cases, there is not yet any sample problem.  
+
+For each model application, we present a problem description, a concise problem
+statement, and, if available, a numerical example given by the model authors. 
+We have attempted to stay as close to the authors' notation as possible in
+these subsections.  Additionally, where feasible, we present a notational
+reconciliation, which shows how to transform the notation of the problem into
+that
+in Section \ref{SEC:problem-statement}.
+
+Each problem class may be used to generate one or more instances of MSSLPs.  We
+have created 15 such instances.  The data for these 15 test problems, as well
+as six other test problems that we did not create, are available in SMPS format
+\cite{SMPS87} from the authors at
+\url{http://www.uwsp.edu/math/afelt/slptestset.html}.
+
+Also available at the web site is a chapter of problem descriptions.  Each
+section covers a single problem class.  At the beginning of each section, we
+give a citation to the original application, a brief description of the problem
+structure, and
+if applicable,
+the names of the SMPS files for the associated problem instances.%  We provide
+%one such section as an example in Section \ref{SEC:environ}.
+
+It is the intention of the authors to update the classes of applications and
+the test problem instances as new application areas become prominent, and to
+make the information that we present for each application area, as well as SMPS
+inputs for each test problem instance freely available to the stochastic
+programming research community.
+
+In that spirit, we encourage colleagues to submit new problem data
+with an accompanying description.  Such submissions should include the
+following:
+\begin{enumerate}
+\item description of the application and problem notation,
+\item problem statement, in the same notation,
+\item numerical example, if practical,
+\item reconciliation to the notation of Section \ref{SEC:problem-statement},
+\item data files in SMPS format for each instance, and
+\item optimal solutions for each instance and example.
+\end{enumerate}
+
+We end this section by mentioning, that the initial motivation
+for the present work came from the need to carefully test the
+new polynomial interior cutting plane algorithms for
+stochastic programs developed in \cite{ari96}. The
+design of our test problem collection was motivated and influenced by
+the elegant  work of Mor\'e et al. \cite{more90,more-averick91}
+on test problem collections for several classes of (deterministic)
+nonlinear optimization problems, and the impact such collections
+have had on the development of software for such problem classes
+\cite{more-toraldo91,more-lin99,more-benson01}. As part of testing
+the algorithms developed in \cite{ari96}, we have
+also developed C-routines that convert SMPS data into
+a data structure suitable for implementing algorithms for
+stochastic programs. 
+These routines will soon be made available as open source
+from the authors.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main"
+%%% TeX-master: "main"
+%%% End: 

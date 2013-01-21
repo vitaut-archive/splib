@@ -1,0 +1,269 @@
+NAME          PHONE
+ROWS
+ N  OBJ
+ L  BUD
+ L  CAP1
+ L  CAP2
+ L  CAP3
+ L  CAP4
+ L  CAP5
+ L  CAP6
+ L  CAP7
+ L  CAP8
+ E  DEM12
+ E  DEM13
+ E  DEM14
+ E  DEM15
+ E  DEM16
+ E  DEM23
+ E  DEM24
+ E  DEM25
+ E  DEM26
+ E  DEM34
+ E  DEM35
+ E  DEM36
+ E  DEM45
+ E  DEM46
+ E  DEM56
+COLUMNS
+    X1        BUD       1.0            CAP1      -1.0
+    X2        BUD       1.0            CAP2      -1.0
+    X3        BUD       1.0            CAP3      -1.0
+    X4        BUD       1.0            CAP4      -1.0
+    X5        BUD       1.0            CAP5      -1.0
+    X6        BUD       1.0            CAP6      -1.0
+    X7        BUD       1.0            CAP7      -1.0
+    X8        BUD       1.0            CAP8      -1.0
+    F12R0     CAP1      1.0            
+    F12R0     DEM12     1.0
+    F12R1     CAP3      1.0            CAP4      1.0
+    F12R1     DEM12     1.0
+    F12R2     CAP3      1.0            CAP7      1.0
+    F12R2     CAP5      1.0            
+    F12R2     DEM12     1.0
+    F12R3     CAP2      1.0            CAP6      1.0
+    F12R3     CAP4      1.0            
+    F12R3     DEM12     1.0
+    F12R4     CAP2      1.0            CAP6      1.0
+    F12R4     CAP5      1.0            CAP7      1.0
+    F12R4     DEM12     1.0
+    F13R0     CAP2      1.0            
+    F13R0     DEM13     1.0
+    F13R1     CAP3      1.0            CAP6      1.0
+    F13R1     DEM13     1.0
+    F13R2     CAP1      1.0            CAP4      1.0
+    F13R2     CAP6      1.0            
+    F13R2     DEM13     1.0
+    F13R3     CAP1      1.0            CAP5      1.0
+    F13R3     CAP7      1.0            CAP6      1.0
+    F13R3     DEM13     1.0
+    F14R0     CAP3      1.0            
+    F14R0     DEM14     1.0
+    F14R1     CAP1      1.0            CAP4      1.0
+    F14R1     DEM14     1.0
+    F14R2     CAP1      1.0            CAP5      1.0
+    F14R2     CAP7      1.0            
+    F14R2     DEM14     1.0
+    F14R3     CAP2      1.0            CAP6      1.0
+    F14R3     DEM14     1.0
+    F15R0     CAP1      1.0            CAP5      1.0
+    F15R0     DEM15     1.0
+    F15R1     CAP1      1.0            CAP4      1.0
+    F15R1     CAP7      1.0            
+    F15R1     DEM15     1.0
+    F15R2     CAP3      1.0            CAP7      1.0
+    F15R2     DEM15     1.0
+    F15R3     CAP3      1.0            CAP4      1.0
+    F15R3     CAP5      1.0            
+    F15R3     DEM15     1.0
+    F15R4     CAP2      1.0            CAP6      1.0
+    F15R4     CAP7      1.0            
+    F15R4     DEM15     1.0
+    F15R5     CAP2      1.0            CAP6      1.0
+    F15R5     CAP4      1.0            CAP5      1.0
+    F15R5     DEM15     1.0
+    F16R0     CAP2      1.0            CAP8      1.0
+    F16R0     DEM16     1.0
+    F16R1     CAP3      1.0            CAP6      1.0
+    F16R1     CAP8      1.0            
+    F16R1     DEM16     1.0
+    F16R2     CAP1      1.0            CAP4      1.0
+    F16R2     CAP8      1.0            CAP6      1.0
+    F16R2     DEM16     1.0
+    F16R3     CAP1      1.0            CAP5      1.0
+    F16R3     CAP7      1.0            CAP6      1.0
+    F16R3     CAP8      1.0            
+    F16R3     DEM16     1.0
+    F23R0     CAP1      1.0            CAP2      1.0
+    F23R0     DEM23     1.0
+    F23R1     CAP1      1.0            CAP3      1.0
+    F23R1     CAP6      1.0            
+    F23R1     DEM23     1.0
+    F23R2     CAP4      1.0            CAP6      1.0
+    F23R2     DEM23     1.0
+    F23R3     CAP5      1.0            CAP7      1.0
+    F23R3     CAP6      1.0            
+    F23R3     DEM23     1.0
+    F23R4     CAP5      1.0            CAP7      1.0
+    F23R4     CAP2      1.0            CAP3      1.0
+    F23R4     DEM23     1.0
+    F23R5     CAP4      1.0            CAP3      1.0
+    F23R5     CAP2      1.0            
+    F23R5     DEM23     1.0
+    F24R0     CAP4      1.0            
+    F24R0     DEM24     1.0
+    F24R1     CAP1      1.0            CAP3      1.0
+    F24R1     DEM24     1.0
+    F24R2     CAP1      1.0            CAP2      1.0
+    F24R2     CAP6      1.0            
+    F24R2     DEM24     1.0
+    F24R3     CAP5      1.0            CAP7      1.0
+    F24R3     DEM24     1.0
+    F25R0     CAP5      1.0            
+    F25R0     DEM25     1.0
+    F25R1     CAP4      1.0            CAP7      1.0
+    F25R1     DEM25     1.0
+    F25R2     CAP1      1.0            CAP3      1.0
+    F25R2     CAP7      1.0            
+    F25R2     DEM25     1.0
+    F25R3     CAP1      1.0            CAP2      1.0
+    F25R3     CAP6      1.0            CAP7      1.0
+    F25R3     DEM25     1.0
+    F26R0     CAP1      1.0            CAP2      1.0
+    F26R0     CAP8      1.0            
+    F26R0     DEM26     1.0
+    F26R1     CAP1      1.0            CAP3      1.0
+    F26R1     CAP6      1.0            CAP8      1.0
+    F26R1     DEM26     1.0
+    F26R2     CAP4      1.0            CAP6      1.0
+    F26R2     CAP8      1.0            
+    F26R2     DEM26     1.0
+    F26R3     CAP4      1.0            CAP3      1.0
+    F26R3     CAP8      1.0            CAP2      1.0
+    F26R3     DEM26     1.0
+    F26R4     CAP5      1.0            CAP6      1.0
+    F26R4     CAP7      1.0            CAP8      1.0
+    F26R4     DEM26     1.0
+    F26R5     CAP5      1.0            CAP7      1.0
+    F26R5     CAP3      1.0            CAP2      1.0
+    F26R5     CAP8      1.0            
+    F26R5     DEM26     1.0
+    F34R0     CAP6      1.0            
+    F34R0     DEM34     1.0
+    F34R1     CAP2      1.0            CAP3      1.0
+    F34R1     DEM34     1.0
+    F34R2     CAP2      1.0            CAP1      1.0
+    F34R2     CAP4      1.0            
+    F34R2     DEM34     1.0
+    F34R3     CAP2      1.0            CAP1      1.0
+    F34R3     CAP5      1.0            CAP7      1.0
+    F34R3     DEM34     1.0
+    F35R0     CAP6      1.0            CAP7      1.0
+    F35R0     DEM35     1.0
+    F35R1     CAP6      1.0            CAP4      1.0
+    F35R1     CAP5      1.0            
+    F35R1     DEM35     1.0
+    F35R2     CAP2      1.0            CAP3      1.0
+    F35R2     CAP7      1.0            
+    F35R2     DEM35     1.0
+    F35R3     CAP2      1.0            CAP3      1.0
+    F35R3     CAP5      1.0            CAP4      1.0
+    F35R3     DEM35     1.0
+    F35R4     CAP6      1.0            CAP3      1.0
+    F35R4     CAP1      1.0            CAP5      1.0
+    F35R4     DEM35     1.0
+    F35R5     CAP2      1.0            CAP1      1.0
+    F35R5     CAP4      1.0            CAP7      1.0
+    F35R5     DEM35     1.0
+    F35R6     CAP2      1.0            CAP1      1.0
+    F35R6     CAP5      1.0            
+    F35R6     DEM35     1.0
+    F36R0     CAP8      1.0            
+    F36R0     DEM36     1.0
+    F45R0     CAP7      1.0            
+    F45R0     DEM45     1.0
+    F45R1     CAP4      1.0            CAP5      1.0
+    F45R1     DEM45     1.0
+    F45R2     CAP3      1.0            CAP1      1.0
+    F45R2     CAP5      1.0            
+    F45R2     DEM45     1.0
+    F45R3     CAP6      1.0            CAP2      1.0
+    F45R3     CAP1      1.0            CAP5      1.0
+    F45R3     DEM45     1.0
+    F46R0     CAP6      1.0            CAP8      1.0
+    F46R0     DEM46     1.0
+    F46R1     CAP3      1.0            CAP2      1.0
+    F46R1     CAP8      1.0            
+    F46R1     DEM46     1.0
+    F46R2     CAP4      1.0            CAP1      1.0
+    F46R2     CAP2      1.0            CAP8      1.0
+    F46R2     DEM46     1.0
+    F46R3     CAP7      1.0            CAP5      1.0
+    F46R3     CAP1      1.0            CAP2      1.0
+    F46R3     CAP8      1.0            
+    F46R3     DEM46     1.0
+    F56R0     CAP7      1.0            CAP6      1.0
+    F56R0     CAP8      1.0            
+    F56R0     DEM56     1.0
+    F56R1     CAP7      1.0            CAP3      1.0
+    F56R1     CAP2      1.0            CAP8      1.0
+    F56R1     DEM56     1.0
+    F56R2     CAP5      1.0            CAP4      1.0
+    F56R2     CAP6      1.0            CAP8      1.0
+    F56R2     DEM56     1.0
+    F56R3     CAP5      1.0            CAP4      1.0
+    F56R3     CAP3      1.0            CAP2      1.0
+    F56R3     CAP8      1.0            
+    F56R3     DEM56     1.0
+    F56R4     CAP5      1.0            CAP1      1.0
+    F56R4     CAP2      1.0            CAP8      1.0
+    F56R4     DEM56     1.0
+    F56R5     CAP7      1.0            CAP4      1.0
+    F56R5     CAP1      1.0            CAP2      1.0
+    F56R5     CAP8      1.0            
+    F56R5     DEM56     1.0
+    F56R6     CAP5      1.0            CAP1      1.0
+    F56R6     CAP3      1.0            CAP6      1.0
+    F56R6     CAP8      1.0            
+    F56R6     DEM56     1.0
+    S12       DEM12     1.0            OBJ       1.0
+    S13       DEM13     1.0            OBJ       1.0
+    S14       DEM14     1.0            OBJ       1.0
+    S15       DEM15     1.0            OBJ       1.0
+    S16       DEM16     1.0            OBJ       1.0
+    S23       DEM23     1.0            OBJ       1.0
+    S24       DEM24     1.0            OBJ       1.0
+    S25       DEM25     1.0            OBJ       1.0
+    S26       DEM26     1.0            OBJ       1.0
+    S34       DEM34     1.0            OBJ       1.0
+    S35       DEM35     1.0            OBJ       1.0
+    S36       DEM36     1.0            OBJ       1.0
+    S45       DEM45     1.0            OBJ       1.0
+    S46       DEM46     1.0            OBJ       1.0
+    S56       DEM56     1.0            OBJ       1.0
+RHS           RIGHT
+    RIGHT     BUD       3.0
+    RIGHT     CAP1      2.0
+    RIGHT     CAP2      2.0
+    RIGHT     CAP3      4.0
+    RIGHT     CAP4      4.0
+    RIGHT     CAP5      2.0
+    RIGHT     CAP6      4.0
+    RIGHT     CAP7      3.0
+    RIGHT     CAP8      1.0
+    RIGHT     DEM12     9.99
+    RIGHT     DEM13     9.99
+    RIGHT     DEM14     9.99
+    RIGHT     DEM15     9.99
+    RIGHT     DEM16     9.99
+    RIGHT     DEM23     9.99
+    RIGHT     DEM24     9.99
+    RIGHT     DEM25     9.99
+    RIGHT     DEM26     9.99
+    RIGHT     DEM34     9.99
+    RIGHT     DEM35     9.99
+    RIGHT     DEM36     9.99
+    RIGHT     DEM45     9.99
+    RIGHT     DEM46     9.99
+    RIGHT     DEM56     9.99
+ENDATA

@@ -1,0 +1,52 @@
+NAME          ASS2BY5
+ROWS
+ N  OBJ
+ E  CHECK1
+ E  SAV1
+ E  CD1
+ E  CASH1
+ E  LOANS1
+ E  CHECK2
+ E  SAV2
+ E  CD2
+ E  CASH2
+ E  LOANS2
+COLUMNS
+    CH1CASH   CHECK1    1.0            CASH1     -0.80
+    CASHCH1   CHECK1    -0.97          CASH1     1.0
+    SV1CASH   SAV1      1.0            CASH1     -0.97
+    CASHSV1   SAV1      -0.97          CASH1     1.0
+    CD1CASH   CD1       1.0            CASH1     -0.80
+    CASHCD1   CD1       -0.99          CASH1     1.0
+    LN1CASH   LOANS1    1.0            CASH1     -0.95
+    CASHLN1   LOANS1    -0.95          CASH1     1.0
+    CH1CH2    CHECK1    1.0            CHECK2    -1.06
+    SV1SV2    SAV1      1.0            SAV2      -1.08
+    CD1CD2    CD1       1.0            CD2       -1.05
+    CSH1CSH2  CASH1     1.0            CASH2     -1.03
+    LN1LN2    LOANS1    1.0            LOANS2    -1.07
+    CH2CASH   CHECK2    1.0            CASH2     -0.80
+    CASHCH2   CHECK2    -0.97          CASH2     1.0
+    SV2CASH   SAV2      1.0            CASH2     -0.97
+    CASHSV2   SAV2      -0.97          CASH2     1.0
+    CD2CASH   CD2       1.0            CASH2     -0.80
+    CASHCD2   CD2       -0.99          CASH2     1.0
+    LN2CASH   LOANS2    1.0            CASH2     -0.95
+    CASHLN2   LOANS2    -0.95          CASH2     1.0
+    CH2FWD    OBJ       -1.06          CHECK2    1.0
+    SA2FWD    OBJ       -1.08          SAV2      1.0
+    CD2FWD    OBJ       -1.05          CD2       1.0
+    CA2FWD    OBJ       -1.03          CASH2     1.0
+    LN2FWD    OBJ       -1.07          LOANS2    1.0
+RHS           RIGHT
+    RIGHT     CHECK1    102.0
+    RIGHT     SAV1      203.0
+    RIGHT     CD1       146.0
+    RIGHT     CASH1     80.0
+    RIGHT     LOANS1    82.0
+    RIGHT     CHECK2    0.0
+    RIGHT     SAV2      0.0
+    RIGHT     CD2       0.0
+    RIGHT     CASH2     0.0
+    RIGHT     LOANS2    0.0
+ENDATA

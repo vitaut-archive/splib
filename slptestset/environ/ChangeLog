@@ -1,0 +1,8 @@
+2001-02-26  andy felt  <afelt@cafelt2.uwsp.edu>
+
+	* env.cor, env.cor.diss, env.soln.aggr, env.soln.imp, env.soln.loose, env.soln.lrge, env.sto.aggr, env.sto.first, env.sto.imp, env.sto.loose, env.sto.lrge, env.sto.xlrge, env.tim:
+	Imported sources
+
+	* env.cor, env.cor.diss, env.soln.aggr, env.soln.imp, env.soln.loose, env.soln.lrge, env.sto.aggr, env.sto.first, env.sto.imp, env.sto.loose, env.sto.lrge, env.sto.xlrge, env.tim:
+	Corrected objective values, using r(1)=1, r(2)=0.784, s(1)=4.54, s(2)=3.56.  See Andy Felt's dissertation, p. 128 footnote.
+

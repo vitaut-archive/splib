@@ -1,0 +1,219 @@
+% cleaned of unnecessary equation numbers 3 June 2000
+\subsection{Network model for asset or liability management}%
+\emph{Due to J. M. Mulvey and H. Vladimirou \cite{mulvey91}}\newline%
+See also Mulvey and Ruszczy\'{n}ski \cite{mulvey95}.%
+
+\noindent(Two-stage, linear stochastic problem)\\
+\noindent\url{/assets}\url{/assets.cor},\url{/assets.tim},$\displaystyle \begin{cases} \text{\url{/assets.sto.small}}\\ \text{\url{/assets.sto.large}} \end{cases}$
+
+\vspace{3mm}
+\subsubsection{Description}
+The management of assets or liabilities can be looked at as a network problem, where the asset categories are represented by nodes, and transactions are represented by arcs.  The purchase or sale of an asset usually has fixed, deterministic associated costs, while the return on an investment from one stage to the next is usually unknown.  
+
+Let the set of nodes be ${\cal N}$, and let ${\cal A}$ be the set of arcs.  There exists a set of terminal arcs ${\cal T} \subset {\cal A}$, over which the objective value will be calculated.  Define the following notation:\newline
+\vspace{0.2in}
+\begin{tabular}{r@{=}p{4.2in}}
+${\cal A}_1$	& the subset of arcs associated with deterministic multipliers and first stage decisions\\
+${\cal A}_2$	&	the subset of arcs associated with stochastic multipliers and first stage decisions\\
+${\cal A}_3$	&	the subset of arcs associated with second stage decisions\\
+${\cal N}_1$	&	the subset of nodes with deterministic balance equations\\
+${\cal N}_2$	&	${\cal N}\backslash {\cal N}_1$\\
+$D_n^+$			&	the set of outgoing arcs at node $n$\\
+$D_n^-$			&	the set of incoming arcs at node $n$\\
+$z_a$			&	flow along arc $a \in {\cal A}_1 \cup {\cal A}_2$\\
+$y_a$			&	flow along arc $a \in {\cal A}_3$\\
+$\rand{r_a}$	&	multiplier for arc $a \in {\cal A}$\\
+$\rand{b_n}$	&	supply or demand at node $n \in {\cal N}$\\
+$l_a$			&	lower bound for arc $a \in {\cal A}$\\
+$u_a$			&	upper bound for arc $a \in {\cal A}$.
+\end{tabular}
+
+Then the problem statement follows simply from a material balance at each node.
+
+
+\subsubsection{Problem statement}
+Given $\{ r_a: a \in {\cal A}_1\}$, $\{ b_n : n \in {\cal N}_1\}$ and $\{(l_a,u_a):a \in {\cal A}\}$, the problem is to
+
+%\end{doublespace}
+%\begin{singlespace}
+\begin{equation*}
+\mbox{maximize }\hspace{3mm}\sum_{a\in {\cal A}_1 \cap {\cal T}} r_a z_a + \expect[\{r_a,b_n\}]{\left[\sum_{a\in {\cal A}_2 \cap {\cal T}} \rand{r_a} z_a + \sum_{a\in {\cal A}_3 \cap {\cal T}} \rand{r_a} y_a\right]} 
+\end{equation*}
+\begin{equation*}
+\mbox{subject to }\hspace{3mm} \sum_{a\in D_n^+} z_a - \sum_{a\in D_n^-} r_a z_a = b_n, \hspace{13mm} n\in {\cal N}_1, 
+\end{equation*}
+\begin{multline*}
+\sum_{a\in D_n^+ \cap( {\cal A}_1\cup {\cal A}_2)} z_a - \sum_{a\in D_n^- \cap {\cal A}_1} r_a z_a - \sum_{a\in D_n^- \cap {\cal A}_2} \rand{r_a} z_a + \\
+\sum_{a\in D_n^+ \cap {\cal A}_3} y_a - \sum_{a\in D_n^- \cap {\cal A}_3} \rand{r_a} y_a = \rand{b_n}, \hspace{3mm} n\in {\cal N}_2,
+\end{multline*}
+\begin{equation*}
+l_a \leq z_a \leq u_a, \hspace{3mm} a\in {\cal A}_1 \cup {\cal A}_2,
+\end{equation*}
+\begin{equation*}
+l_a \leq y_a \leq u_a, \hspace{3mm} a\in {\cal A}_3.
+\end{equation*}
+%\end{singlespace}
+%\begin{doublespace}
+
+\subsubsection{Numerical examples}
+Mulvey and Vladimirou \cite{mulvey91} did not provide data for the numerical examples that they discuss \cite{mulveynote99}, so we have created two examples, each with two stages.  There are five nodes in each stage:  checking, savings, certificate of deposit (CD), cash, and loans, with initial balances of 100, 200, 150, 80, and -80, respectively. 
+
+Of course, the yields are specified as random.  The smaller problem, using stochastic file \url{assets.sto.small}, has 100 random realizations, while the larger problem, using \url{assets.sto.large}, has 37,500 realizations.
+
+
+\subsubsection{Notational reconciliation}
+Suppose the cardinality of ${\cal A}_1 \cup {\cal A}_2$ is $n_1$, and that of ${\cal A}_3$ is $n_2$.  Enumerate the arcs so that arcs $1$ through $n_1$ are in ${\cal A}_1 \cup {\cal A}_2$.  Reorder the nodes so that the first $N_1$ are in the set ${\cal N}_1$, and the rest are in ${\cal N}_2$.  For the set $\Phi \in \{{\cal A}_1, {\cal A}_2, {\cal T}, {\cal D}_n^+, {\cal D}_n^-\}$, define the diagonal matrix $\Delta_1^\Phi \in \reals^{n_1 \times n_1}$ by
+\begin{equation*}
+(\Delta_1^{\Phi})_{aa} \assign 
+\begin{cases}
+	1	&	\text{if $a \in \Phi$}\\
+	0	&	\text{otherwise.}
+\end{cases}
+\end{equation*}
+Similarly, for the set $\Phi \in \{{\cal A}_3, {\cal T}, {\cal D}_n^+, {\cal D}_n^-\}$, define the diagonal matrix $\Delta_2^\Phi \in \reals^{n_2 \times n_2}$ by
+\begin{equation*}
+(\Delta_2^{\Phi})_{aa} \assign 
+\begin{cases}
+	1	&	\text{if $(n_1 + a) \in \Phi$}\\
+	0	&	\text{otherwise.}
+\end{cases}
+\end{equation*}
+
+The notation of (\ref{PROB:mslp}) requires determinism in all of the first stage coefficients.  However, since the only stochastic first stage coefficients are the costs, we can use the expected value.  For arc $a \in {\cal A}_1 \cup {\cal A}_2$ define
+\begin{equation*}
+\bar{r}_a \assign \expect[]{\left[\rand{r_a}\right]}.
+\end{equation*}
+Note that for $a \in {\cal A}_1$, this is simply $r_a$.  Additionally,  define $\rand{\hat{r}_1} \in \reals^{n_1}$ by
+\begin{equation*}
+(\rand{\hat{r}_1})_a \assign 
+\begin{cases}
+	r_a	&	\text{if $a \in {\cal A}_1$}\\
+	\rand{r_a}	&	\text{if $a \in {\cal A}_2$.}
+\end{cases}
+\end{equation*}
+Similarly, let $\rand{\hat{r}_2} \in \reals^{n_2}$ be defined by
+\begin{equation*}
+(\rand{\hat{r}_2})_a \assign \rand{r_{(n_1 + a)}},\hspace{3mm}\forall a \ni (n_1 + a)\in {\cal A}_3.
+\end{equation*}
+
+To fit the notation of (\ref{PROB:mslp}), we make the following assignments:
+{{\allowdisplaybreaks{\begin{gather*}
+x_1\assign \left[
+\begin{array}{c}
+	z_1\\
+	\vdots\\
+	z_{n_1}\\ \hline
+	s^1_1\\
+	\vdots\\
+	s^1_{n_1}\\
+	s^2_1\\
+	\vdots\\
+	s^2_{n_1}
+\end{array}
+\right], \hspace{3mm}
+\bar{r}\assign \left[
+\begin{array}{c}
+	\bar{r}_1\\
+	\vdots\\
+	\bar{r}_{n_1}\\
+\end{array}
+\right], \hspace{3mm}
+c_1\assign \left[
+\begin{array}{c}
+	\bar{r}\\ \hline
+	0^{2 n_1 \times 1}
+\end{array}
+\right],\hspace{3mm}
+b_1 \assign \left[
+\begin{array}{c}
+	b_1\\
+	\vdots\\
+	b_{N_1}\\ \hline
+	u_1\\
+	\vdots\\
+	u_{n_1}\\
+	-l_1\\
+	\vdots\\
+	-l_{n_1}
+\end{array}
+\right], \\
+A_1 \assign \left[
+\begin{array}{c|c}
+\begin{array}{c}
+	(1^{1 \times n_1} \Delta_1^{D_1^+} -\bar{r}\trp \Delta_1^{D_1^-})\\
+	\vdots\\
+	(1^{1 \times n_1} \Delta_1^{D_{N_1}^+} - \bar{r}\trp \Delta_1^{D_{N_1}^-})
+\end{array}
+& 0^{N_1 \times 2 n_1}\\ \hline
+I^{n_1 \times n_1}	& \begin{array}{cc}
+	I^{n_1 \times n_1}	& 0^{n_1 \times n_1}
+						\end{array}\\
+-I^{n_1 \times n_1} & \begin{array}{cc}
+	0^{n_1 \times n_1}	& I^{n_1 \times n_1}
+						\end{array}
+\end{array}
+\right],\\
+x_2\assign \left[
+\begin{array}{c}
+	y_1\\
+	\vdots\\
+	y_{n_2}\\ \hline
+	s^3_1\\
+	\vdots\\
+	s^3_{n_2}\\
+	s^4_1\\
+	\vdots\\
+	s^4_{n_2}
+\end{array}
+\right], \hspace{3mm}
+\rand{c_2}\assign  \left[
+\begin{array}{c}
+	\rand{\hat{r}_2}\\ \hline
+	0^{2 n_2 \times 1}
+\end{array}
+\right],\hspace{3mm}
+\rand{b_2}\assign\left[
+\begin{array}{c}
+	\rand{b_{(N_1 + 1)}}\\
+	\vdots\\
+	\rand{b_{(N_1 + N_2)}}\\ \hline
+	u_{(n_1 + 1)}\\
+	\vdots\\
+	u_{(n_1 + n_2)}\\
+	-l_{(n_1 + 1)}\\
+	\vdots\\
+	-l_{(n_1 + n_2)}\\
+\end{array}
+\right],\\
+\rand{T_2}\assign \left[
+\begin{array}{c|c}
+\begin{array}{c}
+		(1^{1 \times n_1}\Delta_1^{D_{(N_1 + 1)}^+}  - \rand{\hat{r}_1}\trp \Delta_1^{D_{(N_1 + 1)}^-})(\Delta_1^{{\cal A}_1} + \Delta_1^{{\cal A}_2})\\
+		\vdots\\
+		( 1^{1 \times n_1}\Delta_1^{D_{(N_1 + N_2)}^+} - \rand{\hat{r}_1}\trp \Delta_1^{D_{(N_1 + N_2)}^-})(\Delta_1^{{\cal A}_1} + \Delta_1^{{\cal A}_2})
+\end{array}
+&	0^{N_2 \times 2 n_1}\\ \hline
+0^{2 n_2 \times n_1}	&	0^{2 n_2 \times 2 n_1}	
+\end{array}
+\right],
+\end{gather*}
+}}}
+and
+\begin{equation*}
+\rand{A_2}\assign\left[
+\begin{array}{c|c}
+\begin{array}{c}
+		(1^{1 \times n_2}\Delta_2^{D_{(N_1 + 1)}^+}   - \rand{\hat{r}_2}\trp \Delta_2^{D_{(N_1 + 1)}^-} )\Delta_2^{{\cal A}_3}\\
+		\vdots\\
+		(1^{1 \times n_2}\Delta_2^{D_{(N_1 + N_2)}^+}   - \rand{\hat{r}_2}\trp \Delta_2^{D_{(N_1 + N_2)}^-} )\Delta_2^{{\cal A}_3}
+\end{array}
+&	0^{N_2 \times 2 n_2}\\	\hline
+I^{n_2 \times n_2}	&	\begin{array}{cc}
+					I^{n_2 \times n_2}	& 0^{n_2 \times n_2}
+						\end{array}\\
+-I^{n_2 \times n_2}	&	\begin{array}{cc}
+					0^{n_2 \times n_2}	& I^{n_2 \times n_2}
+						\end{array}
+\end{array}
+\right].
+\end{equation*}%

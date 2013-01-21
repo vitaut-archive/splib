@@ -1,0 +1,84 @@
+Can't find warm up file cpa.wup.
+Will use default values.
+TIME OF COMPLETION
+Thu Aug 29 15:41:16 2002
+
+
+PARAMETER INFORMATION
+   Master Method:      4
+   Slave Method[0]:    3
+   Slave Method[1]:    3
+   Warm start slave:   1
+   Parallel:           0
+   Optim. Required[0]: 1
+   Optim. Required[1]: 1
+   Input Method:       0
+   Stoch File:         /usr2/aro/testset/environ/env.sto.1200
+   warmup File:        cpa.wup
+   checkEpsilon:       0.000100
+
+COMPILE INFORMATION
+   DEBUG:              OFF
+
+RESULTS
+   n Iterations(tot):  2
+   Best Iteration:     1
+   User Time(calc):    152.280000
+   Sys Time(calc):     39.030000
+   Setup Time(calc):   0.620000
+   Total Time(calc):   191.930000
+   n Type 0 Cuts:      0
+   n Type 1 Cuts:      0
+   n Type 2 Cuts:      1
+   n Type 3 Cuts:      1
+   Objective Value:    10399.839640
+   thetastar:          5617.296000
+   x1star:             0   90.000000   IMPOIL1 
+   x1star:             1   57.750000   IMPCOAL1 
+   x1star:             2   0.000000   IMPNG1 
+   x1star:             3   0.000000   IMPPRO1 
+   x1star:             4   2.800000   IMPNUF1 
+   x1star:             5   80.000000   CCAR1 
+   x1star:             6   110.000000   CCEL1 
+   x1star:             7   15.000000   CHHO1 
+   x1star:             8   0.000000   CTRK1 
+   x1star:             9   15.000000   CHNG1 
+   x1star:             10   0.400000   CNEL1 
+   x1star:             11   3.000000   CHLP1 
+   x1star:             12   15.000000   CAIR1 
+   x1star:             13   40.000000   CNUL1 
+   x1star:             14   0.800000   CHYD1 
+   x1star:             15   170.000000   CELI1 
+   x1star:             16   0.000000   CELD1 
+   x1star:             17   51.000000   PCEL1WD 
+   x1star:             18   94.281000   PCEL1WN 
+   x1star:             19   93.681000   PCEL1SD 
+   x1star:             20   62.856200   PCEL1SN 
+   x1star:             21   0.000000   PNEL1WD 
+   x1star:             22   0.600000   PNEL1WN 
+   x1star:             23   0.000000   PNEL1SD 
+   x1star:             24   0.400000   PNEL1SN 
+   x1star:             25   0.000000   PNUL1WD 
+   x1star:             26   34.284000   PNUL1WN 
+   x1star:             27   33.684000   PNUL1SD 
+   x1star:             28   22.856800   PNUL1SN 
+   x1star:             29   0.000000   PHYD1WD 
+   x1star:             30   0.600000   PHYD1WN 
+   x1star:             31   0.000000   PHYD1SD 
+   x1star:             32   0.400000   PHYD1SN 
+   x1star:             33   0.000000   IMELC1WD 
+   x1star:             34   23.295000   IMELC1WN 
+   x1star:             35   51.135000   IMELC1SD 
+   x1star:             36   41.027000   IMELC1SN 
+   x1star:             37   70.000000   IELI1 
+   x1star:             38   0.000000   IELD1 
+   x1star:             39   0.000000   IHHO1 
+   x1star:             40   15.000000   IHNG1 
+   x1star:             41   0.000000   ICAR1 
+   x1star:             42   3.000000   IHLP1 
+   x1star:             43   0.000000   ICEL1 
+   x1star:             44   0.400000   INEL1 
+   x1star:             45   0.000000   IAIR1 
+   x1star:             46   0.000000   ITRK1 
+   x1star:             47   0.000000   INUL1 
+   x1star:             48   0.800000   IHYD1 

@@ -1,0 +1,41 @@
+Can't find warm up file cpa.wup.
+Will use default values.
+TIME OF COMPLETION
+Thu May 25 17:18:31 2000
+
+
+PARAMETER INFORMATION
+   Master Method:      1
+   Slave Method[0]:    1
+   Slave Method[1]:    1
+   Parallel:           0
+   Optim. Required[0]: 1
+   Optim. Required[1]: 1
+   Input Method:       0
+   Stoch File:         /usr1/felt/research/stochlp/problems/testset/phone/phone.sto
+   warmup File:        cpa.wup
+   checkEpsilon:       0.000100
+
+COMPILE INFORMATION
+   DEBUG:              OFF
+
+RESULTS
+   n Iterations(tot):  5
+   Best Iteration:     4
+   User Time(calc):    2001.000080
+   Sys Time(calc):     1.676768
+   Total Time(calc):   2002.676848
+   n Type 0 Cuts:      0
+   n Type 1 Cuts:      0
+   n Type 2 Cuts:      4
+   n Type 3 Cuts:      1
+   Objective Value:    36.900000
+   thetastar:          36.900000
+   x1star:             0   0.700000   X1 
+   x1star:             1   1.960000   X2 
+   x1star:             2   0.340000   X3 
+   x1star:             3   0.000000   X4 
+   x1star:             4   0.000000   X5 
+   x1star:             5   0.000000   X6 
+   x1star:             6   0.000000   X7 
+   x1star:             7   0.000000   X8 

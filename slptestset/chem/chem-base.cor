@@ -1,0 +1,222 @@
+NAME          CHEM
+ROWS
+ N  OBJ
+ E  CN1T0
+ E  CN2T0
+ E  CN3T0
+ E  MB1T0
+ E  MB2T0
+ E  MB3T0
+ E  MB4T0
+ E  MB5T0
+ E  MB6T0
+ E  MB7T0
+ L  LS1T1
+ L  LS2T1
+ L  LS3T1
+ E  CN1T1
+ E  CN2T1
+ E  CN3T1
+ E  MB1T1
+ E  MB2T1
+ E  MB3T1
+ E  MB4T1
+ E  MB5T1
+ E  MB6T1
+ E  MB7T1
+ L  IN1T1
+ L  IN2T1
+ L  IN3T1
+ L  IN4T1
+ L  IN5T1
+ L  IN6T1
+ L  IN7T1
+ L  RX11T1
+ L  RX12T1
+ L  RX33T1
+ L  RX23T1
+ L  RX41T1
+ L  RX42T1
+ L  BL1T1
+ L  BL2T1
+ E  SB4T1
+ E  SB7T1
+ L  DM4T1
+ L  DM7T1
+ L  LS1T2
+ L  LS2T2
+ L  LS3T2
+ E  CN1T2
+ E  CN2T2
+ E  CN3T2
+ E  MB1T2
+ E  MB2T2
+ E  MB3T2
+ E  MB4T2
+ E  MB5T2
+ E  MB6T2
+ E  MB7T2
+ L  IN1T2
+ L  IN2T2
+ L  IN3T2
+ L  IN4T2
+ L  IN5T2
+ L  IN6T2
+ L  IN7T2
+ L  RX11T2
+ L  RX12T2
+ L  RX33T2
+ L  RX23T2
+ L  RX41T2
+ L  RX42T2
+ L  BL1T2
+ L  BL2T2
+ E  SB4T2A
+ E  SB7T2A
+ L  DM4T2A
+ L  DM7T2A
+ E  SB4T2B
+ E  SB7T2B
+ L  DM4T2B
+ L  DM7T2B
+COLUMNS
+    NN1T0     CN1T0     1.0            CN1T1     -1.0
+    NN2T0     CN2T0     1.0            CN2T1     -1.0
+    NN3T0     CN3T0     1.0            CN3T1     -1.0
+    A1T0      MB1T0     1.0            MB1T1     -1.0
+    A2T0      MB2T0     1.0            MB2T1     -1.0
+    A3T0      MB3T0     1.0            MB3T1     -1.0
+    A4T0      MB4T0     1.0            MB4T1     -1.0
+    A5T0      MB5T0     1.0            MB5T1     -1.0
+    A6T0      MB6T0     1.0            MB6T1     -1.0
+    A7T0      MB7T0     1.0            MB7T1     -1.0
+    NN1T1     LS1T1     -80.0          CN1T1     1.0
+    NN1T1     CN1T2     -1.0
+    NN2T1     LS2T1     -80.0          CN2T1     1.0
+    NN2T1     CN2T2     -1.0
+    NN3T1     LS3T1     -80.0          CN3T1     1.0
+    NN3T1     CN3T2     -1.0
+    Y11T1     LS1T1     4.0            RX11T1    -100.0
+    Y41T1     LS1T1     4.0            RX41T1    -100.0
+    Y12T1     LS2T1     4.0            RX12T1    -200.0
+    Y42T1     LS2T1     4.0            RX42T1    -200.0
+    Y23T1     LS3T1     4.0            RX23T1    -150.0
+    Y33T1     LS3T1     4.0            RX33T1    -150.0
+    N1T1      OBJ       2500.0         CN1T1     -1.0
+    N2T1      OBJ       3000.0         CN2T1     -1.0
+    N3T1      OBJ       2800.0         CN3T1     -1.0
+    A1T1      MB1T1     1.0            IN1T1     1.0
+    A1T1      MB1T2     -1.0
+    A2T1      MB2T1     1.0            IN2T1     1.0
+    A2T1      MB2T2     -1.0
+    A3T1      MB3T1     1.0            IN3T1     1.0
+    A3T1      MB3T2     -1.0
+    A4T1      MB4T1     1.0            IN4T1     1.0
+    A4T1      MB4T2     -1.0
+    A5T1      MB5T1     1.0            IN5T1     1.0
+    A5T1      MB5T2     -1.0
+    A6T1      MB6T1     1.0            IN6T1     1.0
+    A6T1      MB6T2     -1.0
+    A7T1      MB7T1     1.0            IN7T1     1.0
+    A7T1      MB7T2     -1.0
+    B11T1     MB1T1     1.0            MB2T1     1.0
+    B11T1     MB3T1     -1.0           RX11T1    1.0
+    B12T1     MB1T1     1.0            MB2T1     1.0
+    B12T1     MB3T1     -1.0           RX12T1    1.0
+    B33T1     MB2T1     1.0            MB5T1     1.0
+    B33T1     MB6T1     -1.0           RX33T1    1.0
+    B23T1     MB3T1     1.0            MB4T1     -1.0
+    B23T1     MB5T1     -1.0           RX23T1    1.0
+    B41T1     MB6T1     1.0            MB7T1     -1.0
+    B41T1     RX41T1    1.0
+    B42T1     MB6T1     1.0            MB7T1     -1.0
+    B42T1     RX42T1    1.0
+    QB1T1     OBJ       23.0           MB1T1     -1.0
+    QB1T1     BL1T1     1.0
+    QB2T1     OBJ       25.0           MB2T1     -1.0
+    QB2T1     BL2T1     1.0
+    QS4T1     MB4T1     1.0            SB4T1     1.0
+    QS7T1     MB7T1     1.0            SB7T1     1.0
+    QS04T1    OBJ       -1.0           SB4T1     -1.0
+    QS04T1    DM4T1     1.0
+    QS07T1    OBJ       -1.0           SB7T1     -1.0
+    QS07T1    DM7T1     1.0
+    QSP4T1    SB4T1     -1.0
+    QSP7T1    SB7T1     -1.0    
+    NN1T2     LS1T2     -80.0          CN1T2     1.0
+    NN2T2     LS2T2     -80.0          CN2T2     1.0
+    NN3T2     LS3T2     -80.0          CN3T2     1.0
+    Y11T2     LS1T2     4.0            RX11T2    -100.0
+    Y41T2     LS1T2     4.0            RX41T2    -100.0
+    Y12T2     LS2T2     4.0            RX12T2    -200.0
+    Y42T2     LS2T2     4.0            RX42T2    -200.0
+    Y23T2     LS3T2     4.0            RX23T2    -150.0
+    Y33T2     LS3T2     4.0            RX33T2    -150.0
+    N1T2      OBJ       2600.0         CN1T2     -1.0
+    N2T2      OBJ       3100.0         CN2T2     -1.0
+    N3T2      OBJ       2900.0         CN3T2     -1.0
+    A1T2      MB1T2     1.0            IN1T2     1.0
+    A2T2      MB2T2     1.0            IN2T2     1.0
+    A3T2      MB3T2     1.0            IN3T2     1.0
+    A4T2      MB4T2     1.0            IN4T2     1.0
+    A5T2      MB5T2     1.0            IN5T2     1.0
+    A6T2      MB6T2     1.0            IN6T2     1.0
+    A7T2      MB7T2     1.0            IN7T2     1.0
+    B11T2     MB1T2     1.0            MB2T2     1.0
+    B11T2     MB3T2     -1.0           RX11T2    1.0
+    B12T2     MB1T2     1.0            MB2T2     1.0
+    B12T2     MB3T2     -1.0           RX12T2    1.0
+    B33T2     MB2T2     1.0            MB5T2     1.0
+    B33T2     MB6T2     -1.0           RX33T2    1.0
+    B23T2     MB3T2     1.0            MB4T2     -1.0
+    B23T2     MB5T2     -1.0           RX23T2    1.0
+    B41T2     MB6T2     1.0            MB7T2     -1.0
+    B41T2     RX41T2    1.0
+    B42T2     MB6T2     1.0            MB7T2     -1.0
+    B42T2     RX42T2    1.0
+    QB1T2     OBJ       24.0           MB1T2     -1.0
+    QB1T2     BL1T2     1.0
+    QB2T2     OBJ       26.0           MB2T2     -1.0
+    QB2T2     BL2T2     1.0
+    QS4T2     MB4T2     1.0            SB4T2A    1.0
+    QS4T2     SB4T2B    1.0
+    QS7T2     MB7T2     1.0            SB7T2A    1.0
+    QS7T2     SB7T2B    1.0
+    QS04T2A   OBJ       -20.0          SB4T2A    -1.0
+    QS04T2A   DM4T2A    1.0
+    QS07T2A   OBJ       -28.4          SB7T2A    -1.0
+    QS07T2A   DM7T2A    1.0
+    QSP4T2A   SB4T2A    -1.0
+    QSP7T2A   SB7T2A    -1.0
+    QS04T2B   OBJ       -35.4          SB4T2B    -1.0
+    QS04T2B   DM4T2B    1.0
+    QS07T2B   OBJ       -48.6          SB7T2B    -1.0
+    QS07T2B   DM7T2B    1.0
+    QSP4T2B   SB4T2B    -1.0
+    QSP7T2B   SB7T2B    -1.0
+RHS
+    RIGHT     BL1T1     200.0
+    RIGHT     BL2T1     250.0
+    RIGHT     IN1T1     400.0
+    RIGHT     IN2T1     400.0
+    RIGHT     IN3T1     400.0
+    RIGHT     IN4T1     400.0
+    RIGHT     IN5T1     400.0
+    RIGHT     IN6T1     400.0
+    RIGHT     IN7T1     400.0
+    RIGHT     DM4T1     150.0
+    RIGHT     DM7T1     200.0
+    RIGHT     DM4T2A    100.0
+    RIGHT     DM7T2A    150.0
+    RIGHT     DM4T2B    150.0
+    RIGHT     DM7T2B    200.0
+    RIGHT     BL1T2     200.0
+    RIGHT     BL2T2     250.0
+    RIGHT     IN1T2     400.0
+    RIGHT     IN2T2     400.0
+    RIGHT     IN3T2     400.0
+    RIGHT     IN4T2     400.0
+    RIGHT     IN5T2     400.0
+    RIGHT     IN6T2     400.0
+    RIGHT     IN7T2     400.0
+ENDATA

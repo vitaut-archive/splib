@@ -1,0 +1,53 @@
+NAME          LandS
+ROWS
+ N  OBJ
+ G  MINCAP
+ L  BUDGET
+ L  OPLIM1
+ L  OPLIM2
+ L  OPLIM3
+ L  OPLIM4
+ E  DEMAND1
+ E  DEMAND2
+ E  DEMAND3
+COLUMNS
+    X1        OBJ       10.0           MINCAP    1.0
+    X1        BUDGET    10.0           OPLIM1    -1.0
+    X2        OBJ       7.0            MINCAP    1.0
+    X2        BUDGET    7.0            OPLIM2    -1.0
+    X3        OBJ       16.0           MINCAP    1.0
+    X3        BUDGET    16.0           OPLIM3    -1.0
+    X4        OBJ       6.0            MINCAP    1.0
+    X4        BUDGET    6.0            OPLIM4    -1.0
+    Y11       OBJ       40.0           OPLIM1    1.0
+    Y11       DEMAND1   1.0
+    Y12       OBJ       24.0           OPLIM1    1.0
+    Y12       DEMAND2   1.0
+    Y13       OBJ       4.0            OPLIM1    1.0
+    Y13       DEMAND3   1.0
+    Y21       OBJ       45.0           OPLIM2    1.0
+    Y21       DEMAND1   1.0
+    Y22       OBJ       27.0           OPLIM2    1.0
+    Y22       DEMAND2   1.0
+    Y23       OBJ       4.5            OPLIM2    1.0
+    Y23       DEMAND3   1.0
+    Y31       OBJ       32.0           OPLIM3    1.0
+    Y31       DEMAND1   1.0
+    Y32       OBJ       19.2           OPLIM3    1.0
+    Y32       DEMAND2   1.0
+    Y33       OBJ       3.2            OPLIM3    1.0
+    Y33       DEMAND3   1.0
+    Y41       OBJ       55.0           OPLIM4    1.0
+    Y41       DEMAND1   1.0
+    Y42       OBJ       33.0           OPLIM4    1.0
+    Y42       DEMAND2   1.0
+    Y43       OBJ       5.5            OPLIM4    1.0
+    Y43       DEMAND3   1.0
+RHS           RIGHT
+    RIGHT     MINCAP    12.0
+    RIGHT     BUDGET    120.0
+    RIGHT     DEMAND1   1.0
+    RIGHT     DEMAND2   3.0
+    RIGHT     DEMAND3   2.0
+ENDATA
+ 

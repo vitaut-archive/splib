@@ -1,0 +1,52 @@
+* The problem with a feasible set described in Example 2.1 from the article
+* "Integrated chance constraints: reduced forms and an algorithm" by Willem
+* K. Klein Haneveld and Maarten H. van der Vlerk.
+*
+* Problem formulation (ICC):
+*
+* min  -2*x1 - x2
+* s.t. E[(w1*x1 + w2*x2)^-] <= beta,
+*      -100 <= x <= 100,
+*
+* where xi = (w1, w2) takes on the values (-2, 1), (1, -2) with probability
+* 1/2 each.
+*
+* For beta = 1:
+*   Optimal value is -10/3.
+*   Optimal solution is (4/3, 2/3).
+*
+* For beta = 2:
+*   Optimal value is -20/3.
+*   Optimal solution is (8/3, 4/3).
+*
+* Problem formulation (chance constraint):
+*
+* max  2*x1 + x2
+* s.t. P[w1*x1 + w2*x2 >= 0] >= alpha,
+*      -100 <= x <= 100,
+*
+* where xi = (w1, w2) takes on the values (-2, 1), (1, -2) with probability
+* 1/2 each.
+*
+* For alpha = 0.75:
+*   Optimal value is 0.
+*   Optimal solution is (0, 0).
+*
+* For alpha = 0.5:
+*   Optimal value is 250.
+*   Optimal solution is (100, 50).
+NAME          HV_2_1
+ROWS
+ N  OBJ
+ G  R1
+COLUMNS
+    X1        OBJ       -2             R1        -2
+    X2        OBJ       -1             R1         1
+RHS
+    RHS1      R1         0
+BOUNDS
+ LO BND1      X1        -100
+ UP BND1      X1         100
+ LO BND1      X2        -100
+ UP BND1      X2         100
+ENDATA

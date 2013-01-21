@@ -1,0 +1,83 @@
+We have generated the problems SGPF5Y3, SGPF5Y4,
+SGPF5Y5, SGPF5Y6, SGPF3Y3, SGPF3Y4, SGPF3Y5, and SGPF3Y6.
+
+Now, they are all minimization problems!!!!!
+
+The problems are described below. 
+
+The corresponding files are named .COR, .TIM, 
+and .SCE. 
+
+
+Short Description of the Problems
+-----------------------------------
+
+
+Problem           | SGPF5Y3 | SGPF5Y4 | SGPF5Y5 | SGPF5Y6
+#Stages           |     3   |     4   |     5   |     6
+#Scenarios        |    25   |   125   |   625   |  3125
+obj. value        |  3027.6 |  4023.9 |  5180.8 |  6403.3
+Variables 1st stage 1st node-----------------------------
+M0001100          |  120000 |       0 |       0 |       0
+M0001200          |   80000 |   80000 |   80000 |   80000
+M0001300          |       0 |       0 |       0 |       0
+M0001600          |       0 |       0 |       0 |       0
+M0001C00          |       0 |       0 |       0 |       0
+M0001O00          |       0 |       0 |       0 |       0
+M0001a00          |       0 |       0 |       0 |       0
+M0001n00          |       0 |       0 |       0 |       0
+M0001y00          |       0 |       0 |       0 |       0
+P0001100          |       0 |  280000 |  280000 |  280000
+P0001200          |       0 |       0 |       0 |       0
+P0001300          |       0 |       0 |       0 |       0
+P0001600          |       0 |       0 |       0 |       0
+P0001C00          |       0 |       0 |       0 |       0
+P0001O00          |       0 |       0 |       0 |       0
+P0001a00          |       0 |       0 |       0 |       0
+P0001n00          |       0 |       0 |       0 |       0
+P0001y00          |  400000 |       0 |       0 |       0
+Size-----------------------------------------------------
+original problem  |         |         |         |
+  rows            |    1972 |    9861 |   49303 |  246178
+  columns         |    2474 |   12372 |   61858 |  308733
+eliminated        |         |         |         |
+  rows            |    1282 |    5657 |   24407 |  102532
+  columns         |    1342 |    5726 |   24476 |  102601
+reduced           |         |         |         |
+  rows            |     124 |     749 |    3874 |   19499
+  columns         |     620 |    3236 |   16361 |   81986
+nonzeros          |    1441 |    8432 |   46557 |  252807
+iterations        |     103 |     521 |    1544 |    4927
+time [s]          |    0.40 |    3.03 |   25.86 |  428.87
+
+
+
+Problem           | SGPF3Y3 | SGPF3Y4 | SGPF3Y5 | SGPF3Y6
+#Stages           |     3   |     4   |     5   |     6
+#Scenarios        |    25   |   125   |   625   |  3125
+obj. value        |  2967.9 |  3991.3 |  5152.6 |  6369.0
+Variables 1st stage 1st node-----------------------------
+P0001100          |       0 |  200000 |  200000 |  200000
+P0001200          |       0 |       0 |       0 |       0
+P0001300          |       0 |       0 |       0 |       0
+P0001600          |       0 |       0 |       0 |       0
+P0001C00          |       0 |       0 |       0 |       0
+P0001O00          |       0 |       0 |       0 |       0
+P0001a00          |  200000 |       0 |       0 |       0
+Size-----------------------------------------------------
+original problem  |         |         |         |
+  rows            |    1220 |    6097 |   30487 |  152434
+  columns         |    1595 |    7974 |   39868 |  199341
+eliminated        |         |         |         |
+  rows            |     710 |    3085 |   13085 |   53710
+  columns         |     746 |    3130 |   13130 |   53915
+reduced           |         |         |         |
+  rows            |     124 |     749 |    3874 |   19539
+  columns         |     496 |    2612 |   13237 |   66242
+nonzeros          |    1085 |    6326 |   34451 |  184371
+iterations        |     106 |     493 |    1610 |    7246
+time [s]          |    0.26 |    1.94 |   22.14 |  625.27
+
+
+
+

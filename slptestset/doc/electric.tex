@@ -1,0 +1,283 @@
+% cleaned of unnecessary equation numbers 3 June 2000
+\subsection{Electrical investment planning}%
+\emph{Due to Louveaux and Smeers \cite{smeers88}}%
+
+\noindent(Two-stage, linear stochastic problem)\\
+\noindent \url{/electric} \url{/LandS.cor}, \url{/LandS.tim}, \url{/LandS.sto}
+
+\vspace{3mm}
+\subsubsection{Description}
+Louveaux and Smeers \cite{smeers88} consider the challenge of planning investments in the electricity generation industry.  While the model is, in general, multistage, the specific example given in \cite{smeers88} is two-stage.  The general $N$-stage stochastic model will be developed in this section and the next, with the specific example in the following section.
+
+In each stage of planning, investments in $n$ different technologies may be considered.  Technology $i$ has an associated random investment cost, $\rand{c_i}$, a random operating cost, $\rand{q_i}$, and an availability factor, $a_i$.  The availability factor is the portion of time during which the technology may be operated.  
+
+For planned capacity, a distinction is made between capacity which was planned \emph{before} time $t=1$, and that which was planned \emph{after} $t=0$.  (Here, $t$ is an integer.)  The former, $g_i$, includes capacity which exists on the ground at the start of the simulation, and new capacity that has already been planned.  The latter is denoted by $x_i$.  If we let $s_i$ be the total capacity, both actual and on order, planned after $t=0$, then we have, 
+\begin{equation*}
+s_i^1 = x_i^1
+\end{equation*}
+and
+\begin{equation*}
+%\label{ELEC:cap}
+s_i^t = s_i^{t-1} + x_i^t - x_i^{t-L_i},  \hspace{3mm} i=1,\ldots,n,  \hspace{3mm} t=2,\ldots, N.
+\end{equation*}
+Capacity in technology $i$ also has a construction delay, $\Delta_i$, and a finite lifetime, $L_i$, from planning to retirement.  The total capacity for technology $i$ at time $t$ is then $(g_i^t + s_i^{t-\Delta_i})$.  
+
+Demand for electricity may come in $k$ different modes, and the realization of the random demand in each mode must be met at each time stage.  Therefore, if we let $y_{ij}$ be the production of electricity in mode $j$ from technology $i$ and let $\rand{d_j}$ be the random demand variable for mode $j$ electricity, we require
+\begin{equation*}
+%\label{ELEC:demand}
+\sum_{i=1}^n y_{ij}^t = \rand{d_j^t}, \hspace{3mm} j=1,\ldots,k, \hspace{3mm} t=1,\ldots,N.
+\end{equation*}
+
+A production balance yields
+\begin{equation*}
+%\label{ELEC:prod}
+\sum_{j=1}^k y_{ij}^t \leq a_i(g_i^t + s_i^{t-\Delta_i}), \hspace{3mm} i=1,\ldots,n.
+\end{equation*}
+
+With the constraints listed so far, the problem does not have relatively complete recourse.  To give it such, Louveaux and Smeers \cite{smeers88} add an additional constraint\footnote{Constraint (\ref{ELEC:purchase}) is not in exactly the same form as in \cite{smeers88}.  We have changed it, so that $x_i^t$ may reflect electricity purchased from the so-called grid.}.  They assume there is a technology, which is always called technology $n$, which can always be called upon to meet demand in an immediate way.  Therefore $\Delta_n$ is always zero.  Typically, the investment cost for technology $n$ is high.  To simulate purchased electricity, one may simply let the lifetime $L_n = 1$.  The added constraint is
+\begin{equation}
+\label{ELEC:purchase}
+a_n(g_n^t + s_n^{t})\geq \sum_{j=1}^k \rand{d_j^t} - \sum_{1}^{n-1}a_i\left( g_i^t + s_i^{t-\Delta_i}\right),\hspace{3mm} t=1,\ldots,N.
+\end{equation}
+
+The objective is to minimize the expected value of the future cost, as represented by the operating and investment costs.  The random variable is made up of the demands $(\rand{d_1},\ldots,\rand{d_n})$, and the costs $(\rand{c_1}, \ldots, \rand{c_n})$ and $(\rand{q_1}, \ldots, \rand{q_n})$.
+
+\subsubsection{Problem statement}
+
+We have the following definitions:
+{\allowdisplaybreaks
+\begin{align*}
+n 	&= 	\mbox{number of available technologies (index $i$)}\\
+k	&=	\mbox{number of modes of electricity demand (index $j$)}\\
+N	&=	\mbox{number of time stages (index $t$)}\\
+g_i^t	&=	\mbox{capacity of $i$ to exist at time $t$, decided upon before $t=1$}\\
+x_i^t	&=	\mbox{new capacity of $i$, decided at time $t>0$}\\
+s_i^t	&=	\mbox{total capacity, both actual and on order, planned after $t=0$}\\
+\rand{c_i^t}	&=	\mbox{unit investment cost of $i$ at time $t$}\\
+\rand{q_i^t}	&=	\mbox{unit production cost of $i$ at time $t$}\\
+a_i	&=	\mbox{availability factor for $i$}\\
+L_i	&=	\mbox{life of $i$, from planning to retirement}\\
+\Delta_i	&=	\mbox{construction time for $i$}\\
+\rand{d_j^t}	&=	\mbox{electricity demand in mode $j$ at time $t$}\\
+y_{ij}^t	&=	\mbox{production rate from $i$ for mode $j$ at time $t$}\\
+T_j^t	&=	\mbox{duration of mode $j$ at time $t$}\\
+\rand{\xi^t}	&=	\mbox{random variable whose elements are $\{\rand{d_j^t},\rand{c_i^t},\rand{q_i^t}, \forall i,j,t\}$}.
+\end{align*}
+}
+
+We are given all elements of $g, T, a, L,$ and $\Delta$, with $\Delta_n = 0$.  The problem\footnote{The term $x_i^t$ in the objective function in (\ref{ELEC:problem}) is written as $s_i^t$ in \cite{smeers88}.  We believe this to be a typographical error in \cite{smeers88}.} is to choose $s, x,$ and $y$ to
+{\allowdisplaybreaks
+\begin{equation}
+\label{ELEC:problem}
+\begin{split}
+\mbox{minimize }\hspace{3mm}&\expect[\xi]\left[ \sum_{t=1}^N  \sum_{i=1}^n \left(\rand{c_i^t} x_i^t + \sum_{j=1}^k \rand{q_i^t} T_j^t y_{ij}^t\right) \right]\\
+\mbox{subject to }\hspace{3mm} s_i^1 &= x_i^1\\
+s_i^t &= s_i^{t-1} + x_i^t - x_i^{t-L_i},  \hspace{3mm} i=1,\ldots,n,  \hspace{3mm} t=2,\ldots, N\\
+\sum_{i=1}^n y_{ij}^t &= \rand{d_j^t}, \hspace{3mm} j=1,\ldots,k, \hspace{3mm} t=1,\ldots,N\\
+\sum_{j=1}^k y_{ij}^t &\leq a_i(g_i^t + s_i^{t-\Delta_i}), \hspace{3mm} i=1,\ldots,n\\
+a_n(g_n^t + s_n^{t})&\geq \sum_{j=1}^k \rand{d_j^t} - \sum_{i=1}^{n-1}a_i\left( g_i^t + s_i^{t-\Delta_i}\right), \hspace{3mm} t=1,\ldots, N\\
+s_i^t, x_i^t, y_{ij}^t &\geq 0, \hspace{3mm} i=1,\ldots,n,  \hspace{3mm} t=1,\ldots, N,\hspace{3mm} j=1,\ldots,k.
+\end{split}
+\end{equation}
+}
+
+
+
+\subsubsection{Numerical results}
+
+Louveaux and Smeers \cite{smeers88} present a two-stage example, with $k=3$ operating modes and $n=4$ available technologies.  Their example differs from their general problem development in several ways.  There is no immediate source of emergency electricity, as $\Delta_i$ is set to $1$ for \emph{all $i$}.  Additionally, there is a budget constraint of $120$ in stage $1$.  Also, $c$ and $q$ are not stochastic.  All of the parameters are shown in Table \ref{ELEC:results}.
+
+
+Note that $x^2 = 0$ and $y^1=0$, and that $s^t=x^t$.  Here $\rand{\xi}=(3,5,7)$ with probabilities $(0.3, 0.4, 0.3)$, respectively.  Also note that with all technologies having a construction delay of $1$, $x^2$ should be zero.  If the world is ending, there's no reason to build a power plant.  To force this condition, $c^2$ may be chosen to be any positive vector.  Therefore, the problem may be reduced to
+{\allowdisplaybreaks
+\begin{multline*}
+\hbox{minimize }\\
+10 x_1+7x_2+16x_3+6x_4+ \expect[\xi]\left[ 40y_{11}+45y_{21}+32y_{31}+55y_{41}\right.\\
++24y_{12}+27y_{22}+19.2y_{32}+33y_{42}\\
+\left.+4y_{13}+4.5y_{23}+3.2y_{33}+5.5y_{43}\right]\\
+\mbox{subject to }
+\begin{array}[t]{lll}
+\sum_{i=1}^4 y_{i1} =\rand{\xi} & & \sum_{j=1}^3 y_{1j} \leq x_1 \\
+\sum_{i=1}^4 y_{i2} =3 & & \sum_{j=1}^3 y_{2j} \leq x_2\\
+\sum_{i=1}^4 y_{i3} =2 & & \sum_{j=1}^3 y_{3j} \leq x_3\\
+\sum_{i=1}^4 x_i \geq 12 & &\sum_{j=1}^3 y_{4j} \leq x_4 \\
+10x_1+7x_2+16x_3+6x_4 \leq 120 &&\\
+x, y \geq 0.&&
+\end{array}
+\end{multline*}
+}
+
+Louveaux and Smeers \cite{smeers88} report the optimal solution to be 
+\[
+x=\left[ \frac{8}{3}, 4, \frac{10}{3}, 2\right]\trp
+\]
+with an objective value of $381.853$.
+
+\begin{table}[ht]
+\caption[Example from Louveaux and Smeers \cite{smeers88}]{Parameters for the example from Louveaux and Smeers \cite{smeers88}}
+\label{ELEC:results}
+\begin{center}
+\[
+\begin{array}{|l|l|}
+\hline
+n	&4\\ \hline
+k	&k\\ \hline
+N	&2\\ \hline
+g^1	&[0, 0, 0, 0]\trp\\
+g^2	&[0, 0, 0, 0]\trp\\ \hline
+c^1	&[10, 7, 16, 6]\trp\\
+c^2	&[1, 1, 1, 1]\trp \\ \hline
+q^1	&[0, 0, 0, 0]\trp\\
+q^2	&[4, 4.5, 3.2, 5.5]\trp\\ \hline
+a	&[1, 1, 1, 1]\trp\\ \hline
+L	&[2, 2, 2, 2]\trp\\ \hline
+\Delta	&[1, 1, 1, 1]\trp\\ \hline
+d^1	&[0, 0, 0]\trp\\ 
+\rand{d^2} &[\rand{\xi}, 3, 2]\trp\\ \hline
+T^1	&[1, 1, 1]\trp\\
+T^2	&[10, 6, 1]\trp\\ \hline
+\end{array}
+\]
+\end{center}
+\end{table}
+
+
+
+\subsubsection{Notational reconciliation}
+
+We make several changes to problem (\ref{ELEC:problem}) to facilitate its transition into the format of problem (\ref{PROB:mslp}).  We specify $c_i^1, q_i^1$, and $d_j^1$ to be deterministic.  Further, we force $L_i$ to be a number larger than $N$ for $i \neq n$, and $L_n \assign 1$.  Also, let
+\begin{equation*}
+\delta_i \assign 
+\begin{cases}
+	1 & \text{if } i\neq n\\
+	0 & \text{if } i = n
+\end{cases}.
+\end{equation*}
+
+With these restrictions, we let
+\begin{equation*}
+x_t \assign \left[
+\begin{array}{c}
+	x_1^t\\
+	\vdots\\
+	x_n^t\\
+	s_1^t\\
+	\vdots\\
+	s_n^t\\
+	y_{11}^t\\
+	y_{12}^t\\
+	\vdots\\
+	y_{nk}^t\\
+	z_1^t\\
+	\vdots\\
+	z_n^t\\
+	w^t
+\end{array}
+\right], \hspace{0.5in}
+\rand{c_t} \assign \left[
+\begin{array}{c}
+	\rand{c_1^t}\\
+	\vdots\\
+	\rand{c_n^t}\\
+	0\\
+	\vdots\\
+	0\\
+	\rand{q_{1}^t} T_1^t\\
+	\rand{q_{1}^t} T_2^t\\
+	\vdots\\
+	\rand{q_{n}^t} T_k^t\\
+	0\\
+	\vdots\\
+	0\\
+	0
+\end{array}
+\right],
+\end{equation*}
+where $z_i^t$ and $w^t$ are slack variables.  For $t=1, 2, \ldots, N$, let
+\begin{equation*}
+A_t \assign \left[
+\begin{array}{ccccc}
+-I^{n \times n}	&	I^{n\times n}	&	0^{n\times (nk)}	& 0^{n\times n} & 0^{n\times 1}\\
+0^{k\times n}	&	0^{k\times n}	&	\tilde{A}	&	0^{k\times n}	& 0^{k\times 1}\\
+0^{n\times n}	& \left[
+	\begin{array}{c}
+		0^{(n-1)\times n}\\ \hline
+		-a_n e_n\trp
+	\end{array}	\right]				&	\hat{A}		&	I^{n\times n}	& 0^{n\times 1}\\
+0		&	a_n e_n\trp		&	0^{1\times (nk)}	& 0^{1\times n} & -1
+\end{array}
+\right],
+\end{equation*}
+where
+\begin{equation*}
+\tilde{A} \assign\left[
+\begin{array}{cccc}
+	I^{k\times k} & I^{k\times k} & \ldots &I^{k\times k}
+\end{array}
+\right] \in \reals^{k\times (nk)},
+\end{equation*}
+and 
+\begin{equation*}
+\hat{A} \assign \left[
+\begin{array}{cccc}
+	1^{1\times n}	& 0^{1\times n}	& \cdots & 0^{1\times n}\\
+	0^{1\times n}   & 1^{1\times n} &		& 0^{1\times n}\\
+	\vdots			&				& \ddots	& \vdots	\\
+	0^{1\times n}	& 0^{1\times n} & \cdots & 1^{1\times n}
+\end{array}
+\right].
+\end{equation*}
+
+Additionally, for $t = 2,3,\ldots, N$, let
+\begin{equation*}
+T_t \assign \left[
+\begin{array}{ccccc}
+	\left[
+	\begin{array}{c}
+		0^{(n-1)\times n}\\ \hline
+		e_n\trp
+	\end{array}
+	\right]		& -I^{n\times n}	& 	0^{n\times (nk)}	& 0^{n\times n} & 0\\
+0^{k\times n}	& 0^{k\times n}	& 0^{k\times (nk)}	& 0^{k\times n} & 0\\
+0^{n\times n}	& \tilde{T}		& 0^{n\times (nk)}	& 0^{n\times n} & 0\\
+0^{1\times n}	& \bar{T}		& 0^{1\times (nk)}	& 0^{1\times n}	& 0
+\end{array}
+\right],
+\end{equation*}
+where
+\begin{equation*}
+\tilde{T} \assign \left[
+\begin{array}{ccccc}
+	-a_1	&	&	&	& 0\\
+	&	-a_2	&	&	&	\\
+	&	&\ddots	&	&	\\
+	&	&	&	-a_{n-1}	&\\
+	0	&	&	&	&	0
+\end{array}
+\right],
+\end{equation*}
+and
+\begin{equation*}
+\bar{T} \assign \left[
+\begin{array}{ccccc}
+	a_1	& a_2	& \cdots	& a_{n-1}	& 0
+\end{array}
+\right].
+\end{equation*}
+
+Finally, letting
+\begin{equation*}
+\rand{b_t} \assign \left[
+\begin{array}{c}
+	0^{n\times 1}\\
+	\rand{d_1^t}\\
+	\vdots\\
+	\rand{d_k^t}\\
+	a_1 g_1^t\\
+	\vdots\\
+	a_n g_n^t\\
+	\sum_{j=1}^k \rand{d_j^t} - \sum_{i=1}^{n} a_i g_i^t
+\end{array}
+\right],
+\end{equation*}
+we have put the problem into the format of (\ref{PROB:mslp}).%

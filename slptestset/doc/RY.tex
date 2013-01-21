@@ -1,0 +1,543 @@
+% cleaned of unnecessary equation numbers 3 June 2000
+\subsection{Financial planning model}%
+\emph{Due to Cari\~{n}o and Ziemba \cite{carino98,carino298}}%
+
+\noindent(Multistage, linear stochastic problem)
+
+\vspace{3mm}
+\subsubsection{Description}
+Cari\~{n}o and Ziemba \cite{carino98,carino298} describe a model created for the Yasuda Fire and Marine Insurance Co., Ltd.\ (Yasuda Kasai) of Tokyo by the Frank Russell Company (Russell) of Takoma, Washington.  The model is a comprehensive investment, liability, and risk planning tool.  It is a multistage linear stochastic model with a steady-state condition imposed on the last stage.  
+
+The complexity of the model is such that it cannot be completely described in article format.  The model presented here is therefore a simplification of the original \cite{carino98}, although it is much more detailed than the abbreviated model presented in an earlier paper \cite[Appendix]{carino94}.
+
+Yasuda Kasai offers many types of insurance policies, which differ in structure and in regulatory treatment.   One type of policy is a traditional, non-savings insurance policy.  Premiums from this type of policy go to the Yasuda Kasai general account.  Other policies are called \emph{savings} policies.  These policies are really two policies in one, with part of the premium paying for insurance and the rest constituting a deposit for savings.  The insurance portion of the premium goes into the general account, and the rest goes into one of many savings accounts.  The savings accounts are separated based on regulations, but they are treated the same in this model.  Therefore, one savings account is included in this model.
+
+The general account is divided into a \emph{general} allocatable account and a non-allocatable \emph{exogenous} account.  Funds in the exogenous account may not be invested.  In this problem description, the superscript $S$ will refer to quantities relating to the savings account, while $G$ and $E$ will refer to those relating to the general allocatable and exogenous accounts, respectively.  Define $V_t^S, V_t^G$, and $V_t^E$ as the market value of the savings, general and exogenous accounts, respectively, at the \emph{end} of period $t$.
+
+Fund allocations are not only classified by account, they are also classified by investment type and asset class.  The investment type indicates how the funds are invested.  Money in the savings and general accounts may be invested either directly ($D$) or indirectly.  There are three possible indirect investment types:  tokkin funds ($T$), capital to foreign subsidiaries ($C$), and loans to foreign subsidiaries ($L$).  So, the four investment types are $D$, $T$, $C$ and $L$.  
+
+In contrast, there are many asset classes, such as domestic bonds, foreign equity, and real estate.  In theory, each combination of account, investment type, and asset class may have its own fund allocation.  However, some of the combinations are prohibited by regulations.  All of the permissible allocations are indexed, and $X_{nt}$ is defined as the allocation of funds to combination $n$ at the end of time stage $t$.  The classifications are used in quite a flexible way, so that $n \in \mbox{loans}$ means the set of indexes for all combinations with an asset class which can be described as a loan, and $n \in S$ is the set of indexes for all combinations involving the savings account.  Therefore the market value of the savings account can be expressed by the constraint
+\begin{equation}
+\label{RY:allocsav}
+V^S_t - \sum_{n\in S} X_{nt} = 0.
+\end{equation}
+
+The market value of the general account is written similarly, except that it includes $v_t^G$, the surplus income in the general account.  The constraint is therefore
+\begin{equation*}
+%\label{RY:allocgen}
+V^G_t - \sum_{n \in G} X_{nt} - v_t^G = 0.
+\end{equation*}
+
+The random variables in this model have dependence on various rates of return and other company projections.  They are defined in Table \ref{RY:randomvars}.  Each has a discrete probability distribution.
+
+\begin{table}[ht]
+\caption{Random variables in Russel-Yasuda Kasai model}
+\label{RY:randomvars}
+
+\hspace{1cm}
+
+\begin{tabular}{|>{$}l<{$}|p{4in}|} \hline	
+\rand{RI_{nt+1}}	& income return of allocation $n$ from the end of $t$ to the end of $t+1$\\ \hline
+\rand{RP_{nt+1}}	& price return of allocation $n$ from the end of $t$ to the end of $t+1$\\ \hline
+	\rand{g_{t+1}}	& interest rate credited to policies from the end of $t$ to the end of $t+1$\\ \hline
+	\rand{F_{t+1}}	& deposit inflow from the end of $t$ to the end of $t+1$\\ \hline
+	\rand{P_{t+1}}	& principal payments from the end of $t$ to the end of $t+1$\\ \hline
+	\rand{I_{t+1}}	& interest payments from the end of $t$ to the end of $t+1$\\ \hline
+	\rand{L_{t}}	& total reserve liability at the end of $t$\\ \hline
+	\rand{N_{t}}	& interest portion of $L_t$\\ \hline
+	\rand{IG_{t+1}}	& income gap resulting from the difference between current market yields and existing loan portfolio cash flows \\ \hline
+\end{tabular}
+\end{table}
+
+The savings and general accounts are modeled by several balance and flow equations.  For example, investment income $D_{t+1}$ is defined, for the savings account, by
+\begin{equation*}
+%\label{RY:savinvincome}
+D_{t+1}^S \assign \sum_{n\in SD} \rand{RI_{nt+1}} X_{nt} + \sum_{n\in SI}(\rand{RI_{nt+1}} + \rand{RP_{nt+1}}) X_{nt} - \rand{IG^S_{t+1}},
+\end{equation*}
+and for the general account by
+\begin{equation*}
+%\label{RY:geninvincome}
+D_{t+1}^G \assign \sum_{n\in GD} \rand{RI_{nt+1}} X_{nt} + \sum_{n\in GI}(\rand{RI_{nt+1}} + \rand{RP_{nt+1}}) X_{nt} - \rand{IG^G_{t+1}}.
+\end{equation*}
+Here, $SD$ is the set of indices corresponding to direct type allocations from the savings account, $SI$ is the set corresponding to indirect allocations from the savings account, and similarly for $GD$ and $GI$ from the general account.  One of the properties of the indirect investment types is that all price returns are translated into income.  This is not the case for the direct investment type.  Therefore, capital gain 
+\begin{equation*}
+%\label{RY:savcapincome}
+G_{t+1}^S \assign \sum_{n\in SD} \rand{RP_{nt+1}} X_{nt},
+\end{equation*}
+and
+\begin{equation*}
+G_{t+1}^G \assign \sum_{n\in GD} \rand{RP_{nt+1}} X_{nt},
+\end{equation*}
+includes the price return from direct investments.
+
+Let $B_t^S$ be the income accumulated in the savings account through the end of $t$, and $w^S_{t}$ be the amount transfered to the savings account from the general account at the end of $t$.  If $v^S_{t}$ is the amount transfered from the savings account to the general account at the end of $t$, then 
+\begin{equation*}
+%\label{RY:savaccum}
+B_{t+1}^S = B_t^S + D_{t+1}^S -\rand{I_{t+1}^S} + w_{t+1}^S - v_{t+1}^S.
+\end{equation*}
+
+The transfers, $w^S_{t}$ and $v^S_{t}$, from and to the general account, are established as slack variables in a constraint.  This constraint expresses the desire to keep accumulated income $B_{t+1}^S$ greater than accrued interest liability $N_{t+1}^S$.  Since $\rand{N_{t+1}^S} = \rand{N_t^S} + \rand{g_{t+1}^S} \rand{L_t^S} - \rand{I_{t+1}^S}$, the constraint is
+\begin{equation*}
+%\label{RY:savincome}
+B_t^S + D_{t+1}^S + w_{t+1}^S - v_{t+1}^S = \rand{N_t^S} + \rand{g_{t+1}^S} \rand{L_t^S}.
+\end{equation*}
+The excess accumulated income, $v_{t+1}^S$, is in general good, because it contributes to income before taxes.  This constraint only occurs when $t+1$ is a fiscal year-end period.
+
+In addition to the income constraint, there is a reserve constraint, which measures the total reserve shortfall $z_{t+1}^S$ or surplus $q_{t+1}^S$.  These are established by
+\begin{equation*}
+%\label{RY:savreserve}
+V_t^S + G_{t+1}^S + D_{t+1}^S + z_{t+1}^S - q_{t+1}^S = (1+\rand{g_{t+1}^S}) \rand{L_t^S}.
+\end{equation*}
+A value of $z_{t+1}^S >0$ represents the undesirable situation where the income cannot meet the required liability reserve.  No funds need be transfered, but a penalty is assigned in the objective.  
+
+Another constraint, the cash flow constraint, addresses the unlikely event that net pay outs from the savings account, $\rand{P^S_{t+1}} + \rand{I^S_{t+1}} - \rand{F^S_{t+1}}$, exceed the market value of the savings account itself.  A shortfall $y^S_{t+1}$ would require a transfer from the general account, while the surplus $u^S_{t+1}$ is a slack variable.  The constraint is expressed as
+\begin{equation}
+\label{RY:savcashflow}
+V^S_t + G^S_{t+1} + D^S_{t+1} + w^S_{t+1} - v^S_{t+1} + y^S_{t+1} - u^S_{t+1} = \rand{P^S_{t+1}} + \rand{I^S_{t+1}} - \rand{F^S_{t+1}}.
+\end{equation}
+
+Any surplus from constraint (\ref{RY:savcashflow}) is equal to the new market value of the savings account:
+\begin{equation*}
+%\label{RY:savmarkval}
+V^S_{t+1} = u^S_{t+1}.
+\end{equation*}
+
+Let $B^G_{t+1}$ represent the income accumulated in the general account from the beginning of the fiscal year to the beginning of $t+2$.  Then
+\begin{equation*}
+%\label{RY:genaccum}
+B^G_{t+1}\assign
+\begin{cases}
+	0 & \text{ if $t+1$ is a year-end stage,}\\
+	B^G_t + D^G_t & \text{ otherwise,}
+\end{cases}
+\end{equation*}
+since the beginning of the fiscal year \emph{is} at the beginning of $t+2$.
+
+Nonnegative income before taxes $Y_{t+1}$ includes any income from the general account, and any transfers between the general and savings accounts.  The calculation
+\begin{equation*}
+%\label{RY:genincome}
+Y_{t+1} - s_{t+1} = B^G_t + D^G_{t+1} + v^S_{t+1} - w^S_{t+1}
+\end{equation*}
+is made for fiscal year-end stages $t+1$ only.  Here, $s_{t+1}$ is the non-positive income, should such a dreadful thing occur.
+
+Of course, income should be sufficient to pay dividends to shareholders and taxes.  To encourage such outcomes, let $\Gamma_{t+1}$ be an income target, $v^G_{t+1}$ be the income in excess of $\Gamma_{t+1}$, and $w^G_{t+1}$ be the shortfall.  The objective function will include $w^G_{t+1}$, along with a cost penalty, and any $v^G_{t+1} > 0$ will contribute directly to net worth according to (\ref{RY:allocsav}).  The required income constraint is
+\begin{equation*}
+%\label{RY:genreqinc}
+Y_{t+1} - s_{t+1} + w^G_{t+1} - v^G_{t+1} = \Gamma_{t+1}.
+\end{equation*}
+The amount $w^G_{t+1}$ will need to be transferred from the exogenous account.
+%I'm not sure about the previous sentence.
+
+The net worth of the company before taxes and shareholder dividends is $q^G_{t+1}$.  It is defined by the constraint
+\begin{equation*}
+%\label{RY:genreserve}
+V^E_t + V^G_t + G^G_{t+1} + D^G_{t+1} + q^S_{t+1} - z^S_{t+1} + z^G_{t+1} - q^G_{t+1} = \rand{L^G_t},
+\end{equation*}
+where $z^G_{t+1}$ represents a negative net worth, a dire situation.
+
+Cash flow must also be balanced in the general account.  Taxes are assumed to be a constant $\tau$ times income before taxes.  Dividend payments to shareholders are included in $\rand{P^G_{t+1}}$.  Therefore, we have the constraint
+\begin{multline*}
+%\label{RY:gencashflow}
+V^G_t + G^G_{t+1} + D^G_{t+1} - \tau Y_{t+1} + v^S_{t+1} - w^S_{t+1} - y^S_{t+1} + w^G_{t+1} +\\
+ y^G_{t+1} - u^G_{t+1} =\rand{P^G_{t+1}} - \rand{F^G_{t+1}}.
+\end{multline*}
+A positive value for $y^G_{t+1}$ would be very serious, as that amount would have to be transferred from the exogenous account to pay all the bills.  The excess $u^G_{t+1}$ is, as with the savings account, a slack variable which represents the accumulated market value of the general account.  So,
+\begin{equation*}
+%\label{RY:genacc}
+V^G_{t+1} = u^G_{t+1}.
+\end{equation*}
+
+The accumulation constraint for the exogenous account includes $k^E_{t+1}$, the projected increase in the exogenous account:
+\begin{equation*}
+%\label{RY:exaccum}
+V^E_{t+1} = V^E_t - w^G_{t+1} - y^G_{t+1} + k^E_{t+1}.
+\end{equation*}
+
+%loan illiquidity constraint
+In addition to the flow, income and accumulation constraints, there are many other constraints in the model by Cari\~{n}o and Ziemba \cite{carino98}.  These constraints find their origins in external and internal regulations and policies.  For example, since loans are a particularly illiquid asset class, an internal policy limits the change in allocations to loan asset investments from one period to the next.  With $lb$ and $ub$ being constants defined by the policy, the constraint
+\begin{multline*}
+%\label{RY:loanconstr}
+lb(1+\rand{RI_{nt+1}} + \rand{RP_{nt+1}})X_{nt} \leq X_{nt+1} \leq\\
+ ub(1+\rand{RI_{nt+1}} + \rand{RP_{nt+1}})X_{nt}, \hspace{3mm} n \in \mbox{loans}
+\end{multline*}
+is added to the model.
+
+%end stage effects
+
+%objective
+The objective is to maximize the market value of the accounts at time $T$ and minimize the costs involved with shortfalls, while meeting all the constraints.  Let $c^S_{wt}, c^S_{yt}, c^S_{zt}, c^G_{wt}, c^G_{zt}$, and $c^G_{yt}$ be the cost parameters associated with shortfalls $w^S_t, y^S_t, z^S_t, w^G_t, z^G_t$, and $y^G_t$, respectively.  Let
+\[
+C_t\assign c^S_{wt}w^S_t + c^S_{yt} y^S_t + c^S_{zt}z^S_t + c^G_{wt}w^G_t +  c^G_{zt}z^G_t + c^G_{yt}y^G_t.
+\]
+Then the objective is to minimize the expected value
+\begin{equation*}
+\expect[] \left[-V^S_T - V^G_T - V^E_T + \sum_{t=2}^{T} (1+\gamma)^{N(t,T)} C_t + \alpha C_f\right],
+\end{equation*}
+where $\gamma$ is the discount factor, the function $N(t, T)$ gives the number of years from stage $t$ to stage $T$, $\alpha$ is the discount factor for the end-effects period, and $C_f$ is the cost of shortfalls for the end-effects stage.
+
+
+\subsubsection{Problem statement}
+\label{RY:probsec}
+Given constants $lb, ub, \tau, k^E_t$, and $\Gamma_t$, costs  and given discrete distributions for the set of random variables 
+\begin{multline*}
+\rand{R}\assign\{\rand{RI_{nt}}, \rand{RP_{nt}}, \rand{IG^S_{t}}, \rand{F^S_t}, \rand{P^S_t}, \rand{I^S_t}, \rand{g^S_t}, \rand{L^S_t}, \rand{IG^G_t}, \rand{F^G_t}, \rand{P^G_t}:\\ 
+t=1,2,\ldots,T; \mbox{for all } n\},
+\end{multline*}
+the problem is to
+{\allowdisplaybreaks
+\begin{gather}
+\mbox{minimize }\hspace{3mm}\expect[R]\left[-V^S_T - V^G_T - V^E_T + \sum_{t=2}^{T} (1+\gamma)^{N(t,T)} C_t + \alpha C_f\right] \label{RY:obj}\\
+\mbox{subject to }\hspace{1.6in} V^S_t - \sum_{n\in S} X_{nt} = 0\hspace{1.5in}\notag\\
+V^G_t - \sum_{n \in G} X_{nt} - v_t^G = 0\notag\\
+D_{t+1}^S = \sum_{n\in SD} \rand{RI_{nt+1}} X_{nt} + \sum_{n\in SI}(\rand{RI_{nt+1}} + \rand{RP_{nt+1}}) X_{nt} - \rand{IG^S_{t+1}}\notag\\
+D_{t+1}^G = \sum_{n\in GD} \rand{RI_{nt+1}} X_{nt} + \sum_{n\in GI}(\rand{RI_{nt+1}} + \rand{RP_{nt+1}}) X_{nt} - \rand{IG^G_{t+1}}\notag\\
+G_{t+1}^S = \sum_{n\in SD} \rand{RP_{nt+1}} X_{nt}\notag\\
+G_{t+1}^G = \sum_{n\in GD} \rand{RP_{nt+1}} X_{nt}\notag\\
+B_{t+1}^S = B_t^S + D_{t+1}^S -\rand{I_{t+1}^S} + w_{t+1}^S - v_{t+1}^S\notag\\
+B_t^S + D_{t+1}^S + w_{t+1}^S - v_{t+1}^S = \rand{N_t^S} + \rand{g_{t+1}^S} \rand{L_t^S}\notag\\
+V_t^S + G_{t+1}^S + D_{t+1}^S + z_{t+1}^S - q_{t+1}^S = (1+\rand{g_{t+1}^S}) \rand{L_t^S}\notag\\
+V^S_t + G^S_{t+1} + D^S_{t+1} + w^S_{t+1} - v^S_{t+1} + y^S_{t+1} - u^S_{t+1} = \rand{P^S_{t+1}} + \rand{I^S_{t+1}} - \rand{F^S_{t+1}} \label{RY:gs}\\
+V^S_{t+1} = u^S_{t+1} \label{RY:vs}\\
+B^G_{t+1}= 
+\begin{cases}
+	0 & \text{ if $t+1$ is a year-end stage,} \label{RY:eliminate}\\
+	B^G_t + D^G_t & \text{ otherwise,}
+\end{cases}\\
+Y_{t+1} - s_{t+1} = B^G_t + D^G_{t+1} + v^S_{t+1} - w^S_{t+1}\notag\\
+Y_{t+1} - s_{t+1} + w^G_{t+1} - v^G_{t+1} = \Gamma_{t+1}\notag\\
+V^E_t + V^G_t + G^G_{t+1} + D^G_{t+1} + q^S_{t+1} - z^S_{t+1} + z^G_{t+1} - q^G_{t+1} = \rand{L^G_t}\notag\\
+V^G_t + G^G_{t+1} + D^G_{t+1} - \tau Y_{t+1} + v^S_{t+1} - w^S_{t+1} - y^S_{t+1} + w^G_{t+1} +\notag\\
+\hspace{2in} y^G_{t+1} - u^G_{t+1} =\rand{P^G_{t+1}} - \rand{F^G_{t+1}} \label{RY:gg}\\
+V^G_{t+1} = u^G_{t+1} \label{RY:vg}\\
+V^E_{t+1} = V^E_t - w^G_{t+1} - y^G_{t+1} + k^E_{t+1}\notag\\
+lb(1+\rand{RI_{nt+1}} + \rand{RP_{nt+1}})X_{nt} \leq X_{nt+1} \leq\notag\\
+\hspace{1.3in} ub(1+\rand{RI_{nt+1}} + \rand{RP_{nt+1}})X_{nt}, \hspace{3mm} n \in \mbox{loans} \label{RY:loanconst}\\
+X_{nt}, w^S_t, v^S_t z^S_t, q^S_t, y^S_t, u^S_t, Y_t, s_t, w^G_t, v^G_t, z^G_t, q^G_t, y^G_t, u^G_t \geq 0.\notag
+\end{gather}
+}
+
+\subsubsection{Numerical results}
+
+The model described here is too complex for us to create empirical data at this time.  Further, the original creators of the model \cite{carino98,carino298} did not provide specific problem data.
+
+
+\subsubsection{Notational reconciliation}
+
+In order to put this problem in the notation of (\ref{PROB:mslp}), we make a few changes to the problem:
+\begin{enumerate}
+\item Assume each period is a year-end stage.  This assumption is not necessary, but we are required to state which stages are year-end, and which are not.  The result of this supposition is the elimination from the problem of the variable $B^G_t$ and the equation (\ref{RY:eliminate}).
+\item The end-effects stage is eliminated.  This eliminates the term $\alpha C_f$ from the objective.
+\item Equations (\ref{RY:vs}) and (\ref{RY:vg}) are eliminated by substituting $V$ for $u$ in equations (\ref{RY:gs}) and (\ref{RY:gg}).
+\item The conditions (\ref{RY:loanconst}) constraining the loans are eliminated.
+\end{enumerate}
+
+Order the number of accounts in any way, and let $M$ be the number of accounts.  That is, the index $n$ runs from $1$ to $M$.  Define the vectors
+\begin{equation*}
+X_t \assign \left[
+\begin{array}{c}
+	X_{1t}\\
+	X_{2t}\\
+	\vdots\\
+	X_{Mt}
+\end{array} \right],
+\hspace{0.3in}
+\rand{RP_t}\assign\left[
+\begin{array}{c}
+	\rand{RP_{1t}}\\
+	\rand{RP_{2t}}\\
+	\vdots\\
+	\rand{RP_{Mt}}
+\end{array} \right],
+\end{equation*}
+and
+\begin{equation*}
+\rand{RI_t}\assign\left[
+\begin{array}{c}
+	\rand{RI_{1t}}\\
+	\rand{RI_{2t}}\\
+	\vdots\\
+	\rand{RI_{Mt}}
+\end{array} \right].
+\end{equation*}
+
+Let $\Delta \in \reals^{M \times M}$ be the diagonal matrix defined for sets \newline $\Phi \in \{S,G,D,I\}$ by
+\begin{equation*}
+(\Delta^\Phi)_{jj} \assign
+\begin{cases}
+1 & \text{if account $j$ is in set $\Phi$}\\
+0 & \text{otherwise}.
+\end{cases}
+\end{equation*}
+
+Then we may express the sums from the problem statement in Section \ref{RY:probsec} in matrix notation.  For example,
+\begin{equation*}
+\sum_{n\in GD} \rand{RI_{nt+1}} X_{nt} = (\rand{RI_{t+1}})\trp \Delta^G \Delta^D X_t.
+\end{equation*}
+
+To begin putting the problem into the notation of (\ref{PROB:mslp}), set
+\begin{equation*}
+x_1\assign \left[
+\begin{array}{c}
+	X_1\\
+	V_1^S\\
+	V_1^G
+\end{array}
+\right],
+\hspace{0.2in}
+c_1 \assign \left[
+\begin{array}{c}
+	0^{M\times 1}\\
+	0\\
+	0
+\end{array}
+\right],
+\hspace{0.2in}
+b_1\assign\left[
+\begin{array}{c}
+	0\\
+	0
+\end{array}
+\right]
+\end{equation*}
+and
+\begin{equation*}
+A_1\assign\left[
+\begin{array}{ccc}
+	(-1^{1\times M} \Delta^S)		& 1	& 0\\
+	(-1^{1\times M} \Delta^G)		& 0	& 1
+\end{array}
+\right].
+\end{equation*}
+
+Then for $t=2, 3, \ldots, T$, define
+\begin{equation*}
+x_t \assign \left[
+\begin{array}{c}
+	X_t\\
+	B_t^S\\
+	D_t^S\\
+	G_t^S\\
+	V_t^S\\
+	q_t^S\\
+	v_t^S\\
+	w_t^S\\
+	y_t^S\\
+	z_t^S\\
+	D_t^G\\
+	G_t^G\\
+	V_t^G\\
+	q_t^G\\
+	v_t^G\\
+	w_t^G\\
+	y_t^G\\
+	z_t^G\\
+	V_T^E\\
+	Y_t\\
+	s_t
+\end{array}
+\right],
+\text{ and  } \hspace{0.3in}
+c_t \assign\left[
+\begin{array}{c}
+	0^{M\times 1}\\
+	0\\
+	0\\
+	0\\
+	-\delta_{tT}\\
+	0\\
+	0\\
+	(1-\gamma)^{T-t} c^S_{wt}\\
+	(1-\gamma)^{T-t} c^S_{yt}\\
+	(1-\gamma)^{T-t} c^S_{zt}\\
+	0\\
+	0\\
+	-\delta_{tT}\\
+	0\\
+	0\\
+	(1-\gamma)^{T-t} c^G_{wt}\\
+	(1-\gamma)^{T-t} c^G_{yt}\\
+	(1-\gamma)^{T-t} c^G_{zt}\\
+	-\delta_{tT}\\
+	0\\	
+	0
+\end{array}
+\right],
+\end{equation*}
+where
+\begin{equation*}
+\delta_{tT} \assign 
+\begin{cases}
+	1	&	\text{if $t=T$}\\
+	0	&	\text{otherwise}.\\
+\end{cases}
+\end{equation*}
+
+The remaining assignments necessary are
+\begin{equation*}
+A_t \assign \left[
+\begin{array}{cc}
+A_t^S & A_t^G
+\end{array}
+\right],
+\hspace{0.3in}
+\rand{T_t} \assign \left[
+\begin{array}{cc}
+\rand{T_t^S} & T_t^G
+\end{array}
+\right],
+\end{equation*}
+and
+\begin{equation*}
+\rand{b_t} \assign\left[
+\begin{array}{c}
+0\\
+0\\
+-\rand{IG^S_t}\\
+-\rand{IG^G_t}\\
+0\\
+0\\
+-\rand{I^S_t}\\
+(\rand{N^S_{t-1}} + \rand{g^S_t} \rand{L^S_{t-1}})\\
+((1+\rand{g^S_t})\rand{L^S_{t-1}})\\
+(\rand{P^S_t} + \rand{I^S_t} - \rand{F^S_t})\\
+0\\%107
+\Gamma\\
+\rand{L^G_{t-1}}\\
+(\rand{P^G_t} - \rand{F^G_t})\\
+k^E
+\end{array}
+\right],
+\end{equation*}
+where $A_t^S, A_t^G, \rand{T_t^S}$, and $T_t^G$ are defined in Figures \ref{RY:ASfig}, \ref{RY:AGfig}, \ref{RY:TSfig} and \ref{RY:TGfig}, respectively.
+
+\begin{figure}[ht]
+\caption{Array $A^S_t$ for Russell-Yasuda Kasai example}
+\label{RY:ASfig}
+\small{
+%\begin{landscape}
+\[
+A^S_t \assign\left[
+\begin{array}{cccccccccc}%ccccccccccc}
+(-1^{(1\times M)}\Delta^S)	&0	&0	&0	&1	&0	&0	&0	&0	&0\\%	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0\\
+(-1^{(1\times M)}\Delta^G)	&0	&0	&0	&0	&0	&0	&0	&0	&0\\%	&0	&0	&1	&(-1)	&0	&0	&0	&0	&0	&0	&0\\
+0	&0	&1	&0	&0	&0	&0	&0	&0	&0\\%	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0\\
+0	&0	&0	&0	&0	&0	&0	&0	&0	&0\\%	&1	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0\\
+0	&0	&0	&1	&0	&0	&0	&0	&0	&0\\%	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0\\
+0	&0	&0	&0	&0	&0	&0	&0	&0	&0\\%	&0	&1	&0	&0	&0	&0	&0	&0	&0	&0	&0\\%(100)
+0	&1	&(-1)	&0	&0	&0	&1	&(-1)	&0	&0\\%	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0\\
+0	&0	&1	&0	&0	&0	&0	&(-1)	&1	&0\\%	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0\\%(102)
+0	&0	&1	&1	&0	&(-1)	&0	&0	&0	&1\\%	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0\\
+0	&0	&1	&1	&(-1)	&0	&(-1)	&1	&1	&0\\%	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0\\%(104)
+0	&0	&0	&0	&0	&0	&(-1)	&1	&0	&0\\%	&(-1)	&0	&0	&0	&0	&0	&0	&0	&0	&1	&(-1)\\%(107)
+0	&0	&0	&0	&0	&0	&0	&0	&0	&0\\%	&0	&0	&0	&0	&(-1)	&1	&0	&0	&0	&1	&(-1)\\
+0	&0	&0	&0	&0	&1	&0	&0	&0	&(-1)\\%	&1	&1	&0	&(-1)	&0	&0	&0	&1	&0	&0	&0\\
+0	&0	&0	&0	&0	&0	&1	&(-1)	&(-1)	&0\\%	&1	&1	&(-1)	&0	&0	&1	&1	&0	&0	&(-\tau)	&0\\
+0	&0	&0	&0	&0	&0	&0	&0	&0	&0\\%	&0	&0	&0	&0	&0	&1	&1	&0	&1	&0	&0
+\end{array}
+\right]
+\]
+}
+\end{figure}
+%\end{landscape}
+
+\begin{figure}[ht]
+\caption{Array $A^G_t$ for Russell-Yasuda Kasai example}
+\label{RY:AGfig}
+%\begin{sideways}
+%\small{
+%\begin{landscape}
+\[
+A^G_t \assign\left[
+\begin{array}{ccccccccccc}
+0	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0\\
+0	&0	&1	&(-1)	&0	&0	&0	&0	&0	&0	&0\\
+0	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0\\
+1	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0\\
+0	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0\\
+0	&1	&0	&0	&0	&0	&0	&0	&0	&0	&0\\%(100)
+0	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0\\
+0	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0\\%(102)
+0	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0\\
+0	&0	&0	&0	&0	&0	&0	&0	&0	&0	&0\\%(104)
+(-1)	&0	&0	&0	&0	&0	&0	&0	&0	&1	&(-1)\\%(107)
+0	&0	&0	&0	&(-1)	&1	&0	&0	&0	&1	&(-1)\\
+1	&1	&0	&(-1)	&0	&0	&0	&1	&0	&0	&0\\
+1	&1	&(-1)	&0	&0	&1	&1	&0	&0	&(-\tau)	&0\\
+0	&0	&0	&0	&0	&1	&1	&0	&1	&0	&0
+\end{array}
+\right]
+\]
+%}
+\end{figure}
+%\end{landscape}
+
+\begin{figure}[ht]
+\caption{Array $\rand{T^S_t}$ for Russell-Yasuda Kasai example}
+\label{RY:TSfig}
+%\begin{sideways}
+\small{
+%\begin{landscape}
+\[
+\rand{T^S_t} \assign\left[
+\begin{array}{cccccccccc}
+0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0\\
+0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0\\
+\begin{array}{c}
+	 [-\rand{RI_t}\trp \Delta^S \Delta^D\\
+	- (\rand{RI_t} + \rand{RP_t})\trp \Delta^S \Delta^I]
+\end{array}
+	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0\\
+\begin{array}{c}
+	 [-\rand{RI_t}\trp \Delta^G \Delta^D\\
+	- (\rand{RI_t} + \rand{RP_t})\trp \Delta^G \Delta^I]
+\end{array}
+	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0\\
+-\rand{RP_t}\trp \Delta^S \Delta^D	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0\\
+-\rand{RP_t}\trp \Delta^G \Delta^D	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0\\
+0	& (-1)	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0\\
+0	& (-1)	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0\\
+0	& 0	& 0	& 0	& 1	& 0	& 0	& 0	& 0	& 0\\
+0	& 0	& 0	& 0	& 1	& 0	& 0	& 0	& 0	& 0\\
+0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0\\
+0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0\\
+0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0\\
+0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0\\
+0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0
+\end{array}
+\right]
+\]
+}
+\end{figure}
+%\end{landscape}
+
+\begin{figure}[ht]
+\caption{Array $T^G_t$ for Russell-Yasuda Kasai example}
+\label{RY:TGfig}
+%\begin{sideways}
+%\small{
+%\begin{landscape}
+\[
+T^G_t \assign\left[
+\begin{array}{ccccccccccc}
+0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	&0\\
+0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	&0\\
+0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	&0\\
+0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	&0\\
+0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	&0\\
+0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	&0\\
+0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	&0\\
+0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	&0\\
+0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	&0\\
+0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	&0\\
+0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	&0\\
+0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	&0\\
+0	& 0	& 1	& 0	& 0	& 0	& 0	& 0	& 1	& 0	&0\\
+0	& 0	& 1	& 0	& 0	& 0	& 0	& 0	& 0	& 0	&0\\
+0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& (-1)	& 0	&0\\
+
+\end{array}
+\right]
+\]
+%}
+\end{figure}%
+%\end{landscape}

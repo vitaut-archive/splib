@@ -1,0 +1,276 @@
+% cleaned of unnecessary equation numbers 3 June 2000
+\subsection{Forest planning}%
+\emph{Due to H. Gassmann  \cite{gassmann89}}%
+
+\noindent(Multistage, linear stochastic problem) \\
+\noindent \url{/stocfor1} \url{/stocfor1.cor}, \url{/stocfor1.tim}, \url{/stocfor1.sto}\\
+\noindent \url{/stocfor2} \url{/stocfor2.cor}, \url{/stocfor2.tim}, \url{/stocfor2.sto}\\
+\noindent \url{/stocfor3} \url{/stocfor3.cor}, \url{/stocfor3.tim}, \url{/stocfor3.sto}
+
+\vspace{3mm}
+\subsubsection{Description}
+
+The job of a long range forest planner is to decide what parts of the forest will be harvested when.  Important criteria for such a decision are the age of the trees, and the likelihood that trees left standing will be destroyed by fire.
+
+Gassmann \cite{gassmann89} creates a set of $K$ age classifications of equal length (e.g. 20 years), and places each portion of the forest into one of the classes, according to the age of the trees within.  He also divides the future planning horizon into $T$ rounds, each with a time length \emph{equal} to that of each age classification.  That is, in one time round, any trees that are not destroyed or harvested will move to the next age class.  
+
+Let the vector $s_t \in \reals^K$ represent the total amount of area of the forest in each age class $1$ through $K$ in round $t$, and let $x_t \in \reals^K$ be the area of the forest harvested in each age class in round $t$.  Obviously, we cannot harvest more trees of any age than currently exist.  Therefore,
+\begin{equation}
+\label{FOREST:cutlimits}
+x_t \leq s_t, \hspace{3mm} t=1,2,\ldots,T.
+\end{equation}
+Immediately replanting harvested land will cause an area increase of $Qx_t$ in the next round, where
+\[
+Q = \left[\begin{array}{cccc}
+	1&1&\cdots&1\\
+	0&0&\cdots&0\\
+	\vdots&&\ddots&\vdots\\
+	0&0&\cdots&0
+	\end{array}\right].
+\]
+
+
+The area of unharvested trees in round $t$ will be $s_t - x_t$.  Of this area, a random proportion $\rand{p_t} = (\rand{p_{t1}},\rand{p_{t2}},\ldots,\rand{p_{tK}})\trp \in \reals^K$ will be destroyed by fire in round $t$.  Let
+\[
+\rand{P_t} = \left[\begin{array}{ccccc}
+	\rand{p_{t1}}&\rand{p_{t2}}& \cdots & \rand{p_{tK-1}} & \rand{p_{tK}}\\
+	1-\rand{p_{t1}}&0 & \cdots & 0 & 0\\
+	0 & 1-\rand{p_{t2}} & 0 & \cdots & 0\\
+	\vdots & \ddots & \ddots &  & \vdots\\
+	0 & \cdots & 0 & 1-\rand{p_{tK-1}} & 1-\rand{p_{tK}}
+	\end{array}\right].
+\]
+Then, assuming all burned areas are immediately replanted, and therefore wind up in age class $1$,
+\begin{equation}
+\label{FOREST:mbalance}
+s_{t+1} = \rand{P_t}(s_t - x_t) + Qx_t.
+\end{equation}
+The material balance in (\ref{FOREST:mbalance}), along with the availability limits in (\ref{FOREST:cutlimits}), will be constraints in the problem.
+
+The last type of constraint that will be in the problem is of the form
+\begin{equation}
+\label{FOREST:delta}
+\alpha y\trp x_{t-1} \leq y\trp x_t \leq \beta y\trp x_{t-1}, \hspace{3mm} t=2,3,\ldots,T.
+\end{equation}
+Here $y \in \reals^K$ represents the yield, and $\alpha$ and $\beta$ are constants.  This constraint might represent limits on how fast the timber industry can change its purchasing volume from one time period to the next.
+
+The objective will be to maximize the value of timber, both cut and remaining after round $T$, subject to the constraints (\ref{FOREST:cutlimits}), (\ref{FOREST:mbalance}), and (\ref{FOREST:delta}).  Since the time scale of the problem is quite large, Gassmann discounts monetary values in future round $t$ to current monetary scales by multiplying by $\delta^{t-1}$.  For example, if each round is 20 years long, for interest (or inflation) rate $i$, $\delta=(1-i)^{20}$.  Therefore, the present value of timber harvested in round $t$ is 
+\begin{equation*}
+%\label{FOREST:cutvalue}
+\delta^{t-1} y\trp x_t.
+\end{equation*}
+
+If $v \in \reals^K$ is the value of the trees standing after round $T$, then the total value of trees left standing after round $T$ and cut during rounds $1$ through $T$ is
+\begin{equation*}
+%\label{FOREST:value}
+\sum_{t=1}^T \delta^{t-1} y\trp x_t +  \delta^{T} v\trp s_{T+1}.
+\end{equation*}
+
+\subsubsection{Problem statement}
+
+We are given the vector $s_1 \in \reals^K$, denoting the area of forest covered with timber in the $K$ different age classes at the beginning of time period $1$.  We are also given $y \in \reals^K$ the vector of yields (in units currency$/$hectacre of forest harvested), $v \in \reals^K$ the value of standing timber after round $T$, the discount rate $\delta$, and constants $ \alpha, \beta$.
+
+
+With such information, the problem is then to
+\begin{equation}
+\label{FOREST:problem}
+\begin{split}
+\mbox{maximize }\hspace{3mm} y\trp x_1 &+ \mathcal{Q}_2(x_1)\\
+\mbox{subject to }\hspace{3mm}x_1& \leq s_1 \\
+		x_1 &\geq 0,
+\end{split}
+\end{equation}
+where
+\begin{eqnarray}
+\label{FOREST:Qdef}
+\mathcal{Q}_t(x_{t-1})&\assign& \expect[\{P_{t-1}, P_{t}, \ldots, P_{T}\}]\left\{\mbox{max }\left[
+	\delta^{t-1} y\trp x_{t} + \mathcal{Q}_{t+1}(x_{t})\right]:\right. \nonumber\\ 
+x_{t}&\leq& s_{t}\\
+s_{t}&=& (Q-\rand{P_{t-1}})x_{t-1} + \rand{P_{t-1}}s_{t-1} \\
+ \alpha y\trp x_{t-1}  &\leq&  \left.y\trp x_{t} \leq \beta y\trp x_{t-1}\right\},
+	\hspace{3mm} t=2, \ldots,T, 
+\end{eqnarray}
+and
+\begin{eqnarray}
+\label{FOREST:QTdef}
+\mathcal{Q}_{T+1}(x_T)&\assign&\left\{\delta^T v\trp s_{T+1}:s_{T+1}=(Q-\rand{P_{T}})x_{T} + P_{T} s_{T}\right\}.
+%\mathcal{Q}_T(x_T)&\assign&\expect[P_T]\left\{\mbox{max }\left[ \delta^{T}v\trp s_{T+1}\right]: s_{T+1}=({Q}-\rand{P_T})x_T + {Q} s_T\right\}\nonumber\\ &=& \expect[P_T]\left\{\delta^{T} y\trp [({Q}-\rand{P_T})x_T + Qs_T]\right\}. 
+\end{eqnarray}
+
+%Equations (\ref{FOREST:problem}), (\ref{FOREST:Qdef}) and (\ref{FOREST:QTdef}) not only look different from the problem statement given in  \cite{gassmann89}, but they are also \emph{mathematically} different from that in  \cite{gassmann89}  in several ways.  Equation $[1.3]$ in  \cite{gassmann89} should have the term $\rand{P}s_t$, rather than $\bf{Q}s_t$.  More importantly, the content of the problem statement in this paper was changed to match that of the example problems submitted to Netlib by Gassmann.
+Equations (\ref{FOREST:problem}), (\ref{FOREST:Qdef}) and (\ref{FOREST:QTdef}) have been changed slightly from the problem statement in  \cite{gassmann89}, in order to more closely match the content of the example problems submitted to Netlib by Gassmann \cite{gassmannwww}.
+
+\subsubsection{Numerical results}
+
+Gassmann \cite{gassmann89} reported numerical results for many cases.  In all cases, he assigned the values shown in Table \ref{FOREST:values}.
+\begin{table}[ht]
+\caption[Values of parameters used in test problems for forest management]{Values of parameters used in Gassmann \cite{gassmann89}}
+\label{FOREST:values}
+\[
+\begin{array}{|c|c|c|}
+	\hline
+	T = 7 & K = 8 & \delta = 0.905\\
+	\hline
+	\alpha = 0.9 & \beta = 1.1 &\\
+	\hline
+	v = \left[ \begin{array}{r}
+		320.3417\\
+		356.1874\\
+		398.4370\\
+		448.2349\\
+		506.9294\\
+		564.9294\\
+		587.9294\\
+		595.9294 \end{array}\right] 
+		&
+	s_1 = \left[ \begin{array}{r}
+		241\\
+		125\\
+		1,404\\
+		2,004\\
+		9,768\\
+		16,385\\
+		2,815\\
+		61,995\end{array}\right]
+	&
+	y = \left[ \begin{array}{r}
+		0\\
+		0\\
+		16\\
+		107\\
+		217\\
+		275\\
+		298\\
+		306\end{array}\right]\\  
+	\hline
+\end{array}
+\]
+\end{table}
+For the distribution of $\rand{P}$, Gassmann \cite{gassmann89} used several different discretizations.  The few included in Table \ref{FOREST:discretizations} are called ``upper bound discretizations'' by Gassmann.
+\begin{table}[ht]
+\caption[Discretization values used in test problems for forest management]{Discretizations used in Gassmann \cite{gassmann89}}
+\label{FOREST:discretizations}
+\begin{center}
+\begin{tabular}{|llll|}
+	\hline
+	\multicolumn{4}{|l|}{1 point discretization }\\
+	Fire Rate & 0.06258 & & \\
+	Probability & 1.000 & & \\
+	\hline
+	\multicolumn{4}{|l|}{2 point discretization}\\
+	Fire Rate & 0.08612 & 0.04240 &\\
+	Probability & 0.4616 & 0.5384 &\\
+	\hline
+	\multicolumn{4}{|l|}{3 point discretization }\\
+	Fire Rate & 0.10499 & 0.07354 & 0.04240\\
+	Probability & 0.1847 & 0.2769 & 0.5384\\
+	\hline
+\end{tabular}
+\end{center}
+\end{table}
+In the first set of trials, Gassmann \cite{gassmann89} found the constraints to be too severe.  Therefore, he changed the problem as follows.  Violations to the constraints
+\[
+ \alpha y\trp x_{t-1}  \leq  y\trp x_{t} \leq \beta y\trp x_{t-1}
+\]
+were allowed, but penalized.  These constraints were replaced with
+\begin{eqnarray*}
+ \alpha y\trp x_{t-1} - y\trp x_{t} &\leq& p_{t1}\\
+y\trp x_{t} - \beta y\trp x_{t-1} &\leq& p_{t2}\\
+p_{t1}, p_{t2} &\geq& 0,
+\end{eqnarray*}
+and the term 
+\[
+\sum_{t=1}^{T-1} -\delta^{t-1} \gamma (p_{t1} + p_{t2})
+\]
+was added to the objective.  In all the numerical results, $\gamma \assign50$.
+
+Results from Gassmann  \cite{gassmann89} are shown in Table \ref{FOREST:results}.
+\begin{table}[ht]
+\caption[Results of test problems for forest management]{Results from Gassmann  \cite{gassmann89}}
+\label{FOREST:results}
+\small{
+\begin{tabular}{|lrrrrrr|}
+\hline
+&\multicolumn{6}{c|}{Discretization Structure}\\
+\cline{2-7}
+& 1.111.111 & 1.222.222 & 1.322.222 & 1.332.222 & 1.333.222 & 1.333.322\\
+\hline
+Obj. value & 41,132.0 & 40,914.3 & 40,897.0 & 40,864.2 & 40,835.8 & 40,703.1\\
+Opt. $x_1(8)$ & 20,495.8 & 20,047.9 & 20,076.9 & 19,952.8 & 19,947.4 & 19,726.6\\
+\hline
+\end{tabular}
+}
+\end{table}
+Here, a discretization structure of $i.jjj.kkk$ means that an $i$ point discretization was used in the first round, a $j$ point discretization was used in rounds two through four, and a $k$ point discretization was used in rounds five through seven.  The only nonzero component of the optimal $x_1$ was component $8$.  
+
+Problem statements in MPS format may be found at Netlib, at \url{http://www.netlib.org/lp/data/} under the names stocfor1, stocfor2, and stocfor3  \cite{gassmannwww}.
+
+
+
+\subsubsection{Notational reconciliation}
+To express the problem in the notation of Problem (\ref{PROB:mslp}), we define the slack variable $z_t \assign s_t - x_t$, which allows us to eliminate the variable $s_t$ for $t>1$.  The vectors $c_t$ and $x_t$ are defined and \emph{redefined}, respectively, as
+\begin{equation*}
+c_t \assign \left[
+	\begin{array}{c}
+		-\delta^{t-1} y\\
+		0^{K \times 1}\\
+		0\\
+		0
+	\end{array}
+	\right], \hspace{0.3in}
+x_t \assign \left[
+	\begin{array}{c}
+		x_t\\
+		z_t\\
+		l_t\\
+		m_t
+	\end{array}
+	\right],
+\end{equation*}
+where $l_t, m_t \in \reals$ are slack variables.  This definition for $c_t$ is not valid for $t=T$, when we have
+\begin{equation*}
+\rand{c_T} \assign \left[
+	\begin{array}{c}
+		-\delta^{T-1} (y + \delta Q\trp v)\\
+		-\delta^T \rand{P_T}\trp v\\
+		0\\
+		0
+	\end{array}
+		\right]
+\end{equation*}
+
+Let 
+\begin{equation*}
+A_1 \assign \left[
+	\begin{array}{cccc}
+		I^{K \times K} & I^{K \times K} & 0 & 0
+	\end{array}
+	\right]
+\end{equation*}
+and $b_1 \assign s_1$.  Then for $t= 2, 3, \ldots, T$, we define
+\begin{equation*}
+A_t \assign \left[
+	\begin{array}{cccc}
+		I^{K \times K} & I^{K \times K} & 0 & 0\\
+		y\trp	& 0	& 1	& 0\\
+		-y\trp	& 0	& 0	& 1
+	\end{array}
+		\right],
+\hspace{0.2in}
+b_t \assign \left[\begin{array}{c}
+	 0^{K \times 1}\\
+	0\\
+	0\end{array} \right],
+\end{equation*}
+and
+\begin{equation*}
+\rand{T_t} \assign \left[
+	\begin{array}{cccc}
+		-Q	&	-\rand{P_{t-1}}	&	0	&	0\\
+		-\beta y\trp	&	0	&	0	&	0\\
+		\alpha y\trp	&	0	&	0	&	0
+	\end{array}
+		\right].
+\end{equation*}
+
+Finally, setting $N\assign T$, we have expressed the problem in the format of (\ref{PROB:mslp}).%

@@ -1,0 +1,25 @@
+STOCH         LandS
+SCENARIOS
+ SC SCEN_A    'ROOT'    0.09           PERIOD1
+    RIGHT     DEMAND1   3.0
+    RIGHT     DEMND21   3.2
+ SC SCEN_B    SCEN_A    0.12           PERIOD3
+    RIGHT     DEMND21   3.3
+ SC SCEN_C    SCEN_A    0.09           PERIOD3
+    RIGHT     DEMND21   3.8
+ SC SCEN_D    SCEN_A    0.12           PERIOD2
+    RIGHT     DEMAND1   5.0
+    RIGHT     DEMND21   5.2
+ SC SCEN_E    SCEN_D    0.16           PERIOD3
+    RIGHT     DEMND21   5.3
+ SC SCEN_F    SCEN_D    0.12           PERIOD3
+    RIGHT     DEMND21   5.8
+ SC SCEN_G    SCEN_A    0.09           PERIOD2
+    RIGHT     DEMAND1   7.0
+    RIGHT     DEMND21   7.2
+ SC SCEN_H    SCEN_G    0.12           PERIOD3
+    RIGHT     DEMND21   7.3
+ SC SCEN_I    SCEN_G    0.09           PERIOD3
+    RIGHT     DEMND21   8.0
+ENDATA
+

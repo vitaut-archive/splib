@@ -1,0 +1,15 @@
+STOCH         DAKOTASP
+SCENARIOS     DISCRETE
+ SC S0000001  'ROOT'      0.3000000    PERIOD1
+    RHS       R4           50.00000
+    RHS       R5           20.00000
+    RHS       R6           200.0000
+ SC S0000002  S0000001    0.4000000    PERIOD2
+    RHS       R4           150.0000
+    RHS       R5           110.0000
+    RHS       R6           225.0000
+ SC S0000003  S0000001    0.3000000    PERIOD2
+    RHS       R4           250.0000
+    RHS       R5           250.0000
+    RHS       R6           500.0000
+ENDATA

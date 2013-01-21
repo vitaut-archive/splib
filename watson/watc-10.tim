@@ -1,0 +1,13 @@
+TIME          WAT
+PERIODS
+    U11111    UTILITY                  TIME1   
+    U11121    A12201                   TIME2   
+    U11131    A13201                   TIME3   
+    U11141    A14201                   TIME4   
+    U11151    A15201                   TIME5   
+    U11161    A16201                   TIME6   
+    U11171    A17201                   TIME7   
+    U11181    A18201                   TIME8   
+    U11191    A19201                   TIME9   
+    U11201    A20201                   TIME10  
+ENDATA

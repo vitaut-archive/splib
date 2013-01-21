@@ -1,0 +1,6 @@
+TIME          SCFXM1
+PERIODS
+    1D1IK     .COSTA                   TIME1
+    SCCOL1    1DT019                   TIME2
+    SCCOL6    1MS042                   TIME3
+ENDATA

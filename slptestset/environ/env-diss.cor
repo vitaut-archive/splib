@@ -1,0 +1,363 @@
+NAME          ENV
+ROWS
+ N  OBJ
+ G  BLGAS1
+ G  BLCOL1
+ G  BLHOL1
+ G  BLNGS1
+ G  BLLPG1
+ G  BLJET1
+ G  BLNUC1
+ G  BLELC1WD
+ G  BLELC1WN
+ G  BLELC1SD
+ G  BLELC1SN
+ E  CPELI1
+ E  CPELD1
+ E  CPHHO1
+ E  CPHNG1
+ E  CPCAR1
+ E  CPHLP1
+ E  CPCEL1
+ E  CPNEL1
+ E  CPAIR1
+ E  CPTRK1
+ E  CPNUL1
+ E  CPHYD1
+ G  DMELC1
+ G  DMHHO1
+ G  DMNG1
+ G  DMGAS1
+ G  DMLPG1
+ G  DMJET1
+ L  PRCEL1WD
+ L  PRCEL1WN
+ L  PRCEL1SD
+ L  PRCEL1SN
+ L  PRNEL1WD
+ L  PRNEL1WN
+ L  PRNEL1SD
+ L  PRNEL1SN
+ L  PRNUL1WD
+ L  PRNUL1WN
+ L  PRNUL1SD
+ L  PRNUL1SN
+ L  PRHYD1WD
+ L  PRHYD1WN
+ L  PRHYD1SD
+ L  PRHYD1SN
+ G  PKELC1W
+ G  PKELC1S
+ L  CO2LIM1
+ G  BLGAS2
+ G  BLCOL2
+ G  BLHOL2
+ G  BLNGS2
+ G  BLLPG2
+ G  BLJET2
+ G  BLNUC2
+ G  BLELC2WD
+ G  BLELC2WN
+ G  BLELC2SD
+ G  BLELC2SN
+ E  CPELI2
+ E  CPELD2
+ E  CPHHO2
+ E  CPHNG2
+ E  CPCAR2
+ E  CPHLP2
+ E  CPCEL2
+ E  CPNEL2
+ E  CPAIR2
+ E  CPTRK2
+ E  CPNUL2
+ E  CPHYD2
+ G  DMELC2
+ G  DMHHO2
+ G  DMNG2
+ G  DMGAS2
+ G  DMLPG2
+ G  DMJET2
+ L  PRCEL2WD
+ L  PRCEL2WN
+ L  PRCEL2SD
+ L  PRCEL2SN
+ L  PRNEL2WD
+ L  PRNEL2WN
+ L  PRNEL2SD
+ L  PRNEL2SN
+ L  PRNUL2WD
+ L  PRNUL2WN
+ L  PRNUL2SD
+ L  PRNUL2SN
+ L  PRHYD2WD
+ L  PRHYD2WN
+ L  PRHYD2SD
+ L  PRHYD2SN
+ G  PKELC2W
+ G  PKELC2S
+ L  CO2LIM2
+COLUMNS
+    IMPOIL1   BLGAS1    0.45           BLHOL1    0.25
+    IMPOIL1   BLNGS1    0.10           BLLPG1    0.10
+    IMPOIL1   BLJET1    0.10           OBJ       0.8
+    IMPCOAL1  BLCOL1    1.0            OBJ       0.7
+    IMPNG1    BLNGS1    1.0            OBJ       0.6
+    IMPPRO1   BLLPG1    1.0            OBJ       0.7
+    IMPNUF1   BLNUC1    1.0            OBJ       0.9
+    CCAR1     BLGAS1    -0.35          CPCAR1    1.0
+    CCAR1     DMGAS1    1.0            CO2LIM1   1.5
+    CCAR1     OBJ       2.0
+    CCEL1     BLCOL1    -0.525         CPCEL1    1.0
+    CCEL1     PRCEL1WD  -0.57142       PRCEL1WN  -0.8571
+    CCEL1     PRCEL1SN  -0.57142       PRCEL1SD  -0.8571
+    CCEL1     PKELC1W   0.0952         PKELC1S   0.0952
+    CCEL1     CO2LIM1   1.2            OBJ       3.0
+    CHHO1     BLHOL1    -0.40          CPHHO1    1.0
+    CHHO1     DMHHO1    1.0            CO2LIM1   1.4
+    CHHO1     OBJ       2.0
+    CTRK1     BLHOL1    -0.75          CPTRK1    1.0
+    CTRK1     DMHHO1    1.0            CO2LIM1   1.7
+    CTRK1     OBJ       2.0
+    CHNG1     BLNGS1    -0.20          CPHNG1    1.0
+    CHNG1     DMNG1     1.0            CO2LIM1   1.0
+    CHNG1     OBJ       2.0
+    CNEL1     BLNGS1    -0.28          CPNEL1    1.0
+    CNEL1     PRNEL1WD  -1.0           PRNEL1WN  -1.5
+    CNEL1     PRNEL1SN  -1.0           PRNEL1SD  -1.5
+    CNEL1     PKELC1W   0.5            PKELC1S   0.5
+    CNEL1     CO2LIM1   0.9            OBJ       2.0
+    CHLP1     BLLPG1    -0.24          CPHLP1    1.0
+    CHLP1     DMLPG1    1.0            CO2LIM1   1.1
+    CHLP1     OBJ       2.5
+    CAIR1     BLJET1    -0.60          CPAIR1    1.0
+    CAIR1     DMJET1    1.0            CO2LIM1   1.5
+    CAIR1     OBJ       2.0
+    CNUL1     BLNUC1    -0.07          CPNUL1    1.0
+    CNUL1     PRNUL1WD  -0.57142       PRNUL1WN  -0.8571
+    CNUL1     PRNUL1SN  -0.57142       PRNUL1SD  -0.8571
+    CNUL1     PKELC1W   0.0952         PKELC1S   0.0952
+    CNUL1     OBJ       4.0
+    CHYD1     CPHYD1    1.0            OBJ       4.0
+    CHYD1     PRHYD1WD  -0.50          PRHYD1WN  -0.75
+    CHYD1     PRHYD1SN  -0.5           PRHYD1SD  -0.75
+    CHYD1     PKELC1W   0.167          PKELC1S   0.167
+    CELI1     BLELC1WD  -0.24          BLELC1WN  -0.72
+    CELI1     BLELC1SD  -0.84          BLELC1SN  -0.6
+    CELI1     CPELI1    1.0            DMELC1    1.0
+    CELI1     PKELC1W   0.0107         PKELC1S   0.0163
+    CELI1     OBJ       3.0
+    CELD1     BLELC1WD  -0.224         BLELC1WN  -0.672
+    CELD1     BLELC1SD  -0.784         BLELC1SN  -0.56
+    CELD1     CPELD1    1.0            DMELC1    1.0
+    CELD1     PKELC1W   0.0093         PKELC1S   0.0187
+    CELD1     OBJ       4.0
+    PCEL1WD   BLELC1WD  0.8            PRCEL1WD  1.0
+    PCEL1WD   OBJ       0.4
+    PCEL1WN   BLELC1WN  0.8            PRCEL1WN  1.0
+    PCEL1WN   OBJ       0.4
+    PCEL1SD   BLELC1SD  0.8            PRCEL1SD  1.0
+    PCEL1SD   OBJ       0.4
+    PCEL1SN   BLELC1SN  0.8            PRCEL1SN  1.0
+    PCEL1SN   OBJ       0.4
+    PNEL1WD   BLELC1WD  0.8            PRNEL1WD  1.0
+    PNEL1WD   OBJ       0.5
+    PNEL1WN   BLELC1WN  0.8            PRNEL1WN  1.0
+    PNEL1WN   OBJ       0.5
+    PNEL1SD   BLELC1SD  0.8            PRNEL1SD  1.0
+    PNEL1SD   OBJ       0.5
+    PNEL1SN   BLELC1SN  0.8            PRNEL1SN  1.0
+    PNEL1SN   OBJ       0.5
+    PNUL1WD   BLELC1WD  0.8            PRNUL1WD  1.0
+    PNUL1WD   OBJ       0.7
+    PNUL1WN   BLELC1WN  0.8            PRNUL1WN  1.0
+    PNUL1WN   OBJ       0.7
+    PNUL1SD   BLELC1SD  0.8            PRNUL1SD  1.0
+    PNUL1SD   OBJ       0.7
+    PNUL1SN   BLELC1SN  0.8            PRNUL1SN  1.0
+    PNUL1SN   OBJ       0.7
+    PHYD1WD   BLELC1WD  0.72           PRHYD1WD  1.0
+    PHYD1WD   OBJ       0.1
+    PHYD1WN   BLELC1WN  0.72           PRHYD1WN  1.0
+    PHYD1WN   OBJ       0.1
+    PHYD1SD   BLELC1SD  0.72           PRHYD1SD  1.0
+    PHYD1SD   OBJ       0.1
+    PHYD1SN   BLELC1SN  0.72           PRHYD1SN  1.0
+    PHYD1SN   OBJ       0.1
+    IMELC1WD  BLELC1WD  0.8            PKELC1W   1.667
+    IMELC1WD  OBJ       4.8            CO2LIM1   0.0
+    IMELC1WN  BLELC1WN  0.8            OBJ       4.6
+    IMELC1WN  CO2LIM1   0.0
+    IMELC1SD  BLELC1SD  0.8            PKELC1S   1.111
+    IMELC1SD  OBJ       5.2            CO2LIM1   0.0
+    IMELC1SN  BLELC1SN  0.8            OBJ       5.0
+    IMELC1SN  CO2LIM1   0.0
+    IELI1     CPELI1    -1.0           CPELI2    -1.0
+    IELI1     OBJ       30.0
+    IELD1     CPELD1    -1.0           CPELD2    -1.0
+    IELD1     OBJ       50.0
+    IHHO1     CPHHO1    -1.0           CPHHO2    -1.0
+    IHHO1     OBJ       20.0
+    IHNG1     CPHNG1    -1.0           CPHNG2    -1.0
+    IHNG1     OBJ       25.0
+    ICAR1     CPCAR1    -1.0           CPCAR2    -1.0
+    ICAR1     OBJ       40.0
+    IHLP1     CPHLP1    -1.0           CPHLP2    -1.0
+    IHLP1     OBJ       30.0
+    ICEL1     CPCEL1    -1.0           CPCEL2    -1.0
+    ICEL1     OBJ       30.0
+    INEL1     CPNEL1    -1.0           CPNEL2    -1.0
+    INEL1     OBJ       35.0
+    IAIR1     CPAIR1    -1.0           CPAIR2    -1.0
+    IAIR1     OBJ       40.0
+    ITRK1     CPTRK1    -1.0           CPTRK2    -1.0
+    ITRK1     OBJ       40.0
+    INUL1     CPNUL1    -1.0           CPNUL2    -1.0
+    INUL1     OBJ       80.0
+    IHYD1     CPHYD1    -1.0           CPHYD2    -1.0
+    IHYD1     OBJ       80.0
+    IMPOIL2   BLGAS2    0.45           BLHOL2    0.25
+    IMPOIL2   BLNGS2    0.10           BLLPG2    0.10
+    IMPOIL2   BLJET2    0.10           OBJ       3.62
+    IMPCOAL2  BLCOL2    1.0            OBJ       3.16
+    IMPNG2    BLNGS2    1.0            OBJ       2.72
+    IMPPRO2   BLLPG2    1.0            OBJ       3.16
+    IMPNUF2   BLNUC2    1.0            OBJ       4.07
+    CCAR2     BLGAS2    -0.35          CPCAR2    1.0
+    CCAR2     DMGAS2    1.0            CO2LIM2   1.5
+    CCAR2     OBJ       9.05
+    CCEL2     BLCOL2    -0.525         CPCEL2    1.0
+    CCEL2     PRCEL2WD  -0.57142       PRCEL2WN  -0.8571
+    CCEL2     PRCEL2SN  -0.57142       PRCEL2SD  -0.8571
+    CCEL2     PKELC2W   0.0952         PKELC2S   0.0952
+    CCEL2     CO2LIM2   1.2            OBJ       13.58
+    CHHO2     BLHOL2    -0.40          CPHHO2    1.0
+    CHHO2     DMHHO2    1.0            CO2LIM2   1.4
+    CHHO2     OBJ       9.05
+    CTRK2     BLHOL2    -0.75          CPTRK2    1.0
+    CTRK2     DMHHO2    1.0            CO2LIM2   1.7
+    CTRK2     OBJ       9.05
+    CHNG2     BLNGS2    -0.20          CPHNG2    1.0
+    CHNG2     DMNG2     1.0            CO2LIM2   1.0
+    CHNG2     OBJ       9.05
+    CNEL2     BLNGS2    -0.28          CPNEL2    1.0
+    CNEL2     PRNEL2WD  -1.0           PRNEL2WN  -1.5
+    CNEL2     PRNEL2SN  -1.0           PRNEL2SD  -1.5
+    CNEL2     PKELC2W   0.5            PKELC2S   0.5
+    CNEL2     CO2LIM2   0.9            OBJ       9.05
+    CHLP2     BLLPG2    -0.24          CPHLP2    1.0
+    CHLP2     DMLPG2    1.0            CO2LIM2   1.1
+    CHLP2     OBJ       11.31
+    CAIR2     BLJET2    -0.60          CPAIR2    1.0
+    CAIR2     DMJET2    1.0            CO2LIM2   1.5
+    CAIR2     OBJ       9.05
+    CNUL2     BLNUC2    -0.07          CPNUL2    1.0
+    CNUL2     PRNUL2WD  -0.57142       PRNUL2WN  -0.8571
+    CNUL2     PRNUL2SN  -0.57142       PRNUL2SD  -0.8571
+    CNUL2     PKELC2W   0.0952         PKELC2S   0.0952
+    CNUL2     OBJ       18.10
+    CHYD2     CPHYD2    1.0
+    CHYD2     PRHYD2WD  -0.50          PRHYD2WN  -0.75
+    CHYD2     PRHYD2SN  -0.5           PRHYD2SD  -0.75
+    CHYD2     PKELC2W   0.167          PKELC2S   0.167
+    CHYD2     OBJ       18.10
+    CELI2     BLELC2WD  -0.24          BLELC2WN  -0.72
+    CELI2     BLELC2SD  -0.84          BLELC2SN  -0.6
+    CELI2     CPELI2    1.0            DMELC2    1.0
+    CELI2     PKELC2W   0.0107         PKELC2S   0.0163
+    CELI2     OBJ       13.58
+    CELD2     BLELC2WD  -0.224         BLELC2WN  -0.672
+    CELD2     BLELC2SD  -0.784         BLELC2SN  -0.56
+    CELD2     CPELD2    1.0            DMELC2    1.0
+    CELD2     PKELC2W   0.0093         PKELC2S   0.0187
+    CELD2     OBJ       18.10
+    PCEL2WD   BLELC2WD  0.8            PRCEL2WD  1.0
+    PCEL2WD   OBJ       1.81
+    PCEL2WN   BLELC2WN  0.8            PRCEL2WN  1.0
+    PCEL2WN   OBJ       1.81
+    PCEL2SD   BLELC2SD  0.8            PRCEL2SD  1.0
+    PCEL2SD   OBJ       1.81
+    PCEL2SN   BLELC2SN  0.8            PRCEL2SN  1.0
+    PCEL2SN   OBJ       1.81
+    PNEL2WD   BLELC2WD  0.8            PRNEL2WD  1.0
+    PNEL2WD   OBJ       2.26
+    PNEL2WN   BLELC2WN  0.8            PRNEL2WN  1.0
+    PNEL2WN   OBJ       2.26
+    PNEL2SD   BLELC2SD  0.8            PRNEL2SD  1.0
+    PNEL2SD   OBJ       2.26
+    PNEL2SN   BLELC2SN  0.8            PRNEL2SN  1.0
+    PNEL2SN   OBJ       2.26
+    PNUL2WD   BLELC2WD  0.8            PRNUL2WD  1.0
+    PNUL2WD   OBJ       3.17
+    PNUL2WN   BLELC2WN  0.8            PRNUL2WN  1.0
+    PNUL2WN   OBJ       3.17
+    PNUL2SD   BLELC2SD  0.8            PRNUL2SD  1.0
+    PNUL2SD   OBJ       3.17
+    PNUL2SN   BLELC2SN  0.8            PRNUL2SN  1.0
+    PNUL2SN   OBJ       3.17
+    PHYD2WD   BLELC2WD  0.72           PRHYD2WD  1.0
+    PHYD2WD   OBJ       0.453
+    PHYD2WN   BLELC2WN  0.72           PRHYD2WN  1.0
+    PHYD2WN   OBJ       0.453
+    PHYD2SD   BLELC2SD  0.72           PRHYD2SD  1.0
+    PHYD2SD   OBJ       0.453
+    PHYD2SN   BLELC2SN  0.72           PRHYD2SN  1.0
+    PHYD2SN   OBJ       0.453
+    IMELC2WD  BLELC2WD  0.8            PKELC2W   1.667
+    IMELC2WD  OBJ       21.72          CO2LIM2   0.0
+    IMELC2WN  BLELC2WN  0.8            OBJ       20.82
+    IMELC2WN  CO2LIM2   0.0
+    IMELC2SD  BLELC2SD  0.8            PKELC2S   1.111
+    IMELC2SD  OBJ       23.54          CO2LIM2   0.0
+    IMELC2SN  BLELC2SN  0.8            OBJ       22.63
+    IMELC2SN  CO2LIM2   0.0
+    IELI2     CPELI2    -1.0           OBJ       57.42
+    IELD2     CPELD2    -1.0           OBJ       95.7
+    IHHO2     CPHHO2    -1.0           OBJ       38.82
+    IHNG2     CPHNG2    -1.0           OBJ       47.85
+    ICAR2     CPCAR2    -1.0           OBJ       76.56
+    IHLP2     CPHLP2    -1.0           OBJ       57.42
+    ICEL2     CPCEL2    -1.0           OBJ       57.42
+    INEL2     CPNEL2    -1.0           OBJ       67.0
+    IAIR2     CPAIR2    -1.0           OBJ       76.56
+    ITRK2     CPTRK2    -1.0           OBJ       76.56
+    INUL2     CPNUL2    -1.0           OBJ       153.12
+    IHYD2     CPHYD2    -1.0           OBJ       153.12
+RHS           RIGHT
+    RIGHT     CPELI1    100.0          CPELD1    110.0
+    RIGHT     CPHHO1    15.0           CPHNG1    25.0
+    RIGHT     CPCAR1    80.0           CPHLP1    5.0
+    RIGHT     CPCEL1    110.0          CPNEL1    40.0
+    RIGHT     CPAIR1    15.0           CPTRK1    30.0
+    RIGHT     CPNUL1    40.0           CPHYD1    10.0
+    RIGHT     DMELC1    170.0          DMHHO1    30.0
+    RIGHT     DMNG1     15.0           DMGAS1    60.0
+    RIGHT     DMLPG1    3.0            DMJET1    10.0
+    RIGHT     PRCEL1WD  -0.4           PRCEL1WN  -0.6
+    RIGHT     PRCEL1SD  -0.6           PRCEL1SN  -0.4
+    RIGHT     PRNEL1WD  -0.4           PRNEL1WN  -0.6
+    RIGHT     PRNEL1SD  -0.6           PRNEL1SN  -0.4
+    RIGHT     PRNUL1WD  -0.4           PRNUL1WN  -0.6
+    RIGHT     PRNUL1SD  -0.6           PRNUL1SN  -0.4
+    RIGHT     PRHYD1WD  -0.4           PRHYD1WN  -0.6
+    RIGHT     PRHYD1SD  -0.6           PRHYD1SN  -0.4
+    RIGHT     CO2LIM1   800.0
+    RIGHT     CPELI2    100.0          CPELD2    110.0
+    RIGHT     CPHHO2    15.0           CPHNG2    25.0
+    RIGHT     CPCAR2    80.0           CPHLP2    5.0
+    RIGHT     CPCEL2    100.0          CPNEL2    40.0
+    RIGHT     CPAIR2    15.0           CPTRK2    30.0
+    RIGHT     CPNUL2    20.0           CPHYD2    8.0
+    RIGHT     DMELC2    230.0          DMHHO2    30.0
+    RIGHT     DMNG2     25.0           DMGAS2    80.0
+    RIGHT     DMLPG2    3.0            DMJET2    20.0
+    RIGHT     PRCEL2WD  -0.4           PRCEL2WN  -0.6
+    RIGHT     PRCEL2SD  -0.6           PRCEL2SN  -0.4
+    RIGHT     PRNEL2WD  -0.4           PRNEL2WN  -0.6
+    RIGHT     PRNEL2SD  -0.6           PRNEL2SN  -0.4
+    RIGHT     PRNUL2WD  -0.4           PRNUL2WN  -0.6
+    RIGHT     PRNUL2SD  -0.6           PRNUL2SN  -0.4
+    RIGHT     PRHYD2WD  -0.4           PRHYD2WN  -0.6
+    RIGHT     PRHYD2SD  -0.6           PRHYD2SN  -0.4
+    RIGHT     CO2LIM2   100.0
+ENDATA

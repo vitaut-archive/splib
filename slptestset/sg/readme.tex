@@ -1,0 +1,269 @@
+\documentstyle[12pt,dina4]{article}
+
+%\textwidth18cm
+%\textheight26.5cm
+%\oddsidemargin-1.1cm
+%\evensidemargin-1.1cm
+%\headsep-1.5cm
+%\pagestyle{empty}
+
+% englische Trennung verwenden
+% \language=0
+
+\newcommand{\smod}{\, \bmod \:}
+\newcommand{\hervor}[1]{#1}
+\newcommand{\enghervor}[1]{#1}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\m}[1]{$ #1 $}
+\newcommand{\rb}[1]{\raisebox{1.5ex}[-1.5ex]{#1}}
+\newcommand{\sfrac}[2]{\leavevmode\kern.1em
+\raise.5ex\hbox{\the\scriptfont0 #1}\kern-0.1em
+/\kern-.15em\lower.25ex\hbox{\the\scriptfont0 #2}}
+     % Darstellung von schraegen Bruechen, also 1/2
+
+\renewcommand{\refname}{\large \bf References}
+\newcommand{\alfa}{\renewcommand{\labelenumi}{\alph{enumi}.)}}
+\newcommand{\roemisch}{\renewcommand{\labelenumi}{\roman{enumi}.)}}
+\newcommand{\alfaii}{\renewcommand{\labelenumii}{\alph{enumii}.)}}
+\newcommand{\roemischii}{\renewcommand{\labelenumii}{\roman{enumii}.)}}
+
+% die folgenden 5 Makros von Andreas Klose
+\newcounter{SecCount}
+\setcounter{SecCount}{0}
+
+\newcommand{\Secnum}{\refstepcounter{SecCount} \hspace{-1.7ex} \theSecCount \hspace{1ex}}
+
+\newcommand{\zeilabbig}{\renewcommand{\baselinestretch}{1.15} \small\normalsize}
+
+%% Zus\"atzliche Mengenzeichen f\"ur TeX und LaTeX (Doppelbalkenbuchstaben)
+%%
+%% [trotz der Verf\"ugbarkeit der AMS-Fonts nicht veraltet]
+%%
+%% Stand: 25.1.1992
+%%
+\newcommand{\sBB}{{\rm I\kern-.17em{}B}}
+\newcommand{\BB}{{\mathchoice
+  {\sBB}
+  {\sBB}
+  {\rm I\kern-.13em{}B}
+  {\rm I\kern-.13em{}B} }}
+\newcommand{\sNN}{{\rm I\kern-.16em{}N}}
+\newcommand{\NN}{{\mathchoice
+  {\sNN}
+  {\sNN}
+  {\rm I\kern-.12em{}N}
+  {\rm I\kern-.10em{}N} }}
+\newcommand{\sRR}{{\rm I\kern-0.16em{}R}}
+\newcommand{\RR}{{\mathchoice
+  {\sRR}
+  {\sRR}
+  {\rm I\kern-0.12em{}R}
+  {\rm I\kern-0.10em{}R} }}
+\newcommand{\sZZ}{{\rm Z\kern-0.32em{}Z}}
+\newcommand{\ZZ}{{\mathchoice
+  {\sZZ}
+  {\sZZ}
+  {\rm Z\kern-0.30em{}Z}
+  {\rm Z\kern-0.25em{}Z} }}
+
+\newtheorem{defi}{Definition}          % Definitionskopf
+\newtheorem{theo}{Theorem}
+\newtheorem{koro}{Corollary}
+
+\newcommand{\df}[1]{
+\begin{defi}
+\label{#1} \                   % hier evtl. {\bf :}, \ als Zeilenbeg.
+\rm
+}
+\newcommand{\edf}{
+\end{defi}
+}
+
+\newcommand{\theins}[1]{
+\begin{theo} \label{#1} \rm }
+
+\newcommand{\thzwei}[2]{
+\begin{theo}[#2] \label{#1} \rm }
+
+\newcommand{\eth}{
+\end{theo} }
+
+\newcommand{\ko}[1]{
+\begin{koro}
+\label{#1} \
+\rm
+}
+
+\newcommand{\eko}{
+\end{koro}
+}
+
+\newcommand{\bew}{{\noindent\bf Proof:}}
+\newcommand{\ebew}{
+\vspace*{0.1em}
+\hspace*{\fill}\framebox[2mm]{\rule{0mm}{1.1mm}}  % erzeugt Leerkasten
+}
+
+
+
+\begin{document}
+
+\title{SG--Portfolio Test Problems for Stochastic \\
+Multistage Linear Programming }
+\author{K. Frauendorfer, F. H\"artel, M. Reiff, M. Sch\"urle \\
+\normalsize Institute of Operations Research \\
+\normalsize University of St. Gallen, Switzerland \\}
+\date{}
+\maketitle
+\thispagestyle{empty}
+
+\zeilabbig
+
+ Barycentric Approximation is
+ a solution technique for stochastic multistage programs 
+where the joint probability distribution of the underlying multidimensional 
+stochastic discrete-time process is approximated by a sequence of 
+distinguished scenario trees. These scenario trees define a corresponding 
+sequence of multistage programs 
+with error bounds for the approximate solutions. 
+This way, barycentric approximation provides the user with 
+scenarios and approximate policies. In the
+convex case, the goodness of the scenarios and the accuracy of the associated
+policies can be quantified; further information on how significant
+improvements are can be elicited via duality analysis.
+
+\medskip
+It has turned out that the numerical effort of the barycentric
+approximation scheme heavily depends on the efficiency of the optimization
+algorithm invoked for solving the highly sparse multistage programs. 
+Currently, CPlex is used for solving these 
+multistage programs (on SUN SPARCSystem20; 512 MByte RAM, Solaris 2.3).
+In a next step, the idea is to invoke sophisticated decomposition 
+techniques. For this purpose, a set of $n$-stage linear minimization
+programs in SMPS-format\footnote{For a description of the SMPS format see: {\sl John R.\ Birge, Michael A.\ Dempster, Horand I.\ Gassmann, E.A.\ Gunn, Alan J.\ King} and {\sl Stein Wallace}: A STANDARD INPUT FORMAT FOR MULTIPERIOD STOCHASTIC LINEAR PROGRAMS, {\sl COAL (Mathematical Programming Society, Committee on Algorithms) Newsletter {\bf 17}} (1988)}
+ is made available on public domain, 
+to exchange experiences with currents codes 
+of various decomposition techniques within stochastic programming. 
+
+\medskip
+Portfolio test problems, called SGPF3Y{\em n} 
+and SGPF5Y{\em n}, are considered,
+where $n$ represents stages ($n=3,4,5,6,7$).
+Some current portfolio is given as input; 
+the decisions at stage $1,2,3, \ldots, n$ will be seen 
+as revisions or rebalancing activities. 
+
+\medskip
+The barycentric scenario trees associated with portfolio problems 
+SGPF3Y {\em n} and SGPF5Y{\em n} basically consist of $4$ 
+stochastic rates of 
+return (in the objective) and one stochastic cash flow component
+(in the RHS) per period. Per period and per scenario, 
+SGPF3Y{\em n} and SGPF5Y{\em n} have $51$ and $77$ 
+state and control variables, respectively.
+
+\medskip
+Problems SGPF3Y{\em n} and SGPF5Y{\em n} are available in SMPS-Format and
+in MPS-Format for $n=3, 4, \ldots, 7$ stages. In a first step, the
+portfolio problems for $n=3, 4, \ldots, 6$ stages will be made 
+available only in SMPS-Format on a public domain (see instruction below). 
+Because of storage capacity, 
+data for the $7-$stage problems (SGPF3Y7 and SGPF5Y7) will be made 
+available on request, as well as data for all test problems in MPS-Format. 
+
+The problems SGPF5Y3, SGPF5Y4,
+SGPF5Y5, SGPF5Y6, SGPF3Y3, SGPF3Y4, SGPF3Y5, and SGPF3Y6 were generated as minimization problems in scenario format within SMPS.
+The corresponding files are named SGPF*.COR, SGPF*.TIM, and SGPF*.SCE. 
+The characteristics of the SG--Portfolio Test Problems are described in the table on the last page. 
+
+A format description of those portfolio test problems is in preparation and will be distributed on request via e--mail as soon as it is available.
+
+\noindent
+{\bf CAUTION}: As mentioned above, the portfolio problems have been generated twice, in MPS format and in SMPS format.
+Up to now, we were able to check only for small problems (i.e.\ less or equal than 3 stages) whether the problem formulation in MPS format and in SMPS format really coincide. Therefore, currently we cannot guarantee that no inconsistencies occur for n $\geq$ 4.
+We could not do a final check, because we neither have a routine that converts problems in SMPS format back to MPS format nor a decomposition code which uses the SMPS format as input. 
+Making our test problems available on public domain, should help not only to verify that final check, but also to compare performance and accuracy of existing decomposition techniques within Stochastic Programming.
+
+Please send your results and experiences with linear SG--Portfolio Test Problems to:
+
+\bigskip
+
+\noindent
+Prof.\ Dr.\ Karl Frauendorfer\\
+Institute of Operations Research\\
+University of St.\ Gallen\\
+CH--9000 St.\ Gallen\\
+Switzerland\\
+
+\noindent
+E--Mail: FRAUENDORFER@sgcl1.unisg.ch
+
+\bigskip
+
+\newpage
+
+\noindent
+The SG--Portfolio Test Problems are via ftp available at:
+
+\begin{tabular}{ll} 
+Node: & alpha.unisg.ch (130.82.1.12)\\
+User: & anonymous \\
+Password: & $<$your name$>$ \\
+Directory: & SMPS (\$1\$DUA1:SPEZ.XFR.SMPS]) \\
+\end{tabular}
+
+
+\newpage
+
+\section*{Characteristics of the SG--Portfolio Test Problems:}
+
+\bigskip
+
+\begin{center}
+\begin{tabular}{|l|r|r|r|r|} \hline
+Problem            & SGPF5Y3 & SGPF5Y4 & SGPF5Y5 & SGPF5Y6 \\ \hline
+\#Stages           &     3   &     4   &     5   &     6 \\
+\#Scenarios        &    25   &   125   &   625   &  3125 \\
+Obj. value         &  3027.6 &  4023.9 &  5180.8 &  6403.3 \\ \hline
+\multicolumn{5}{|c|}{Size of the problem in MPS format} \\ \hline
+Rows               &    1972 &    9861 &   49303 &  246178 \\
+Columns            &    2474 &   12372 &   61858 &  308733 \\ \hline
+\multicolumn{5}{|c|}{Numerical effort solving the problem with Cplex} \\ \hline
+Eliminated rows    &    1282 &    5657 &   24407 &  102532 \\
+Eliminated columns &    1342 &    5726 &   24476 &  102601 \\
+Reduced rows       &     124 &     749 &    3874 &   19499 \\
+Reduced columns    &     620 &    3236 &   16361 &   81986 \\
+Nonzeros           &    1441 &    8432 &   46557 &  252807 \\
+Iterations         &     103 &     521 &    1544 &    4927 \\
+Solution time [s]  &    0.40 &    3.03 &   25.86 &  428.87 \\ \hline
+\end{tabular}
+\end{center}
+
+\bigskip
+\noindent
+
+
+
+\begin{center}
+\begin{tabular}{|l|r|r|r|r|} \hline
+Problem            & SGPF3Y3 & SGPF3Y4 & SGPF3Y5 & SGPF3Y6 \\ \hline
+\#Stages           &     3   &     4   &     5   &     6 \\
+\#Scenarios        &    25   &   125   &   625   &  3125 \\
+Obj. value         &  2967.9 &  3991.3 &  5152.6 &  6369.0 \\ \hline
+\multicolumn{5}{|c|}{Size of the problem in MPS format} \\ \hline
+Rows               &    1220 &    6097 &   30487 &  152434 \\
+Columns            &    1595 &    7974 &   39868 &  199341 \\ \hline
+\multicolumn{5}{|c|}{Numerical effort solving the problem with Cplex} \\ \hline
+Eliminated rows    &     710 &    3085 &   13085 &   53710 \\
+Eliminated columns &     746 &    3130 &   13130 &   53915 \\
+Reduced rows       &     124 &     749 &    3874 &   19539 \\
+Reduced columns    &     496 &    2612 &   13237 &   66242 \\
+Nonzeros           &    1085 &    6326 &   34451 &  184371 \\
+Iterations         &     106 &     493 &    1610 &    7246 \\
+Solution time [s]  &    0.26 &    1.94 &   22.14 &  625.27 \\ \hline
+\end{tabular}
+\end{center}
+
+
+\end{document}
+

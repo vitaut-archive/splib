@@ -1,0 +1,147 @@
+\begin{thebibliography}{10}
+
+\bibitem{ari96}
+K.~A. Ariyawansa and P.~L. Jiang.
+\newblock Polynomial cutting plane algorithms for two-stage stochastic linear
+  programs based on ellipsoids, volumetric centers and analytic centers.
+\newblock Technical report, Department of Pure and Applied Mathematics,
+  Washington State University, 1996.
+
+\bibitem{more-averick91}
+B.~M. Averick, R.~G. Carter, and J.~J. Mor\'e.
+\newblock The {M}inpack-2 test problem collection (preliminary version).
+\newblock Technical Report Technical Memorandum ANL/MCS-TM-150, Mathematics and
+  Computer Science Division, Argonne National Laboratory, Argonne, IL, 1991.
+
+\bibitem{more-benson01}
+Steven~J. Benson, Lois~Curfman McInnes, and J.~J. Mor\'e.
+\newblock {G}{P}{C}{G}: a case study in the performance and scalability of
+  optimization algorithms.
+\newblock Technical Report ANL/MCS-P768-0799, Mathematics and Computer Science
+  Division Argonne National Laboratory, Sep 2000.
+
+\bibitem{SMPS87}
+J.R. Birge, M.A.H. Dempster, H.I. Gassmann, E.A. Gunn, A.J. King, and S.W.
+  Wallace.
+\newblock A standard input format for multiperiod stochastic linear programs.
+\newblock {\em COAL Newsletter}, (17):1--19, 1987.
+\newblock URL: \url{http://www.mgmt.dal.ca/sba/profs/hgassmann/smps.html},
+  accessed 2 Nov., 2001.
+
+\bibitem{carino94}
+D.~R. Cari{\~{n}}o, T.~Kent, D.~H. Myers, C.~Stacy, M.~Sylvanus, A.~L. Turner,
+  K.~Watanabe, and W.~T. Ziemba.
+\newblock The {R}ussell-{Y}asuda {K}asai model: An asset/liability model for a
+  {J}apanese insurance company using multistage stochastic programming.
+\newblock {\em Interfaces}, 24(1):29--49, January-February 1994.
+
+\bibitem{carino298}
+D.~R. Cari{\~{n}}o, D.~H. Myers, and W.~T. Ziemba.
+\newblock Concepts, technical issues, and uses of the {R}ussell-{Y}asuda
+  {K}asai financial planning model.
+\newblock In {\em Operations Research\/} \cite{carino98}, pages 450--462.
+
+\bibitem{carino98}
+D.~R. Cari{\~{n}}o and W.~T. Ziemba.
+\newblock Formulation of the {R}ussell - {Y}asuda {K}asai financial planning
+  model.
+\newblock {\em Operations Research}, 46(4):433--449, July-August 1998.
+
+\bibitem{fragniere95}
+E.~Fragni\`{e}re.
+\newblock {\em Choix \'{e}nerg\'{e}tiques et environnementaux pour le {C}anton
+  de {G}en\`{e}ve}.
+\newblock PhD thesis, {U}niversit\'{e} de {G}en\`{e}ve, April 1995.
+\newblock Th\`{e}se no 412.
+
+\bibitem{frauendorfer97}
+K.~Frauendorfer, C.~Marohn, and M.~Sch{\"{u}}rle.
+\newblock {S}{G}-portfolio test problems for stochastic multistage linear
+  programming ({I}{I}).
+\newblock Technical report, Institute of Operations Research, University of St.
+  Gallen, Switzerland, June 1997.
+
+\bibitem{gassmannwww}
+H.~I. Gassmann.
+\newblock stocfor1, stocfor2, stocfor3\hspace*{\fill}.
+\newblock \newline URL: \url{http://www.netlib.org/lp/data/}.
+\newblock Multistage stochastic LP test problems.
+
+\bibitem{gassmann89}
+H.~I. Gassmann.
+\newblock Optimal harvest of a forest in the presence of uncertainty.
+\newblock {\em Canadian Journal of Forest Research}, 19:1267--1274, 1989.
+
+\bibitem{postswebsite}
+D.~Holmes.
+\newblock A ({P}{O})rtable ({S})tochastic programming ({T})est ({S})et
+  ({P}{O}{S}{T}{S}).
+\newblock URL:
+  \url{http://users.iems.nwu.edu/}$\sim${jrbirge/html/dholmes/post.html},
+  accessed 2 Nov., 2001, Jan 1997.
+
+\bibitem{klaassen90}
+P.~Klaassen, J.~F. Shapiro, and D.~E. Spitz.
+\newblock Sequential decision models for selecting currency options.
+\newblock Technical Report IFSRC No. 133-90, Massachusetts Institute of
+  Technology, International Financial Services Research Center, July 1990.
+
+\bibitem{more-lin99}
+C.~Lin and J.~J. Mor\'e.
+\newblock Newton's method for large bound-constrained optimization method.
+\newblock {\em SIAM J. Optim.}, (9):1100--1127, 1999.
+
+\bibitem{smeers88}
+F.~V. Louveaux and Y.~Smeers.
+\newblock Optimal investments for electricity generation: A stochastic model
+  and a test-problem.
+\newblock In R.~J-B. Wets and Y.~Ermoliev, editors, {\em Numerical Techniques
+  for Stochastic Optimization}, chapter~24, pages 445--453. Springer-Verlag,
+  1988.
+
+\bibitem{midler69}
+J.~L. Midler and R.~D. Wollmer.
+\newblock Stochastic programming models for scheduling airlift operations.
+\newblock {\em Naval Research Logistics Quarterly}, 16:315--330, 1969.
+
+\bibitem{more90}
+J.~J. Mor\'e.
+\newblock A collection of nonlinear model problems.
+\newblock In {\em Computational solution of nonlinear systems of equations},
+  volume~26 of {\em Lecture notes in applied mathematics}, pages 723--762.
+  American Mathematical Society, Providence, RI, 1990.
+
+\bibitem{more-toraldo91}
+J.~J. Mor\'e and G.~Toraldo.
+\newblock On the solution of large quadratic programming problems with bound
+  constraints.
+\newblock {\em SIAM J. Optim.}, (1):93--113, 1991.
+
+\bibitem{mulveynote99}
+J.~M. Mulvey.
+\newblock Re: Stochastic {L}{P} examples.
+\newblock personal email from author, Dec. 19 1999.
+
+\bibitem{mulvey95}
+J.~M. Mulvey and A.~Ruszczy\`{n}ski.
+\newblock A new scenario decomposition method for large-scale stochastic
+  optimization.
+\newblock {\em Operations Research}, 43(3):477--490, May-June 1995.
+
+\bibitem{mulvey91}
+J.~M. Mulvey and H.~Vladimirou.
+\newblock Applying the progressive hedging algorithm to stochastic generalized
+  networks.
+\newblock {\em Annals of Operations Research}, 31:399--424, 1991.
+
+\bibitem{sen94}
+S.~Sen, R.~D. Doverspike, and S.~Cosares.
+\newblock Network planning with random demand.
+\newblock {\em Telecommunication Systems}, 3:11--30, 1994.
+
+\bibitem{subrahmanyam94}
+S.~Subrahmanyam, J.~F. Pekny, and G.~V. Reklaitis.
+\newblock Design of batch chemical plants under market uncertainty.
+\newblock {\em Ind. Eng. Chem. Res.}, 33:2688--2701, 1994.
+
+\end{thebibliography}

@@ -1,0 +1,5 @@
+TIME          BL_4_2
+PERIODS
+    X1        R1                       STAGE1
+    Y1        R1                       STAGE2
+ENDATA

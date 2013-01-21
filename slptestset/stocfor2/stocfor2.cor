@@ -1,0 +1,376 @@
+NAME          STOCHFOR                                                        
+ROWS
+ N  HARV    
+ L  BOUND3.1
+ L  BOUND4.1
+ L  BOUND5.1
+ L  BOUND6.1
+ L  BOUND7.1
+ L  BOUND8.1
+ E  REGEN1.1
+ E  REGEN2.1
+ E  REGEN3.1
+ E  REGEN4.1
+ E  REGEN5.1
+ E  REGEN6.1
+ E  REGEN7.1
+ E  REGEN8.1
+ E  YIELD1  
+ L  BOUND3.2
+ L  BOUND4.2
+ L  BOUND5.2
+ L  BOUND6.2
+ L  BOUND7.2
+ L  BOUND8.2
+ E  REGEN1.2
+ E  REGEN2.2
+ E  REGEN3.2
+ E  REGEN4.2
+ E  REGEN5.2
+ E  REGEN6.2
+ E  REGEN7.2
+ E  REGEN8.2
+ L  TFLOW1.2
+ G  TFLOW2.2
+ E  YIELD2  
+ L  BOUND3.3
+ L  BOUND4.3
+ L  BOUND5.3
+ L  BOUND6.3
+ L  BOUND7.3
+ L  BOUND8.3
+ E  REGEN1.3
+ E  REGEN2.3
+ E  REGEN3.3
+ E  REGEN4.3
+ E  REGEN5.3
+ E  REGEN6.3
+ E  REGEN7.3
+ E  REGEN8.3
+ L  TFLOW1.3
+ G  TFLOW2.3
+ E  YIELD3  
+ L  BOUND3.4
+ L  BOUND4.4
+ L  BOUND5.4
+ L  BOUND6.4
+ L  BOUND7.4
+ L  BOUND8.4
+ E  REGEN1.4
+ E  REGEN2.4
+ E  REGEN3.4
+ E  REGEN4.4
+ E  REGEN5.4
+ E  REGEN6.4
+ E  REGEN7.4
+ E  REGEN8.4
+ L  TFLOW1.4
+ G  TFLOW2.4
+ E  YIELD4  
+ L  BOUND3.5
+ L  BOUND4.5
+ L  BOUND5.5
+ L  BOUND6.5
+ L  BOUND7.5
+ L  BOUND8.5
+ E  REGEN1.5
+ E  REGEN2.5
+ E  REGEN3.5
+ E  REGEN4.5
+ E  REGEN5.5
+ E  REGEN6.5
+ E  REGEN7.5
+ E  REGEN8.5
+ L  TFLOW1.5
+ G  TFLOW2.5
+ E  YIELD5  
+ L  BOUND3.6
+ L  BOUND4.6
+ L  BOUND5.6
+ L  BOUND6.6
+ L  BOUND7.6
+ L  BOUND8.6
+ E  REGEN1.6
+ E  REGEN2.6
+ E  REGEN3.6
+ E  REGEN4.6
+ E  REGEN5.6
+ E  REGEN6.6
+ E  REGEN7.6
+ E  REGEN8.6
+ L  TFLOW1.6
+ G  TFLOW2.6
+ E  YIELD6  
+ L  BOUND3.7
+ L  BOUND4.7
+ L  BOUND5.7
+ L  BOUND6.7
+ L  BOUND7.7
+ L  BOUND8.7
+ E  REGEN1.7
+ E  REGEN2.7
+ E  REGEN3.7
+ E  REGEN4.7
+ E  REGEN5.7
+ E  REGEN6.7
+ E  REGEN7.7
+ E  REGEN8.7
+ L  TFLOW1.7
+ G  TFLOW2.7
+ E  YIELD7  
+COLUMNS
+    CLASS3.1  BOUND3.1            1.   YIELD1             16.   
+    CLASS3.1  REGEN1.2       -.93742   REGEN4.2        .93742   
+    CLASS3.1  TFLOW1.2          14.4   TFLOW2.2          17.6   
+    CLASS4.1  REGEN1.2       -.93742   REGEN5.2        .93742   
+    CLASS4.1  TFLOW1.2          96.3   TFLOW2.2         117.7   
+    CLASS4.1  BOUND4.1            1.   YIELD1            107.   
+    CLASS5.1  BOUND5.1            1.   YIELD1            217.   
+    CLASS5.1  REGEN1.2       -.93742   REGEN6.2        .93742   
+    CLASS5.1  TFLOW1.2         195.3   TFLOW2.2         238.7   
+    CLASS6.1  REGEN1.2       -.93742   REGEN7.2        .93742   
+    CLASS6.1  TFLOW1.2         247.5   TFLOW2.2         302.5   
+    CLASS6.1  BOUND6.1            1.   YIELD1            275.   
+    CLASS7.1  BOUND7.1            1.   YIELD1            298.   
+    CLASS7.1  REGEN1.2       -.93742   REGEN8.2        .93742   
+    CLASS7.1  TFLOW1.2         268.2   TFLOW2.2         327.8   
+    CLASS8.1  REGEN1.2       -.93742   REGEN8.2        .93742   
+    CLASS8.1  TFLOW1.2         275.4   TFLOW2.2         336.6   
+    CLASS8.1  BOUND8.1            1.   YIELD1            306.   
+    STATE1.1  REGEN1.1            1.   REGEN1.2       -.06258   
+    STATE1.1  REGEN2.2       -.93742   
+    STATE2.1  REGEN1.2       -.06258   REGEN3.2       -.93742   
+    STATE2.1  REGEN2.1            1.   
+    STATE3.1  REGEN3.1            1.   BOUND3.1           -1.   
+    STATE3.1  REGEN1.2       -.06258   REGEN4.2       -.93742   
+    STATE4.1  REGEN1.2       -.06258   REGEN5.2       -.93742   
+    STATE4.1  REGEN4.1            1.   BOUND4.1           -1.   
+    STATE5.1  REGEN5.1            1.   BOUND5.1           -1.   
+    STATE5.1  REGEN1.2       -.06258   REGEN6.2       -.93742   
+    STATE6.1  REGEN1.2       -.06258   REGEN7.2       -.93742   
+    STATE6.1  REGEN6.1            1.   BOUND6.1           -1.   
+    STATE7.1  REGEN7.1            1.   BOUND7.1           -1.   
+    STATE7.1  REGEN1.2       -.06258   REGEN8.2       -.93742   
+    STATE8.1  REGEN1.2       -.06258   REGEN8.2       -.93742   
+    STATE8.1  REGEN8.1            1.   BOUND8.1           -1.   
+    BALAN1    HARV               -1.   YIELD1             -1.   
+    CLASS3.2  BOUND3.2            1.   YIELD2             16.   
+    CLASS3.2  REGEN1.3       -.93742   REGEN4.3        .93742   
+    CLASS3.2  TFLOW1.3          14.4   TFLOW2.3          17.6   
+    CLASS4.2  REGEN1.3       -.93742   REGEN5.3        .93742   
+    CLASS4.2  TFLOW1.3          96.3   TFLOW2.3         117.7   
+    CLASS4.2  BOUND4.2            1.   YIELD2            107.   
+    CLASS5.2  BOUND5.2            1.   YIELD2            217.   
+    CLASS5.2  REGEN1.3       -.93742   REGEN6.3        .93742   
+    CLASS5.2  TFLOW1.3         195.3   TFLOW2.3         238.7   
+    CLASS6.2  REGEN1.3       -.93742   REGEN7.3        .93742   
+    CLASS6.2  TFLOW1.3         247.5   TFLOW2.3         302.5   
+    CLASS6.2  BOUND6.2            1.   YIELD2            275.   
+    CLASS7.2  BOUND7.2            1.   YIELD2            298.   
+    CLASS7.2  REGEN1.3       -.93742   REGEN8.3        .93742   
+    CLASS7.2  TFLOW1.3         268.2   TFLOW2.3         327.8   
+    CLASS8.2  REGEN1.3       -.93742   REGEN8.3        .93742   
+    CLASS8.2  TFLOW1.3         275.4   TFLOW2.3         336.6   
+    CLASS8.2  BOUND8.2            1.   YIELD2            306.   
+    STATE1.2  REGEN1.2            1.   REGEN1.3       -.06258   
+    STATE1.2  REGEN2.3       -.93742   
+    STATE2.2  REGEN1.3       -.06258   REGEN3.3       -.93742   
+    STATE2.2  REGEN2.2            1.   
+    STATE3.2  REGEN3.2            1.   BOUND3.2           -1.   
+    STATE3.2  REGEN1.3       -.06258   REGEN4.3       -.93742   
+    STATE4.2  REGEN1.3       -.06258   REGEN5.3       -.93742   
+    STATE4.2  REGEN4.2            1.   BOUND4.2           -1.   
+    STATE5.2  REGEN5.2            1.   BOUND5.2           -1.   
+    STATE5.2  REGEN1.3       -.06258   REGEN6.3       -.93742   
+    STATE6.2  REGEN1.3       -.06258   REGEN7.3       -.93742   
+    STATE6.2  REGEN6.2            1.   BOUND6.2           -1.   
+    STATE7.2  REGEN7.2            1.   BOUND7.2           -1.   
+    STATE7.2  REGEN1.3       -.06258   REGEN8.3       -.93742   
+    STATE8.2  REGEN1.3       -.06258   REGEN8.3       -.93742   
+    STATE8.2  REGEN8.2            1.   BOUND8.2           -1.   
+    BALAN2    HARV         -.9050629   YIELD2             -1.   
+    BALAN2    TFLOW1.2           -1.   TFLOW2.2           -1.   
+    PNLTY2    TFLOW1.2           -1.   HARV               50.   
+    CLASS3.3  BOUND3.3            1.   YIELD3             16.   
+    CLASS3.3  REGEN1.4       -.93742   REGEN4.4        .93742   
+    CLASS3.3  TFLOW1.4          14.4   TFLOW2.4          17.6   
+    CLASS4.3  REGEN1.4       -.93742   REGEN5.4        .93742   
+    CLASS4.3  TFLOW1.4          96.3   TFLOW2.4         117.7   
+    CLASS4.3  BOUND4.3            1.   YIELD3            107.   
+    CLASS5.3  BOUND5.3            1.   YIELD3            217.   
+    CLASS5.3  REGEN1.4       -.93742   REGEN6.4        .93742   
+    CLASS5.3  TFLOW1.4         195.3   TFLOW2.4         238.7   
+    CLASS6.3  REGEN1.4       -.93742   REGEN7.4        .93742   
+    CLASS6.3  TFLOW1.4         247.5   TFLOW2.4         302.5   
+    CLASS6.3  BOUND6.3            1.   YIELD3            275.   
+    CLASS7.3  BOUND7.3            1.   YIELD3            298.   
+    CLASS7.3  REGEN1.4       -.93742   REGEN8.4        .93742   
+    CLASS7.3  TFLOW1.4         268.2   TFLOW2.4         327.8   
+    CLASS8.3  REGEN1.4       -.93742   REGEN8.4        .93742   
+    CLASS8.3  TFLOW1.4         275.4   TFLOW2.4         336.6   
+    CLASS8.3  BOUND8.3            1.   YIELD3            306.   
+    STATE1.3  REGEN1.3            1.   REGEN1.4       -.06258   
+    STATE1.3  REGEN2.4       -.93742   
+    STATE2.3  REGEN1.4       -.06258   REGEN3.4       -.93742   
+    STATE2.3  REGEN2.3            1.   
+    STATE3.3  REGEN3.3            1.   BOUND3.3           -1.   
+    STATE3.3  REGEN1.4       -.06258   REGEN4.4       -.93742   
+    STATE4.3  REGEN1.4       -.06258   REGEN5.4       -.93742   
+    STATE4.3  REGEN4.3            1.   BOUND4.3           -1.   
+    STATE5.3  REGEN5.3            1.   BOUND5.3           -1.   
+    STATE5.3  REGEN1.4       -.06258   REGEN6.4       -.93742   
+    STATE6.3  REGEN1.4       -.06258   REGEN7.4       -.93742   
+    STATE6.3  REGEN6.3            1.   BOUND6.3           -1.   
+    STATE7.3  REGEN7.3            1.   BOUND7.3           -1.   
+    STATE7.3  REGEN1.4       -.06258   REGEN8.4       -.93742   
+    STATE8.3  REGEN1.4       -.06258   REGEN8.4       -.93742   
+    STATE8.3  REGEN8.3            1.   BOUND8.3           -1.   
+    BALAN3    HARV         -.8191389   YIELD3             -1.   
+    BALAN3    TFLOW1.3           -1.   TFLOW2.3           -1.   
+    PNLTY3    TFLOW1.3           -1.   HARV             45.25   
+    CLASS3.4  BOUND3.4            1.   YIELD4             16.   
+    CLASS3.4  REGEN1.5       -.93742   REGEN4.5        .93742   
+    CLASS3.4  TFLOW1.5          14.4   TFLOW2.5          17.6   
+    CLASS4.4  REGEN1.5       -.93742   REGEN5.5        .93742   
+    CLASS4.4  TFLOW1.5          96.3   TFLOW2.5         117.7   
+    CLASS4.4  BOUND4.4            1.   YIELD4            107.   
+    CLASS5.4  BOUND5.4            1.   YIELD4            217.   
+    CLASS5.4  REGEN1.5       -.93742   REGEN6.5        .93742   
+    CLASS5.4  TFLOW1.5         195.3   TFLOW2.5         238.7   
+    CLASS6.4  REGEN1.5       -.93742   REGEN7.5        .93742   
+    CLASS6.4  TFLOW1.5         247.5   TFLOW2.5         302.5   
+    CLASS6.4  BOUND6.4            1.   YIELD4            275.   
+    CLASS7.4  BOUND7.4            1.   YIELD4            298.   
+    CLASS7.4  REGEN1.5       -.93742   REGEN8.5        .93742   
+    CLASS7.4  TFLOW1.5         268.2   TFLOW2.5         327.8   
+    CLASS8.4  REGEN1.5       -.93742   REGEN8.5        .93742   
+    CLASS8.4  TFLOW1.5         275.4   TFLOW2.5         336.6   
+    CLASS8.4  BOUND8.4            1.   YIELD4            306.   
+    STATE1.4  REGEN1.4            1.   REGEN1.5       -.06258   
+    STATE1.4  REGEN2.5       -.93742   
+    STATE2.4  REGEN1.5       -.06258   REGEN3.5       -.93742   
+    STATE2.4  REGEN2.4            1.   
+    STATE3.4  REGEN3.4            1.   BOUND3.4           -1.   
+    STATE3.4  REGEN1.5       -.06258   REGEN4.5       -.93742   
+    STATE4.4  REGEN1.5       -.06258   REGEN5.5       -.93742   
+    STATE4.4  REGEN4.4            1.   BOUND4.4           -1.   
+    STATE5.4  REGEN5.4            1.   BOUND5.4           -1.   
+    STATE5.4  REGEN1.5       -.06258   REGEN6.5       -.93742   
+    STATE6.4  REGEN1.5       -.06258   REGEN7.5       -.93742   
+    STATE6.4  REGEN6.4            1.   BOUND6.4           -1.   
+    STATE7.4  REGEN7.4            1.   BOUND7.4           -1.   
+    STATE7.4  REGEN1.5       -.06258   REGEN8.5       -.93742   
+    STATE8.4  REGEN1.5       -.06258   REGEN8.5       -.93742   
+    STATE8.4  REGEN8.4            1.   BOUND8.4           -1.   
+    BALAN4    HARV         -.7413722   YIELD4             -1.   
+    BALAN4    TFLOW1.4           -1.   TFLOW2.4           -1.   
+    PNLTY4    TFLOW1.4           -1.   HARV             40.96   
+    CLASS3.5  BOUND3.5            1.   YIELD5             16.   
+    CLASS3.5  REGEN1.6       -.93742   REGEN4.6        .93742   
+    CLASS3.5  TFLOW1.6          14.4   TFLOW2.6          17.6   
+    CLASS4.5  REGEN1.6       -.93742   REGEN5.6        .93742   
+    CLASS4.5  TFLOW1.6          96.3   TFLOW2.6         117.7   
+    CLASS4.5  BOUND4.5            1.   YIELD5            107.   
+    CLASS5.5  BOUND5.5            1.   YIELD5            217.   
+    CLASS5.5  REGEN1.6       -.93742   REGEN6.6        .93742   
+    CLASS5.5  TFLOW1.6         195.3   TFLOW2.6         238.7   
+    CLASS6.5  REGEN1.6       -.93742   REGEN7.6        .93742   
+    CLASS6.5  TFLOW1.6         247.5   TFLOW2.6         302.5   
+    CLASS6.5  BOUND6.5            1.   YIELD5            275.   
+    CLASS7.5  BOUND7.5            1.   YIELD5            298.   
+    CLASS7.5  REGEN1.6       -.93742   REGEN8.6        .93742   
+    CLASS7.5  TFLOW1.6         268.2   TFLOW2.6         327.8   
+    CLASS8.5  REGEN1.6       -.93742   REGEN8.6        .93742   
+    CLASS8.5  TFLOW1.6         275.4   TFLOW2.6         336.6   
+    CLASS8.5  BOUND8.5            1.   YIELD5            306.   
+    STATE1.5  REGEN1.5            1.   REGEN1.6       -.06258   
+    STATE1.5  REGEN2.6       -.93742   
+    STATE2.5  REGEN1.6       -.06258   REGEN3.6       -.93742   
+    STATE2.5  REGEN2.5            1.   
+    STATE3.5  REGEN3.5            1.   BOUND3.5           -1.   
+    STATE3.5  REGEN1.6       -.06258   REGEN4.6       -.93742   
+    STATE4.5  REGEN1.6       -.06258   REGEN5.6       -.93742   
+    STATE4.5  REGEN4.5            1.   BOUND4.5           -1.   
+    STATE5.5  REGEN5.5            1.   BOUND5.5           -1.   
+    STATE5.5  REGEN1.6       -.06258   REGEN6.6       -.93742   
+    STATE6.5  REGEN1.6       -.06258   REGEN7.6       -.93742   
+    STATE6.5  REGEN6.5            1.   BOUND6.5           -1.   
+    STATE7.5  REGEN7.5            1.   BOUND7.5           -1.   
+    STATE7.5  REGEN1.6       -.06258   REGEN8.6       -.93742   
+    STATE8.5  REGEN1.6       -.06258   REGEN8.6       -.93742   
+    STATE8.5  REGEN8.5            1.   BOUND8.5           -1.   
+    BALAN5    HARV         -.6709885   YIELD5             -1.   
+    BALAN5    TFLOW1.5           -1.   TFLOW2.5           -1.   
+    PNLTY5    TFLOW1.5           -1.   HARV             37.07   
+    CLASS3.6  BOUND3.6            1.   YIELD6             16.   
+    CLASS3.6  REGEN1.7       -.93742   REGEN4.7        .93742   
+    CLASS3.6  TFLOW1.7          14.4   TFLOW2.7          17.6   
+    CLASS4.6  REGEN1.7       -.93742   REGEN5.7        .93742   
+    CLASS4.6  TFLOW1.7          96.3   TFLOW2.7         117.7   
+    CLASS4.6  BOUND4.6            1.   YIELD6            107.   
+    CLASS5.6  BOUND5.6            1.   YIELD6            217.   
+    CLASS5.6  REGEN1.7       -.93742   REGEN6.7        .93742   
+    CLASS5.6  TFLOW1.7         195.3   TFLOW2.7         238.7   
+    CLASS6.6  REGEN1.7       -.93742   REGEN7.7        .93742   
+    CLASS6.6  TFLOW1.7         247.5   TFLOW2.7         302.5   
+    CLASS6.6  BOUND6.6            1.   YIELD6            275.   
+    CLASS7.6  BOUND7.6            1.   YIELD6            298.   
+    CLASS7.6  REGEN1.7       -.93742   REGEN8.7        .93742   
+    CLASS7.6  TFLOW1.7         268.2   TFLOW2.7         327.8   
+    CLASS8.6  REGEN1.7       -.93742   REGEN8.7        .93742   
+    CLASS8.6  TFLOW1.7         275.4   TFLOW2.7         336.6   
+    CLASS8.6  BOUND8.6            1.   YIELD6            306.   
+    STATE1.6  REGEN1.6            1.   REGEN1.7       -.06258   
+    STATE1.6  REGEN2.7       -.93742   
+    STATE2.6  REGEN1.7       -.06258   REGEN3.7       -.93742   
+    STATE2.6  REGEN2.6            1.   
+    STATE3.6  REGEN3.6            1.   BOUND3.6           -1.   
+    STATE3.6  REGEN1.7       -.06258   REGEN4.7       -.93742   
+    STATE4.6  REGEN1.7       -.06258   REGEN5.7       -.93742   
+    STATE4.6  REGEN4.6            1.   BOUND4.6           -1.   
+    STATE5.6  REGEN5.6            1.   BOUND5.6           -1.   
+    STATE5.6  REGEN1.7       -.06258   REGEN6.7       -.93742   
+    STATE6.6  REGEN1.7       -.06258   REGEN7.7       -.93742   
+    STATE6.6  REGEN6.6            1.   BOUND6.6           -1.   
+    STATE7.6  REGEN7.6            1.   BOUND7.6           -1.   
+    STATE7.6  REGEN1.7       -.06258   REGEN8.7       -.93742   
+    STATE8.6  REGEN1.7       -.06258   REGEN8.7       -.93742   
+    STATE8.6  REGEN8.6            1.   BOUND8.6           -1.   
+    BALAN6    HARV         -.6072868   YIELD6             -1.   
+    BALAN6    TFLOW1.6           -1.   TFLOW2.6           -1.   
+    PNLTY6    TFLOW1.6           -1.   HARV             33.55   
+    CLASS3.7  BOUND3.7            1.   YIELD7             16.   
+    CLASS3.7  HARV         198.20335   
+    CLASS4.7  BOUND4.7            1.   YIELD7            107.   
+    CLASS4.7  HARV         222.97543   
+    CLASS5.7  BOUND5.7            1.   YIELD7            217.   
+    CLASS5.7  HARV         252.17314   
+    CLASS6.7  BOUND6.7            1.   YIELD7            275.   
+    CLASS6.7  HARV         281.02536   
+    CLASS7.7  BOUND7.7            1.   YIELD7            298.   
+    CLASS7.7  HARV         292.46676   
+    CLASS8.7  BOUND8.7            1.   YIELD7            306.   
+    CLASS8.7  HARV         296.44638   
+    STATE1.7  REGEN1.7            1.   HARV        -159.35468   
+    STATE2.7  REGEN2.7            1.   HARV         -177.1862   
+    STATE3.7  REGEN3.7            1.   BOUND3.7           -1.   
+    STATE3.7  HARV        -198.20335   
+    STATE4.7  REGEN4.7            1.   BOUND4.7           -1.   
+    STATE4.7  HARV        -222.97543   
+    STATE5.7  REGEN5.7            1.   BOUND5.7           -1.   
+    STATE5.7  HARV        -252.17314   
+    STATE6.7  REGEN6.7            1.   BOUND6.7           -1.   
+    STATE6.7  HARV        -281.02536   
+    STATE7.7  REGEN7.7            1.   BOUND7.7           -1.   
+    STATE7.7  HARV        -292.46676   
+    STATE8.7  REGEN8.7            1.   BOUND8.7           -1.   
+    STATE8.7  HARV        -296.44638   
+    BALAN7    HARV         -.5496327   YIELD7             -1.   
+    BALAN7    TFLOW1.7           -1.   TFLOW2.7           -1.   
+    PNLTY7    TFLOW1.7           -1.   HARV             30.36   
+RHS
+    RHS       REGEN1.1          .241   REGEN2.1          .125   
+    RHS       REGEN3.1         1.404   REGEN4.1         2.004   
+    RHS       REGEN5.1         9.768   REGEN6.1        16.385   
+    RHS       REGEN7.1         2.815   REGEN8.1        61.995   
+ENDATA

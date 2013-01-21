@@ -1,0 +1,8 @@
+TIME          SGPF
+PERIODS       LP
+    VH000100  R00002                   PERIOD00
+    M1001100  R00064                   PERIOD01
+    M2001100  R00127                   PERIOD02
+    M3001100  R00190                   PERIOD03
+    M4001100  R00253                   PERIOD04
+ENDATA

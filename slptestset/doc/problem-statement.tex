@@ -1,0 +1,193 @@
+\section{Notation for multistage stochastic linear\\ programs}
+\label{SEC:problem-statement}
+In this section we state a generic form of the multistage
+stochastic linear program (MSSLP). Our notation here
+is motivated by the implementation of algorithms for the
+MSSLP, especially those based on cutting plane notions.
+\par
+We begin by describing the underlying probability structure.
+We have $N$ sequential discrete time stages with stage 1
+representing the present.
+Time stages $2, 3, \ldots, N$ occur in the future sequentially
+in that order, at which
+realizations of random variables\footnote{In this paper, random variables will be represented in boldface.  The expected value with respect to $\rand{x}$ will be written $\expect[\{ \mathbf{x}\}][\cdot]$, and the conditional expected value (conditioned on $y$) will be written $                {\setlength{\extrarowheight}{-6pt}
+                        \begin{array}[t]{c}
+                                E \\ {\scriptscriptstyle \{\mathbf{x}|y\} }
+                        \end{array}
+                }[\cdot]$.}
+ $\rand{\xi _2}, \rand{\xi _3}
+\ldots, \rand{\xi _N}$ become available respectively.
+\par
+The random variable $\rand{\xi_2}$ has a known discrete
+distribution with a finite
+number of realizations.
+At stage 2, a realization of $\rand{\xi_2}$
+becomes available, and the system moves forward to stage 3
+at which a realization of $\rand{\xi _3}$ becomes available.
+The
+conditional distribution of $\rand{\xi_3}$ given that
+$\xi _2$ has been observed is discrete with a finite
+number of realizations, and is known.
+ Note that the pair $\xi_2, \xi_3$
+may be termed a {\em partial scenario} since they represent only
+the realizations from the stages 2 and 3 of the $N$-stage process.
+We shall write $\sigma_3:= (\xi_2, \xi_3)$,
+to indicate a partial
+scenario with realizations up to stage 3
+consisting of realizations $\xi_2$
+and $\xi_3$ at stages 2 and 3 respectively.
+Note that we may write
+$\sigma_2:= \xi_2$.
+\par
+Now suppose that we are at stage $t-1$ ($3\leq t\leq N$)
+and that realizations
+$\xi_2, \xi_3, \ldots, \xi_{t-1}$ have become
+available in stages 2 through $t-1$ respectively. 
+Let $\sigma_{t-1} :=(\xi_2, \xi_3, \ldots, \xi_{t-1})$.
+The system now moves forward
+to stage $t$ at which a realization of $\rand{\xi_{t}}$
+becomes available.  The conditional distribution
+of $\rand{\xi_{t}}$ given that the partial scenario $\sigma_{t-1}$ has been
+observed is discrete with a finite number of realizations, and
+is known.
+
+\par
+Before proceeding further we pause for some comments.
+Let $\xi_N$ be the realization of $\rand{\xi_N}$ observed in stage $N$ and let $\sigma_N\assign (\xi_2, \xi_3, \ldots, \xi_N)$.  We call $\sigma_N$ a \emph{scenario}.  We let $\mathcal{S}_t$ be the set of partial scenarios with realizations up to stage $t$ for $t=2,3,\ldots,N$.
+\par
+An MSSLP is a mathematical formulation of the decision process
+we now describe in association with the above probability structure.
+In the linear case that leads to MSSLPs,
+$x_1$ is a decision that has to be chosen in stage 1 from
+the set $\{x_1\in\reals^{n_1}: A_1x_1 = b_1, x_1 \geq 0\}$
+at a direct cost $c_1\trp x_1$, 
+where $c_1\in\reals^{n_1}$,
+$b_1\in\reals^{m_1}$, and
+$A_1\in\reals^{m_1\times n_1}$
+constitute the first-stage deterministic data.
+In addition, depending on the decision $x_1$ taken at present
+and the realizations of $\rand{\xi_2}, \rand{\xi_3}, \ldots,
+\rand{\xi_N}$ that would become available in the future,
+there would be an indirect cost due to {\em recourse} actions
+that may become necessary. In an MSSLP the objective
+function at stage 1 is to minimize the
+sum of the direct cost $c_1\trp x_1 $
+and the expectation $\mathcal{Q}_2 (x_1)$ of this indirect
+cost. The computation of $\mathcal{Q}_2(x_1)$ requires
+recursion and is as specified below.
+\par
+In an MSSLP,
+$\rand{\xi}_2 :=(\rand{c_2},\rand{b_2}, \rand{A_2}, \rand{T_2})$
+and the distribution of $\rand{\xi_2}$ is such that
+$\rand{c_2}$, $\rand{b_2}$, $\rand{A_2}$ and
+$\rand{T_2}$ have realizations in $\reals^{n_2}$, $\reals^{m_2}$,
+$\reals^{m_2\times n_2}$ and $\reals^{m_2\times n_1}$
+respectively. If the realizatation observed is $\xi_2 := (c_2,b_2,
+A_2, T_2)$ then the recourse decision $x_2$
+is chosen from the set $\{x_2\in\reals^{n_2}: A_2x_2 = b_2 -T_2x_1,
+x_2 \geq 0\}$. The direct cost of this recourse action
+is $c_2\trp x_2$. 
+The conditional expected cost (conditioned on $\xi_2$) of the recourse action is the sum of $c_2\trp x_2$ and the expectation $\mathcal{Q}_{3, \xi_2}(x_2)$ of the indirect cost of future recourse actions, and $\mathcal{Q}_2(x_1)$ is the expectation of this sum over $\rand{\xi_2}$.
+\par
+Now suppose that we are at stage $t-1$ ($3\leq t\leq N-1$) and
+that the partial scenario that has been observed is
+$\sigma_{t-1}:=(\xi_2, \xi_3, \ldots, \xi_{t-1})$.
+In an MSSLP,
+$\rand{\xi}_t :=(\rand{c_t},\rand{b_t}, \rand{A_t}, \rand{T_t})$
+and the distribution of $\rand{\xi_t}$ given $\sigma _{t-1}$ is such that
+$\rand{c_t}$, $\rand{b_t}$, $\rand{A_t}$ and
+$\rand{T_t}$ have realizations in $\reals^{n_t}$, $\reals^{m_t}$,
+$\reals^{m_t\times n_t}$ and $\reals^{m_t\times n_{t-1}}$
+respectively. If the realization
+to be observed at stage $t$ is 
+$\xi_t = (c_t,b_t,A_t, T_t)$ then the recourse decision $x_t$
+is chosen from the set 
+$\{x_t\in\reals^{n_t}: A_tx_t = b_t - T_t x_{t-1},
+x_t \geq 0\}$. The direct cost of this recourse action
+is $c_t\trp x_t$.  The conditional expected cost (conditioned on $\sigma_{t-1}$) of the recourse action is the sum of $c_t\trp x_t$ and the expectation $\mathcal{Q}_{t+1,\sigma_t}(x_t)$ of the indirect cost of future recourse actions, where $\sigma_t := (\sigma_{t-1}, \xi_t)$.  The value $\mathcal{Q}_{t,\sigma_{t-1}}(x_{t-1})$ is the expectation of this sum over partial scenarios in $\mathcal{S}_{t-1}$.
+\par
+Now suppose that we are at stage $N-1$, and that we have observed the partial scenario $\sigma_{N-1}\assign (\xi_2, \xi_3, \ldots, \xi_{N-1})$.  In an MSSLP, $\rand{\xi_N}\assign (\rand{c_N}, \rand{b_N}, \rand{A_N}, \rand{T_N})$ and the distribution of $\rand{\xi_N}$ given $\sigma_{N-1}$ is sucth that $\rand{c_N}, \rand{b_N}, \rand{A_N}$, and $\rand{T_N}$ have realizations in $\reals^{n_N}, \reals^{m_N}, \reals^{m_N\times n_N}$ and $\reals^{m_N\times n_{N-1}}$, respectively.  The function $\mathcal{Q}_{N,\sigma_{N-1}}$ is specified by the statements in previous paragraphs with $t$ replaced by $N$, and by setting $\mathcal{Q}_{N+1,\sigma_N}\equiv 0$, since the process has only $N$ stages.  This recursion can be used to specify functions $\mathcal{Q}_{t,\sigma_{t-1}}$ for $t=2,3,\ldots,N$.
+\par
+The preceding description leads to the following statement of the  multistage stochastic linear
+program with recourse.
+\begin{equation}
+\label{PROB:mslp-gen}
+\begin{array}{c}
+\begin{lp}{rccrcrcl}
+\text{Minimize } &Z(x_1)&\assign& c_1\trp x_1& +& \mathcal{Q}_{2}(x_1)&&\\
+\text{subject to } &&& A_1 x_1& &&=& b_1\\
+        &&&x_1 &&&\geq&0,
+\end{lp}\\
+\begin{split}
+\text{where\hspace{1in}}& \\
+\mathcal{Q}_2(x_1)\assign& \expect[\{\xi_2\}] \left[Q_2(x_2,\rand{\xi_2})\right],\\
+Q_2(x_1,\xi_2)\assign & \inf_{x_2\in \reals^{n_2}}\left\{ c_2\trp x_2 + \mathcal{Q}_{3,\sigma_2}(x_2):A_2 x_2 = b_2 - T_2 x_1, x_2\geq 0\right\}\\
+&(\text{with } \sigma_2\assign \xi_2),\\
+\mathcal{Q}_{t,\sigma_{t-1}}(x_{t-1})\assign&        {%manual Expected value
+                {\setlength{\extrarowheight}{-6pt}
+                        \begin{array}[t]{c}
+                                E \\ {\scriptscriptstyle \{\rand{\xi_t}|\sigma_{t-1}\}}
+                        \end{array}
+                }
+        }
+\left[Q_t(x_{t-1},\rand{\xi_t})\right] \text{ for } t=3,4,\ldots,N,\\
+Q_t(x_{t-1}, \xi_t) \assign &  \inf_{x_t \in \reals^{n_t}} \left\{ c_t\trp x_t + \mathcal{Q}_{t+1,\sigma_t}(x_t) : A_t x_t = b_t - T_t x_{t-1}, x_t \geq 0\right\}\\
+&(\text{with } \sigma_t\assign (\sigma_{t-1},\xi_t)) \text{ for } t=3,4,\ldots,N-1,\\
+\text{and\hspace{1in}}&\\
+Q_N(x_{n-1},\xi_N)\assign&  \inf_{x_N \in \reals^{n_N}} \left\{ c_N\trp x_N : A_N x_N = b_N - T_N x_{N-1}, x_N \geq 0\right\}.
+\end{split}
+\end{array}
+\end{equation}
+\par
+Note that the data for the MSSLP above consist of: 
+\begin{itemize}
+\item
+first stage deterministic data $c_1$, $b_1$, $A_1$,
+\item
+the distribution of $(\rand{c_2}, \rand{b_2},\rand{A_2},\rand{T_2})$,
+and
+\item
+for all $\sigma_{t-1}\in\mathcal{S}_{t-1}$ the conditional distribution of $(\rand{c_t}, \rand{b_t},\rand{A_t},\rand{T_t})$, conditioned on $\sigma_{t-1}$, for $t=3,4,\ldots,N$.
+\end{itemize}
+\par
+We refer to the case where the distribution of $\rand{\xi_t}$ is independent of $\sigma_{t-1}$ for $t=3,4,\ldots,N$ as the \emph{independent} case.  In the independent case (\ref{PROB:mslp-gen}) simplifies to the following form, which we state for convenient reference.
+\begin{equation}
+\label{PROB:mslp}
+\begin{array}{c}
+\begin{lp}{rccrcrcl}
+\text{Minimize } &Z(x_1)&\assign& c_1\trp x_1& +& \mathcal{Q}_2(x_1)&&\\
+\text{subject to } &&& A_1 x_1& &&=& b_1\\
+        &&&x_1 &&&\geq&0,
+\end{lp}\\
+\begin{split}
+\text{where } \hspace{1in}&\\
+\mathcal{Q}_t(x_{t-1})\assign \expect[\{c_t, b_t, A_t, T_t\}]&
+\left[Q_t(x_{t-1},\rand{c_t}, \rand{b_t}, \rand{A_t}, \rand{T_t})\right] \text{ for }t=2,3,\ldots,N,\\
+Q_t(x_{t-1}, c_t, b_t, A_t, T_t) \assign &\\
+\inf_{x_t \in \reals^{n_t}} &\left\{ c_t\trp x_t + \mathcal{Q}_{t+1}(x_t) : A_t x_t
+= b_t - T_t x_{t-1}, x_t \geq 0\right\}\\
+ &\hspace{1in}t=2,3,\ldots, N-1,\\
+\text{and } \hspace{1.2in}&\\
+Q_N(x_{N-1},c_N,b_N,A_N,T_N) \assign&\\
+\inf_{x_N \in \reals^{n_N}} &\left\{ c_N\trp x_N: A_N x_N = b_N - T_N x_{N-1}, x_N
+\geq 0\right\}.
+\end{split}
+\end{array}
+\end{equation}
+Note that in this independent case the data for the MSSLP
+consist of:
+\begin{itemize}
+\item
+first stage deterministic data $c_1$, $b_1$, $A_1$, and
+\item
+the distribution of $(\rand{c_t}, \rand{b_t},\rand{A_t},\rand{T_t})$ for $t=2,3,\ldots,N$.
+\end{itemize}
+
+The most common data input standard for problems of type (\ref{PROB:mslp-gen}) and (\ref{PROB:mslp}) is the SMPS \cite{SMPS87} standard.  This standard requires that one realization or scenario of the \emph{entire} problem (i.e. all stages) be specified first.  The other realizations in the scenario tree may then be described in several formats, including description of independent realizations for scalars or vectors, and description of branching scenarios.
+
+Such flexibility of input format has advantages and disadvantages.  While problems of type (\ref{PROB:mslp-gen}) or (\ref{PROB:mslp}) may be easily described, it is dificult to write computer routines for reading such flexible input.  In a companion effort, the authors will realease open source routines for reading SMPS data and placing the data into appropriate internal computer data structures.
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main"
+%%% TeX-master: "main"
+%%% End: 

@@ -1,0 +1,1118 @@
+STOCH         ASS2BY5 
+BLOCKS        DISCRETE
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.07958    
+    SV1SV2    SAV2      -1.13925    
+    CD1CD2    CD2       -1.09933    
+    CSH1CSH2  CASH2     -1.03950    
+    LN1LN2    LOANS2    -1.10950    
+    CH2CASH   CASH2     -.799167    
+    CASHCH2   CHECK2    -.949417    
+    SV2CASH   CASH2     -.969417    
+    CASHSV2   SAV2      -.989417    
+    CD2CASH   CASH2     -.699167    
+    CASHCD2   CD2       -.979500    
+    LN2CASH   CASH2     -.859250    
+    CASHLN2   LOANS2    -.899417    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.07875    
+    SV1SV2    SAV2      -1.13775    
+    CD1CD2    CD2       -1.09800    
+    CSH1CSH2  CASH2     -1.03850    
+    LN1LN2    LOANS2    -1.10850    
+    CH2CASH   CASH2     -.797500    
+    CASHCH2   CHECK2    -.948250    
+    SV2CASH   CASH2     -.968250    
+    CASHSV2   SAV2      -.988250    
+    CD2CASH   CASH2     -.697500    
+    CASHCD2   CD2       -.978500    
+    LN2CASH   CASH2     -.857750    
+    CASHLN2   LOANS2    -.898250    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.07792    
+    SV1SV2    SAV2      -1.13625    
+    CD1CD2    CD2       -1.09667    
+    CSH1CSH2  CASH2     -1.03750    
+    LN1LN2    LOANS2    -1.10750    
+    CH2CASH   CASH2     -.795833    
+    CASHCH2   CHECK2    -.947083    
+    SV2CASH   CASH2     -.967083    
+    CASHSV2   SAV2      -.987083    
+    CD2CASH   CASH2     -.695833    
+    CASHCD2   CD2       -.977500    
+    LN2CASH   CASH2     -.856250    
+    CASHLN2   LOANS2    -.897083    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.07708    
+    SV1SV2    SAV2      -1.13475    
+    CD1CD2    CD2       -1.09533    
+    CSH1CSH2  CASH2     -1.03650    
+    LN1LN2    LOANS2    -1.10650    
+    CH2CASH   CASH2     -.794167    
+    CASHCH2   CHECK2    -.945917    
+    SV2CASH   CASH2     -.965917    
+    CASHSV2   SAV2      -.985917    
+    CD2CASH   CASH2     -.694167    
+    CASHCD2   CD2       -.976500    
+    LN2CASH   CASH2     -.854750    
+    CASHLN2   LOANS2    -.895917    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.07625    
+    SV1SV2    SAV2      -1.13325    
+    CD1CD2    CD2       -1.09400    
+    CSH1CSH2  CASH2     -1.03550    
+    LN1LN2    LOANS2    -1.10550    
+    CH2CASH   CASH2     -.792500    
+    CASHCH2   CHECK2    -.944750    
+    SV2CASH   CASH2     -.964750    
+    CASHSV2   SAV2      -.984750    
+    CD2CASH   CASH2     -.692500    
+    CASHCD2   CD2       -.975500    
+    LN2CASH   CASH2     -.853250    
+    CASHLN2   LOANS2    -.894750    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.07542    
+    SV1SV2    SAV2      -1.13175    
+    CD1CD2    CD2       -1.09267    
+    CSH1CSH2  CASH2     -1.03450    
+    LN1LN2    LOANS2    -1.10450    
+    CH2CASH   CASH2     -.790833    
+    CASHCH2   CHECK2    -.943583    
+    SV2CASH   CASH2     -.963583    
+    CASHSV2   SAV2      -.983583    
+    CD2CASH   CASH2     -.690833    
+    CASHCD2   CD2       -.974500    
+    LN2CASH   CASH2     -.851750    
+    CASHLN2   LOANS2    -.893583    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.07458    
+    SV1SV2    SAV2      -1.13025    
+    CD1CD2    CD2       -1.09133    
+    CSH1CSH2  CASH2     -1.03350    
+    LN1LN2    LOANS2    -1.10350    
+    CH2CASH   CASH2     -.789167    
+    CASHCH2   CHECK2    -.942417    
+    SV2CASH   CASH2     -.962417    
+    CASHSV2   SAV2      -.982417    
+    CD2CASH   CASH2     -.689167    
+    CASHCD2   CD2       -.973500    
+    LN2CASH   CASH2     -.850250    
+    CASHLN2   LOANS2    -.892417    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.07375    
+    SV1SV2    SAV2      -1.12875    
+    CD1CD2    CD2       -1.09000    
+    CSH1CSH2  CASH2     -1.03250    
+    LN1LN2    LOANS2    -1.10250    
+    CH2CASH   CASH2     -.787500    
+    CASHCH2   CHECK2    -.941250    
+    SV2CASH   CASH2     -.961250    
+    CASHSV2   SAV2      -.981250    
+    CD2CASH   CASH2     -.687500    
+    CASHCD2   CD2       -.972500    
+    LN2CASH   CASH2     -.848750    
+    CASHLN2   LOANS2    -.891250    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.07292    
+    SV1SV2    SAV2      -1.12725    
+    CD1CD2    CD2       -1.08867    
+    CSH1CSH2  CASH2     -1.03150    
+    LN1LN2    LOANS2    -1.10150    
+    CH2CASH   CASH2     -.785833    
+    CASHCH2   CHECK2    -.940083    
+    SV2CASH   CASH2     -.960083    
+    CASHSV2   SAV2      -.980083    
+    CD2CASH   CASH2     -.685833    
+    CASHCD2   CD2       -.971500    
+    LN2CASH   CASH2     -.847250    
+    CASHLN2   LOANS2    -.890083    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.07208    
+    SV1SV2    SAV2      -1.12575    
+    CD1CD2    CD2       -1.08733    
+    CSH1CSH2  CASH2     -1.03050    
+    LN1LN2    LOANS2    -1.10050    
+    CH2CASH   CASH2     -.784167    
+    CASHCH2   CHECK2    -.938917    
+    SV2CASH   CASH2     -.958917    
+    CASHSV2   SAV2      -.978917    
+    CD2CASH   CASH2     -.684167    
+    CASHCD2   CD2       -.970500    
+    LN2CASH   CASH2     -.845750    
+    CASHLN2   LOANS2    -.888917    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.07125    
+    SV1SV2    SAV2      -1.12425    
+    CD1CD2    CD2       -1.08600    
+    CSH1CSH2  CASH2     -1.02950    
+    LN1LN2    LOANS2    -1.09950    
+    CH2CASH   CASH2     -.782500    
+    CASHCH2   CHECK2    -.937750    
+    SV2CASH   CASH2     -.957750    
+    CASHSV2   SAV2      -.977750    
+    CD2CASH   CASH2     -.682500    
+    CASHCD2   CD2       -.969500    
+    LN2CASH   CASH2     -.844250    
+    CASHLN2   LOANS2    -.887750    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.07042    
+    SV1SV2    SAV2      -1.12275    
+    CD1CD2    CD2       -1.08467    
+    CSH1CSH2  CASH2     -1.02850    
+    LN1LN2    LOANS2    -1.09850    
+    CH2CASH   CASH2     -.780833    
+    CASHCH2   CHECK2    -.936583    
+    SV2CASH   CASH2     -.956583    
+    CASHSV2   SAV2      -.976583    
+    CD2CASH   CASH2     -.680833    
+    CASHCD2   CD2       -.968500    
+    LN2CASH   CASH2     -.842750    
+    CASHLN2   LOANS2    -.886583    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.06958    
+    SV1SV2    SAV2      -1.12125    
+    CD1CD2    CD2       -1.08333    
+    CSH1CSH2  CASH2     -1.02750    
+    LN1LN2    LOANS2    -1.09750    
+    CH2CASH   CASH2     -.779167    
+    CASHCH2   CHECK2    -.935417    
+    SV2CASH   CASH2     -.955417    
+    CASHSV2   SAV2      -.975417    
+    CD2CASH   CASH2     -.679167    
+    CASHCD2   CD2       -.967500    
+    LN2CASH   CASH2     -.841250    
+    CASHLN2   LOANS2    -.885417    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.06875    
+    SV1SV2    SAV2      -1.11975    
+    CD1CD2    CD2       -1.08200    
+    CSH1CSH2  CASH2     -1.02650    
+    LN1LN2    LOANS2    -1.09650    
+    CH2CASH   CASH2     -.777500    
+    CASHCH2   CHECK2    -.934250    
+    SV2CASH   CASH2     -.954250    
+    CASHSV2   SAV2      -.974250    
+    CD2CASH   CASH2     -.677500    
+    CASHCD2   CD2       -.966500    
+    LN2CASH   CASH2     -.839750    
+    CASHLN2   LOANS2    -.884250    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.06792    
+    SV1SV2    SAV2      -1.11825    
+    CD1CD2    CD2       -1.08067    
+    CSH1CSH2  CASH2     -1.02550    
+    LN1LN2    LOANS2    -1.09550    
+    CH2CASH   CASH2     -.775833    
+    CASHCH2   CHECK2    -.933083    
+    SV2CASH   CASH2     -.953083    
+    CASHSV2   SAV2      -.973083    
+    CD2CASH   CASH2     -.675833    
+    CASHCD2   CD2       -.965500    
+    LN2CASH   CASH2     -.838250    
+    CASHLN2   LOANS2    -.883083    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.06708    
+    SV1SV2    SAV2      -1.11675    
+    CD1CD2    CD2       -1.07933    
+    CSH1CSH2  CASH2     -1.02450    
+    LN1LN2    LOANS2    -1.09450    
+    CH2CASH   CASH2     -.774167    
+    CASHCH2   CHECK2    -.931917    
+    SV2CASH   CASH2     -.951917    
+    CASHSV2   SAV2      -.971917    
+    CD2CASH   CASH2     -.674167    
+    CASHCD2   CD2       -.964500    
+    LN2CASH   CASH2     -.836750    
+    CASHLN2   LOANS2    -.881917    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.06625    
+    SV1SV2    SAV2      -1.11525    
+    CD1CD2    CD2       -1.07800    
+    CSH1CSH2  CASH2     -1.02350    
+    LN1LN2    LOANS2    -1.09350    
+    CH2CASH   CASH2     -.772500    
+    CASHCH2   CHECK2    -.930750    
+    SV2CASH   CASH2     -.950750    
+    CASHSV2   SAV2      -.970750    
+    CD2CASH   CASH2     -.672500    
+    CASHCD2   CD2       -.963500    
+    LN2CASH   CASH2     -.835250    
+    CASHLN2   LOANS2    -.880750    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.06542    
+    SV1SV2    SAV2      -1.11375    
+    CD1CD2    CD2       -1.07667    
+    CSH1CSH2  CASH2     -1.02250    
+    LN1LN2    LOANS2    -1.09250    
+    CH2CASH   CASH2     -.770833    
+    CASHCH2   CHECK2    -.929583    
+    SV2CASH   CASH2     -.949583    
+    CASHSV2   SAV2      -.969583    
+    CD2CASH   CASH2     -.670833    
+    CASHCD2   CD2       -.962500    
+    LN2CASH   CASH2     -.833750    
+    CASHLN2   LOANS2    -.879583    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.06458    
+    SV1SV2    SAV2      -1.11225    
+    CD1CD2    CD2       -1.07533    
+    CSH1CSH2  CASH2     -1.02150    
+    LN1LN2    LOANS2    -1.09150    
+    CH2CASH   CASH2     -.769167    
+    CASHCH2   CHECK2    -.928417    
+    SV2CASH   CASH2     -.948417    
+    CASHSV2   SAV2      -.968417    
+    CD2CASH   CASH2     -.669167    
+    CASHCD2   CD2       -.961500    
+    LN2CASH   CASH2     -.832250    
+    CASHLN2   LOANS2    -.878417    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.06375    
+    SV1SV2    SAV2      -1.11075    
+    CD1CD2    CD2       -1.07400    
+    CSH1CSH2  CASH2     -1.02050    
+    LN1LN2    LOANS2    -1.09050    
+    CH2CASH   CASH2     -.767500    
+    CASHCH2   CHECK2    -.927250    
+    SV2CASH   CASH2     -.947250    
+    CASHSV2   SAV2      -.967250    
+    CD2CASH   CASH2     -.667500    
+    CASHCD2   CD2       -.960500    
+    LN2CASH   CASH2     -.830750    
+    CASHLN2   LOANS2    -.877250    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.06292    
+    SV1SV2    SAV2      -1.10925    
+    CD1CD2    CD2       -1.07267    
+    CSH1CSH2  CASH2     -1.01950    
+    LN1LN2    LOANS2    -1.08950    
+    CH2CASH   CASH2     -.765833    
+    CASHCH2   CHECK2    -.926083    
+    SV2CASH   CASH2     -.946083    
+    CASHSV2   SAV2      -.966083    
+    CD2CASH   CASH2     -.665833    
+    CASHCD2   CD2       -.959500    
+    LN2CASH   CASH2     -.829250    
+    CASHLN2   LOANS2    -.876083    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.06208    
+    SV1SV2    SAV2      -1.10775    
+    CD1CD2    CD2       -1.07133    
+    CSH1CSH2  CASH2     -1.01850    
+    LN1LN2    LOANS2    -1.08850    
+    CH2CASH   CASH2     -.764167    
+    CASHCH2   CHECK2    -.924917    
+    SV2CASH   CASH2     -.944917    
+    CASHSV2   SAV2      -.964917    
+    CD2CASH   CASH2     -.664167    
+    CASHCD2   CD2       -.958500    
+    LN2CASH   CASH2     -.827750    
+    CASHLN2   LOANS2    -.874917    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.06125    
+    SV1SV2    SAV2      -1.10625    
+    CD1CD2    CD2       -1.07000    
+    CSH1CSH2  CASH2     -1.01750    
+    LN1LN2    LOANS2    -1.08750    
+    CH2CASH   CASH2     -.762500    
+    CASHCH2   CHECK2    -.923750    
+    SV2CASH   CASH2     -.943750    
+    CASHSV2   SAV2      -.963750    
+    CD2CASH   CASH2     -.662500    
+    CASHCD2   CD2       -.957500    
+    LN2CASH   CASH2     -.826250    
+    CASHLN2   LOANS2    -.873750    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.06042    
+    SV1SV2    SAV2      -1.10475    
+    CD1CD2    CD2       -1.06867    
+    CSH1CSH2  CASH2     -1.01650    
+    LN1LN2    LOANS2    -1.08650    
+    CH2CASH   CASH2     -.760833    
+    CASHCH2   CHECK2    -.922583    
+    SV2CASH   CASH2     -.942583    
+    CASHSV2   SAV2      -.962583    
+    CD2CASH   CASH2     -.660833    
+    CASHCD2   CD2       -.956500    
+    LN2CASH   CASH2     -.824750    
+    CASHLN2   LOANS2    -.872583    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.05958    
+    SV1SV2    SAV2      -1.10325    
+    CD1CD2    CD2       -1.06733    
+    CSH1CSH2  CASH2     -1.01550    
+    LN1LN2    LOANS2    -1.08550    
+    CH2CASH   CASH2     -.759167    
+    CASHCH2   CHECK2    -.921417    
+    SV2CASH   CASH2     -.941417    
+    CASHSV2   SAV2      -.961417    
+    CD2CASH   CASH2     -.659167    
+    CASHCD2   CD2       -.955500    
+    LN2CASH   CASH2     -.823250    
+    CASHLN2   LOANS2    -.871417    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.05875    
+    SV1SV2    SAV2      -1.10175    
+    CD1CD2    CD2       -1.06600    
+    CSH1CSH2  CASH2     -1.01450    
+    LN1LN2    LOANS2    -1.08450    
+    CH2CASH   CASH2     -.757500    
+    CASHCH2   CHECK2    -.920250    
+    SV2CASH   CASH2     -.940250    
+    CASHSV2   SAV2      -.960250    
+    CD2CASH   CASH2     -.657500    
+    CASHCD2   CD2       -.954500    
+    LN2CASH   CASH2     -.821750    
+    CASHLN2   LOANS2    -.870250    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.05792    
+    SV1SV2    SAV2      -1.10025    
+    CD1CD2    CD2       -1.06467    
+    CSH1CSH2  CASH2     -1.01350    
+    LN1LN2    LOANS2    -1.08350    
+    CH2CASH   CASH2     -.755833    
+    CASHCH2   CHECK2    -.919083    
+    SV2CASH   CASH2     -.939083    
+    CASHSV2   SAV2      -.959083    
+    CD2CASH   CASH2     -.655833    
+    CASHCD2   CD2       -.953500    
+    LN2CASH   CASH2     -.820250    
+    CASHLN2   LOANS2    -.869083    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.05708    
+    SV1SV2    SAV2      -1.09875    
+    CD1CD2    CD2       -1.06333    
+    CSH1CSH2  CASH2     -1.01250    
+    LN1LN2    LOANS2    -1.08250    
+    CH2CASH   CASH2     -.754167    
+    CASHCH2   CHECK2    -.917917    
+    SV2CASH   CASH2     -.937917    
+    CASHSV2   SAV2      -.957917    
+    CD2CASH   CASH2     -.654167    
+    CASHCD2   CD2       -.952500    
+    LN2CASH   CASH2     -.818750    
+    CASHLN2   LOANS2    -.867917    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.05625    
+    SV1SV2    SAV2      -1.09725    
+    CD1CD2    CD2       -1.06200    
+    CSH1CSH2  CASH2     -1.01150    
+    LN1LN2    LOANS2    -1.08150    
+    CH2CASH   CASH2     -.752500    
+    CASHCH2   CHECK2    -.916750    
+    SV2CASH   CASH2     -.936750    
+    CASHSV2   SAV2      -.956750    
+    CD2CASH   CASH2     -.652500    
+    CASHCD2   CD2       -.951500    
+    LN2CASH   CASH2     -.817250    
+    CASHLN2   LOANS2    -.866750    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.05542    
+    SV1SV2    SAV2      -1.09575    
+    CD1CD2    CD2       -1.06067    
+    CSH1CSH2  CASH2     -1.01050    
+    LN1LN2    LOANS2    -1.08050    
+    CH2CASH   CASH2     -.750833    
+    CASHCH2   CHECK2    -.915583    
+    SV2CASH   CASH2     -.935583    
+    CASHSV2   SAV2      -.955583    
+    CD2CASH   CASH2     -.650833    
+    CASHCD2   CD2       -.950500    
+    LN2CASH   CASH2     -.815750    
+    CASHLN2   LOANS2    -.865583    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.05458    
+    SV1SV2    SAV2      -1.09425    
+    CD1CD2    CD2       -1.05933    
+    CSH1CSH2  CASH2     -1.00950    
+    LN1LN2    LOANS2    -1.07950    
+    CH2CASH   CASH2     -.749167    
+    CASHCH2   CHECK2    -.914417    
+    SV2CASH   CASH2     -.934417    
+    CASHSV2   SAV2      -.954417    
+    CD2CASH   CASH2     -.649167    
+    CASHCD2   CD2       -.949500    
+    LN2CASH   CASH2     -.814250    
+    CASHLN2   LOANS2    -.864417    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.05375    
+    SV1SV2    SAV2      -1.09275    
+    CD1CD2    CD2       -1.05800    
+    CSH1CSH2  CASH2     -1.00850    
+    LN1LN2    LOANS2    -1.07850    
+    CH2CASH   CASH2     -.747500    
+    CASHCH2   CHECK2    -.913250    
+    SV2CASH   CASH2     -.933250    
+    CASHSV2   SAV2      -.953250    
+    CD2CASH   CASH2     -.647500    
+    CASHCD2   CD2       -.948500    
+    LN2CASH   CASH2     -.812750    
+    CASHLN2   LOANS2    -.863250    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.05292    
+    SV1SV2    SAV2      -1.09125    
+    CD1CD2    CD2       -1.05667    
+    CSH1CSH2  CASH2     -1.00750    
+    LN1LN2    LOANS2    -1.07750    
+    CH2CASH   CASH2     -.745833    
+    CASHCH2   CHECK2    -.912083    
+    SV2CASH   CASH2     -.932083    
+    CASHSV2   SAV2      -.952083    
+    CD2CASH   CASH2     -.645833    
+    CASHCD2   CD2       -.947500    
+    LN2CASH   CASH2     -.811250    
+    CASHLN2   LOANS2    -.862083    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.05208    
+    SV1SV2    SAV2      -1.08975    
+    CD1CD2    CD2       -1.05533    
+    CSH1CSH2  CASH2     -1.00650    
+    LN1LN2    LOANS2    -1.07650    
+    CH2CASH   CASH2     -.744167    
+    CASHCH2   CHECK2    -.910917    
+    SV2CASH   CASH2     -.930917    
+    CASHSV2   SAV2      -.950917    
+    CD2CASH   CASH2     -.644167    
+    CASHCD2   CD2       -.946500    
+    LN2CASH   CASH2     -.809750    
+    CASHLN2   LOANS2    -.860917    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.05125    
+    SV1SV2    SAV2      -1.08825    
+    CD1CD2    CD2       -1.05400    
+    CSH1CSH2  CASH2     -1.00550    
+    LN1LN2    LOANS2    -1.07550    
+    CH2CASH   CASH2     -.742500    
+    CASHCH2   CHECK2    -.909750    
+    SV2CASH   CASH2     -.929750    
+    CASHSV2   SAV2      -.949750    
+    CD2CASH   CASH2     -.642500    
+    CASHCD2   CD2       -.945500    
+    LN2CASH   CASH2     -.808250    
+    CASHLN2   LOANS2    -.859750    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.05042    
+    SV1SV2    SAV2      -1.08675    
+    CD1CD2    CD2       -1.05267    
+    CSH1CSH2  CASH2     -1.00450    
+    LN1LN2    LOANS2    -1.07450    
+    CH2CASH   CASH2     -.740833    
+    CASHCH2   CHECK2    -.908583    
+    SV2CASH   CASH2     -.928583    
+    CASHSV2   SAV2      -.948583    
+    CD2CASH   CASH2     -.640833    
+    CASHCD2   CD2       -.944500    
+    LN2CASH   CASH2     -.806750    
+    CASHLN2   LOANS2    -.858583    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.04958    
+    SV1SV2    SAV2      -1.08525    
+    CD1CD2    CD2       -1.05133    
+    CSH1CSH2  CASH2     -1.00350    
+    LN1LN2    LOANS2    -1.07350    
+    CH2CASH   CASH2     -.739167    
+    CASHCH2   CHECK2    -.907417    
+    SV2CASH   CASH2     -.927417    
+    CASHSV2   SAV2      -.947417    
+    CD2CASH   CASH2     -.639167    
+    CASHCD2   CD2       -.943500    
+    LN2CASH   CASH2     -.805250    
+    CASHLN2   LOANS2    -.857417    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.04875    
+    SV1SV2    SAV2      -1.08375    
+    CD1CD2    CD2       -1.05000    
+    CSH1CSH2  CASH2     -1.00250    
+    LN1LN2    LOANS2    -1.07250    
+    CH2CASH   CASH2     -.737500    
+    CASHCH2   CHECK2    -.906250    
+    SV2CASH   CASH2     -.926250    
+    CASHSV2   SAV2      -.946250    
+    CD2CASH   CASH2     -.637500    
+    CASHCD2   CD2       -.942500    
+    LN2CASH   CASH2     -.803750    
+    CASHLN2   LOANS2    -.856250    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.04792    
+    SV1SV2    SAV2      -1.08225    
+    CD1CD2    CD2       -1.04867    
+    CSH1CSH2  CASH2     -1.00150    
+    LN1LN2    LOANS2    -1.07150    
+    CH2CASH   CASH2     -.735833    
+    CASHCH2   CHECK2    -.905083    
+    SV2CASH   CASH2     -.925083    
+    CASHSV2   SAV2      -.945083    
+    CD2CASH   CASH2     -.635833    
+    CASHCD2   CD2       -.941500    
+    LN2CASH   CASH2     -.802250    
+    CASHLN2   LOANS2    -.855083    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.04708    
+    SV1SV2    SAV2      -1.08075    
+    CD1CD2    CD2       -1.04733    
+    CSH1CSH2  CASH2     -1.00050    
+    LN1LN2    LOANS2    -1.07050    
+    CH2CASH   CASH2     -.734167    
+    CASHCH2   CHECK2    -.903917    
+    SV2CASH   CASH2     -.923917    
+    CASHSV2   SAV2      -.943917    
+    CD2CASH   CASH2     -.634167    
+    CASHCD2   CD2       -.940500    
+    LN2CASH   CASH2     -.800750    
+    CASHLN2   LOANS2    -.853917    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.04625    
+    SV1SV2    SAV2      -1.07925    
+    CD1CD2    CD2       -1.04600    
+    CSH1CSH2  CASH2     -.999500    
+    LN1LN2    LOANS2    -1.06950    
+    CH2CASH   CASH2     -.732500    
+    CASHCH2   CHECK2    -.902750    
+    SV2CASH   CASH2     -.922750    
+    CASHSV2   SAV2      -.942750    
+    CD2CASH   CASH2     -.632500    
+    CASHCD2   CD2       -.939500    
+    LN2CASH   CASH2     -.799250    
+    CASHLN2   LOANS2    -.852750    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.04542    
+    SV1SV2    SAV2      -1.07775    
+    CD1CD2    CD2       -1.04467    
+    CSH1CSH2  CASH2     -.998500    
+    LN1LN2    LOANS2    -1.06850    
+    CH2CASH   CASH2     -.730833    
+    CASHCH2   CHECK2    -.901583    
+    SV2CASH   CASH2     -.921583    
+    CASHSV2   SAV2      -.941583    
+    CD2CASH   CASH2     -.630833    
+    CASHCD2   CD2       -.938500    
+    LN2CASH   CASH2     -.797750    
+    CASHLN2   LOANS2    -.851583    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.04458    
+    SV1SV2    SAV2      -1.07625    
+    CD1CD2    CD2       -1.04333    
+    CSH1CSH2  CASH2     -.997500    
+    LN1LN2    LOANS2    -1.06750    
+    CH2CASH   CASH2     -.729167    
+    CASHCH2   CHECK2    -.900417    
+    SV2CASH   CASH2     -.920417    
+    CASHSV2   SAV2      -.940417    
+    CD2CASH   CASH2     -.629167    
+    CASHCD2   CD2       -.937500    
+    LN2CASH   CASH2     -.796250    
+    CASHLN2   LOANS2    -.850417    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.04375    
+    SV1SV2    SAV2      -1.07475    
+    CD1CD2    CD2       -1.04200    
+    CSH1CSH2  CASH2     -.996500    
+    LN1LN2    LOANS2    -1.06650    
+    CH2CASH   CASH2     -.727500    
+    CASHCH2   CHECK2    -.899250    
+    SV2CASH   CASH2     -.919250    
+    CASHSV2   SAV2      -.939250    
+    CD2CASH   CASH2     -.627500    
+    CASHCD2   CD2       -.936500    
+    LN2CASH   CASH2     -.794750    
+    CASHLN2   LOANS2    -.849250    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.04292    
+    SV1SV2    SAV2      -1.07325    
+    CD1CD2    CD2       -1.04067    
+    CSH1CSH2  CASH2     -.995500    
+    LN1LN2    LOANS2    -1.06550    
+    CH2CASH   CASH2     -.725833    
+    CASHCH2   CHECK2    -.898083    
+    SV2CASH   CASH2     -.918083    
+    CASHSV2   SAV2      -.938083    
+    CD2CASH   CASH2     -.625833    
+    CASHCD2   CD2       -.935500    
+    LN2CASH   CASH2     -.793250    
+    CASHLN2   LOANS2    -.848083    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.04208    
+    SV1SV2    SAV2      -1.07175    
+    CD1CD2    CD2       -1.03933    
+    CSH1CSH2  CASH2     -.994500    
+    LN1LN2    LOANS2    -1.06450    
+    CH2CASH   CASH2     -.724167    
+    CASHCH2   CHECK2    -.896917    
+    SV2CASH   CASH2     -.916917    
+    CASHSV2   SAV2      -.936917    
+    CD2CASH   CASH2     -.624167    
+    CASHCD2   CD2       -.934500    
+    LN2CASH   CASH2     -.791750    
+    CASHLN2   LOANS2    -.846917    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.04125    
+    SV1SV2    SAV2      -1.07025    
+    CD1CD2    CD2       -1.03800    
+    CSH1CSH2  CASH2     -.993500    
+    LN1LN2    LOANS2    -1.06350    
+    CH2CASH   CASH2     -.722500    
+    CASHCH2   CHECK2    -.895750    
+    SV2CASH   CASH2     -.915750    
+    CASHSV2   SAV2      -.935750    
+    CD2CASH   CASH2     -.622500    
+    CASHCD2   CD2       -.933500    
+    LN2CASH   CASH2     -.790250    
+    CASHLN2   LOANS2    -.845750    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.04042    
+    SV1SV2    SAV2      -1.06875    
+    CD1CD2    CD2       -1.03667    
+    CSH1CSH2  CASH2     -.992500    
+    LN1LN2    LOANS2    -1.06250    
+    CH2CASH   CASH2     -.720833    
+    CASHCH2   CHECK2    -.894583    
+    SV2CASH   CASH2     -.914583    
+    CASHSV2   SAV2      -.934583    
+    CD2CASH   CASH2     -.620833    
+    CASHCD2   CD2       -.932500    
+    LN2CASH   CASH2     -.788750    
+    CASHLN2   LOANS2    -.844583    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.03958    
+    SV1SV2    SAV2      -1.06725    
+    CD1CD2    CD2       -1.03533    
+    CSH1CSH2  CASH2     -.991500    
+    LN1LN2    LOANS2    -1.06150    
+    CH2CASH   CASH2     -.719167    
+    CASHCH2   CHECK2    -.893417    
+    SV2CASH   CASH2     -.913417    
+    CASHSV2   SAV2      -.933417    
+    CD2CASH   CASH2     -.619167    
+    CASHCD2   CD2       -.931500    
+    LN2CASH   CASH2     -.787250    
+    CASHLN2   LOANS2    -.843417    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.03875    
+    SV1SV2    SAV2      -1.06575    
+    CD1CD2    CD2       -1.03400    
+    CSH1CSH2  CASH2     -.990500    
+    LN1LN2    LOANS2    -1.06050    
+    CH2CASH   CASH2     -.717500    
+    CASHCH2   CHECK2    -.892250    
+    SV2CASH   CASH2     -.912250    
+    CASHSV2   SAV2      -.932250    
+    CD2CASH   CASH2     -.617500    
+    CASHCD2   CD2       -.930500    
+    LN2CASH   CASH2     -.785750    
+    CASHLN2   LOANS2    -.842250    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.03792    
+    SV1SV2    SAV2      -1.06425    
+    CD1CD2    CD2       -1.03267    
+    CSH1CSH2  CASH2     -.989500    
+    LN1LN2    LOANS2    -1.05950    
+    CH2CASH   CASH2     -.715833    
+    CASHCH2   CHECK2    -.891083    
+    SV2CASH   CASH2     -.911083    
+    CASHSV2   SAV2      -.931083    
+    CD2CASH   CASH2     -.615833    
+    CASHCD2   CD2       -.929500    
+    LN2CASH   CASH2     -.784250    
+    CASHLN2   LOANS2    -.841083    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.03708    
+    SV1SV2    SAV2      -1.06275    
+    CD1CD2    CD2       -1.03133    
+    CSH1CSH2  CASH2     -.988500    
+    LN1LN2    LOANS2    -1.05850    
+    CH2CASH   CASH2     -.714167    
+    CASHCH2   CHECK2    -.889917    
+    SV2CASH   CASH2     -.909917    
+    CASHSV2   SAV2      -.929917    
+    CD2CASH   CASH2     -.614167    
+    CASHCD2   CD2       -.928500    
+    LN2CASH   CASH2     -.782750    
+    CASHLN2   LOANS2    -.839917    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.03625    
+    SV1SV2    SAV2      -1.06125    
+    CD1CD2    CD2       -1.03000    
+    CSH1CSH2  CASH2     -.987500    
+    LN1LN2    LOANS2    -1.05750    
+    CH2CASH   CASH2     -.712500    
+    CASHCH2   CHECK2    -.888750    
+    SV2CASH   CASH2     -.908750    
+    CASHSV2   SAV2      -.928750    
+    CD2CASH   CASH2     -.612500    
+    CASHCD2   CD2       -.927500    
+    LN2CASH   CASH2     -.781250    
+    CASHLN2   LOANS2    -.838750    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.03542    
+    SV1SV2    SAV2      -1.05975    
+    CD1CD2    CD2       -1.02867    
+    CSH1CSH2  CASH2     -.986500    
+    LN1LN2    LOANS2    -1.05650    
+    CH2CASH   CASH2     -.710833    
+    CASHCH2   CHECK2    -.887583    
+    SV2CASH   CASH2     -.907583    
+    CASHSV2   SAV2      -.927583    
+    CD2CASH   CASH2     -.610833    
+    CASHCD2   CD2       -.926500    
+    LN2CASH   CASH2     -.779750    
+    CASHLN2   LOANS2    -.837583    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.03458    
+    SV1SV2    SAV2      -1.05825    
+    CD1CD2    CD2       -1.02733    
+    CSH1CSH2  CASH2     -.985500    
+    LN1LN2    LOANS2    -1.05550    
+    CH2CASH   CASH2     -.709167    
+    CASHCH2   CHECK2    -.886417    
+    SV2CASH   CASH2     -.906417    
+    CASHSV2   SAV2      -.926417    
+    CD2CASH   CASH2     -.609167    
+    CASHCD2   CD2       -.925500    
+    LN2CASH   CASH2     -.778250    
+    CASHLN2   LOANS2    -.836417    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.03375    
+    SV1SV2    SAV2      -1.05675    
+    CD1CD2    CD2       -1.02600    
+    CSH1CSH2  CASH2     -.984500    
+    LN1LN2    LOANS2    -1.05450    
+    CH2CASH   CASH2     -.707500    
+    CASHCH2   CHECK2    -.885250    
+    SV2CASH   CASH2     -.905250    
+    CASHSV2   SAV2      -.925250    
+    CD2CASH   CASH2     -.607500    
+    CASHCD2   CD2       -.924500    
+    LN2CASH   CASH2     -.776750    
+    CASHLN2   LOANS2    -.835250    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.03292    
+    SV1SV2    SAV2      -1.05525    
+    CD1CD2    CD2       -1.02467    
+    CSH1CSH2  CASH2     -.983500    
+    LN1LN2    LOANS2    -1.05350    
+    CH2CASH   CASH2     -.705833    
+    CASHCH2   CHECK2    -.884083    
+    SV2CASH   CASH2     -.904083    
+    CASHSV2   SAV2      -.924083    
+    CD2CASH   CASH2     -.605833    
+    CASHCD2   CD2       -.923500    
+    LN2CASH   CASH2     -.775250    
+    CASHLN2   LOANS2    -.834083    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.03208    
+    SV1SV2    SAV2      -1.05375    
+    CD1CD2    CD2       -1.02333    
+    CSH1CSH2  CASH2     -.982500    
+    LN1LN2    LOANS2    -1.05250    
+    CH2CASH   CASH2     -.704167    
+    CASHCH2   CHECK2    -.882917    
+    SV2CASH   CASH2     -.902917    
+    CASHSV2   SAV2      -.922917    
+    CD2CASH   CASH2     -.604167    
+    CASHCD2   CD2       -.922500    
+    LN2CASH   CASH2     -.773750    
+    CASHLN2   LOANS2    -.832917    
+ BL BLOCK1    PERIOD2   0.166667E-01
+    CH1CH2    CHECK2    -1.03125    
+    SV1SV2    SAV2      -1.05225    
+    CD1CD2    CD2       -1.02200    
+    CSH1CSH2  CASH2     -.981500    
+    LN1LN2    LOANS2    -1.05150    
+    CH2CASH   CASH2     -.702500    
+    CASHCH2   CHECK2    -.881750    
+    SV2CASH   CASH2     -.901750    
+    CASHSV2   SAV2      -.921750    
+    CD2CASH   CASH2     -.602500    
+    CASHCD2   CD2       -.921500    
+    LN2CASH   CASH2     -.772250    
+    CASHLN2   LOANS2    -.831750    
+ BL BLOCK1    PERIOD2   0.166666E-01
+    CH1CH2    CHECK2    -1.03042    
+    SV1SV2    SAV2      -1.05075    
+    CD1CD2    CD2       -1.02067    
+    CSH1CSH2  CASH2     -.980500    
+    LN1LN2    LOANS2    -1.05050    
+    CH2CASH   CASH2     -.700833    
+    CASHCH2   CHECK2    -.880583    
+    SV2CASH   CASH2     -.900583    
+    CASHSV2   SAV2      -.920583    
+    CD2CASH   CASH2     -.600833    
+    CASHCD2   CD2       -.920500    
+    LN2CASH   CASH2     -.770750    
+    CASHLN2   LOANS2    -.830583    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.06900    
+    SA2FWD    OBJ       -1.10860    
+    CD2FWD    OBJ       -1.11860    
+    CA2FWD    OBJ       -1.02900    
+    LN2FWD    OBJ       -1.08860    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.06700    
+    SA2FWD    OBJ       -1.10580    
+    CD2FWD    OBJ       -1.11580    
+    CA2FWD    OBJ       -1.02700    
+    LN2FWD    OBJ       -1.08580    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.06500    
+    SA2FWD    OBJ       -1.10300    
+    CD2FWD    OBJ       -1.11300    
+    CA2FWD    OBJ       -1.02500    
+    LN2FWD    OBJ       -1.08300    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.06300    
+    SA2FWD    OBJ       -1.10020    
+    CD2FWD    OBJ       -1.11020    
+    CA2FWD    OBJ       -1.02300    
+    LN2FWD    OBJ       -1.08020    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.06100    
+    SA2FWD    OBJ       -1.09740    
+    CD2FWD    OBJ       -1.10740    
+    CA2FWD    OBJ       -1.02100    
+    LN2FWD    OBJ       -1.07740    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.05900    
+    SA2FWD    OBJ       -1.09460    
+    CD2FWD    OBJ       -1.10460    
+    CA2FWD    OBJ       -1.01900    
+    LN2FWD    OBJ       -1.07460    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.05700    
+    SA2FWD    OBJ       -1.09180    
+    CD2FWD    OBJ       -1.10180    
+    CA2FWD    OBJ       -1.01700    
+    LN2FWD    OBJ       -1.07180    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.05500    
+    SA2FWD    OBJ       -1.08900    
+    CD2FWD    OBJ       -1.09900    
+    CA2FWD    OBJ       -1.01500    
+    LN2FWD    OBJ       -1.06900    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.05300    
+    SA2FWD    OBJ       -1.08620    
+    CD2FWD    OBJ       -1.09620    
+    CA2FWD    OBJ       -1.01300    
+    LN2FWD    OBJ       -1.06620    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.05100    
+    SA2FWD    OBJ       -1.08340    
+    CD2FWD    OBJ       -1.09340    
+    CA2FWD    OBJ       -1.01100    
+    LN2FWD    OBJ       -1.06340    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.04900    
+    SA2FWD    OBJ       -1.08060    
+    CD2FWD    OBJ       -1.09060    
+    CA2FWD    OBJ       -1.00900    
+    LN2FWD    OBJ       -1.06060    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.04700    
+    SA2FWD    OBJ       -1.07780    
+    CD2FWD    OBJ       -1.08780    
+    CA2FWD    OBJ       -1.00700    
+    LN2FWD    OBJ       -1.05780    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.04500    
+    SA2FWD    OBJ       -1.07500    
+    CD2FWD    OBJ       -1.08500    
+    CA2FWD    OBJ       -1.00500    
+    LN2FWD    OBJ       -1.05500    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.04300    
+    SA2FWD    OBJ       -1.07220    
+    CD2FWD    OBJ       -1.08220    
+    CA2FWD    OBJ       -1.00300    
+    LN2FWD    OBJ       -1.05220    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.04100    
+    SA2FWD    OBJ       -1.06940    
+    CD2FWD    OBJ       -1.07940    
+    CA2FWD    OBJ       -1.00100    
+    LN2FWD    OBJ       -1.04940    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.03900    
+    SA2FWD    OBJ       -1.06660    
+    CD2FWD    OBJ       -1.07660    
+    CA2FWD    OBJ       -.999000    
+    LN2FWD    OBJ       -1.04660    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.03700    
+    SA2FWD    OBJ       -1.06380    
+    CD2FWD    OBJ       -1.07380    
+    CA2FWD    OBJ       -.997000    
+    LN2FWD    OBJ       -1.04380    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.03500    
+    SA2FWD    OBJ       -1.06100    
+    CD2FWD    OBJ       -1.07100    
+    CA2FWD    OBJ       -.995000    
+    LN2FWD    OBJ       -1.04100    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.03300    
+    SA2FWD    OBJ       -1.05820    
+    CD2FWD    OBJ       -1.06820    
+    CA2FWD    OBJ       -.993000    
+    LN2FWD    OBJ       -1.03820    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.03100    
+    SA2FWD    OBJ       -1.05540    
+    CD2FWD    OBJ       -1.06540    
+    CA2FWD    OBJ       -.991000    
+    LN2FWD    OBJ       -1.03540    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.02900    
+    SA2FWD    OBJ       -1.05260    
+    CD2FWD    OBJ       -1.06260    
+    CA2FWD    OBJ       -.989000    
+    LN2FWD    OBJ       -1.03260    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.02700    
+    SA2FWD    OBJ       -1.04980    
+    CD2FWD    OBJ       -1.05980    
+    CA2FWD    OBJ       -.987000    
+    LN2FWD    OBJ       -1.02980    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.02500    
+    SA2FWD    OBJ       -1.04700    
+    CD2FWD    OBJ       -1.05700    
+    CA2FWD    OBJ       -.985000    
+    LN2FWD    OBJ       -1.02700    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.02300    
+    SA2FWD    OBJ       -1.04420    
+    CD2FWD    OBJ       -1.05420    
+    CA2FWD    OBJ       -.983000    
+    LN2FWD    OBJ       -1.02420    
+ BL BLOCK2    PERIOD2   0.400000E-01
+    CH2FWD    OBJ       -1.02100    
+    SA2FWD    OBJ       -1.04140    
+    CD2FWD    OBJ       -1.05140    
+    CA2FWD    OBJ       -.981000    
+    LN2FWD    OBJ       -1.02140    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2    -19.2000    
+    RIGHT     SAV2      -38.4000    
+    RIGHT     CD2       -29.1000    
+    RIGHT     LOANS2    -15.3600    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2    -17.6000    
+    RIGHT     SAV2      -35.2000    
+    RIGHT     CD2       -27.3000    
+    RIGHT     LOANS2    -14.0800    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2    -16.0000    
+    RIGHT     SAV2      -32.0000    
+    RIGHT     CD2       -25.5000    
+    RIGHT     LOANS2    -12.8000    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2    -14.4000    
+    RIGHT     SAV2      -28.8000    
+    RIGHT     CD2       -23.7000    
+    RIGHT     LOANS2    -11.5200    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2    -12.8000    
+    RIGHT     SAV2      -25.6000    
+    RIGHT     CD2       -21.9000    
+    RIGHT     LOANS2    -10.2400    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2    -11.2000    
+    RIGHT     SAV2      -22.4000    
+    RIGHT     CD2       -20.1000    
+    RIGHT     LOANS2    -8.96000    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2    -9.60000    
+    RIGHT     SAV2      -19.2000    
+    RIGHT     CD2       -18.3000    
+    RIGHT     LOANS2    -7.68000    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2    -8.00000    
+    RIGHT     SAV2      -16.0000    
+    RIGHT     CD2       -16.5000    
+    RIGHT     LOANS2    -6.40000    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2    -6.40000    
+    RIGHT     SAV2      -12.8000    
+    RIGHT     CD2       -14.7000    
+    RIGHT     LOANS2    -5.12000    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2    -4.80000    
+    RIGHT     SAV2      -9.60000    
+    RIGHT     CD2       -12.9000    
+    RIGHT     LOANS2    -3.84000    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2    -3.20000    
+    RIGHT     SAV2      -6.40000    
+    RIGHT     CD2       -11.1000    
+    RIGHT     LOANS2    -2.56000    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2    -1.60000    
+    RIGHT     SAV2      -3.20000    
+    RIGHT     CD2       -9.30000    
+    RIGHT     LOANS2    -1.28000    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2    -.444089E-15
+    RIGHT     SAV2      -.888178E-15
+    RIGHT     CD2       -7.50000    
+    RIGHT     LOANS2    -.133227E-14
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2     1.60000    
+    RIGHT     SAV2       3.20000    
+    RIGHT     CD2       -5.70000    
+    RIGHT     LOANS2     1.28000    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2     3.20000    
+    RIGHT     SAV2       6.40000    
+    RIGHT     CD2       -3.90000    
+    RIGHT     LOANS2     2.56000    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2     4.80000    
+    RIGHT     SAV2       9.60000    
+    RIGHT     CD2       -2.10000    
+    RIGHT     LOANS2     3.84000    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2     6.40000    
+    RIGHT     SAV2       12.8000    
+    RIGHT     CD2       -.300000    
+    RIGHT     LOANS2     5.12000    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2     8.00000    
+    RIGHT     SAV2       16.0000    
+    RIGHT     CD2        1.50000    
+    RIGHT     LOANS2     6.40000    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2     9.60000    
+    RIGHT     SAV2       19.2000    
+    RIGHT     CD2        3.30000    
+    RIGHT     LOANS2     7.68000    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2     11.2000    
+    RIGHT     SAV2       22.4000    
+    RIGHT     CD2        5.10000    
+    RIGHT     LOANS2     8.96000    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2     12.8000    
+    RIGHT     SAV2       25.6000    
+    RIGHT     CD2        6.90000    
+    RIGHT     LOANS2     10.2400    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2     14.4000    
+    RIGHT     SAV2       28.8000    
+    RIGHT     CD2        8.70000    
+    RIGHT     LOANS2     11.5200    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2     16.0000    
+    RIGHT     SAV2       32.0000    
+    RIGHT     CD2        10.5000    
+    RIGHT     LOANS2     12.8000    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2     17.6000    
+    RIGHT     SAV2       35.2000    
+    RIGHT     CD2        12.3000    
+    RIGHT     LOANS2     14.0800    
+ BL BLOCK3    PERIOD2   0.400000E-01
+    RIGHT     CHECK2     19.2000    
+    RIGHT     SAV2       38.4000    
+    RIGHT     CD2        14.1000    
+    RIGHT     LOANS2     15.3600    
+ENDATA  

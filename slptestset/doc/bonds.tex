@@ -1,0 +1,189 @@
+\subsection{Bond investment planning}%
+\emph{Due to K. Frauendorfer, C. Marohn, M. Sch\"{u}rle \cite{frauendorfer97}}%
+
+\noindent(Multistage, linear stochastic problem)
+
+\vspace{3mm}
+\subsubsection{Description}
+Frauendorfer, Marohn, and Sch\"{u}rle \cite{frauendorfer97} describe a suite of test problems for multistage stochastic programming, based on bond investments.  The test problems are denoted SGPF$m$Y$n$, where $m \in \{3,5\}$, and $n \in \{3,4,5,6,7\}$.  
+
+Many business ventures are financed by lending bonds, and many of these ventures also purchase bonds.  There is risk in such dealings, as returns on bonds fluctuate, and earnings from the business ventures are uncertain.  This risk cannot be modeled by assuming a mean rate of return.  Therefore, the scenario is a good one for the application of stochastic programming.
+
+Bonds mature in certain, standard time periods.  Suppose we will consider transactions in bonds with standard maturities in the set ${\cal D}^S$.  Suppose that the longest maturity in ${\cal D}^S$ is $D$ months.  Then, since the time frame is rolling in such problems, we must include in the model bonds which mature in $d$ months, where $d \in {\cal D} = \{1, 2, \ldots, D\}$.
+
+Let $v_t^{d,+}$ be the amount of new borrowing done at time $t$ with maturity $d \in {\cal D}^S$, and let $v_t^{d,-}$ be the amount of new lending done in the same circumstances.  Then, if $v_t^d$ is the balance of bond transactions at time $t$ with maturity $d$, we have
+\begin{equation*}
+v_t^d = 
+\begin{cases}
+	v_{t-1}^{d+1} + v_t^{d,+} - v_t^{d,-} & \text{if $d \in {\cal D}^S$},\\
+	v_{t-1}^{d+1}						&	\text{if $d \in {\cal D} \backslash {\cal D}^S$}.
+\end{cases}
+\end{equation*}
+
+The total balance of bond transactions at time $t$ is 
+\begin{equation*}
+x_t = \sum_{d \in {\cal D}} v_t^d.
+\end{equation*}
+If this quantity is positive, the balance will be used to fund the business venture during the time period $t$.  Rather than writing $x_t$ as a function of historical balances and rates of return, Frauendorfer, Marohn, and Sch\"{u}rle \cite{frauendorfer97} simply express it as the stochastic quantity
+\begin{equation*}
+x_t = x_{t-1} + \rand{\xi_t},
+\end{equation*}
+where $\rand{\xi_t}$ is a random variable.
+
+To limit the sale of bonds, the authors \cite{frauendorfer97} include the constraint
+\begin{equation*}
+\sum_{d\in {\cal D}^S} v_t^{d,+} - \sum_{d=1}^M v_{t-1}^d \leq \rand{\xi_t}.
+\end{equation*}
+%\begin{comment}
+%\emph{I don't understand this constraint at all.  The article does not explain what $M$ is.}
+%\end{comment}
+
+Given random rates of return $\rand{\eta_t^{d,-}}$, $\rand{\eta_t^{d,+}}$, and $\rand{\eta_t^x}$, corresponding to the quantities $v_t^{d,-}$, $v_t^{d,+}$, and $x_t$, respectively, the objective is to maximize the expected return:
+\begin{equation*}
+%NOTE:  MAX problem
+\expect[\eta, \xi]\left\{\sum_{t=0}^T \left(\sum_{d\in {\cal D}^S} [\rand{\eta_t^{d,-}}v_t^{d,-} - \rand{\eta_t^{d,+}}v_t^{d,+}] + \rand{\eta_t^x}x_t \right) \right\}.
+\end{equation*}
+The returns at time $t=0$ are actually deterministic.  So the decision variables for time $t=0$ are the so-called first stage decision variables in the stochastic problem.
+
+
+
+\subsubsection{Problem statement}
+We change the problem to a minimization, and separate the first stage variables and constraints from the recourse variables and constraints.  We are given all values for the time $t=-1$ decision variables, and the time $t=0$ values of all $\eta$ and $\xi$.  The program then is to
+\begin{multline*}
+\text{minimize } \sum_{d \in {\cal D}^S}[-\eta_0^{d,-} v_0^{d,- } + \eta_0^{d,+} v_0^{d,+}] - \eta_0^x x_0 + \\
+\expect[\eta, \xi] \left\{\sum_{t=1}^T \left(\sum_{d\in {\cal D}^S} [-\rand{\eta_t^{d,-}}v_t^{d,-} + \rand{\eta_t^{d,+}}v_t^{d,+}] - \rand{\eta_t^x}x_t \right) \right\}
+\end{multline*}
+ subject to
+{\allowdisplaybreaks
+\begin{align}
+ v_0^d - v_{-1}^{d+1} - v_0^{d,+} + v_0^{d,-} &=0, \quad \forall d \in {\cal D}^S,\label{BONDS:con1}\\
+v_0^d - v_{-1}^{d+1} &=0, \quad \forall d \in {\cal D}\backslash {\cal D}^S,\label{BONDS:con2}\\
+x_0 - \sum_{d \in {\cal D}} v_0^d &=0,\notag \\
+x_0 - x_{-1} &= \xi_0,\notag \\
+\sum_{d \in {\cal D}^S} v_0^{d,+} - \sum_{d=1}^M v_{-1}^d &\leq \xi_0,\label{BONDS:con5}\\
+v_0^{d,+}, v_0^{d,-} &\geq 0, \quad \forall d \in {\cal D},\notag \\
+\notag \\
+ v_t^d - v_{t-1}^{d+1} - v_t^{d,+} + v_t^{d,-} &=0, \quad \forall d \in {\cal D}^S, t=1,\ldots, T,\notag \\
+v_t^d - v_{t-1}^{d+1} &=0, \quad \forall d \in {\cal D}\backslash {\cal D}^S, t=1,\ldots, T,\notag \\
+x_t - \sum_{d \in {\cal D}} v_t^d &=0, \quad \forall  t=1,\ldots, T, \notag \\
+x_t - x_{t-1} &= \rand{\xi_t}, \quad \forall  t=1,\ldots, T,\notag \\
+\sum_{d \in {\cal D}^S} v_t^{d,+} - \sum_{d=1}^M v_{t-1}^d &\leq \rand{\xi_t}, \quad \forall  t=1,\ldots, T,\label{BONDS:con11}\\
+v_t^{d,+}, v_t^{d,-} &\geq 0, \quad \forall d \in {\cal D}, t=1, \ldots, T.\notag
+\end{align}
+}
+
+\subsubsection{Numerical examples}
+A total of ten numerical examples in SMPS format \cite{SMPS87} are available from Birge's POSTS web site \cite{postswebsite}.  Since the only coefficients to be specified in this model are stochastic, specifying any one problem here would require duplicating the stochastic file from the set of SMPS files.  Therefore, we refer the reader to the publicly available SMPS files \cite{postswebsite}.
+
+\subsubsection{Notational reconciliation}
+
+We may rearrange the equations represented by (\ref{BONDS:con1}) and (\ref{BONDS:con2}) so that they are in ascending order, by $d$.  Then we have $D$ constraints, each with right-hand sides $v_{-1}^{d+1}$, and left hand sides depending on whether $d\in {\cal D}^S$ or not.  We replace all $v_t^d$ with the term $(vp_t^d - vm_t^d)$, with the added constraints that $vp_t^d, vm_t^d \geq 0$.
+
+Let $\{d1, d2, \ldots, dN\} = \{d \in {\cal D}^S\}$.  We define the matrix $\Delta^S \in \reals^{D \times N}$ by
+\begin{equation*}
+\Delta^S \assign \left[
+\begin{array}{cccc}
+e^{d1}	& e^{d2}	& \cdots&	e^{dN}
+\end{array}
+\right],
+\end{equation*}
+where $e^i \in \reals^D$ is the $i$th unit vector.
+
+Let $s_t$ be the slack variable associated with constraint (\ref{BONDS:con5}) or (\ref{BONDS:con11}).  Assign the new notation
+\begin{equation*}
+b_1 \assign \left[
+\begin{array}{c}
+	(vp_{-1}^2 - vm_{-1}^2)\\
+	(vp_{-1}^3 - vm_{-1}^3)\\
+	\vdots\\
+	(vp_{-1}^D - vm_{-1}^D)\\
+	0\\
+	0\\
+	\xi_0 + x_{-1}\\
+	\xi_0 + \sum_{d=1}^M (vp_{-1}^d - vm_{-1}^d)
+\end{array}
+\right],\qquad
+c_1 \assign \left[
+\begin{array}{c}
+	-\eta_0^x\\
+	0\\
+	\eta_0^{d1,+}\\
+	\vdots\\
+	\eta_0^{dN,+}\\
+	-\eta_0^{d1,-}\\
+	\vdots\\
+	-\eta_0^{dN,-}\\
+	0^{2 D \times 0}
+\end{array}
+\right],
+\end{equation*}
+and
+\begin{multline*}
+x_1 \assign \left[
+\begin{array}{cccccccc}
+	x_0&
+	s_0&
+	v_0^{d1,+}&
+	\cdots&
+	v_0^{dN,+}&
+	v_0^{d1,-}&
+	\cdots&
+	v_0^{dN,-}
+\end{array}
+\right.\\
+\left.
+\begin{array}{cccccc}
+	vp_0^1&
+	\cdots&
+	vp_0^D&
+	vm_0^1&
+	\cdots&
+	vm_0^D
+\end{array}
+\right]\trp.
+\end{multline*}
+Also, let
+\begin{equation*}
+A_1 \assign \left[
+\begin{array}{cccccc}
+	0^{D\times 1}	&	0^{D\times 1}	&	-\Delta^S	&	\Delta^S	&	I^{D \times D}	&	-I^{D \times D}\\
+	1	&	0	&	0^{1\times N}	&	0^{1\times N}	&	-1^{1\times D}	&	1^{1 \times D}\\
+	1	&	0	&	0^{1\times N}	&	0^{1\times N}	&	0^{1\times D}	&	0^{1 \times D}\\
+	0	&	1	&	1^{1\times N}	&	0^{1\times N}	&	0^{1 \times D}	&0^{1 \times D}
+\end{array}
+\right].
+\end{equation*}
+
+
+Analogous assignments are made for $t=2, 3, \ldots, T$, except that $\rand{c_t}$ is made stochastic for these times, because $\rand{\eta}$ is stochastic.  Also,
+\begin{equation*}
+\rand{b_t} \assign
+ \left[
+\begin{array}{c}
+	0^{D\times 1}\\
+	0\\
+	0\\
+	\rand{\xi_{t-1}}\\
+	\rand{\xi_{t-1}}
+\end{array}
+\right],
+\end{equation*}
+and
+\[
+T_t \assign
+\left[
+\begin{array}{cccccc}
+	0^{D \times 1}	&	0^{D \times 1}	&	0^{D \times N}	&	0^{D \times N}	&	-I^{D\times D}	&	I^{D \times D}\\
+	0	&	0	&	0^{1\times N}	&	0^{1\times N}	&	0^{1\times D}	&	0^{1\times D}\\
+	-1	&	0	&	0^{1\times N}	&	0^{1\times N}	&	0^{1\times D}	&	0^{1\times D}\\	
+	0	&	0	&	0^{1\times N}	&	0^{1\times N}	&	-W_1	&	W_1
+\end{array}
+\right],
+\]
+where
+\begin{equation*}
+W_1 \assign \left[\begin{array}{cc}
+		1^{1\times M}	&	0^{1\times (D-M)}
+	\end{array}
+	\right].
+\end{equation*}%

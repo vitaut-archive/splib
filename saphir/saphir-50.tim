@@ -1,0 +1,5 @@
+TIME          SAPHIR50
+PERIODS
+    C1        R1                       PERIOD1
+    C62       R33                      PERIOD2
+ENDATA

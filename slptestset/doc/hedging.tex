@@ -1,0 +1,302 @@
+% cleaned of unnecessary equation numbers 3 June 2000
+\subsection{Selecting currency options}%
+\emph{Due to Klaassen, Shapiro, and Spitz \cite{klaassen90}}%
+
+\noindent(Multistage, non-stair step, linear stochastic problem)
+
+\vspace{3mm}
+\subsubsection{Description}
+
+The situation described by Klaassen, Shapiro, and Spitz \cite{klaassen90} involves a U. S. multi-national corporation (MNC), which has significant forecasted revenues in a foreign currency (FC).  If the \emph{exchange rate}, $\rand{S}$ (\$US/FC)%$
+, goes down, the MNC would face declining revenue versus the forecast.  To protect, or hedge, against this undesirable possibility, the MNC may choose to purchase \emph{options} which guarantee a certain exchange rate at some point in the future.  The guaranteed exchange rate is called the \emph{strike price}, $E$.
+
+The current time is given the value $t=0$, and the time at which the forecasted revenue will be realized is $t=T$.  The amount of said revenue is assumed to be known with certainty, and is scaled to be $1$ FC.  At times $t=0,1,  \ldots, T-1$, the MNC may decide to purchase any of the available options.  These options mature at time $t=T$.  There are a total of $J$ specific options packages available for purchase, each with a different strike price.
+
+Of course, the exchange rates for $t=1,2,\ldots,T$ are unknown at time $t=0$, but a suitable probability distribution can be constructed.  We enumerate the possible exchange rate values at each time $t$ as $S_t^1, S_t^2,\ldots,S_t^{N_t}$, for $t=0,1,\ldots,T$.  Then the set of scenarios
+\begin{multline*}
+\mathcal{S} \assign \\
+\{\mbox{sequences } s=(S_0,S_1,\ldots,S_T): 1\leq S_t\leq N_t, \hspace{3mm}\forall t=1, 2, \ldots, T\},
+\end{multline*}
+is the set of all possible realizations of a random variable $\rand{s} = (\rand{S_0},\rand{S_1},\ldots,\rand{S_T})$.
+Thus, the cardinality of $\mathcal{S}$ is $\prod_{t=0}^T N_t$.  Each realization scenario $s$ specifies the exchange rate at \emph{each} time step, and has an associated probability, $\rho_s$.  For scenario $s \in \mathcal{S}$, we denote by $s_t$ the partial realization $(S_0,S_1, \ldots, S_t)$.
+
+The decision to purchase options at any time $t$ will depend on the current exchange rate, and on the type and quantity of options previously purchased.  This, in turn, depends on historical exchange rates.  Therefore, the decision variable $X_{s_t j}$ is the amount of option $j$ purchased at time $t$, based on the partial realization $s_t = (S_0,S_1 \ldots, S_t)$.  This purchase costs $P_{s_t j}$ per scaled unit of currency.
+
+Because decisions to purchase options are only available through time $T-1$, there is no decision to be made at time $T$.  This allows the constraints associated with time $T$ to be rolled into time $T-1$.
+
+For each exchange rate scenario $s \in \mathcal{S}$, the MNC must specify an acceptable \emph{effective} exchange rate, $Q_s$, which would include effects of options purchased as well as the actual terminal exchange rate $S_T$.  This leads to the constraint
+\begin{equation}
+\label{HEDGE:target}
+\rand{S_T} + \sum_{t=0}^{T-1} \sum_{j=1}^J X_{s_t j}\left[ \mbox{max}\{E_j - \rand{S_T},0\} - \left(1+i^{US}_{s_t}\right)^{T-t}\rand{P}_{s_t j}\right] \geq \rand{Q}_s, \hspace{3mm} \forall s \in \mathcal{S},
+\end{equation}
+where $i^{US}_{s_t}$ is the U.S. interest rate at time $t$ for partial scenario $s_t$.  The left side of inequality (\ref{HEDGE:target}) includes the payoff from options which are active at $S_T$ as well as the discounted cost of all options purchased.  Since $\rand{Q}_s$ is a function of random variable $\rand{S}_T$, it is random as well.
+
+Note that the $\rand{S_T}$ in (\ref{HEDGE:target}) implies that these constraints are in the time stage associated with time $T$.  However, there are no time $T$ decision variables, so we can write these constraints in the time $T-1$ stage.  At that stage, $\rand{S_T}$ is ``still'' random, as is $\rand{P}_{s_T j}$.  So, the only stage in which constraint (\ref{HEDGE:target}) occurs is the stage associated with time $T-1$, and moreover, there are $N_T$ of these constraints.
+
+A further restriction ensures that the MNC does not venture into the realm of foreign currency speculation.  That is, the MNC should only be able to purchase options to cover a maximum of $100\%$ of the forecasted revenues.  This gives the constraint
+\begin{equation}
+\label{HEDGE:speculate}
+\sum_{t=0}^{T-1} \sum_{j=1}^{J} X_{s_t j} \leq 1 \hspace{3mm} \forall s \in \mathcal{S}.
+\end{equation}
+
+The objective of this exercise is to minimize the expected cost of all options purchased:
+\begin{equation*}
+%\label{HEDGE:objective}
+\sum_{j=1}^J X_{s_0 j} P_{s_0 j} + \expect[s]\left[\sum_{t=1}^{T-1}\left(\frac{1}{1+i^{US}_{s_t}}\right)^t \sum_{j=1}^J X_{s_t j} \rand{P}_{s_t j} \right].
+\end{equation*}
+
+The parameters $i^{US}_{s_t}$ must be estimated, and for each realization $S_t$ of $\rand{S_t}$, the coefficient $P_{s_t j}$ is calculated by the following formula, given in \cite{klaassen90}:
+\begin{equation}
+\label{HEDGE:price}
+P_{s_t j}\assign (1-c_1)\left[ \frac{e^{-\left[i^{US}_{s_t} (T-t)\right]}}{E_j}\right] - (1-c_2)\left[\frac{e^{-\left[i^{FC}_{s_t} (T-t)\right]}}{S_t}\right],
+\end{equation}
+where
+\begin{eqnarray*}
+%\label{HEDGE:normal1}
+c_1 \assign N\left\{ \frac{\ln (E_j/S_t) + \left[i^{US}_{s_t} - i^{FC}_{s_t} - (T-t)\left(\frac{V_t^2}{2}\right)\right]}{V_t \sqrt{T-t}}\right\},\\
+c_2 \assign N\left\{ \frac{\ln (E_j/S_t) + \left[i^{US}_{s_t} - i^{FC}_{s_t} + (T-t)\left(\frac{V_t^2}{2}\right)\right]}{V_t \sqrt{T-t}}\right\},
+\end{eqnarray*}
+and $V_t$ is the volatility of the exchange rate, as measured by the instantaneous standard deviation of the spot rate as a percentage of the current spot rate.  Here $N\{x\}$ is the cumulative standard normal distribution function.  The foreign interest rate, $i^{FC}_{s_t}$ is calculated by 
+\begin{equation*}
+%\label{HEDGE:interest}
+i^{FC}_{s_t} \assign \frac{S_t \left(1+ i^{US}_{s_t}\right)}{\expect[] \left[\rand{S_{t+1}|S_t}\right]} - 1,
+\end{equation*}
+where the term in the denominator is a conditional expected value.
+
+
+
+
+
+\subsubsection{Problem statement}
+
+Given all elements of $i^{US}, V$, and $ E$, and given a discrete probability distribution for $\rand{s}$ and corresponding minimum effective exchange rates $Q_s$, we calculate the value of each $P_{s_t j}$ from (\ref{HEDGE:price}).  Then the problem is to\newline
+\noindent minimize
+\begin{equation*}
+%\label{HEDGE:obj}
+\sum_{j=1}^J X_{s_0 j} P_{s_0 j} + \expect[s]\left[\sum_{t=1}^{T-1}\left(\frac{1}{1+i^{US}_{s_t}}\right)^t \sum_{j=1}^J X_{s_t j} \rand{P}_{s_t j} \right]
+\end{equation*}
+\noindent subject to
+%\end{doublespace}
+%\begin{singlespace}
+\begin{equation*}
+\sum_{t=0}^{T-1} \sum_{j=1}^{J} X_{s_t j} \leq 1 \hspace{3mm} \forall s \in \mathcal{S}
+\end{equation*}
+\begin{equation*}
+\rand{S_T} + \sum_{t=0}^{T-1} \sum_{j=1}^J X_{s_t j}\left[ \mbox{max}\{E_j - \rand{S_T},0\} - \left(1+i^{US}_{s_t}\right)^{T-t}\rand{P}_{s_t j}\right] \geq \rand{Q}_s, \hspace{3mm} \forall s \in \mathcal{S}
+\end{equation*}
+\begin{equation*}
+X_{s_t j} \geq 0 \hspace{3mm} \forall j=1,\ldots,J; t=0,1,\ldots,T; s\in \mathcal{S}.
+\end{equation*}
+%\end{singlespace}
+%\begin{doublespace}
+
+\subsubsection{Numerical results}
+
+Klaassen, Shapiro and Spitz \cite{klaassen90} present a four stage ($T=4$) example, with $i^{US}=0.10$ and $V=0.11$ for all time periods and scenarios.  At time stages $0, 1, 2$, and $3$, ten different options are available, with strike prices
+\[
+(E_1, E_2, \ldots, E_{10})=(0.44,0.50,0.57,0.63,0.70,0.76,0.83,0.89,0.96,1.02).
+\]
+
+The scenario tree for the exchange rate $\rand{S_{t}}$ is given in Figure \ref{HEDGE:tree}.
+\begin{figure}[ht]
+\caption{Scenario tree for Klaassen, Shapiro and Spitz \cite{klaassen90}}
+\label{HEDGE:tree}
+\input{hedgepic}
+\end{figure}
+Each branch of the tree has equal probability.  Therefore we have the following probabilities:
+\begin{eqnarray*}
+%\label{HEDGE:probabilities}
+\rho_{s_0} &=& 1\\
+\rho_{s_1} &=& 1/3, \hspace{3mm} \forall s_1,\\
+\rho_{s_2} &=& 1/9, \hspace{3mm} \forall s_2,\\
+\rho_{s_3} &=& 1/27, \hspace{3mm} \forall s_3,\\
+\rho_{s_4} &=& 1/81, \hspace{3mm} \forall s_4.
+\end{eqnarray*}
+
+The minimum acceptable effective exchange rates, $Q_s$ are shown in Table \ref{HEDGE:targets}, for each complete scenario.
+\begin{table}[ht]
+\caption{Minimum acceptable effective exchange rates}
+\label{HEDGE:targets}
+\[
+\begin{array}{|c|c|}
+\hline
+\mbox{scenario } (t=4)	&	\mbox{Target Exchange Rates } Q_s\\
+\hline
+1	&	0.407\\
+\hline
+2 - 5	&	0.416\\
+\hline
+6 - 15	&	0.423\\
+\hline
+16 - 31	&	0.429\\
+\hline
+32 - 50	&	0.444\\
+\hline
+51 - 66	&	0.466\\
+\hline
+67 - 76	&	0.494\\
+\hline
+77 - 80	&	0.527\\
+\hline
+81	&	0.564\\
+\hline
+\end{array}
+\]
+\end{table}
+Results are given in Table \ref{HEDGE:results}.  Results for different values of $\rand{Q}_s$, $i^{US}$ and $V$ are also given in \cite{klaassen90}.
+\begin{table}[ht]
+\caption{Results for Klaassen, Shapiro, and Spitz \cite{klaassen90}}
+\label{HEDGE:results}
+All nonzero option purchases, $X_{s_t j}$ are shown.  Optimal objective value: 0.1057\footnotesize
+\[
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\cline{3-12}
+\multicolumn{2}{c}{} & \multicolumn{10}{|c|}{\mbox{Option strike prices}} \\
+\hline
+\mbox{Year} & \mbox{Scenario} & 0.44 & 0.50 & 0.57 & 0.63 & 0.70 & 0.76 & 0.83 & 0.89 & 0.96 & 1.02\\
+\hline
+2 & 1 & & & & & & & & & 0.03 & 0.47\\
+\hline
+  & 2 & & & & & & & & &      & 0.04\\
+\hline
+3 & 1 & & & & & & & & 0.09 & & \\
+\hline
+  & 3 & & & & & & & & & 0.49 & \\
+\hline
+4 & 3 & & & & 0.0004 & 0.09 & & & & &\\
+\hline
+  & 4 & & & & & & & & 0.06 & & \\
+\hline
+  & 7 & & & & & 0.21 & & & & & \\
+\hline
+  & 9 & & & & & 0.31 & 0.25 & & & & \\
+\hline
+  & 10 & & & & & & 0.56 & & 0.03 & & \\
+\hline
+\end{array}
+\]\normalsize
+\end{table}%
+
+
+\subsubsection{Notational reconciliation}
+
+This problem does not fit into form (\ref{PROB:mslp}), because the last stage (that associated with time $T-1$) contains constraints of the form (\ref{HEDGE:target}).  These constraints contain all the decision variables $X_{s_t j}$, not just $X_{s_{T-2} j}$.  Therefore, we need ``$T$-type'' matrices to connect not only time $T-1$ to time $T-2$, but also time $T-1$ to each time $t<T-1$.  We denote such matrices $T_{Tt}$.
+
+In fact, the speculation constraint (\ref{HEDGE:speculate}) also contains all the decision variables.  However, with a trick, we can make these constraints fit into the stair step form of (\ref{PROB:mslp}).  We create a new variable $X_{zt}$ and introduce the constraints
+\[
+X_{z0} = \sum_{j=1}^J X_{s_0 j},
+\]
+and
+\[
+X_{zt} = X_{z(t-1)} + \sum_{j=1}^J X_{s_t j}, \hspace{2cm} t=1, 2, \ldots, T-2.
+\]
+Constraint (\ref{HEDGE:speculate}) then may be written
+\begin{equation}
+\label{PROB:speculatetricky}
+X_{z(T-2)} + \sum_{j=1}^J X_{s_{T-1} j} \leq 1.
+\end{equation}
+
+With these definitions, we can define, for $t=0, 1, \ldots, T-2$,
+\[
+\begin{array}{cc}
+x_{t+1} \assign \left[\ajfbox{ X_{s_t 1}\\ \vdots \\ X_{s_t J}\\ X_{zt}}\right], & \rand{c}_{t+1} \assign \left[1/\left(1+i_{s_t}^{US}\right)\right]^t\left[\ajfbox{\rand{P}_{s_t 1}\\ \vdots \\ \rand{P}_{s_t J}\\ 0}\right],\end{array}
+\]
+for $t=0, 1, \ldots, T-2$,
+\[
+A_{t+1}\assign \left[\begin{array}{cccc} -1 & \cdots & -1 & 1\end{array}\right], \hspace{2cm} b_{t+1}\assign 0 \in \reals,
+\]
+and for $t= 2,3 \ldots, T-1$, 
+\[
+T_{t(t-1)} \assign \left[\begin{array}{cccc} 0 & \cdots & 0 & -1\end{array}\right] \in \reals^{1\times (J+1)}.
+\]
+
+In the last stage, that is the stage associated with time $T-1$, we will use $X_{z(T-1)}$ as a slack variable in (\ref{PROB:speculatetricky}).
+
+In addition, we will need $N_T$ surplus variables $y_k$, for $k=1, 2, \ldots, N_T$.  That is because, in the final stage we also have the $N_T$ constraints (\ref{HEDGE:target}).  For $k=1, 2, \ldots, N_T$, define
+\[
+\begin{split}
+\rand{\gamma}_{s_t j k}\assign \text{max}\left\{E_j - \rand{S}_{Tk},0\right\}-\left(1+i_{s_t}^{US}\right)^{T-t}\rand{P}_{s_t j}, \hspace{3mm} &t=0,\ldots,T-1,\\
+&j=1,\ldots,J,
+\end{split}
+\]
+where $\rand{S}_{Tk}$ is realization $k$ of $\rand{S}_T$, given a partial realization $s_{T-1}$.  Note that $\rand{S}_{Tk}$ is random (for $t<T-1$), because it is dependent on $\rand{s}_{T-1}$.
+
+Let
+\[
+\rand{T}_{T(t+1)}\assign \left[\begin{array}{ccccc}
+0 & 0 & \cdots  & 0 & r(t)\\
+\rand{\gamma}_{s_t 1 1} & \rand{\gamma}_{s_t 2 1} & \cdots & \rand{\gamma}_{s_t J 1} & 0\\
+\rand{\gamma}_{s_t 1 2} & \rand{\gamma}_{s_t 2 2} & \cdots & \rand{\gamma}_{s_t J 2} & 0\\
+\vdots & \vdots & & \vdots & \vdots\\
+\rand{\gamma}_{s_t 1 N_T} & \rand{\gamma}_{s_t 2 N_T} & \cdots & \rand{\gamma}_{s_t J N_T} & 0\end{array}\right],
+\]
+for $t=0, 1, \ldots, T-2$, where
+\[
+r(t) \assign \begin{cases} 1 & t=T-2\\
+0 & \text{otherwise.}
+\end{cases}
+\]
+
+The matrix $\rand{A}_T$ is defined by
+\[
+\rand{A}_{T} \assign \left[\begin{array}{ccccc|ccc}
+1 & 1 & \cdots  & 1 & 1&0 & \cdots & 0\\
+\rand{\gamma}_{s_{T-1} 1 1} & \rand{\gamma}_{s_{T-1} 2 1} & \cdots & \rand{\gamma}_{s_{T-1} J 1} & 0& & & \\
+\rand{\gamma}_{s_{T-1} 1 2} & \rand{\gamma}_{s_{T-1} 2 2} & \cdots & \rand{\gamma}_{s_{T-1} J 2} & 0& & -I^{J\times J}\\
+\vdots & \vdots & & \vdots & \vdots& & &\\
+\rand{\gamma}_{s_{T-1} 1 N_T} & \rand{\gamma}_{s_{T-1} 2 N_T} & \cdots & \rand{\gamma}_{s_{T-1} J N_T} & 0&&&\end{array}\right],
+\]
+and the right hand side for this stage is
+\[
+	\rand{b}_{T} \assign \left[\ajfbox{ 1\\ \rand{Q}_{s 1} - \rand{S}_{T1} \\
+\rand{Q}_{s 2} - \rand{S}_{T2} \\
+\vdots\\
+\rand{Q}_{s N_T} - \rand{S}_{TN_T} }\right].
+\]
+The decision and cost vectors for the final stage are
+\[
+\begin{array}{cc} x_T \assign \left[\ajfbox{ X_{s_{T-1} 1}\\ \vdots \\ X_{s_{T-1} J}\\ X_{zT}\\ y_1\\ y_2\\ \vdots \\ y_J}\right], & \rand{c}_{T} \assign \left[1/\left(1+i_{s_{T-1}}^{US}\right)\right]^{T-1}\left[\ajfbox{\rand{P}_{s_{T-1} 1}\\ \vdots \\ \rand{P}_{s_{T-1} J}\\ 0\\ 0\\ 0\\ \vdots \\ 0}\right].\end{array}
+\]
+
+With all of the definitions above, we have transformed the problem into a familiar format.  It is a non-stair step version of (MSSLP),
+\[
+\begin{lp}{rccrcrcl}
+\text{minimize } &Z(x_1)&\assign& c_1\trp x_1& +& \mathcal{Q}_2(x_1)&&\\
+\text{subject to } &&& A_1 x_1& &&=& b_1\\
+	&&&x_1 &&&\geq&0,\hspace{3mm} x_1\in \reals^{n_1},
+\end{lp}
+\]
+where
+%\end{doublespace}
+%\begin{singlespace}
+\[
+%\begin{gather*}
+\mathcal{Q}_t(x_{t-1})\assign\expect[\{c_t, b_t, A_t, T_t\}] \left[Q_t(x_{t-1},\rand{c_t}, \rand{b_t}, \rand{A_t}, \rand{T_t})\right],
+\]
+\begin{multline*}
+Q_t(x_{t-1}, c_t, b_t, A_t, T_{t(t-1)}) \assign \\
+\inf_{x_t \in \reals^{n_t}} \{ c_t\trp x_t + \mathcal{Q}_{t+1}(x_t) : A_t x_t = b_t - T_{t(t-1)} x_{t-1}, x_t \geq 0\}\\
+ t=2,3,\ldots, N-1,
+\end{multline*}
+%\[
+%\begin{split}
+\begin{multline*}
+\mathcal{Q}_N(x_{N-1})\assign\expect[\{c_N, b_N, A_N, T_{N1},T_{N2},\ldots,T_{N(N-1)}\}] \left[Q_N(x_{N-1},\rand{c_N}, \rand{b_N}, \rand{A_N},\right.\\
+ \rand{T_{N1}},\left.\rand{T_{N2}},\ldots,\rand{T_{N(N-1)}})\right],
+%\end{split}
+%\]
+\end{multline*}
+%\intertext{%
+and%
+%}
+%\[
+%\begin{split}
+\begin{multline*}
+Q_N(x_{N-1},c_N,b_N,A_N,T_{N1},T_{N2},\ldots,T_{N(N-1)}) \assign\\
+\inf_{x_N \in \reals^{n_N}} \{ c_N\trp x_N: A_N x_N = b_N - \sum_{t=1}^{N-1}T_{Nt} x_{t}, x_t \geq 0\}.
+%\end{split}
+%\]
+\end{multline*}
+%\end{gather*}
+%\end{singlespace}
+%\begin{doublespace}

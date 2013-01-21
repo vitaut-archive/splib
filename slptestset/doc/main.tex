@@ -1,0 +1,127 @@
+\documentclass[11pt,letterpaper]{article}
+
+%\usepackage{setspace}
+%\usepackage{html}
+\usepackage{url}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{theorem}
+\usepackage{array}
+\usepackage{epic}%used in hedgepic.tex
+\usepackage{multibox}%used in hedgepic.tex
+\usepackage{amsmath}
+\usepackage{longtable}
+\usepackage{lscape}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
+%\usepackage{color}
+\usepackage{graphics}
+%\usepackage{latexsym}
+
+%\hyphenation{Mul-vey}
+
+\includeonly{
+intro,
+%%
+problem-statement,
+%%
+airlift,
+forest,
+electric,
+hedging,
+RY,
+chem,
+environ,
+network,
+cargo,
+phone,
+bonds
+%%
+}
+%%
+\newlength{\myscratch}
+\newenvironment{lp}[1]{\setlength{\myscratch}{\arraycolsep}%
+\setlength{\arraycolsep}{2pt}%
+\begin{array}{#1}}%
+{\end{array}%
+\setlength{\arraycolsep}{\myscratch}}
+
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\reals}{{\mathbb R}}
+\newcommand{\integers}{{\mathbb Z}}
+\newcommand{\trp}{^{\mbox{\scriptsize\sf T}}}
+\newcommand{\rand}[1]{\mathbf{\boldsymbol{#1}}}
+\newcommand{\expect}[1][1]
+        {
+                {\setlength{\extrarowheight}{-6pt}
+                        \begin{array}[t]{c}
+                                E \\ {\scriptscriptstyle \rand{#1}}
+                        \end{array}
+                }
+        }
+\newcommand{\email}[1]{\ensuremath{\mathtt{#1}}}
+\newcommand{\ajfbox}[1]{\ensuremath{\begin{array}{c}#1\end{array}}}
+\newcommand{\curly}[1]{\ensuremath{\mathcal{#1}}}
+\newcommand{\assign}{\ensuremath{:=}}
+
+
+\title{On a new collection of stochastic linear programming test
+problems}
+\author{K. A. Ariyawansa\thanks{Department of
+Pure and Applied Mathematics, Washington State University,
+Pullman, WA 99164-3113. Email: ari@wsu.edu. The work of this
+author was supported in part by the U.S. Army Research Office
+under Grant DAAD19-00-1-0465}\ \ and Andrew J.
+Felt\thanks{Department of Mathematics and Computing,
+University of Wisconsin-Stevens Point, Stevens Point, WI 54481-3897.
+Email: afelt@uwsp.edu. This author was supported in part by
+Washington State University under a research assistantship
+during Summer 2000.}}
+
+%\date
+
+\begin{document}
+\maketitle
+\begin{abstract}
+The purpose of this paper is to introduce a new test
+problem collection for stochastic linear programming
+that the authors have recently begun to assemble.
+While there are existing stochastic programming
+test problem collections, our new collection has
+three features that distinguish it from existing
+collections. First, our collection is web-based with
+free public access, and we intend to enrich it as new test
+problems become available. Indeed, we encourage submissions
+of new test problems. Second,
+for each test problem class we provide a short description,
+a mathematical problem statement and a notational reconciliation
+to a standard format. Third, for each test problem instance
+in our collection we provide numerical data in the SMPS \cite{SMPS87}
+format. In a companion effort we have developed a data
+structure for implementing algorithms for stochastic
+linear programs, and C-routines that convert data in SMPS format
+to that data structure. 
+These routines will also be freely available
+from the authors soon.
+\end{abstract}
+
+%problems
+\include{intro}%
+\include{problem-statement}%
+\include{airlift}%
+\include{forest}%
+\include{electric}%
+\include{hedging}%
+\include{RY}%
+\include{chem}%
+\include{environ}%
+\include{network}%
+\include{cargo}%
+\include{phone}%
+\include{bonds}%
+
+\bibliography{stochlp}
+\bibliographystyle{plain}
+
+\end{document}

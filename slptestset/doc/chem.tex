@@ -1,0 +1,642 @@
+% cleaned of unnecessary equation numbers 3 June 2000
+\subsection{Design of batch chemical plants}%
+\emph{Due to Subrahmanyam, Pekny, and Reklaitis \cite{subrahmanyam94}}%
+
+\noindent(Multistage, mixed integer linear stochastic problem)\\
+\noindent \url{/chem}\url{/chem.cor},\url{/chem.tim},\url{chem.sto}
+
+\vspace{3mm}
+\subsubsection{Description}
+Subrahmanyam, Pekny, and Reklaitis \cite{subrahmanyam94} describe the design of a batch type chemical plant to produce products for which we do not know the future demand.  We present here only half of the problem given in  \cite{subrahmanyam94}, the ``Design SuperProblem.''  
+
+We must decide how many plants to build, of what type, when to build them, and how to operate them.  Therefore the problem has some integer decision variables.  Let $n_{jt}$ be the number of new units of equipment type $j$ to come online in time stage $t$.  This must take only integer values.  The cumulative number of units of type $j$ at time $t$ is defined as
+\begin{equation*}
+%\label{CHEM:cumplants}
+N_{jt}\assign \sum_{\tau = 1}^t n_{j\tau}, \hspace{3mm} \forall j,t.
+\end{equation*}
+
+The various plants can perform different tasks, which are indexed as $i=1,\ldots, I$.  Certain plants can perform more than one task.  Let $I_j^{\text{tasks}}$ be the set of tasks from $1$ to $I$ which can be performed by a plant of type $j$, and let $I_i^{\text{equip}}$ be the set of plant types from $1$ to $J$ which can perform task $i$.
+
+We must decide which tasks to perform on which equipment during each time period.  Let $y_{ijt}$ be the number of times task $i$ is performed on equipment type $j$ during time stage $t$.  If $p_{ij}$ is the processing time for task $i$ with equipment type $j$, and if $H_t$ is the length of stage $t$, then
+\begin{equation*}
+%\label{CHEM:timelimit}
+\sum_{i\in I_j^{\text{tasks}}} p_{ij} y_{ijt} \leq H_t N_{jt}, \hspace{3mm} \forall j,t.
+\end{equation*}
+This constraint enforces the fact that time is limited in each stage.  Something else which might limit the number of batches is the much feared operating expense budget.  Let $C^o_t$ be the total operating budget per plant for time $t$, and let $c^o_{ijt}$ be the operating expense incurred for using equipment type $j$ to perform task $i$ in stage $t$.  Then the operating expense constraint is
+\begin{equation*}
+\sum_j \sum_{i\in I_j^{\text{tasks}}} c^o_{ijt} y_{ijt}\leq C^o_t \sum_j N_{jt}, \hspace{3mm} \forall t.
+\end{equation*}
+
+The material balance on the system includes inventory, production, consumption, sales, and purchasing effects.  Let $B_{ijt}$ be the amount of task $i$ performed on plant type $j$ in stage $t$, measured in somewhat arbitrary reaction units.  If $f_{si}$ is the stoichiometric ratio representing mass of resource $s$ produced per unit of reaction $i$, then the amount of $s$ produced in stage $t$ is
+\[
+\sum_i \sum_{j\in I_i^{\text{equip}}} f_{si}B_{ijt}.
+\]
+Note that $f_{si}$ is negative if resource $s$ is consumed in task $i$.  The mass of resource $s$ in inventory at the end of stage $t$ is $A_{st}$, with maximum limit $A_{st}^{\text{max}}$.  The material balance constraints are then
+\begin{equation*}
+%\label{CHEM:matbal}
+A_{st} = A_{s(t-1)} + \sum_i \sum_{j\in I_i^{\text{equip}}} f_{si}B_{ijt} - q^s_{st} + q^b_{st}, \hspace{3mm} \forall s,t,
+\end{equation*}
+and
+\begin{equation*}
+%\label{CHEM:maxinv}
+A_{st} \leq A_{st}^{\text{max}}, \hspace{3mm} \forall s,t,
+\end{equation*}
+where $q^s_{st}$ is the mass of resource $s$ sold in stage $t$, and $q^b_{st}$ is that bought in stage $t$.
+
+The relationship between $B_{ijt}$ and $y_{ijt}$ is
+\begin{equation*}
+%\label{CHEM:batch}
+B_{ijt} \leq m_{ij} y_{ijt}, \hspace{3mm} \forall i,j,t.
+\end{equation*}
+Here, $m_{ij}$ is the capacity of equipment type $j$ to perform task $i$, measured in units of reaction per batch.
+
+There are a couple ways to limit purchases.  One is to simply impose a limit, as in
+\begin{equation*}
+%\label{CHEM:purlim}
+q^b_{st} \leq Q^b_{st}, \hspace{3mm} \forall s,t,
+\end{equation*}
+for some constant $Q^b_{st}$.  Another is to limit capital expenditures to not exceed a constant $MC_t$, as in
+\begin{equation*}
+\sum_{j}C_{jt}n_{jt} + \sum_s v^b_{st} q^b_{st} \leq MC_t, \hspace{3mm} \forall t.
+\end{equation*}
+The symbol $C_{jt}$ is the capital investment cost for a plant of type $j$ in stage $t$.  The term $v^b_{st}$ is the value of purchased resource $s$ in stage $t$ per unit mass.
+
+One of the random variables in this problem is the demand, $\rand{Q^s_{skt}}$, for resource $s$ at time $t$.  The index $k$ determines the scenario.  The other random variable is $\rand{v^s_{skt}}$, the price per unit mass of resource $s$ sold at or below the demand level $\rand{Q^s_{skt}}$ in stage $t$.  We define a new random variable by $\rand{r_{skt}}\assign(\rand{Q^s_{skt}}, \rand{v^s_{skt}})$.
+
+The recourse variables are $q^{s0}_{skt}$, the amount of $s$ sold in stage $t$ which does not exceed demand, and $q^{s+}_{skt}$, the amount which exceeds demand.  Essentially, $q^{s+}_{skt}$ is given away, rather than sold, as no credit toward profit may be taken for this quantity.  The recourse variables are limited by the equation
+\begin{equation*}
+%\label{CHEM:soldbal}
+q^s_{st} = q^{s0}_{skt} + q^{s+}_{skt}, \hspace{3mm} \forall s,k,t,
+\end{equation*}
+and the inequality
+\begin{equation*}
+%\label{CHEM:solddemand}
+q^{s0}_{skt} \leq \rand{Q^s_{skt}}, \hspace{3mm} \forall s,k,t.
+\end{equation*}
+
+In some industries, it is important that the demand be met exactly.  For such cases, define the variable
+\begin{equation*}
+x_{kt}\assign
+	\begin{cases}
+		1& \text{if for each $s$, $q^{s0}_{skt} = \rand{Q^s_{skt}}$},\\
+		0& \text{otherwise}.
+	\end{cases}
+\end{equation*}
+Then we can set a guarantee index $G_t$, to serve as the minimum number of scenarios for which the demand may be met exactly.  We get the constraint
+\begin{equation*}
+\sum_k x_{kt} \geq G_t, \hspace{3mm} \forall t.
+\end{equation*}
+
+The objective function,
+\begin{equation*}
+%\label{CHEM:objective}
+\sum_{t=1}^T\left\{ \expect[r]\left[ \sum_{s=1}^S(\rand{v^s_{skt}} q^{s0}_{skt} - v^b_{st}q^b_{st}) - \sum_{j=1}^J\left(n_{j(t+\delta)} C_{jt} + \sum_{i=1}^I c^o_{ijt}y_{ijt}\right)\right] \right\},
+\end{equation*}
+is the net present value of the facilities, and includes potential income, capital expenditures and operating expense.  It contains no first stage objective terms, and should obviously be maximized.  Note that $c^o_{ijt} = 0$ if we cannot perform task $i$ with equipment $j$.  Here, $\delta$ is the construction delay once the plant has been ordered.
+
+
+
+\subsubsection{Problem statement}
+We are given a discrete probability distribution 
+\[
+\{(P_{kt},\rand{r_{skt}}): k=1,2,\ldots,K\}.
+\]
+In addition, we require constants $c^o_{ijt}$, $v^b_{st}$, $C_{jt}$, $p_{ij}$, $H_{t}$, $C^o_t$, $f_{si}$, $Q^b_{st}$, $A_{st}^{\text{max}}$, $m_{ij}$, $G_t$, $MC_t$, and $\delta$, and the index sets $I_j^{\text{tasks}}$ and $I_i^{\text{equip}}$.  Then our goal is to\newline
+\noindent maximize
+\begin{equation*}
+\sum_{t=1}^T\left\{ \expect[r]\left[ \sum_{s=1}^S(\rand{v^s_{skt}} q^{s0}_{skt} - v^b_{st}q^b_{st}) - \sum_{j=1}^J\left(n_{j(t+\delta)} C_{jt} + \sum_{i=1}^I c^o_{ijt}y_{ijt}\right)\right] \right\},
+\end{equation*}
+\noindent subject to
+%\end{doublespace}
+%\begin{singlespace}
+\begin{equation*}
+\sum_{i\in I_j^{\text{tasks}}} p_{ij} y_{ijt} \leq H_t N_{jt}, \hspace{3mm} \forall j,t
+\end{equation*}
+\begin{equation}
+\label{CHEM:opex}
+\sum_j \sum_{i\in I_j^{\text{tasks}}} c^o_{ijt} y_{ijt}\leq C^o_t \sum_j N_{jt}, \hspace{3mm} \forall t
+\end{equation}
+\begin{equation}
+\label{CHEM:sumbuilt}
+N_{jt}= \sum_{\tau = 1}^t n_{j\tau}, \hspace{3mm} \forall j,t
+\end{equation}
+\begin{equation}
+\label{CHEM:matbal2}
+A_{st} = A_{s(t-1)} + \sum_i \sum_{j\in I_i^{\text{equip}}} f_{si}B_{ijt} - q^s_{st} + q^b_{st}, \hspace{3mm} \forall s,t
+\end{equation}
+\begin{equation*}
+A_{st} \leq A_{st}^{\text{max}}, \hspace{3mm} \forall s,t
+\end{equation*}
+\begin{equation*}
+B_{ijt} \leq m_{ij} y_{ijt}, \hspace{3mm} \forall i,j,t
+\end{equation*}
+\begin{equation*}
+q^s_{st} = q^{s0}_{skt} + q^{s+}_{skt}, \hspace{3mm} \forall s,k,t
+\end{equation*}
+\begin{equation*}
+q^{s0}_{skt} \leq \rand{Q^s_{skt}}, \hspace{3mm} \forall s,k,t
+\end{equation*}
+\begin{equation*}
+q^b_{st} \leq Q^b_{st}, \hspace{3mm} \forall s,t
+\end{equation*}
+\begin{equation}
+\label{CHEM:caplim}
+\sum_{j}C_{jt}n_{jt} + \sum_s v^b_{st} q^b_{st} \leq MC_t, \hspace{3mm} \forall t
+\end{equation}
+\begin{equation}
+\label{CHEM:feasible}
+x_{kt}=
+	\begin{cases}
+		1& \text{if for each $s$, $q^{s0}_{skt} = \rand{Q^s_{skt}}$},\\
+		0& \text{otherwise}
+	\end{cases}
+\end{equation}
+\begin{equation}
+\label{CHEM:guarantee}
+\sum_k x_{kt} \geq G_t, \hspace{3mm} \forall t
+\end{equation}
+\begin{equation*}
+%\label{CHEM:vars}
+A_{st}, q^b_{st}, q^s_{st} \geq 0, \hspace{3mm} \forall s,t
+\end{equation*}
+\begin{equation*}
+q^{s0}_{skt}, q^{s+}_{skt} \geq 0, \hspace{3mm} \forall s,k,t
+\end{equation*}
+\begin{equation*}
+ B_{ijt} \geq 0, \hspace{3mm} \forall i,j,t
+\end{equation*}
+\begin{equation*}
+%\label{CHEM:integers}
+N_{jt}, n_{jt}, y_{ijt} \in \integers^+.
+\end{equation*}
+%\end{singlespace}
+%\begin{doublespace}
+
+\subsubsection{Numerical results}
+Subrahmanyam, Pekny, and Reklaitis \cite{subrahmanyam94} present a problem with $I=4$ tasks, $S=7$ resources, $J=3$ equipment types, $T=2$ time stages, and $K=2$ scenarios per stage.  Operating costs are neglected, so $c_{ijt}^o = 0$ for all cases, and (\ref{CHEM:opex}) is removed from the problem.  Also, the construction delay $\delta$ and constraints (\ref{CHEM:caplim}), (\ref{CHEM:feasible}), and (\ref{CHEM:guarantee}) are not included in the problem.
+
+The parameters for the problem are shown in Tables \ref{CHEM:probabilities}, \ref{CHEM:purchases}, \ref{CHEM:equipment}, and \ref{CHEM:stoich}.  Note that resources $1$ and $2$ must be purchased, resources $4$ and $7$ are sold, and the remainder are intermediate resources.
+
+\begin{table}[ht]
+\caption[Probability distribution for test problem in batch chemical plant design]{Probability distribution for random variables (demands not shown are zero)}
+\label{CHEM:probabilities}
+\[
+\begin{array}{|c|c|c|c|c|c|}
+	\hline
+	kt & P_{kt} & Q^s_{4kt} & Q^s_{7kt} & v^s_{4kt} & v^s_{7kt}\\ \hline
+	11 & 0.4    & 0		& 0	    & 51	& 70\\ \hline
+	21 & 0.6    & 150	& 200	    & 58	& 80\\ \hline
+	12 & 0.4    & 0		& 0	    & 50	& 71\\ \hline
+	22 & 0.6    & 150	& 200	    & 59	& 81\\ \hline
+\end{array}
+\]
+\end{table}
+
+\begin{table}[ht]
+\caption[Purchase parameters for test problem in batch chemical plant design]{Parameters for purchased resources}
+\label{CHEM:purchases}
+\[
+\begin{array}{|c|c|c|}
+	\hline
+	st	& v^b_{st}	& Q^b_{st}\\ \hline
+	11	& 23		& 200\\ \hline
+	12	& 24		& 200\\ \hline
+	21	& 25		& 250\\ \hline
+	22	& 26		& 250\\ \hline
+\end{array}
+\]
+\end{table}
+
+\begin{table}
+\caption[Equipment parameters for test problem in batch chemical plant design]{Parameters for equipment types}
+\label{CHEM:equipment}
+\[
+\begin{array}{|c|c|c|c|}
+	\hline
+	j	& C_{j1}	& C_{j2}	& m_{ij} \forall i\\ \hline
+	1	& 2500		& 2600		& 100\\ \hline
+	2	& 3000		& 3100		& 200\\ \hline
+	3	& 2800		& 2900		& 150\\ \hline
+\end{array}
+\]
+\end{table}
+
+\begin{table}
+\caption[Stoichiometric coefficients for test problem in batch chemical plant design]{Stoichiometric coefficients $f_{si}$}
+\label{CHEM:stoich}
+\[
+\begin{array}{|c|c|c|c|c|c|c|c|}
+\hline
+i \backslash s	& 1	& 2	& 3	& 4	& 5	& 6	& 7\\ \hline
+1		& -1	& -1	& 1	& 0 	& 0	& 0 	& 0\\ \hline
+2		& 0	& 0	& -1	& 1	& 1	& 0	& 0\\ \hline
+3		& 0	& -1	& 0	& 0	& -1	& 1	& 0\\ \hline
+4		& 0	& 0	& 0	& 0	& 0	& -1	& 1\\ \hline
+\end{array}
+\]
+\end{table}
+
+Additionally, 
+\[
+A_{st}^{\text{max}} = 400 \hspace{3mm} \forall s,t,
+\]
+\[
+H_1 = H_2 = 80 \text{ days},
+\]
+\[
+p_{11} = p_{41} = p_{12} = p_{42} = p_{23} = p_{33} = 4,
+\] 
+\[
+I_1^{\text{tasks}} = I_2^{\text{tasks}} = \{1,4\},
+\]
+and
+\[
+I_3^{\text{tasks}} = \{2,3\}.
+\]
+
+
+The optimal objective value stated in \cite{subrahmanyam94} is $3300$, with optimal values of $N_{21} = 1$ and $N_{31}=1$.
+
+The problem \url{chem} in our collection is an attempt at recreating this example.  We have not been able to verify that we have succeeded in this attempt, as we have only run \url{chem} as a continuous model.  The optimal objective value for \url{chem} as a continuous model is $13009.16667$.  
+
+
+\subsubsection{Notational reconciliation}
+
+For simplicity, equations (\ref{CHEM:feasible}) and (\ref{CHEM:guarantee}) are removed from the problem, and $\delta$ is set to $0$.  The transition of notation is then quite straightforward.  Define the diagonal matrix $\Delta_j^{\text{tasks}} \in \reals^{I \times I}$ by
+\[
+(\Delta_j^{\text{tasks}})_ii \assign 
+\begin{cases}
+	1	&	\text{if $i \in I_j^{\text{tasks}}$}\\
+	0	&	\text{otherwise.}
+\end{cases}
+\]
+
+Then, we make the following definitions, and also introduce slack variables $u^1, u^2, \ldots, u^7$:
+{{\allowdisplaybreaks{\begin{gather*}
+p_j \assign \left[
+\begin{array}{c}
+	p_{1j}\\
+	\vdots\\
+	p_{Ij}
+\end{array}
+\right];
+\hspace{0.2in}
+p \assign \left[
+\begin{array}{cccc}
+	p_1 & & & 0\\
+    & p_2 & & \\
+	& & \ddots &\\
+	0 & & &p_J
+\end{array}
+\right];\\
+y_{jt} \assign \left[
+\begin{array}{c}
+	y_{1jt}\\
+	\vdots\\
+	y_{Ijt}
+\end{array}
+\right];
+\hspace{0.2in}
+y_t \assign \left[
+\begin{array}{c}
+	y_{1t}\\
+	\vdots\\
+	y_{Jt}
+\end{array}
+\right];
+\hspace{0.2in}
+B_{jt} \assign \left[
+\begin{array}{c}
+	B_{1jt}\\
+	\vdots\\
+	B_{Ijt}
+\end{array}
+\right];\\
+B_t \assign \left[
+\begin{array}{c}
+	B_{1t}\\
+	\vdots\\
+	B_{Jt}
+\end{array}
+\right];
+\hspace{0.2in}
+N_t \assign \left[
+\begin{array}{c}
+	N_{1t}\\
+	\vdots\\
+	N_{Jt}
+\end{array}
+\right];
+\hspace{0.2in}
+n_t \assign \left[
+\begin{array}{c}
+	n_{1t}\\
+	\vdots\\
+	n_{Jt}
+\end{array}
+\right];\\
+u^i_t \assign \left[
+\begin{array}{c}
+	u^i_{1t}\\
+	\vdots\\
+	u^i_{St}
+\end{array}
+\right], i=3,5,6;
+\hspace{0.2in}
+u^1_t \assign \left[
+\begin{array}{c}
+	u^1_{1t}\\
+	\vdots\\
+	u^1_{Jt}
+\end{array}
+\right];\\
+u^4_t \assign \left[
+\begin{array}{c}
+	u^4_{11t}\\
+	u^4_{12t}\\
+	\vdots\\
+	u^4_{IJt}
+\end{array}
+\right];
+\hspace{0.2in}
+c^o_{jt}\assign \left[
+\begin{array}{c}
+	c^o_{1jt}\\
+	\vdots\\
+	c^o_{Ijt}
+\end{array}
+\right];
+\hspace{0.2in}
+c^o_t \assign \left[
+\begin{array}{c}
+	c^o_{1t}\\
+	\vdots\\
+	c^o_{Jt}
+\end{array}
+\right];\\
+C_t \assign \left[
+\begin{array}{c}
+	C_{1t}\\
+	\vdots\\
+	C_{Jt}
+\end{array}
+\right];
+\hspace{0.2in}
+\hat{A}_t \assign \left[
+\begin{array}{c}
+	A_{1t}\\
+	\vdots\\
+	A_{St}
+\end{array}
+\right];
+\hspace{0.2in}
+A_t^{\text{max}} \assign \left[
+\begin{array}{c}
+	A^{\text{max}}_{1t}\\
+	\vdots\\
+	A^{\text{max}}_{St}
+\end{array}
+\right];\\
+\rand{Q^s_t} \assign \left[
+\begin{array}{c}
+	\rand{Q^s_{1kt}}\\
+	\vdots\\
+	\rand{Q^s_{Skt}}
+\end{array}
+\right];
+\hspace{0.2in}
+Q^b_t \assign\left[
+\begin{array}{c}
+	Q^b_{1t}\\
+	\vdots\\
+	Q^b_{St}
+\end{array}
+\right];
+\hspace{0.2in}
+v^b_t \assign \left[
+\begin{array}{c}
+	v^b_{1t}\\
+	\vdots\\
+	v^b_{St}
+\end{array}
+\right];\\
+\rand{v^s_t} \assign \left[
+\begin{array}{c}
+	\rand{v^s_{1kt}}\\
+	\vdots\\
+	\rand{v^s_{Skt}}
+\end{array}
+\right];
+\hspace{0.2in}
+q^s_t \assign \left[
+\begin{array}{c}
+	q^s_{1t}\\
+	\vdots\\
+	q^s_{St}
+\end{array}
+\right];
+\hspace{0.2in}
+q^{s0}_t \assign \left[
+\begin{array}{c}
+	q^{s0}_{1kt}\\
+	\vdots\\
+	q^{s0}_{Skt}
+\end{array}
+\right];\\
+q^{s+}_t \assign \left[
+\begin{array}{c}
+	q^{s+}_{1kt}\\
+	\vdots\\
+	q^{s+}_{Skt}
+\end{array}
+\right];
+\hspace{0.2in}
+M \assign \left[
+\begin{array}{cccc}
+	m_{11}	&	&	& 0\\
+	&	 m_{21}	&	& \\
+	&		&\ddots	& \\
+	0	&	&	& m_{IJ}
+\end{array}
+\right];\\ 
+f_s \assign \left[
+\begin{array}{c}
+	f_{s1}\\
+	\vdots\\
+	f_{sI}
+\end{array}
+\right];
+\hspace{0.2in}
+F_s \assign f_s\trp \left[
+\begin{array}{cccc}
+	\Delta_1^{\text{tasks}} & \Delta_2^{\text{tasks}} & \cdots & \Delta_J^{\text{tasks}}
+\end{array}
+\right]\\
+F \assign \left[
+\begin{array}{c}
+	F_1\\
+	\vdots\\
+	F_S
+\end{array}
+\right];
+\hspace{0.2in}
+\Delta^{\text{tasks}} \assign \left[
+\begin{array}{cccc}
+	\Delta_1^{\text{tasks}} & & & 0\\
+    & \Delta_2^{\text{tasks}} & & \\
+	& & \ddots &\\
+	0 & & &\Delta_J^{\text{tasks}}
+\end{array}
+\right].
+\end{gather*}
+}}}
+
+Then, let 
+\begin{equation}
+\label{CHEM:xt}
+x_t\assign\left[
+\begin{array}{c}
+	y_t\\
+	N_t\\
+	n_t\\
+	\hat{A}_t\\
+	B_t\\
+	q^s_t\\
+	q^b_t\\
+	q^{s0}_t\\
+	q^{s+}_t\\
+	u^1_t\\
+	u^2_t\\
+	u^3_t\\
+	u^4_t\\
+	u^5_t\\
+	u^6_t\\
+	u^7_t
+\end{array}
+\right],
+\hspace{0.2in}
+\hbox{and }
+\hspace{0.2in}
+c_t\assign \left[
+\begin{array}{c}
+	-c^o_t\\
+	0^{J\times 1}\\
+	-C_t\\
+	0^{S\times 1}\\
+	0^{IJ\times 1}\\
+	0^{S\times 1}\\
+	-v^b_t\\
+	\rand{v^s_t}\\
+	0^{S\times 1}\\
+	0^{J\times 1}\\
+	0\\
+	0^{S\times 1}\\
+	0^{IJ\times 1}\\
+	0^{S\times 1}\\
+	0^{S\times 1}\\
+	0
+\end{array}
+\right].
+\end{equation}
+
+We assign $A_t$ according to Figure \ref{CHEM:at}.  The vertical lines separate parts of the matrix according to (\ref{CHEM:xt}).  So, for example, the second partition of the matrix corresponds will be multiplied by $N_t$.  All blanks are zero.  Note that the double sum in equation (\ref{CHEM:matbal2}) may be expressed as
+\[
+\sum_j \sum_{i\in I_j^{\text{tasks}}} f_{si} B_{ijt}.
+\]
+
+The transition matrix $T_t$ is defined in Figure \ref{CHEM:tt}.  There are only two nonzero entries.  One is from (\ref{CHEM:matbal2}), and the other is from (\ref{CHEM:sumbuilt}), which may be rewritten
+\[
+N_{jt} = N_{jt-1} + n_{jt}.
+\]
+
+Our transition to the notation of Problem (\ref{PROB:mslp}) is complete if we set
+\begin{equation*}
+\rand{b_t} \assign \left[
+\begin{array}{c}
+	0^{J\times J}\\
+	0\\
+	0^{J\times J}\\
+	0^{S\times S}\\
+	A^{\text{max}}_t\\
+	0^{IJ\times IJ}\\
+	0^{S\times S}\\
+	\rand{Q^s_t}\\
+	Q^b_t\\
+	MC_t
+\end{array}
+\right].
+\end{equation*}
+
+
+
+\begin{landscape}
+\begin{figure}[ht]
+\caption{Array $A_t$ for chemical design planning example}
+\label{CHEM:at}
+\small{
+\begin{multline*}
+A_t\assign\left[
+\begin{array}{c|c|c|c|c|c|c|c|c|}%c|c|c|c|c|c|c
+	p\trp \Delta^{\text{tasks}}&-H_t I^{J\times J}&&&&&&&%&%I^{J\times J}&&&&&&
+\\ \hline
+	(c^o_t)\trp \Delta^{\text{tasks}}&-C^o_t 1^{1\times J}&&&&&&&%&&1&&&&&
+\\ \hline
+	&I^{J\times J}&-I^{J\times J}&&&&&&%&%&&&&&&
+\\ \hline
+	&&&I^{S\times S}&-F&I^{S\times S}&-I^{S\times S}&&%&%&&&&&&
+\\ \hline
+	&&&I^{S\times S}&&&&&%&%&&I^{S\times S}&&&&
+\\ \hline
+	-M&&&&I^{IJ\times IJ}&&&&%&%&&&I^{IJ\times IJ}&&&
+\\ \hline
+	&&&&&I^{S\times S}&&-I^{S\times S}&-I^{S\times S}%&%&&&&&&
+\\ \hline
+	&&&&&&&I^{S\times S}&%&%&&&&I^{S\times S}&&
+\\ \hline
+	&&&&&&I^{S\times S}&&%&%&&&&&I^{S\times S}&
+\\ \hline
+	&&C_t\trp&&&&(v_t^b)\trp&&%&%&&&&&&1
+\end{array}
+\right.\\[0.3in]
+\left.
+\begin{array}{c|c|c|c|c|c|c}
+	I^{J\times J}&&&&&&\\ \hline
+	&1&&&&&\\ \hline
+	&&&&&&\\ \hline
+	&&&&&&\\ \hline
+	&&I^{S\times S}&&&&\\ \hline
+	&&&I^{IJ\times IJ}&&&\\ \hline
+	&&&&&&\\ \hline
+	&&&&I^{S\times S}&&\\ \hline
+	&&&&&I^{S\times S}&\\ \hline
+	&&&&&&1
+\end{array}
+\right]\\
+\end{multline*}
+}
+\end{figure}
+\end{landscape}
+
+%\begin{landscape}
+\begin{figure}[ht]
+\caption{Array $T_t$ for chemical design planning example}
+\label{CHEM:tt}
+%\small{
+\begin{multline*}
+T_t\assign\left[
+\begin{array}{c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}
+	&&&&&&&&&&&&&&&&\\ \hline
+	&&&&&&&&&&&&&&&&\\ \hline
+	&-I^{J\times J}&&&&&&&&&&&&&&&\\ \hline
+	&&&-I^{S\times S}&&&&&&&&&&&&&\\ \hline
+	&&&&&&&&&&&&&&&&\\ \hline
+	&&&&&&&&&&&&&&&&\\ \hline
+	&&&&&&&&&&&&&&&&\\ \hline
+	&&&&&&&&&&&&&&&&\\ \hline
+	&&&&&&&&&&&&&&&&\\ \hline
+	&&&&&&&&&&&&&&&&
+\end{array}
+\right]\\
+\end{multline*}
+%}
+\end{figure}%

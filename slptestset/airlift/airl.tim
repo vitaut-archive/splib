@@ -1,0 +1,5 @@
+TIME          AIRL
+PERIODS
+    X11       HOURS1                   PERIOD1
+    X112      AVAIL11                  PERIOD2
+ENDATA

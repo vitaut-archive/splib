@@ -1,0 +1,110 @@
+I ran the three stage independent case (LandS.sto.indep) at NEOS on MSLiP:
+
+******   FIRST OPTIMALITY CUT   ******
+ PROBLEM LandS    IS SOLVED
+
+
+ PROBLEM NODE =      1
+
+ OPTIMUM LP OBJECTIVE VALUE =    719.21
+
+ OPTIMAL VALUE REACHED AT THE POINT
+ VARIABLE          STATUS     VALUE
+ OBJ                    1        -719.2067
+ MINCAP                 2          -2.3000
+ BUDGET                 0           0.0000
+ X1                   205           3.4667
+ X2                   215           5.0000
+ X3                   157           1.5333
+ X4                     3           4.3000
+ OPTIMAL DUAL VALUES
+
+ OBJ                       1.0000
+ MINCAP                    0.0000
+ BUDGET                    1.6667
+
+ Summary statistics:
+    Total CPU time:     0.000 sec. for initialization and input
+                        0.040 sec. for phase I and II solution
+                        0.000 sec. for phase III and output
+    Number of iterations:     721 +     0
+    Number of subproblems solved     406
+        Solved by simplex method:         313
+
+    Number of cuts generated:      75  (   71 optimality cuts)
+    Number of basis inversions:   542
+ Optimal objective value:            719.2066666667
+
+ MSLiP: execution terminated.
+
+
+
+*****************************************************************
+Here is the dependent case (LandS.sto.dep):
+####################################################
+
+You chose the MSLiP solver.
+
+
+MSLiP Results:
+
+ This is MSLiP 8.3, version of April 7, 1995.
+       2    SCENARIOS                     0.0000                   0.0000
+ XXX - WARNING - Unrecognized modifier:          
+ Solving problem LandS    --  3 periods
+ 
+ There is space for at most10000 cuts (799936 elements)
+
+ Re-invert every   50 iterations
+ Maximum number of iterations: 9999999
+ Use Version
+
+ Job parameters:
+       - Eta-vectors     
+       - No basis input  
+       - Single cut      
+       - No scaling      
+       - Primal pivots   
+       - One phase only  
+       - No EVPI computed
+       - No sorting      
+
+Pricing option: most negative column
+Sequencing option: Backward first          
+
+ ******   FIRST OPTIMALITY CUT   ******
+ PROBLEM LandS    IS SOLVED
+
+
+ PROBLEM NODE =      1
+
+ OPTIMUM LP OBJECTIVE VALUE =    722.58
+
+ OPTIMAL VALUE REACHED AT THE POINT
+ VARIABLE          STATUS     VALUE
+ OBJ                    1        -722.5837
+ MINCAP                 2          -2.5000
+ BUDGET                 0           0.0000
+ X1                   138           3.6667
+ X2                   139           5.0000
+ X3                   109           1.3333
+ X4                     3           4.5000
+ OPTIMAL DUAL VALUES
+
+ OBJ                       1.0000
+ MINCAP                    0.0000
+ BUDGET                    1.6667
+
+ Summary statistics:
+    Total CPU time:     0.000 sec. for initialization and input
+                        0.020 sec. for phase I and II solution
+                        0.000 sec. for phase III and output
+    Number of iterations:     297 +     0
+    Number of subproblems solved     187
+        Solved by simplex method:         115
+
+    Number of cuts generated:      40  (   32 optimality cuts)
+    Number of basis inversions:   215
+ Optimal objective value:            722.5836666667
+
+ MSLiP: execution terminated.

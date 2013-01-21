@@ -1,0 +1,11 @@
+I received the file Sg120796.ps from Gido.Haarbruecker@unisg.ch on
+December 22, 1998.  It is an explanation of the underlying model which
+prompted development of the SGPFmYn series of test problems.
+
+All the sgpf3*.* files are from freebie.engin.umich.edu
+/pub/stoprobs/fineng/sg2.  The sgpf5*.* files were originally from same
+site /pub/stoprobs/posts, but I moved the .sce files to the directory
+from_posts, and downloaded files of same name from ../fineng/sg2, since
+the dates were more up to date, and the byte counts were different.
+
+Andy Felt

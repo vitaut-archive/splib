@@ -1,0 +1,377 @@
+% cleaned of unnecessary equation numbers 3 June 2000
+\subsection{Airlift operations scheduling}%
+\label{AIRLIFT}%
+\emph{Due to J.L. Midler and R.D. Wollmer \cite{midler69}}%
+
+\noindent(2 stage, mixed integer linear stochastic problem) \\
+\noindent \url{/airlift}\url{/AIRL.cor}, \url{/AIRL.tim}, $\displaystyle \begin{cases} \text{\url{/AIRL.sto.first}}\\ \text{\url{/AIRL.sto.second}}\end{cases}$
+
+\vspace{3mm}
+\subsubsection{Description}
+
+In scheduling monthly airlift operations, demands for specific routes can be predicted.  Actual requirements will be known in the future, and they may not agree with predicted requirements.  Recourse actions are then required to meet the actual requirements.  The actual requirements are expressed in tons, or any other appropriate measure, and they can be represented by a random variable.  Aircraft of several different types are available for service.  Each of these types of aircraft has its own restriction on number of flight hours available during the month.  
+
+The recourse actions available include allowing available flight time to go unused, switching aircraft from one route to another, and buying commercial flights.  Each of these has its associated cost, depending on the type(s) of aircraft involved.
+
+Let $F_i$ be the maximum number of flight hours for aircraft of type $i$ available during the month, and let $a_{ij}$ be the number of flight hours required for an aircraft of type $i$ to complete one flight of route $j$.  Then if $x_{ij}$ is the number of flights originally planned for route $j$ using aircraft of type $i$, the first stage constraint is
+\begin{equation}
+\label{AIRL:1}
+\sum_j a_{ij}x_{ij} \leq F_i, \hspace{1cm} \forall i.
+\end{equation}
+
+When taking recourse action, we are under the constraint that we cannot switch away more flight hours from aircraft of type $i$ and from route $j$, than we have originally scheduled for such.  This leads to a second stage constraint:
+\begin{equation}
+\label{AIRL:2}
+\sum_{k \neq j} a_{ijk}x_{ijk} \leq a_{ij}x_{ij} , \hspace{1cm} \forall i, \forall j.
+\end{equation}
+Here, $x_{ijk}$ represents the increase in the number of flights for route $k$ flown by aircraft type $i$, because of being switched from route $j$.  Also, $a_{ijk}$ is the number of flight hours required for aircraft of type $i$ to fly route $k$, after having been switched from route $j$.  Note that an increase of $x_{ijk}$ flights for route $k$ results in the cancellation of 
+\[
+\left(\frac{a_{ijk}}{a_{ij}}\right)x_{ijk}
+\]
+flights for route $j$, since `$k$ flights' and `$j$ flights' are not necessarily equal units.
+
+We also have the recourse constraint that the demand for each route must be met.  Let $b_{ij}$ be the carrying capacity (in tons) of a single flight of an aircraft of type $i$, flying route $j$.  Then the load originally scheduled to be carried on route $j$ (i.e. the `best guess' of the demand) is
+\begin{equation}
+\label{AIRL:3}
+\sum_{i} b_{ij}x_{ij}.
+\end{equation}
+The total carrying capacity switched away from route $j$ in the recourse action is
+\begin{equation}
+\label{AIRL:away}
+\sum_{i,k\neq j} b_{ij}\left(\frac{a_{ijk}}{a_{ij}}\right)x_{ijk}.
+\end{equation}
+Conversely, the carrying capacity switched to route $j$ is
+\begin{equation}
+\label{AIRL:to}
+\sum_{i,k\neq j} b_{ij} x_{ikj}.
+\end{equation}
+If we let $y_j^+$ be the demand for route $j$ which is contracted commercially in the recourse, and $y_j^-$ be the unused capacity assigned to route $j$, then we may combine expressions (\ref{AIRL:3}), (\ref{AIRL:away}), and (\ref{AIRL:to}) to form the demand constraint for the recourse\footnote{We believe a typographical error was made in  \cite[equation (2.3)]{midler69}.  Specifically, `$\displaystyle \sum_{i,k\neq j} b_{ij}x_{ijk} - y_j^+$' should read `$\displaystyle \sum_{i,k\neq j} b_{ij}x_{ikj} + y_j^+$'.}:
+\begin{equation}
+\label{AIRL:demand}
+\sum_{i} b_{ij}x_{ij} - \sum_{i,k\neq j} b_{ij}\left(\frac{a_{ijk}}{a_{ij}}\right)x_{ijk} + \sum_{i,k\neq j} b_{ij} x_{ikj} + y_j^+ - y_j^- = \rand{d_j}.
+\end{equation}
+Here, $\rand{d_j}$ is the random variable representing the demand for route $j$.
+
+Finally, let $c_{ij}$ be the cost for aircraft type $i$ to be initially assigned and fly one flight of route $j$.  Let $c_{ijk}$ be the cost for aircraft type $i$ to fly one flight of route $k$, after having been initially assigned route $j$.  Let $c_j^+$ be the cost per ton of commercially contracted transport on route $j$, and let $c_j^-$ be the cost per ton of unused capacity on route $j$.
+
+\subsubsection{Problem statement}
+
+The problem statement combines equations (\ref{AIRL:1}), (\ref{AIRL:2}), and (\ref{AIRL:demand}):
+
+\vspace{0.5cm}
+
+
+\begin{equation*}
+\label{AIRL:problem}
+\begin{split}
+\mbox{minimize }\hspace{3mm}\sum_{i,j}c_{ij}x_{ij} + \mathcal{Q}(\{x_{ij}\})\\
+\mbox{subject to }\hspace{3mm}\sum_j a_{ij}x_{ij} \leq F_i, \hspace{1cm} \forall i\\
+x_{ij} \geq 0, \hspace{1cm} \forall i, \forall j,
+\end{split}
+\end{equation*}
+where 
+\begin{multline*}
+\mathcal{Q}(\{x_{ij}\}) \assign\\
+\expect[d_j]\left\{\mbox{min }\left[ \sum_{i,j,k\neq j}\left(c_{ijk} - c_{ij}\frac{a_{ijk}}{a_{ij}}\right)x_{ijk} + \sum_j c_j^+ y_j^+ + \sum_j c_j^- y_j^-\right]\right\}
+\end{multline*}
+\noindent subject to
+\begin{eqnarray*}
+\sum_{k \neq j} a_{ijk}x_{ijk} \leq a_{ij}x_{ij} , \hspace{1cm} \forall i, \forall j\\
+- \sum_{i,k\neq j} b_{ij}\left(\frac{a_{ijk}}{a_{ij}}\right)x_{ijk} + \sum_{i,k\neq j} b_{ij} x_{ikj} + y_j^+ - y_j^- = \rand{d_j} - \sum_{i} b_{ij}x_{ij}, \forall j\\
+x_{ijk},y_j^+,y_j^- \geq 0, \hspace{1cm} \forall i, \forall j, \forall k.
+\end{eqnarray*}
+
+Note that the variables $x_{ij}$ and $x_{ijk}$ represent numbers of flights, and therefore should be integer valued.  This is not specified in the problem statement, however.  This is apparently an acceptable compromise to Midler and Wollmer \cite{midler69} in order to simplify the problem, and they recommend that the user	adopt his/her own rounding scheme.
+
+\subsubsection{Numerical example}
+Midler and Wollmer \cite{midler69} provide a small numerical example, with two routes and two types of aircraft.  The constants are given as follows:
+\[
+\begin{array}{|c|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{\mbox{Flying hours per}}\\
+\multicolumn{4}{|c|}{\mbox{round trip}}\\
+\hline
+a_{11}	& a_{21} & a_{12} & a_{22}\\
+\hline
+24 &  49 & 14 & 29\\
+\hline
+\end{array}
+\hspace{1cm}
+\begin{array}{|c|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{\mbox{Carrying capacity}}\\
+\multicolumn{4}{|c|}{\mbox{(tons)}}\\
+\hline
+b_{11}	& b_{21} & b_{12} & b_{22}\\
+\hline
+50 & 20 & 75 & 20\\
+\hline
+\end{array}
+\]
+
+\[
+\begin{array}{|c|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{\mbox{Cost per flight}}\\
+\multicolumn{4}{|c|}{\mbox{(\$)}}\\%$
+\hline
+c_{11}	& c_{21} & c_{12} & c_{22}\\
+\hline
+7200 & 7200 & 6000 & 4000\\
+\hline
+\end{array}
+\hspace{1cm}
+\begin{array}{|c|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{\mbox{Penalty costs}}\\
+\multicolumn{4}{|c|}{\mbox{(\$/ton)}}\\%$
+\hline
+c_1^+ & c_2^+ & c_1^- & c_2^-\\
+\hline
+500 & 250 & 0 & 0\\
+\hline
+\end{array}
+\]
+
+\[
+\begin{array}{|c|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{\mbox{Flying hours -}}\\
+\multicolumn{4}{|c|}{\mbox{switched flights}}\\
+\hline
+a_{112}	& a_{121} & a_{212} & a_{221}\\
+\hline
+19 & 29 & 36 & 56\\
+\hline
+\end{array}
+\hspace{1cm}
+\begin{array}{|c|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{\mbox{Costs per flight-}}\\
+\multicolumn{4}{|c|}{\mbox{switched (\$)}}\\%$
+\hline
+c_{112} & c_{121} & c_{212} & c_{221}\\
+\hline
+7000 & 8200 & 5500 & 8700\\
+\hline
+\end{array}
+\]
+The total flying time available is $F_1 = F_2 = 7200$.  The demand for route 1, $\rand{d_1}$, follows a lognormal distribution with parameters $\mu_1 = 1000$, $\sigma_1 = 50$, and $\rand{d_2}$ independently follows a lognormal distribution with parameters $\mu_2 = 1500$, $\sigma_2=300$.
+
+The optimal solution of this problem, 
+\begin{equation*}
+%\label{AIRL:solution}
+\left[\begin{array}{cccc}
+	x_{11} & x_{12}\\
+	x_{21} & x_{22}
+	\end{array}\right]
+=
+\left[\begin{array}{rrrr}
+	16.5 & 23.2\\
+	6.7 & 0.0
+	\end{array}\right],
+\end{equation*}
+was given by Midler and Wollmer \cite{midler69}, and is based on drawing a sample of 25 observations from each distribution of $\rand{d_1}$ and $\rand{d_2}$.  Midler and Wollmer \cite{midler69} did not specify how the observations were drawn from the distributions.  Therefore, we were not able to exactly replicate this problem.  We have created two versions:  \url{airlift.first} and \url{airlift.second}.  These are intended to be as close as possible to the original problem stated here.
+
+
+
+\subsubsection{Notational reconciliation}
+To make this problem fit the notation of Problem (\ref{PROB:mslp}), we make some minimal changes.  Let $I$ be the total number of aircraft types, $J$ be the total number of routes, and set $n_1 \assign (I)(J) + I$.  Set
+\begin{equation*}
+x_1\assign \left[\begin{array}{c}
+		x_{11}\\
+		x_{12}\\
+		\vdots\\
+		x_{1J}\\
+		x_{21}\\
+		\vdots\\
+		x_{IJ}\\
+		s_1\\
+		s_2\\
+		\vdots\\
+		s_{I}
+		\end{array} \right],
+\hspace{0.5in}
+c_1\assign \left[\begin{array}{c}
+		c_{11}\\
+		c_{12}\\
+		\vdots\\
+		c_{1J}\\
+		c_{21}\\
+		\vdots\\
+		c_{IJ}\\
+		0\\
+		0\\
+		\vdots\\
+		0
+		\end{array} \right],
+\hspace{0.5in}
+b_1\assign \left[ \begin{array}{c}
+		F_1\\
+		F_2\\
+		\vdots\\
+		F_I
+		\end{array} \right],
+\end{equation*}
+and
+\begin{multline*}
+A_1\assign\\
+\left[
+\begin{array}{c|c} 
+	\begin{array}{cccc}
+		\begin{array}{ccc}
+			a_{11} & \cdots & a_{1J} 
+		\end{array} &  &  \\
+		&	  
+		\begin{array}{ccc}
+			a_{21}& \cdots & a_{2J}
+		\end{array} & &0\\
+		0 &		&\ddots&		\\
+		&&&
+		\begin{array}{ccc}
+			a_{I1} & \cdots & a_{IJ} 
+		\end{array}
+	\end{array} 
+& I^{I \times I}
+\end{array}
+\right].
+\end{multline*}
+
+Note that the number of stages, $N$, is two.  The recourse vectors are
+\begin{equation*}
+x_2\assign \left[\begin{array}{c}
+		x_{112}\\
+		x_{113}\\
+		\vdots\\
+		x_{11J}\\
+		x_{121}\\
+		x_{123}\\
+		\vdots\\
+		x_{12J}\\
+		\vdots\\
+		x_{IJ(J-1)}\\
+		s_{11}\\
+		s_{12}\\
+		\vdots\\
+		s_{IJ}\\
+		y_1^+\\
+		\vdots\\
+		y_J^+\\
+		y_1^-\\
+		\vdots\\
+		y_J^-
+		\end{array} \right],
+\hspace{0.5in}
+c_2\assign \left[\begin{array}{c}
+		c_{112} - c_{11}a_{112}/a_{11}\\
+		c_{113} - c_{11}a_{113}/a_{11}\\
+		\vdots\\
+		c_{11J} - c_{11}a_{11J}/a_{11}\\
+		c_{121} - c_{12}a_{121}/a_{12}\\
+		c_{123} - c_{12}a_{123}/a_{12}\\
+		\vdots\\
+		c_{12J} - c_{12}a_{12J}/a_{12}\\
+		\vdots\\
+		c_{IJ(J-1)} - c_{IJ}a_{IJ(J-1)}/a_{IJ}\\
+		0\\
+		0\\
+		\vdots\\
+		0\\
+		c_1^+\\
+		\vdots\\
+		c_J^+\\
+		c_1^-\\
+		\vdots\\
+		c_J^-
+		\end{array} \right],
+\end{equation*}
+and
+\begin{equation*}
+\rand{b_2}\assign \left[\begin{array}{c}
+		0^{IJ \times 1}\\
+		\rand{d_1}\\
+		\rand{d_2}\\
+		\vdots\\
+		\rand{d_J}
+	\end{array}\right].
+\end{equation*}
+The transition matrix is
+\begin{equation*}
+T_2\assign \left[ \begin{array}{cccc|c}
+	-a_{11} & & & 0 & \\
+	      & -a_{12} & & & 0^{IJ \times I}\\
+	& & \ddots & & \\
+	 0& & & -a_{IJ} & \\ \hline
+	B_1 & B_2 & \cdots & B_I	& 0^{J \times I}
+	\end{array} \right],
+\end{equation*}
+where
+\begin{equation*}
+B_i \assign \left[\begin{array}{cccc}
+	b_{i1} & & & 0\\
+    & b_{i2} & &\\
+	& & \ddots & \\
+	 0& & & b_{iJ}
+	\end{array} \right].
+\end{equation*}
+The matrix $A_2$ is defined by
+\begin{equation*}
+A_2\assign \left[\begin{array}{c|c|c}
+		\hat{A} & I^{IJ \times IJ} & 0^{IJ \times 2J}\\
+		\hline
+		\hat{B} & 0^{J \times IJ} & \begin{array}{cc} I^{J\times J} & -I^{J\times J}\end{array}
+		\end{array} \right],
+\end{equation*}
+where
+\begin{equation*}
+\hat{A} \assign
+ \left[
+\begin{array}{cccc}
+	%\begin{array}{cccc}
+	%a_{112} & a_{113} & \cdots & a_{11J}
+	%\end{array} 
+	\hat{a}_{11}\trp
+	& & &\\
+	& 
+	%\begin{array}{cccc}
+	%a_{121} & a_{123} & \cdots & a_{12J}
+	%\end{array}
+	\hat{a}_{12}\trp
+	 & & 0\\
+	0 &  & \ddots &\\
+	& & & 
+	%\begin{array}{ccc}
+	%a_{IJ1}  & \cdots & a_{IJ(J-1)}
+	%\end{array}
+	\hat{a}_{IJ}\trp 
+\end{array} \right],
+\end{equation*}
+\begin{equation*}
+\hat{B} \assign \left[
+\begin{array}{ccccc}
+	\hat{b}_{111}\trp & \hat{b}_{121}\trp & \cdots & \hat{b}_{IJ1}\trp\\
+	\hat{b}_{112}\trp & \hat{b}_{122}\trp & \cdots & \hat{b}_{IJ2}\trp\\
+	\vdots		& \vdots		& \vdots	& \vdots	\\
+	\hat{b}_{11J}\trp & \hat{b}_{12J}\trp & \cdots & \hat{b}_{IJJ}\trp
+\end{array} \right],
+\end{equation*}
+\begin{equation*}
+\hat{a}_{ij} \assign \sum_{k=1}^J  a_{ijk} \hat{e}_{kj}
+\end{equation*}
+and
+\begin{equation*}
+\hat{b}_{ikj} \assign 
+	\begin{cases}
+		\sum_{p =1}^J -b_{ik}\left(a_{ikp}/a_{ik}\right)\hat{e}_{pj} & \text{if $j=k$},\\
+		b_{ij} \hat{e}_{jk} & \text{if $j\neq k$}.
+	\end{cases}
+\end{equation*}
+Here, 
+\begin{equation*}
+\hat{e}_{jk} \assign 
+	\begin{cases}
+		e_j \in \reals^{J-1} & \text{if $j<k$}\\
+		e_{j-1} \in \reals^{J-1} & \text{if $j>k$}\\
+		0\in \reals^{J-1}		& \text{if $j=k$}.
+	\end{cases}
+\end{equation*}%

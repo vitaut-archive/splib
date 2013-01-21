@@ -1,0 +1,36 @@
+Solution using "assets.sto.small":
+
+   Objective Value:    -720.472240
+   thetastar:          -720.472240
+   x1star:             0   0.000000
+   x1star:             1   0.000000
+   x1star:             2   0.000000
+   x1star:             3   0.000000
+   x1star:             4   0.000000
+   x1star:             5   0.000000
+   x1star:             6   0.000000
+   x1star:             7   0.000000
+   x1star:             8   102.000000
+   x1star:             9   203.000000
+   x1star:             10   146.000000
+   x1star:             11   80.000000
+   x1star:             12   82.000000
+
+
+Solution using "assets.sto.large":
+
+   Objective Value:    -696.093189
+   thetastar:          -696.093189
+   x1star:             0   0.000000
+   x1star:             1   0.000000
+   x1star:             2   0.000000
+   x1star:             3   80.000000
+   x1star:             4   0.000000
+   x1star:             5   0.000000
+   x1star:             6   0.000000
+   x1star:             7   0.000000
+   x1star:             8   102.000000
+   x1star:             9   280.600000
+   x1star:             10   146.000000
+   x1star:             11   0.000000
+   x1star:             12   82.000000

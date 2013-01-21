@@ -1,0 +1,18 @@
+STOCH         PHONE   
+INDEP         DISCRETE
+    RIGHT     DEM12      3.00000       PERIOD2    1.00000    
+    RIGHT     DEM13      4.40000       PERIOD2    1.00000    
+    RIGHT     DEM14      5.00000       PERIOD2    1.00000    
+    RIGHT     DEM15      5.20000       PERIOD2    1.00000    
+    RIGHT     DEM16      2.10000       PERIOD2    1.00000    
+    RIGHT     DEM23      4.60000       PERIOD2    1.00000    
+    RIGHT     DEM24      5.00000       PERIOD2    1.00000    
+    RIGHT     DEM25      5.30000       PERIOD2    1.00000    
+    RIGHT     DEM26      1.10000       PERIOD2    1.00000    
+    RIGHT     DEM34      6.20000       PERIOD2    1.00000    
+    RIGHT     DEM35      6.30000       PERIOD2    1.00000    
+    RIGHT     DEM36      3.10000       PERIOD2    1.00000    
+    RIGHT     DEM45      7.10000       PERIOD2    1.00000    
+    RIGHT     DEM46      1.40000       PERIOD2    1.00000    
+    RIGHT     DEM56      2.10000       PERIOD2    1.00000    
+ENDATA  

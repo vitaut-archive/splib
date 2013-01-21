@@ -1,0 +1,29 @@
+STOCH         4NODECAR
+INDEP         DISCRETE
+    RIGHT     CBAB       4.50000       PERIOD2   0.500000    
+    RIGHT     CBAB       5.50000       PERIOD2   0.500000    
+    RIGHT     CBAC       6.80000       PERIOD2   0.250000    
+    RIGHT     CBAC       7.60000       PERIOD2   0.250000    
+    RIGHT     CBAC       8.40000       PERIOD2   0.250000    
+    RIGHT     CBAC       9.20000       PERIOD2   0.250000    
+    RIGHT     CBAE       3.60000       PERIOD2   0.500000    
+    RIGHT     CBAE       4.40000       PERIOD2   0.500000    
+    RIGHT     CBBA       4.05000       PERIOD2   0.500000    
+    RIGHT     CBBA       4.95000       PERIOD2   0.500000    
+    RIGHT     CBBC       6.03000       PERIOD2   0.500000    
+    RIGHT     CBBC       7.37000       PERIOD2   0.500000    
+    RIGHT     CBBE       3.78000       PERIOD2   0.500000    
+    RIGHT     CBBE       4.62000       PERIOD2   0.500000    
+    RIGHT     CBCA       9.09000       PERIOD2   0.500000    
+    RIGHT     CBCA       11.1100       PERIOD2   0.500000    
+    RIGHT     CBCB       7.47000       PERIOD2   0.500000    
+    RIGHT     CBCB       9.13000       PERIOD2   0.500000    
+    RIGHT     CBCE       10.9800       PERIOD2   0.500000    
+    RIGHT     CBCE       13.4200       PERIOD2   0.500000    
+    RIGHT     CBEA       2.88000       PERIOD2   0.500000    
+    RIGHT     CBEA       3.52000       PERIOD2   0.500000    
+    RIGHT     CBEB       4.77000       PERIOD2   0.500000    
+    RIGHT     CBEB       5.83000       PERIOD2   0.500000    
+    RIGHT     CBEC       6.48000       PERIOD2   0.500000    
+    RIGHT     CBEC       7.92000       PERIOD2   0.500000    
+ENDATA  

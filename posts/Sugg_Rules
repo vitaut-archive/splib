@@ -1,0 +1,56 @@
+       Suggested Rules for reporting numerical results with POSTS
+                          and Obtaining POSTS
+                        D. Holmes, March, 1995.
+-------------------------------------------------------------------------
+
+This readme file contains suggestions for reporting stochastic programming
+test results and instructions on how to get an extendible, portable test
+set.  Any suggestions or comments would be GREATLY appreciated, and can be
+forwarded to dholmes@engin.umich.edu .
+
+I. Suggested Rules for reporting results with stochastic programming test
+   problems (e.g. from POSTS).
+
+   1. Tolerances and solutions
+
+    * All stages should be solved to a relative tolerance of 10^(-6), i.e.
+      if UB and LB are upper and lower bounds on the recourse objective
+      in any given stage, (UB-LB)/(|LB|+0.1) <= 10^(-6).  Interior point codes
+      should use the same tolerance, but are not required to provide a basic
+      solution.
+
+    * Primal and dual solutions should be given for all nodes in the
+      solution tree.  (If not, at least primal solutions should be given,
+      and the absence of dual solutions should be reported.)
+
+   2. Reporting
+
+    * Complete descriptions of the hardware and software used should be given,
+      including machines make, model, memory, and speed (if applicable).  If
+      parallel codes are used, some indication of processor-processor bandwidth
+      and message latency should be reported.  (Ideally, the guidelines
+      presented in Section 7 of Barr and Hickman should be followed.)  If
+      external routines are used (e.g. LP solvers), they should be cited.
+
+    * Both algorithmic solution times and total times should be reported.
+      Algorithmic solution times exclude input, problem set-up, and output.
+      System times should be used if uniprocessor codes are used.  If a
+      parallel code is being used, the best and average wall clock times
+      over a group of tests should be used.  Using
+      machines loaded with other processes should be avoided, if possible.
+
+II.  Instructions for getting POSTS:
+
+     POSTS is available in (1) zip format or (2) compressed tar format
+     from the anonymous ftp server
+
+         freebie.engin.umich.edu as /pub/stoprobs/posts.zip
+                                    /pub/stoprobs/posts.tar.Z
+
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+* SEMI-2
+STOCH         MYSMPS
+SCENARIOS     DISCRETE
+ SC SCEN0001  'ROOT'            0.75  STG00001
+ SC SCEN0002  SCEN0001          0.25  STG00002
+    RHS1      R0000009        5.47965
+    RHS1      R0000010        2.15865
+    RHS1      R0000013        23.74515
+    RHS1      R0000014        8.6346
+    RHS1      R0000021        24.5754
+    RHS1      R0000063        21.9186
+    RHS1      R0000064        21.2544
+    RHS1      R0000073        14.88375
+    RHS1      R0000074        26.06985
+    RHS1      R0000075        7.32375
+    RHS1      R0000076        16.32015
+    RHS1      R0000081        8.1648
+    RHS1      R0000082        8.6346
+ENDATA

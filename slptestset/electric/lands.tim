@@ -1,0 +1,5 @@
+TIME          LandS
+PERIODS
+    X1        MINCAP                   PERIOD1
+    Y11       OPLIM1                   PERIOD2
+ENDATA

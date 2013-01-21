@@ -1,0 +1,5 @@
+TIME          DAKOTASP
+PERIODS
+    C1        R1                       PERIOD1
+    C4        R4                       PERIOD2
+ENDATA

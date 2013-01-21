@@ -1,0 +1,10 @@
+TIME          STOCHFOR
+PERIODS
+    CLASS3.1  HARV                     PERIOD1
+    CLASS3.2  BOUND3.2                 PERIOD2
+    CLASS3.3  BOUND3.3                 PERIOD3
+    CLASS3.4  BOUND3.4                 PERIOD4
+    CLASS3.5  BOUND3.5                 PERIOD5
+    CLASS3.6  BOUND3.6                 PERIOD6
+    CLASS3.7  BOUND3.7                 PERIOD7
+ENDATA

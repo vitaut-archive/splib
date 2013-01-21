@@ -1,0 +1,530 @@
+% cleaned of unnecessary equation numbers 3 June 2000
+\section{Energy and environmental planning}%
+\label{SEC:environ}
+\emph{Due to Fragni\`{e}re \cite{fragniere95}}%
+
+\noindent(Multistage, linear stochastic problem)\\
+\noindent\url{/environ}\url{/env.cor}, \url{/env.tim}, $\displaystyle \begin{cases} \text{\url{/env_det.aggr}}\\ \text{\url{/env.sto.imp}}\\ \text{\url{/env.sto.loose}}\\ \text{\url{/env.sto.lrge}}\\ \text{\url{/env.sto.xlrge}} \end{cases}$
+
+\vspace{3mm}
+\subsection{Description}
+The model by Fragni\`{e}re \cite{fragniere95} assists the Canton of Geneva in planning its energy supply infrastructure and policies.  The model is based on the MARKAL (market allocation) model.  This is quite an extensive model, containing a great degree of realism.  Included is the possibility that emissions of greenhouse gases will be required to decrease.  This possibility is expressed in a discrete random distribution.
+
+The model includes equilibrium constraints, capacity expansion constraints, demand constraints, production constraints, and environmental constraints. Energy is supplied by many different technologies, including hydro power, cogeneration, fossil fuels, urban waste incineration, and imported electricity.  Demands are also classified by technology.  Examples are electricity for industrial use, gas furnaces in existing houses, and wood stoves in new houses.  Variables expressed in upper case letters are decision variables.
+
+An energy balance may be performed on the supply grid, for each energy type.  For types $k$ which are neither electricity nor low temperature heat, the balance yields
+\begin{multline}
+\label{ENV:equil}
+\sum_{{\renewcommand{\arraystretch}{0.2} \begin{array}{c} \scriptstyle i\in TCH \\ \scriptstyle i\notin DMD \end{array}}} out_{ki}(t)P_i(t) + \sum_{i\in DMD} out_{ki}(t)cf_i(t) C_i(t) + \sum_s IMP_{ks}(t)\\
+ \geq \sum_{{\renewcommand{\arraystretch}{0.2} \begin{array}{c} \scriptstyle i\in TCH \\ \scriptstyle i\notin DMD \end{array}}} inp_{ki}(t)P_i(t) + \sum_{i\in DMD} inp_{ki}(t)cf_i(t) C_i(t) + \sum_s EXP_{ks}(t),\\
+\forall k\in ENC, \forall t\in T,
+\end{multline}
+where the variables and index sets are defined in Table \ref{ENV:vars} and Table \ref{ENV:sets}, respectively.  Note that for $i \in DMD$, the term $C_i(t)$ refers to the installed \emph{delivery} capacity, whereas for production type technologies, it refers to the installed \emph{production} capacity.
+
+For electricity and low temperature (district) heat, the energy balances are
+\begin{multline*}
+%\label{ENV:equilelc}
+\eta \left[ \sum_{i\in ELA} P_{izy}(t) + \sum_s IMPELC_{szy}(t)\right] \geq \sum_{i\in PRC} inp_{ELC,i}(t) q_{zy} P_i(t) \\
++ \sum_{i\in DMD} inp_{ELC,i}(t) cf_i(t) fr_{j(i)zy} C_i(t) 
++ \sum_k EXPELC_{kzy}(t) \\
++ \eta \sum_{{\renewcommand{\arraystretch}{0.2} \begin{array}{c} \scriptstyle i\in STG \\ \scriptstyle \ni y=n \end{array}}} e_i P_{izd}(t), \hspace{3mm} \forall z\in Z, \forall y\in Y, \forall t \in T,
+\end{multline*}
+and
+\begin{multline*}
+%\label{ENV:equillth}
+\gamma \sum_{i\in HPL} P_{iz}(t) \geq \sum_{i\in DMD} inp_{LTH,i}(t) cf_i(t) C_i(t) \sum_{y\in Y} fr_{j(i)zy},\\
+ \forall z\in Z, \forall t\in T,
+\end{multline*}
+respectively.
+
+
+%\tablefirsthead{\hline}
+%\tablehead{\hline \multicolumn{2}{|l|}{Variable definitions (continued)} \\ \hline}
+%\tabletail{\hline \multicolumn{2}{|r|}{(continued on the next page)} \\ \hline}
+%\tablelasttail{\hline}
+%\tablecaption{Variable definitions}
+%\begin{supertabular}{|>{$}l<{$}|p{3.8in}|}
+\begin{longtable}[c]{|>{$}l<{$}|p{3.8in}|}%{|>{$}l<{$}|p{3.8in}|}
+\caption{Variable and parameter definitions}\\
+\hline
+\endfirsthead
+\hline \multicolumn{2}{|l|}{Variable definitions (continued)} \\ \hline
+\endhead
+\hline \multicolumn{2}{|r|}{(continued on the next page)} \\ \hline
+\endfoot
+\hline
+\endlastfoot
+P_i(t)          & the activity, or utilization, of technology $i$, in period $t$\\
+\label{ENV:vars}
+P_{izy}(t)      & the production of electricity from technology $i$, in period $t$, season $z$, and part of the day $y$\\
+P_{iz}(t)       & the production of low temperature heat from technology $i$, in period $t$, season $z$\\
+C_i(t)          & the total installed capacity of technology $i$ in period $t$\\
+M_{iz}(t)       & production lost due to regular maintenance of technology $i$ in season $z$, period $t$\\
+IMP_{ks}(t)     & imported energy of type $k$ in period $t$, from source $s$\\
+IMPELC_{szy}(t) & imported electricity, from source $s$, in period $t$, season $z$, and part of the day $y$\\
+EXP_{ks}(t)     & exported energy of type $k$ in period $t$, to destination $s$\\
+EXPELC_{szy}(t) & exported electricity, to destination $s$, in period $t$, season $z$, and part of the day $y$\\
+out_{ki}(t)     & output of energy type $k$ in period $t$, per unit activity from technology $i \notin DMD$, or per unit capacity from $i \in DMD$\\
+out_{ik}(t) & fraction of demand technology $i$ which supplies utility demand $k \in DM$ in period $t$\\
+inp_{ki}(t)     & input of energy type $k$ in period $t$, per unit activity from technology $i \notin DMD$, or per unit capacity from $i \in DMD$\\
+cf_i(t)         & mean utilization factor of the total installed capacity for technology $i \in DMD$ in period $t$\\
+q_{zy}          & the fraction of a year covered by season $z$, part of the day $y$\\
+j(i)            & utility demand category $j(i) \in DM$, for $i \in DMD$\\
+fr_{j(i)zy}     & fraction of the utility demand from category $j(i)$ which comes in season $z$, time of day $y$\\
+e_i                     & the electricity input required at night to produce one unit of electricity in the daytime from technology $i \in STG$\\
+\eta            & efficiency coefficient for electrical distribution\\
+\rho            & efficiency coefficient for low temperature heat distribution\\
+\gamma          & efficiency coefficient for district (low temperature) heat distribution\\
+l_i                     & duration of equipment $i$, in time stages\\
+I_i(t)          & new capacity purchased for technology $i$, starting in period $t$\\
+resid_i(t)      & capacity which existed at the beginning of the optimization problem\\
+demand_k(t)     & demand for utility $k \in DM$ in period $t$\\
+af_i(t)         & availability factor of technology $i$ in period $t$\\
+fo_i            & the fraction of a year that technology $i$ is lost for production, due to one unit of unavailability\\
+u_i                     & conversion factor from units of capacity to units of production\\
+er                      & reserve capacity necessary to cover daily peak demand for electricity\\
+hr                      & reserve capacity necessary to cover daily peak demand for low temperature heat\\
+pk_i(t)         & fraction of installed capacity for production technology $i$, available to satisfy peak demand in period $t$\\
+epk_i(t)        & fraction of electrical consumption for production technology $i$, which corresponds to peak consumption in period $t$\\
+elf_{j(i)}(t)   & fraction of capacity for demand technology $i$, which corresponds to the peak consumption in period $t$\\
+bl                      & maximum fraction of nighttime electrical production from technologies $i \in BAS$\\
+\alpha          & annual discount rate\\
+n                       & number of years per period\\
+invcost_i(t)& cost per unit investment in technology $i$, period $t$\\
+fixom_i(t)      & fixed annual operation and maintenance costs for technology $i$, period $t$, per unit capacity\\
+varom_i(t)      & variable annual operation and maintenance costs, per unit production, for non-demand technology $i$, period $t$\\
+cost_{ks}(t)    & unit cost of energy type $k$, purchased from source $s$ in period $t$\\
+cost_{ELC,s}(t) & unit cost of electricity, purchased from source $s$ in period $t$\\
+price_{ks}(t)   & unit price of energy type $k$, sold to source $s$ in period $t$\\
+price_{ks}(t)   & unit price of electricity, sold to source $s$ in period $t$\\
+co2_i(t)      & carbon dioxide emissions per unit capacity, from technology $i$, period $t$\\
+\rand{limit_{CO2}}(t) & limit imposed on carbon dioxide emissions in period $t$\\ 
+\rand{\delta}(t) & probability of a law allowing imported electricity to count toward a $\text{CO}_2$ limit\\
+%\end{supertabular}
+\end{longtable}
+
+The capacity of each technology was either installed after the beginning of the optimization problem, or it was there from the beginning.  From this, we get the constraint
+\begin{equation*}
+%\label{ENV:capacity}
+C_i(t) = \sum_{m=\mbox{Max}\{1,t-l_i + 1\}}^t I_i(m) + resid_i(t), \hspace{3mm} \forall t \in T, \forall i.
+\end{equation*}
+
+%\tablecaption{Set definitions}
+%\tablefirsthead{\hline  & The set of all \ldots \\ \hline}
+%\tablehead{\hline  \multicolumn{2}{|l|}{Set definitions (continued)}\\ \hline & The set of all \ldots \\ \hline}
+%\tabletail{\hline \multicolumn{2}{|r|}{(continued on the next page)}}
+%\tablelasttail{\hline}
+\begin{table}
+\caption{Set definitions}
+\label{ENV:sets}
+\begin{center}
+\begin{tabular}{|>{$}l<{$}|p{3.8in}|}\hline
+ENC     & the energy types, except electricity ($ELC$) and low temperature heat ($LTH$)\\
+T               & time periods\\
+TCH             & supply and demand technologies\\
+DMD             & demand technologies\\
+DMD(k)  & demand technologies which can only supply utility demand $k \in DM$\\
+DM              & utility demands\\
+Y               & parts of the day ($d$ for daytime, $n$ for nighttime)\\
+Z               & seasons of the year ($w$ for winter, $s$ for summer, $i$ for intermediate)\\
+ELA             & technologies that produce electricity\\ 
+PRC             & energy production technologies\\
+STG             & technologies that effectively allow the storage of electricity\\
+HPL             & technologies which produce low temperature heat (LTH)\\
+CON             & technologies which produce electricity and/or low temperature heat\\
+BAS             & electrical production technologies which produce only at a steady rate, day and night\\
+CO2             & technologies which emit carbon dioxide\\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+We must meet the demand for each utility in each round.  Thus,
+\begin{multline*}
+%\label{ENV:demand}
+\sum_{i\in DMD(k)} C_i(t) + \sum_{{\renewcommand{\arraystretch}{0.2} \begin{array}{c} \scriptstyle i \in DMD \\ \scriptstyle i\notin DMD(k) \end{array}}} out_{ik}(t) C_i(t) \geq demand_k(t),\\
+ \forall k \in DM, \forall t \in T.
+\end{multline*}
+
+Of course, we cannot produce more than the capacity.  For general production technologies, this constraint is
+\begin{equation*}
+P_i(t) \leq af_i(t)C_i(t), \hspace{3mm} \forall i \in PRC, \forall t \in T.
+\end{equation*}
+
+For technologies that produce electricity, the production constraint is
+\begin{multline*}
+P_{izy}(t) + \left(\frac{q_{zy}}{q_{zd} + q_{zn}}\right) \leq u_i q_{zy}\left( 1- \left[1- af_i(t)\right]fo_i\right)C_i(t),\\
+\forall i \in ELA, \forall z \in Z, \forall y\in Y, \forall t \in T.
+\end{multline*}
+The second term is the production lost due to maintenance.
+
+Similarly for technologies that produce low temperature heat,
+\begin{multline}
+\label{ENV:lthproduction}
+P_{iz}(t) + M_{iz}(t) \leq u_i(q_{zd} + q_{zn})\left( 1- \left[1- af_i(t)\right]fo_i\right)C_i(t),\\
+\forall i \in HPL, \forall z \in Z, \forall t \in T.
+\end{multline}
+
+%\begin{comment} \emph{I do not understand the following constraint on maintenance.}\end{comment}  
+The following constraint pertains to maintenance.
+\begin{equation*}
+%\label{ENV:maint}
+\sum_{z\in Z} M_{ix}(t) \geq [1-af_i(t)][1-fo_i]u_i C_i(t), \hspace{3mm} \forall i \in CON, \forall t \in T.
+\end{equation*}
+
+On any given day, the peak demand level is, of course, higher than the daily average demand.  The capacity for production of electricity must be sufficient to cover peak demands, which occur during the day in both winter and summer.  The constant $er$ sets how much higher than daily average demand levels the peak can be.  The peak constraint for electricity is
+\begin{multline*}
+\frac{\eta}{1 + er}\left[ \sum_{i\in ELA} u_i pk_i(t) C_i(t) + \frac{1}{q_{zd}} \sum_s IMPELC_{szd}(t)\right] \geq \\
+\sum_{i\in PRC} inp_{ELC,i}(t) epk_i(t) P_i(t) + \frac{1}{q_{zd}} \sum_s EXPELC_{szd}(t)\\
++ \sum_{i\in DMD}  inp_{ELC,i}(t) elf_{j(i)}(t) cf_i(t) \left( \frac{fr_{j(i)zd}}{q_{zd}}\right) C_i(t),\\
+\forall z\in \{w,s\}, \forall t\in T.
+\end{multline*}
+
+The peak demand constraint for district heat is
+\begin{multline*}
+\frac{\rho}{1 + hr} \sum_{i\in HPL} u_i pk_i(t) C_i(t) \geq \\
+\sum_{i\in DMD}  inp_{LTH,i}(t) cf_i(t) \left( \frac{fr_{j(i) w d} + fr_{j(i) w n}}{q_{wd} + q_{wn}}\right) C_i(t), \hspace{3mm} \forall t\in T,
+\end{multline*}
+where $hr$ is the analog to $er$ for electricity.
+
+Some types of electrical production technologies, here called $BAS$, can only operate at a constant production level, day and night.  We may desire to limit the percentage of production from such technologies, since they do not give hour to hour operation flexibility.  The upper bound, $bl$ is used in the following constraint:
+\begin{multline*}
+\sum_{i\in BAS} P_{izn}(t) + \sum_s \eta IMPELC_{szn}(t) - EXPELC_{szn}(t) \\
+\leq bl\left[ \sum_{i\in ELA} P_{izn}(t) + \sum_s \eta IMPELC_{szn}(t) - EXPELC_{szn}(t) \right],\\
+\forall z \in Z, \forall t\in T.
+\end{multline*}
+
+Fragni\`{e}re \cite{fragniere95} states that the production of greenhouse gases is limited, but we were unable to find an explicitly stated constraint.  Therefore, we propose our own of the form
+\begin{equation}
+\label{ENV:co2limit}
+\sum_{i\in CO2} co2_i(t) C_i(t) + \rand{\delta} \sum_s \sum_{z\in Z} \sum_{y\in Y}IMPELC_{szy}(t)\leq \rand{limit_{CO2}}(t), \hspace{0.4cm} \forall t\in T.
+\end{equation}
+The second term on the left hand side represents the possibility of imported electricity counting toward the $\text{CO}_2$ limit.  Random $\rand{\delta}(t)\in (0,1)$ represents the probability of such a rule.  Of course, $\delta(1)=0$ with probability one.
+
+The objective is to minimize capital and operating costs, which can be expressed as
+\begin{multline*}
+\sum_{t\in T} \frac{1}{(1+\alpha)^{n(t-1)}} \sum_{i\in TCH} invcost_i(t) I_i(t) + \left(\sum_{m=1}^n (1+\alpha)^{1-m}\right) \\
+\sum_{t\in T} \frac{1}{(1+\alpha)^{n(t-1)}} \left[ \sum_{i\in TCH} fixom_i(t)C_i(t) + \sum_{i\in PRC} varom_i(t)P_i(t) + \right.\\
+\sum_{i\in HPL} \sum_{z\in Z} varom_i(t) P_{iz}(t) + \sum_{i\in ELA} \sum_{z\in Z} \sum_{y \in Y} varom_i(t) P_{izy}(t) + \\
+\sum_{k\in ENC} \sum_{s} cost_{ks}(t) IMP_{ks}(t) + \sum_s \sum_{z\in Z} \sum_{y\in Y} cost_{ELC,s}(t) IMPELC_{szy}(t) -\\
+ \sum_{k\in ENC} \sum_{s} price_{ks}(t) EXP_{ks}(t) -\\
+\left. \sum_s \sum_{z\in Z} \sum_{y \in Y} price_{ELC,s}(t) EXPELC_{szy}(t) \right].
+\end{multline*}
+
+\subsection{Problem statement}
+
+We present a problem that is a reduced version that created by Fragni\`{e}re \cite{fragniere95}.  Production constraints of the type (\ref{ENV:lthproduction}) are not included.  This problem statement corresponds to the numerical examples given in the ``Numerical examples'' section. 
+
+\hspace{0.5cm}
+
+
+\noindent Minimize
+\begin{multline*}
+\sum_{t\in T} \frac{1}{(1+\alpha)^{n(t-1)}} \sum_{i\in TCH} invcost_i(t) I_i(t) + \left(\sum_{m=1}^n (1+\alpha)^{1-m}\right) \\
+\sum_{t\in T} \frac{1}{(1+\alpha)^{n(t-1)}} \left[ \sum_{i\in TCH} fixom_i(t)C_i(t) + \sum_{i\in PRC} varom_i(t)P_i(t) + \right.\\
+\sum_{i\in HPL} \sum_{z\in Z} varom_i(t) P_{iz}(t) + \sum_{i\in ELA} \sum_{z\in Z} \sum_{y \in Y} varom_i(t) P_{izy}(t) + \\
+\sum_{k\in ENC} \sum_{s} cost_{ks}(t) IMP_{ks}(t) + \sum_s \sum_{z\in Z} \sum_{y\in Y} cost_{ELC,s}(t) IMPELC_{szy}(t) -\\
+ \sum_{k\in ENC} \sum_{s} price_{ks}(t) EXP_{ks}(t) -\\
+\left. \sum_s \sum_{z\in Z} \sum_{y \in Y} price_{ELC,s}(t) EXPELC_{szy}(t) \right].
+\end{multline*}
+subject to
+\begin{multline*}
+\sum_{{\renewcommand{\arraystretch}{0.2} \begin{array}{c} \scriptstyle i\in TCH \\ \scriptstyle i\notin DMD \end{array}}} out_{ki}(t)P_i(t) + \sum_{i\in DMD} out_{ki}(t)cf_i(t) C_i(t) + \sum_s IMP_{ks}(t)\\
+ \geq \sum_{{\renewcommand{\arraystretch}{0.2} \begin{array}{c} \scriptstyle i\in TCH \\ \scriptstyle i\notin DMD \end{array}}} inp_{ki}(t)P_i(t) + \sum_{i\in DMD} inp_{ki}(t)cf_i(t) C_i(t) + \sum_s EXP_{ks}(t),\\
+\forall k\in ENC, \forall t\in T,
+\end{multline*}
+\begin{multline*}
+%\label{ENV:equilelc}
+\eta \left[ \sum_{i\in ELA} P_{izy}(t) + \sum_s IMPELC_{szy}(t)\right] \geq \sum_{i\in PRC} inp_{ELC,i}(t) q_{zy} P_i(t) \\
++ \sum_{i\in DMD} inp_{ELC,i}(t) cf_i(t) fr_{j(i)zy} C_i(t) 
++ \sum_k EXPELC_{kzy}(t) \\
++ \eta \sum_{{\renewcommand{\arraystretch}{0.2} \begin{array}{c} \scriptstyle i\in STG \\ \scriptstyle \ni y=n \end{array}}} e_i P_{izd}(t), \hspace{3mm} \forall z\in Z, \forall y\in Y, \forall t \in T,
+\end{multline*}
+\begin{multline*}
+%\label{ENV:equillth}
+\gamma \sum_{i\in HPL} P_{iz}(t) \geq \sum_{i\in DMD} inp_{LTH,i}(t) cf_i(t) C_i(t) \sum_{y\in Y} fr_{j(i)zy},\\
+ \forall z\in Z, \forall t\in T,
+\end{multline*}
+\begin{equation*}
+%\label{ENV:capacity}
+C_i(t) = \sum_{m=\mbox{Max}\{1,t-l_i + 1\}}^t I_i(m) + resid_i(t), \hspace{3mm} \forall t \in T, \forall i,
+\end{equation*}
+\begin{multline*}
+%\label{ENV:demand}
+\sum_{i\in DMD(k)} C_i(t) + \sum_{{\renewcommand{\arraystretch}{0.2} \begin{array}{c} \scriptstyle i \in DMD \\ \scriptstyle i\notin DMD(k) \end{array}}} out_{ik}(t) C_i(t) \geq demand_k(t),\\
+ \forall k \in DM, \forall t \in T,
+\end{multline*}
+\begin{equation*}
+P_i(t) \leq af_i(t)C_i(t), \hspace{3mm} \forall i \in PRC, \forall t \in T,
+\end{equation*}
+\begin{multline*}
+P_{izy}(t) + \left(\frac{q_{zy}}{q_{zd} + q_{zn}}\right) \leq u_i q_{zy}\left( 1- \left[1- af_i(t)\right]fo_i\right)C_i(t),\\
+\forall i \in ELA, \forall z \in Z, \forall y\in Y, \forall t \in T,
+\end{multline*}
+\begin{equation*}
+%\label{ENV:maint}
+\sum_{z\in Z} M_{ix}(t) \geq [1-af_i(t)][1-fo_i]u_i C_i(t), \hspace{3mm} \forall i \in CON, \forall t \in T,
+\end{equation*}
+\begin{multline*}
+\frac{\eta}{1 + er}\left[ \sum_{i\in ELA} u_i pk_i(t) C_i(t) + \frac{1}{q_{zd}} \sum_s IMPELC_{szd}(t)\right] \geq \\
+\sum_{i\in PRC} inp_{ELC,i}(t) epk_i(t) P_i(t) + \frac{1}{q_{zd}} \sum_s EXPELC_{szd}(t)\\
++ \sum_{i\in DMD}  inp_{ELC,i}(t) elf_{j(i)}(t) cf_i(t) \left( \frac{fr_{j(i)zd}}{q_{zd}}\right) C_i(t),\\
+\forall z\in \{w,s\}, \forall t\in T,
+\end{multline*}
+\begin{multline*}
+\frac{\rho}{1 + hr} \sum_{i\in HPL} u_i pk_i(t) C_i(t) \geq \\
+\sum_{i\in DMD}  inp_{LTH,i}(t) cf_i(t) \left( \frac{fr_{j(i) w d} + fr_{j(i) w n}}{q_{wd} + q_{wn}}\right) C_i(t), \hspace{3mm} \forall t\in T,
+\end{multline*}
+\begin{multline*}
+\sum_{i\in BAS} P_{izn}(t) + \sum_s \eta IMPELC_{szn}(t) - EXPELC_{szn}(t) \\
+\leq bl\left[ \sum_{i\in ELA} P_{izn}(t) + \sum_s \eta IMPELC_{szn}(t) - EXPELC_{szn}(t) \right],\\
+\forall z \in Z, \forall t\in T,
+\end{multline*}
+\begin{equation*}
+\sum_{i\in CO2} co2_i(t) C_i(t) + \rand{\delta}(t) \sum_s \sum_{z\in Z} \sum_{y\in Y}IMPELC_{szy}(t)\leq \rand{limit_{CO2}}(t), \hspace{0.4cm} \forall t\in T
+\end{equation*}
+and for all $t\in T$,
+\begin{multline*}
+P_i(t) \geq 0,\ \forall i\in PRC, \hspace{0.5cm} I_i(t) \geq 0,\ \forall i\in TCH,\\
+C_i(t) \geq 0,\ \forall i\in TCH, \hspace{0.5cm} P_{iz}(t) \geq 0,\ \forall i\in HPL, \forall z\in Z,\\
+P_{izy}(t) \geq 0,\ \forall i\in ELA, \forall z\in Z, \forall y\in Y, \hspace{0.5cm} IMP_{ks}(t) \geq 0, \forall k\in ENC \forall s,\\
+IMPELC_{szy}(t) \geq 0, \forall s, \forall z\in Z, \forall y\in Y, \hspace{0.5cm} EXP_{ks}(t) \geq 0, \forall k\in ENC \forall s,\\
+EXPELC_{szy}(t) \geq 0, \forall s, \forall z\in Z, \forall y\in Y, \hspace{0.5cm} \delta(1)=0.
+\end{multline*}
+
+
+\subsection{Numerical examples}
+\label{ENV:numex}
+
+The problem created by Fragni\`{e}re \cite{fragniere95} for the Canton of Geneva is extremely large and complex, and the input data format is not SMPS.  Therefore, we have created our own sample problems of this kind.  The numbers in this example are based on the authors' judgment, not actual economic data.
+
+The example creates a situation similar to that experienced in the United States, where oil imports (OIL) are the largest source of energy.  Other imports are coal (COL), natural gas (NGS), propane (PRO), nuclear fuel (NUF), and electricity (ELC).  There are no exports in this example.  
+
+The energy types allowed are electricity (ELC), gasoline (GAS), coal (COL), heating oil and diesel (HOL), natural gas (NGS), propane/LPG (LPG), jet fuel (JET), and nuclear fuel (NUC).  When one unit of oil is imported, the following portions of hydrocarbon based energy types are assumed to be gained:  0.45 gasoline, 0.25 heating oil/diesel, 0.10 natural gas, 0.10 jet fuel, and 0.10 propane/LPG.  The inequalities of type (\ref{ENV:equil}) must take this into account.  For example, the inequality balancing natural gas is
+\begin{multline*}
+0.10 IMP_{\text{OIL}}(t) + IMP_{\text{NG}} \geq inp_{\text{NGS,HNG}}(t)cf_{\text{HNG}}(t)C_{\text{HNG}}(t) \\+ inp_{\text{NGS,NEL}}(t)cf_{\text{NEL}}(t)C_{\text{NEL}}(t).
+\end{multline*}
+
+The available technologies are listed in Table \ref{ENV:egtech}, along with their associated coefficients for the example problem.  Other coefficients are listed in Table \ref{ENV:egseason}, Table \ref{ENV:egdemands} and Table \ref{ENV:eggeneral}.
+
+There are several two stage versions of this problem in the test set.  They differ in how stochasticity is introduced.  The problem \emph{env:loose}, using the stochastic file \url{env.sto.loose}, simply assumes very non-challenging (i.e. loose) $\text{CO}_2$ limits.  The problem \emph{env:aggressive} (\url{env.sto.aggr}) sets aggressive $\text{CO}_2$ limits.  Each of these has five random realizations, and the parameter $\rand{\delta}(t)$ takes a value $0$ with probability one.
+
+The problem \emph{env:import} (\url{env.sto.imp}) uses the aggressive $\text{CO}_2$ limits, and, in addition, considers the possibility that imported electricity (IMPELC) will be counted toward such limits in period two.  That is, $\rand{\delta}(2)$ takes a nonzero value with nonzero probability.  This problem has fifteen random realizations.
+
+The problem \emph{env:large} (\url{env.sto.lrge}) builds on \emph{env:import} by making random the costs of various energy sources.  The number of realizations is $8,232$.  The problem \emph{env:xlarge} (\url{env.sto.xlrge}) is a larger version still, mostly to test distributed memory capabilities of the solver.
+
+\begin{table}[ht]
+\caption{Example problem seasonal coefficients}
+\label{ENV:egseason}
+\begin{center}
+\begin{tabular}{lcccc}
+& \multicolumn{2}{c}{\underline{\hspace{3mm}summer\hspace{3mm}}} & \multicolumn{2}{c}{\underline{\hspace{3mm}winter\hspace{3mm}}}\\
+& \underline{day} & \underline{night} & \underline{day} & \underline{night}\\
+$q_{zy}$ & 0.60 & 0.40 & 0.40 & 0.60\\
+$cost_{\text{ELC}}$ & 5.2 & 5.0 & 4.8 & 4.6\\
+$fr_{\text{ELC},zy}$ & 0.35 & 0.25 & 0.10 & 0.30
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[ht]
+\caption{Example problem demands}
+\label{ENV:egdemands}
+\begin{center}
+\begin{tabular}{ccc}
+\underline{$k$} & \underline{$demand_k(1)$} & \underline{$demand_k(2)$}\\
+ELC & 170 & 230\\
+HHO & 30  & 30\\
+NG  & 15  & 25\\
+GAS & 60  & 80\\
+LPG & 3   & 3\\
+JET & 10  & 20
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[ht]
+\caption{Example problem coefficients}
+\label{ENV:eggeneral}
+\begin{center}
+\begin{tabular}{cc}
+$\alpha$ & 0.05\\
+$n$ & 5\\
+$\eta$ & 0.80\\
+$e_{\text{HYD}}$ & 0.10\\
+$er$ & 0.20\\
+$cost_{\text{OIL}}$ & 0.8\\
+$cost_{\text{COAL}}$ & 0.7\\
+$cost_{\text{NG}}$ & 0.6\\
+$cost_{\text{PRO}}$ & 0.7\\
+$cost_{\text{NUF}}$ & 0.9
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{landscape}
+\begin{table}[ht]
+\caption{Example problem technologies and associated coefficients}
+\label{ENV:egtech}\footnotesize
+\[ 
+\begin{array}{l}
+\begin{array}{ccccccccccc}
+\text{\underline{description}} & \underline{i} & \underline{cf_i(t)} & \underline{inp_{ki}(t)^\dag} & \underline{\left(\begin{array}{c}resid_i(1):\\resid_i(2)\end{array}\right)} & \underline{u_i(t)} & \underline{pk_i(t)} & \underline{invcost_i(1)^\ddag} & \underline{fixom_i(t)} & \underline{varom_i(t)} & \underline{co2_i(t)}\\
+\text{industrial electricity} & \text{ELI} & 0.8 & 3.0 & \left(100:100\right) & & 0.1 & 30 & 3.0 & 0.1 & 0.0\\
+\text{domestic electricity} & \text{ELD} & 0.8 & 2.8 & \left(110:110\right) & & 0.2 & 50 & 4.0 & 0.1 & 0.0\\
+\text{heating oil/diesel} & \text{HHO} & 0.4 & 1.0 & \left(15:15\right) & & & 20 & 2.0 & 0.5 & 1.4\\
+\text{household nat. gas} & \text{HNG} & 0.4 & 0.5 & \left(25:25\right) & & & 25 & 2.0 & 0.5 & 1.0\\
+\text{automobiles} & \text{CAR} & 0.5 & 0.7 & \left(80:80\right) & & & 40 & 2.0 & 0.5 & 1.5\\
+\text{household propane} & \text{HLP} & 0.4 & 0.6 & \left(5:5\right) & & & 30 & 2.5 & 0.8 & 1.1\\
+\text{elec. from coal} & \text{CEL} & 0.75 & 0.7 & \left(110:100\right) & \frac{1}{0.7} & 0.1 & 30 & 3.0 & 0.4 & 1.2\\
+\text{elec. from NG} & \text{NEL} & 0.7 & 0.4 & \left(40:40\right) & \frac{1}{0.4} & 0.3 & 35 & 2.0 & 0.5 & 0.9\\
+\text{jet fuel prod.} & \text{AIR} & 0.75 & 0.8 & \left(15:15\right) &  &  & 40 & 2.0 & 0.5 & 1.5\\
+\text{diesel trucks} & \text{TRK} & 0.75 & 1.0 & \left(30:30\right) &  &  & 40 & 2.0 & 05 & 1.7\\
+\text{elec. from nucl.} & \text{NUL} & 0.8 & 0.1 & \left(40:20\right) & \frac{1}{0.7} & 0.10 & 80 & 4 & 0.7 & 0.0\\
+\text{elec. from hydr.} & \text{HYD} & 0.8 & 0.8 & \left(10:8\right) & \frac{1}{0.8} & 0.2 & 80 & 4 & 0.1 & 0.0
+\end{array}\\
+\dag \text{For the obvious $k$.}\\
+\ddag \text{For $t=2$, multiply value by 1.5.}
+\end{array}
+\]\normalsize
+\end{table}
+\end{landscape}%
+
+\subsection{Notational reconciliation}
+Because of the size of the problem, we reconcile only the problem from the Numerical examples section to the format of (\ref{PROB:mslp}).  In this section, we will use ``ELI \ldots HYD'' to denote the set of technologies listed in Table \ref{ENV:egtech}, in the order presented.  We will also use ``OIL \ldots ELC'' to denote the imports, and ``ELC \ldots JET'' for the demands in Table \ref{ENV:egdemands}.  Additionally, ``WD \ldots SN'' will mean the sequence ``WD, WN, SD, SN,'' and ``CEL \ldots HYD'' will stand for the sequence of electricity producers ``CEL, NEL, NUL, HYD.''  These abbreviations will make our arrays smaller to print.
+
+We will also use the notation $e_i$ to mean the unit vector in the $i\text{th}$ direction from the space $\reals^{12}$.
+
+For $t=1,2$, make the following definitions:
+\[
+x_t \assign \left[\ajfbox{I_{\text{ELI}}(t)\\ \vdots \\ I_{\text{HYD}}(t) \\ 
+\hline C_{\text{ELI}}(t) \\ \vdots \\ C_{\text{HYD}}(t)\\ \hline \left[\ajfbox{
+P_{\text{CEL,WD}}(t)\\ \vdots \\ P_{\text{CEL,SN}}(t)}\right]\\ \vdots\\
+\left[\ajfbox{P_{\text{HYD,WD}}(t)\\ \vdots \\ P_{\text{HYD,SN}}(t)}\right]\\
+\hline IMP_{\text{OIL}}(t)\\ \vdots \\ IMP_{\text{NUF}}(t)\\ 
+\hline IMPELC_{\text{WD}}(t)\\ \vdots \\ IMPELC_{\text{SN}}(t)}\right], \hspace{1in}
+c_t \assign \left[\ajfbox{r(t) invcost_{\text{ELI}}(t) \\ \vdots \\ r(t) invcost_{\text{HYD}}(t) \\ 
+\hline s(t) fixom_{\text{ELI}}(t)\\ \vdots\\ s(t) fixom_{\text{HYD}}(t)\\
+\hline \left[\ajfbox{s(t) varom_{\text{CEL}}(t)\\ \vdots\\ s(t) varom_{\text{CEL}}(t)}\right]\\ \vdots\\ \left[\ajfbox{s(t) varom_{\text{HYD}}(t)\\ \vdots\\ s(t) varom_{\text{HYD}}(t)}\right]\\
+\hline s(t) cost_{\text{OIL}} \\ \vdots\\ s(t) cost_{\text{NUF}}\\
+\hline s(t) cost_{\text{ELC,WD}} \\ \vdots\\ s(t) cost_{\text{ELC,SN}}}\right],
+\]
+where $\displaystyle r(t)\assign (1+\alpha)^{-n(t-1)}$ and $\displaystyle s(t)\assign \left(\sum_{m=1}^n (1+\alpha)^{1-m}\right)r(t)$.
+
+Define the following matrices:
+\[
+BA(t)\assign \left[\ajfbox{%
+inp_{\text{GAS,CAR}}(t)cf_{\text{CAR}}(t)e_{5}\trp\\
+inp_{\text{COL,CEL}}(t)cf_{\text{CEL}}(t)e_{7}\trp + inp_{\text{HOL,TRK}}(t)cf_{\text{TRK}}(t)e_{10}\trp\\
+inp_{\text{HOL,HHO}}(t)cf_{\text{HHO}}(t)e_{3}\trp + inp_{\text{NGS,NEL}}(t)cf_{\text{NEL}}(t)e_{8}\trp\\
+inp_{\text{NGS,HNG}}(t)cf_{\text{HNG}}(t)e_{4}\trp\\
+inp_{\text{LPG,HLP}}(t)cf_{\text{HLP}}(t)e_{6}\trp\\
+inp_{\text{JET,AIR}}(t)cf_{\text{AIR}}(t)e_{9}\trp\\
+inp_{\text{NUC,NUL}}(t)cf_{\text{NUL}}(t)e_{11}\trp%
+}\right],
+\]
+\[
+BB(t)\assign \left[\begin{array}{cccccc} -0.45 & 0 & 0 & 0 & 0 & 0\\
+0 & -1 & 0 & 0 & 0 & 0\\
+-0.25 & 0 & 0 & 0 & 0 & 0\\
+-0.10 & 0 & 0 & 0 & 0 & 0\\
+-0.10 & 0 & 0 & 0 & 0 & 0\\
+-0.10 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & -1 & 0\end{array} \right],
+\]
+\[
+BC(t)\assign -\eta\left[\begin{array}{cccc} I^{4\times 4} & I^{4\times 4} & I^{4\times 4} & I^{4\times 4}\end{array}\right],\qquad BD(t)\assign -\eta \left[I^{4\times 4}\right]
+\]
+\begin{multline*}
+BE(t)\assign \\ \left[\begin{array}{cc|c}%
+inp_{\text{ELC,ELI}}(t)cf_{\text{ELI}}(t)fr_{\text{ELC,WD}} & inp_{\text{ELC,ELD}}(t)cf_{\text{ELD}}(t)fr_{\text{ELC,WD}} & \\
+\vdots & \vdots & 0^{4\times 10}\\
+inp_{\text{ELC,ELI}}(t)cf_{\text{ELI}}(t)fr_{\text{ELC,SN}} & inp_{\text{ELC,ELD}}(t)cf_{\text{ELD}}(t)fr_{\text{ELC,SN}} & \end{array}\right],
+\end{multline*}
+\[
+BF(t)\assign \eta e_{\text{HYD}}\left[\begin{array}{cc}0^{4\times 12} & I^{4\times 4}\end{array}\right],\qquad BH(t)\assign-\left[\ajfbox{(e_{1} + e_{2})\trp\\
+(e_{3}+e_{10})\trp\\
+e_{4}\trp\\
+e_{5}\trp\\
+e_{6}\trp\\
+e_{9}\trp}\right],
+\]
+\[
+BM\assign\left[\ajfbox{\left(\frac{1}{q_{\text{WD}}}\right)e_{1}\trp\\
+\left(\frac{1}{q_{\text{SD}}}\right)e_{2}\trp}\right],\qquad
+BN\assign[co2_{\text{ELI}}\cdots co2_{\text{HYD}}],
+\]
+\[
+BK\assign -\left[\ajfbox{\left[\ajfbox{u_{\text{CEL}}q_{\text{WD}}e_{7}\trp\\
+\vdots\\
+u_{\text{CEL}}q_{\text{SN}}e_{7}\trp}\right]\\ \vdots\\ 
+\left[\ajfbox{u_{\text{HYD}}q_{\text{WD}}e_{12}\trp\\
+\vdots\\
+u_{\text{HYD}}q_{\text{SN}}e_{12}\trp}\right]}\right], \qquad%
+bk\assign -\left[\ajfbox{q_{\text{WD}}/(q_{\text{WD}}+q_{\text{WN}})\\
+q_{\text{WN}}/(q_{\text{WD}}+q_{\text{WN}})\\ 
+q_{\text{SD}}/(q_{\text{SD}}+q_{\text{SN}})\\
+q_{\text{SN}}/(q_{\text{SD}}+q_{\text{SN}})\\
+}\right],
+\]
+\begin{multline*}
+BL(t)\assign\left[\ajfbox{1\\1}\right]\left(\frac{n}{1+er}\right)\left[-u_{\text{CEL}}pk_{\text{CEL}}(t)e_{7} -\right.\\ 
+\left.u_{\text{NEL}}pk_{\text{NEL}}(t)e_{8} -u_{\text{NUL}}pk_{\text{NUL}}(t)e_{11} -u_{\text{HYD}}pk_{\text{HYD}}(t)e_{12} \right]\trp +\\
+cf_{\text{ELI}}(t)\left[\ajfbox{elf_{\text{ELC,WD}}(t)fr_{\text{ELC,WD}}/q_{\text{WD}}\\
+elf_{\text{ELC,SD}}(t)fr_{\text{ELC,SD}}/q_{\text{SD}}}\right](inp_{\text{ELC,ELI}}(t)e_{1}\trp + \\inp_{\text{ELC,ELD}}(t)e_{2}\trp),
+\end{multline*}
+and the random
+\[
+\rand{BP}(t)\assign\left[\begin{array}{cccc}\rand{\delta}(t) & \rand{\delta}(t) & \rand{\delta}(t) & \rand{\delta}(t)\end{array}\right].
+\]
+
+Then, finally, we can assign $\rand{A_t}$, for $t=1,2$, and $T_2$ in blocks.  Let
+\[
+\rand{A_t}\assign \left[\begin{array}{c|c|c|c|c}
+& BA(t) & &BB(t)&\\ \hline
+& BE(t) & (BC(t)+BF(t)) & & BD(t)\\ \hline
+-I^{12\times 12} & I^{12\times 12} & & &\\ \hline
+& BH & & &\\ \hline
+&BK&I^{16\times 16}& &\\ \hline
+&BL(t) & & &BM\\ \hline
+&BN & & &\rand{BP}
+\end{array}
+\right],
+\]
+and 
+\[
+T_2\assign\left[\begin{array}{c|c|c|c|c}
+\multicolumn{5}{c}{0^{7\times 50}}\\ \hline
+\multicolumn{5}{c}{0^{4\times 50}}\\ \hline
+& -I^{12\times 12} & & &\\ \hline
+\multicolumn{5}{c}{0^{6\times 50}}\\ \hline
+\multicolumn{5}{c}{0^{16\times 50}}\\ \hline
+\multicolumn{5}{c}{0^{2\times 50}}\\ \hline
+\multicolumn{5}{c}{0^{1\times 50}}\end{array}\right].
+\]
+We define the random right hand side as
+\[
+\rand{b}_t\assign\left[\ajfbox{
+0^7\\
+0^4\\
+resid_{\text{ELI}}(t)\\
+\vdots\\
+resid_{\text{HYD}}(t)\\
+-demand_{\text{ELC}}(t)\\
+-demand_{\text{HHO}}(t)\\
+-demand_{\text{NGS}}(t)\\
+-demand_{\text{GAS}}(t)\\
+-demand_{\text{LPG}}(t)\\
+-demand_{\text{JET}}(t)\\
+b_k\\
+b_k\\
+b_k\\
+b_k\\
+0^2\\
+\rand{limit_{CO2}}(t)}\right].
+\]
+If the user then appends slack variables in the blocks corresponding to $BA(t)$, $BE(t)$, $BH(t)$, $BK(t)$, $BL(t)$ and $BN(t)$, we will have the problem in the form of (\ref{PROB:mslp}).
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End: 

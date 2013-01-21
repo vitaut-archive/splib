@@ -1,0 +1,5 @@
+TIME          GBD
+PERIODS
+    C0000001  R0000001                 TIME1
+    C0000018  R0000005                 TIME2
+ENDATA

@@ -1,0 +1,10 @@
+TIME          HV_2_1
+PERIODS       EXPLICIT
+                                       PERIOD1
+                                       PERIOD2
+ROWS
+    R1        PERIOD2
+COLUMNS
+    X1        PERIOD1
+    X2        PERIOD1
+ENDATA

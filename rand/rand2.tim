@@ -1,0 +1,5 @@
+TIME          rand2
+PERIODS
+    C1_1      R1_1                     PERIOD1
+    C2_1      R2_1                     PERIOD2
+ENDATA

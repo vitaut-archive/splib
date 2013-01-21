@@ -1,0 +1,59 @@
+STOCH         ENV   
+INDEP         DISCRETE
+    RIGHT     CO2LIM2     530.0        PERIOD2   0.20
+    RIGHT     CO2LIM2     470.0        PERIOD2   0.20
+    RIGHT     CO2LIM2     460.0        PERIOD2   0.20
+    RIGHT     CO2LIM2     420.0        PERIOD2   0.20
+    RIGHT     CO2LIM2     410.0        PERIOD2   0.20
+    IMPOIL2   OBJ         7.24         PERIOD2   0.05
+    IMPOIL2   OBJ         4.406        PERIOD2   0.40
+    IMPOIL2   OBJ         3.62         PERIOD2   0.30
+    IMPOIL2   OBJ         3.0          PERIOD2   0.20
+    IMPOIL2   OBJ         1.81         PERIOD2   0.05
+    IMPNG2    OBJ         5.05         PERIOD2   0.15
+    IMPNG2    OBJ         4.00         PERIOD2   0.20
+    IMPNG2    OBJ         2.72         PERIOD2   0.40
+    IMPNG2    OBJ         2.40         PERIOD2   0.20
+    IMPNG2    OBJ         2.00         PERIOD2   0.05
+BLOCKS        DISCRETE
+ BL IMELC     PERIOD2     0.7
+    IMELC2WD  CO2LIM2     1.2 
+    IMELC2WN  CO2LIM2     1.2
+    IMELC2SD  CO2LIM2     1.2 
+    IMELC2SN  CO2LIM2     1.2 
+ BL IMELC     PERIOD2     0.25
+    IMELC2WD  CO2LIM2     1.0 
+    IMELC2WN  CO2LIM2     1.0 
+    IMELC2SD  CO2LIM2     1.0 
+    IMELC2SN  CO2LIM2     1.0 
+ BL IMELC     PERIOD2     0.05
+    IMELC2WD  CO2LIM2     0.0 
+    IMELC2WN  CO2LIM2     0.0 
+    IMELC2SD  CO2LIM2     0.0 
+    IMELC2SN  CO2LIM2     0.0 
+ BL IMELCCST  PERIOD2     0.15
+    IMELC2WD  OBJ         43.44
+    IMELC2WN  OBJ         41.64
+    IMELC2SD  OBJ         47.08
+    IMELC2SN  OBJ         45.26
+ BL IMELCCST  PERIOD2     0.20
+    IMELC2WD  OBJ         26.064
+    IMELC2WN  OBJ         24.984
+    IMELC2SD  OBJ         28.248
+    IMELC2SN  OBJ         27.156
+ BL IMELCCST  PERIOD2     0.25
+    IMELC2WD  OBJ         21.72
+    IMELC2WN  OBJ         20.82
+    IMELC2SD  OBJ         23.54
+    IMELC2SN  OBJ         22.63
+ BL IMELCCST  PERIOD2     0.25
+    IMELC2WD  OBJ         17.376
+    IMELC2WN  OBJ         16.656
+    IMELC2SD  OBJ         18.832
+    IMELC2SN  OBJ         18.104
+ BL IMELCCST  PERIOD2     0.15
+    IMELC2WD  OBJ         13.032
+    IMELC2WN  OBJ         12.492
+    IMELC2SD  OBJ         14.124
+    IMELC2SN  OBJ         13.578
+ENDATA  

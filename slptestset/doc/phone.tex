@@ -1,0 +1,298 @@
+% cleaned of unnecessary equation numbers 3 June 2000
+\subsection{Telecommunication network planning}%
+\emph{Due to Sen, Doverspike and Cosares \cite{sen94}}%
+
+\noindent(Two stage, mixed integer linear stochastic problem)\\
+\noindent\url{/phone}\url{/phone.cor},\url{/phone.tim},\url{phone.sto}
+
+\vspace{3mm}
+\subsubsection{Description}
+The service of providing private lines to telecommunication customers is one with which most people are not familiar.  Such service is used by large corporations between business locations for high speed, private data transmission.  Private lines are generally used for a much longer duration than public switched service, and they generally carry more capacity per connection.
+
+A manager of such a network must be constantly looking to the future, deciding where and how much to expand capacity.  In this problem formulation, the ``how much'' is decided beforehand, to some extent, by the imposition of an overall budget.  Within the constraints of the budget, expansion is not penalized.  The goal is to minimize the unserved requests, while staying within budget.
+
+Such networks are usually very interconnected, so that for any point-to-point demand pair, there is usually more than one route which may service the demand.  Each route is made of one or more direct links.
+
+Let $n$ be the number of direct links in the network which might be expanded, and let $x \in \integers^n$ be the vector of expanded capacities in the links, where $\integers$ is the set of integers.  Let $m$ be the number of point-to-point pairs to be served by the network, and $\rand{d} \in \integers^m$ be the random variable of demands for service between the pairs.
+
+The total budget constraint will be denoted by $b$.  Then, the problem is to
+\begin{align*}
+\text{minimize }&\quad \expect[d] \left[ Q(x,\rand{d})\right]\\
+\text{subject to }&\quad \sum_{j=1}^n x_j \leq b,\\
+&\qquad x \geq 0,
+\end{align*}
+where $Q(x, \rand{d})$ represents the number of unserved requests, subject to network balance constraints.
+
+For point-to-point pair $i=1, \ldots, m$, let $R(i)$ be the set of routes which may be used to satisfy a request for service between the two locations.  Additionally, for route $r \in R(i)$, let $a_{ir} \in \integers^n$ be the incidence vector defined by
+\begin{equation*}
+(a_{ir})_j \assign
+\begin{cases}
+	1	&	\text{if link $j \in r$,}\\
+	0	&	\text{otherwise.}
+\end{cases}
+\end{equation*}
+Let $e \in \integers^n$ be the existing capacity in the network.
+
+The recourse variables are $s_i$, the number of unserved requests, and $f_{ir}$, the number of connections serving point-to-point pair $i$ over route $r$.  Then, the recourse problem is
+\begin{align*}
+Q(x, d)\assign &\text{minimize } \quad \sum_{i=1}^m s_i\\
+\text{subject to }& \quad \sum_{i=1}^m \sum_{r \in R(i)} a_{ir} f_{ir} \leq x + e,\\
+&\quad \sum_{r \in R(i)} f_{ir} + s_i = (\rand{d})_i,\quad \forall i=1,\ldots, m\\
+&\quad f_{ir}, s_i \geq 0, \quad \forall i,r \in R(i)\\
+&\quad f_{ir} \in \integers, \quad \forall i,r \in R(i).
+\end{align*}
+
+\subsubsection{Problem statement}
+Given the budget constraint $b$, and the current condition of the network $\{ a_{ir}, e\}$, the problem is to
+\begin{align*}
+\text{minimize }&\quad \expect[d] \left[ \sum_{i=1}^m s_i\right]\\
+\text{subject to }&\quad \sum_{j=1}^n (x)_j \leq b,\\
+& \quad \sum_{i=1}^m \sum_{r \in R(i)} a_{ir} f_{ir} \leq x + e,\\
+&\quad \sum_{r \in R(i)} f_{ir} + s_i = (d)_i,\quad \forall i=1, \ldots, m\\
+&\quad x, f_{ir}, s_i \geq 0, \quad \forall i,r \in R(i)\\
+&\quad x, f_{ir} \in \integers, \quad \forall i,r \in R(i).
+\end{align*}
+
+
+\subsubsection{Numerical example}
+
+We have created an example with $2^{15}=32,768$ random realizations and six nodes.  The possible routing is illustrated in Figure \ref{PHONE:network}, and the possible routes connecting each two-node combination are enumerated in Table \ref{PHONE:routes}.
+
+The initial capacity of the network, $e$, is as follows:
+\[
+\begin{array}{|c|c|c|c|c|c|c|c|c|}
+\hline
+\text{route} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\ \hline
+\text{capacity} & 2 & 2 & 4 & 4 & 2 & 4 & 3 & 1\\ \hline
+\end{array}
+\]
+
+\begin{figure}
+\caption{Illustration of routing for telephone network example}
+\label{PHONE:network}
+\setlength{\unitlength}{1cm}
+\begin{picture}(12,7)
+\put(1.5,0.5){\makebox(1,1){6}}
+\put(2,1){\circle{0.5}}
+
+\put(0.5,2.5){\makebox(1,1){3}}
+\put(1,3){\circle{0.5}}
+
+\put(1.5,5.5){\makebox(1,1){1}}
+\put(2,6){\circle{0.5}}
+
+\put(4.5,2.5){\makebox(1,1){4}}
+\put(5,3){\circle{0.5}}
+
+\put(7.5,5.5){\makebox(1,1){2}}
+\put(8,6){\circle{0.5}}
+
+\put(10.5,2.5){\makebox(1,1){5}}
+\put(11,3){\circle{0.5}}
+
+\put(2,1.25){\line(-2,3){1}}
+\put(1,3.25){\line(2,5){1}}
+\put(1.25,3){\line(1,0){3.5}}
+\put(5.25,3){\line(1,0){5.5}}
+\put(2.25,6){\line(1,0){5.5}}
+\put(2,5.75){\line(6,-5){3}}
+\put(5,3.25){\line(6,5){3}}
+\put(8,5.75){\line(6,-5){3}}
+
+\put(0.7,1.5){\makebox(1,1){8}}
+\put(4.4,5.8){\makebox(1,1){1}}
+\put(0.8,4){\makebox(1,1){2}}
+\put(3.4,4){\makebox(1,1){3}}
+\put(5.6,4){\makebox(1,1){4}}
+\put(9.7,4){\makebox(1,1){5}}
+\put(2.5,2.2){\makebox(1,1){6}}
+\put(7.5,2.2){\makebox(1,1){7}}
+\end{picture}
+\end{figure}
+
+
+\begin{table}
+\caption{Enumeration of all possible routes for telephone network example}
+\label{PHONE:routes}
+\begin{tabular}[t]{rl}
+\multicolumn{2}{c}{\underline{node $1 \rightarrow 2$}}\\
+0 & 12\\
+1 & 142\\
+2 & 1452\\
+3 & 1342\\
+4 & 13452
+\end{tabular}
+\begin{tabular}[t]{rl}
+\multicolumn{2}{c}{\underline{node $1 \rightarrow 3$}}\\
+0 & 13\\
+1 & 143\\
+2 & 1243 \\
+3 & 12543
+\end{tabular}
+\begin{tabular}[t]{rl}
+\multicolumn{2}{c}{\underline{node $1 \rightarrow 4$}}\\
+0 & 14\\
+1 & 124\\
+2 & 1254\\
+3 & 134
+\end{tabular}
+\begin{tabular}[t]{rl}
+\multicolumn{2}{c}{\underline{node $1 \rightarrow 5$}}\\
+0 & 125\\
+1 & 1245\\
+2 & 145\\
+3 & 1425\\
+4 & 1345\\
+5 & 13425
+\end{tabular}
+\begin{tabular}[t]{rl}
+\multicolumn{2}{c}{\underline{node $1 \rightarrow 6$}}\\
+0 & 136\\
+1 & 1436\\
+2 & 12436\\
+3 & 125436
+\end{tabular}
+\begin{tabular}[t]{rl}
+\multicolumn{2}{c}{\underline{node $2 \rightarrow 3$}}\\
+0 & 213\\
+1 & 2143\\
+2 & 243\\
+3 & 2543\\
+4 & 25413\\
+5 & 2413
+\end{tabular}
+\begin{tabular}[t]{rl}
+\multicolumn{2}{c}{\underline{node $2 \rightarrow 4$}}\\
+0 & 24\\
+1 & 214\\
+2 & 2134\\
+3 & 254
+\end{tabular}
+\begin{tabular}[t]{rl}
+\multicolumn{2}{c}{\underline{node $2 \rightarrow 5$}}\\
+0 & 25\\
+1 & 245\\
+2 & 2145\\
+3 & 21345 
+\end{tabular}
+\begin{tabular}[t]{rl}
+\multicolumn{2}{c}{\underline{node $2 \rightarrow 6$}}\\
+0 & 2136\\
+1 & 21436\\
+2 & 2436\\
+3 & 24136\\
+4 & 25436\\
+5 & 254136
+\end{tabular}
+\begin{tabular}[t]{rl}
+\multicolumn{2}{c}{\underline{node $3 \rightarrow 4$}}\\
+0 & 34\\
+1 & 314\\
+2 & 3124\\
+3 & 31254 
+\end{tabular}
+\begin{tabular}[t]{rl}
+\multicolumn{2}{c}{\underline{node $3 \rightarrow 5$}}\\
+0 & 345\\
+1 & 3425\\
+2 & 3145\\
+3 & 31425\\
+4 & 34125\\
+5 & 31245 \\
+6 & 3125
+\end{tabular}
+\begin{tabular}[t]{rl}
+\multicolumn{2}{c}{\underline{node $3 \rightarrow 6$}}\\
+0 & 36
+\end{tabular}
+\begin{tabular}[t]{rl}
+\multicolumn{2}{c}{\underline{node $4 \rightarrow 5$}}\\
+0 & 45\\
+1 & 425\\
+2 & 4125\\
+3 & 43125
+\end{tabular}
+\begin{tabular}[t]{rl}
+\multicolumn{2}{c}{\underline{node $4 \rightarrow 6$}}\\
+0 & 436\\
+1 & 4136\\
+2 & 42136\\
+3 & 452136 
+\end{tabular}
+\begin{tabular}[t]{rl}
+\multicolumn{2}{c}{\underline{node $5 \rightarrow 6$}}\\
+0 & 5436\\
+1 & 54136\\
+2 & 52436\\
+3 & 524136\\
+4 & 52136\\
+5 & 542136\\
+6 & 521436
+\end{tabular}
+\end{table}
+
+
+
+\subsubsection{Notational reconciliation}
+To put the problem into the notation of (\ref{PROB:mslp}), let $z_1 \in \reals$ and $z_2 \in \reals^n$ be slack variables.  Then set
+{\allowdisplaybreaks{\begin{gather*}
+x_1 \assign \left[
+\begin{array}{c}
+	x\\
+	z_1
+\end{array}
+\right] \in \reals^{n+1},\qquad
+c_1 \assign 0^{n+1},\\
+A_1 \assign 1^{1 \times (n+1)},\qquad
+b_1 \assign b \in \reals,\\
+x_2 \assign \left[
+\begin{array}{c}
+	f_{11}\\
+	f_{12}\\
+	\vdots\\
+	f_{1R(1)}\\
+	\vdots\\
+	f_{mR(m)}\\
+	s_1\\
+	s_2\\
+	\vdots\\
+	s_m\\
+	z_2
+\end{array}
+\right],\qquad
+c_2 \assign \left[
+\begin{array}{c}
+	0^{(mR(m))\times 1}\\
+	1^{m\times 1}\\
+	0^{n\times 1}
+\end{array}
+\right],\qquad
+\rand{b_2} \assign	\left[
+\begin{array}{c}
+	e\\ \hline
+	\rand{d}
+\end{array}
+\right],\\
+A_2 \assign \left[
+\begin{array}{c|c|c}
+\begin{array}{cccccc}
+	a_{11} & a_{12} & \cdots & a_{1R(1)} & \cdots & a_{mR(m)}
+\end{array}	&	0^{n \times m} & I^{n \times n}\\ \hline
+\begin{array}{cccc}
+	1^{1\times R(1)}	& 0^{1 \times R(2)}	& \cdots & 0^{1 \times R(m)}\\
+	0^{1\times R(1)}	& 1^{1 \times R(2)}	&		&\\
+	\vdots				&					&\ddots	&\\
+	0^{1\times R(1)}	& 0^{1 \times R(2)}	& \cdots & 1^{1 \times R(m)}
+\end{array}	& I^{m \times m}	& 0^{m \times n}
+\end{array}
+\right],
+\end{gather*}}}
+and
+\[
+T_2 \assign\left[
+\begin{array}{cc}
+	-I^{n \times n}	&	0\\ \hline
+	0^{m \times n}	&	0
+\end{array}
+\right].
+\]%

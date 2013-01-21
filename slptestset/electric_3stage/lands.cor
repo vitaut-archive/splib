@@ -1,0 +1,91 @@
+NAME          LandS
+ROWS
+ N  OBJ
+ G  MINCAP
+ L  BUDGET
+ L  OPLIM1
+ L  OPLIM2
+ L  OPLIM3
+ L  OPLIM4
+ E  DEMAND1
+ E  DEMAND2
+ E  DEMAND3
+ L  OPLM21
+ L  OPLM22
+ L  OPLM23
+ L  OPLM24
+ E  DEMND21
+ E  DEMND22
+ E  DEMND23
+COLUMNS
+    X1        OBJ       10.0           MINCAP    1.0
+    X1        BUDGET    10.0           OPLIM1    -1.0
+    X1        OPLM21    -1.0
+    X2        OBJ       7.0            MINCAP    1.0
+    X2        BUDGET    7.0            OPLIM2    -1.0
+    X2        OPLM22    -1.0
+    X3        OBJ       16.0           MINCAP    1.0
+    X3        BUDGET    16.0           OPLIM3    -1.0
+    X3        OPLM23    -1.0
+    X4        OBJ       6.0            MINCAP    1.0
+    X4        BUDGET    6.0            OPLIM4    -1.0
+    X4        OPLM24    -1.0
+    Y11       OBJ       40.0           OPLIM1    1.0
+    Y11       DEMAND1   1.0
+    Y12       OBJ       24.0           OPLIM1    1.0
+    Y12       DEMAND2   1.0
+    Y13       OBJ       4.0            OPLIM1    1.0
+    Y13       DEMAND3   1.0
+    Y21       OBJ       45.0           OPLIM2    1.0
+    Y21       DEMAND1   1.0
+    Y22       OBJ       27.0           OPLIM2    1.0
+    Y22       DEMAND2   1.0
+    Y23       OBJ       4.5            OPLIM2    1.0
+    Y23       DEMAND3   1.0
+    Y31       OBJ       32.0           OPLIM3    1.0
+    Y31       DEMAND1   1.0
+    Y32       OBJ       19.2           OPLIM3    1.0
+    Y32       DEMAND2   1.0
+    Y33       OBJ       3.2            OPLIM3    1.0
+    Y33       DEMAND3   1.0
+    Y41       OBJ       55.0           OPLIM4    1.0
+    Y41       DEMAND1   1.0
+    Y42       OBJ       33.0           OPLIM4    1.0
+    Y42       DEMAND2   1.0
+    Y43       OBJ       5.5            OPLIM4    1.0
+    Y43       DEMAND3   1.0
+    Z11       OBJ       40.0           OPLM21    1.0
+    Z11       DEMND21   1.0
+    Z12       OBJ       24.0           OPLM21    1.0
+    Z12       DEMND22   1.0
+    Z13       OBJ       4.0            OPLM21    1.0
+    Z13       DEMND23   1.0
+    Z21       OBJ       45.0           OPLM22    1.0
+    Z21       DEMND21   1.0
+    Z22       OBJ       27.0           OPLM22    1.0
+    Z22       DEMND22   1.0
+    Z23       OBJ       4.5            OPLM22    1.0
+    Z23       DEMND23   1.0
+    Z31       OBJ       32.0           OPLM23    1.0
+    Z31       DEMND21   1.0
+    Z32       OBJ       19.2           OPLM23    1.0
+    Z32       DEMND22   1.0
+    Z33       OBJ       3.2            OPLM23    1.0
+    Z33       DEMND23   1.0
+    Z41       OBJ       55.0           OPLM24    1.0
+    Z41       DEMND21   1.0
+    Z42       OBJ       33.0           OPLM24    1.0
+    Z42       DEMND22   1.0
+    Z43       OBJ       5.5            OPLM24    1.0
+    Z43       DEMND23   1.0
+RHS           RIGHT
+    RIGHT     MINCAP    12.0
+    RIGHT     BUDGET    120.0
+    RIGHT     DEMAND1   1.0
+    RIGHT     DEMAND2   3.0
+    RIGHT     DEMAND3   2.0
+    RIGHT     DEMND21   1.2
+    RIGHT     DEMND22   3.5
+    RIGHT     DEMND23   3.0
+ENDATA
+ 

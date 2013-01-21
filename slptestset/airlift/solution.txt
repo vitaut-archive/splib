@@ -1,0 +1,17 @@
+Solution to "first" problem:
+
+   Objective Value:    249101.672072
+   thetastar:          -7941.746132
+   x1star:             0   18.934132   X11 
+   x1star:             1   20.119612   X12 
+   x1star:             2   0.000000   X21 
+   x1star:             3   0.000000   X22 
+
+Solution to "second" problem:
+
+   Objective Value:    269665.498390
+   thetastar:          2379.418390
+   x1star:             0   19.898400   X11 
+   x1star:             1   20.669600   X12 
+   x1star:             2   0.000000   X21 
+   x1star:             3   0.000000   X22 

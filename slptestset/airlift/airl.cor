@@ -1,0 +1,38 @@
+NAME          AIRL
+ROWS
+ N  OBJ
+ L  HOURS1
+ L  HOURS2
+ L  AVAIL11
+ L  AVAIL12
+ L  AVAIL21
+ L  AVAIL22
+ E  DEMAND1
+ E  DEMAND2
+COLUMNS
+    X11       OBJ       7200.0         HOURS1    24.0
+    X11       AVAIL11   -24.0          DEMAND1   50.0
+    X12       OBJ       6000.0         HOURS1    14.0
+    X12       AVAIL12   -14.0          DEMAND2   75.0
+    X21       OBJ       7200.0         HOURS2    49.0
+    X21       AVAIL21   -49.0          DEMAND1   20.0
+    X22       OBJ       4000.0         HOURS2    29.0
+    X22       AVAIL22   -29.0          DEMAND2   20.0
+    X112      OBJ       1300.0         AVAIL11   19.0
+    X112      DEMAND1   -39.583        DEMAND2   75.0
+    X121      OBJ       -4228.57       AVAIL12   29.0
+    X121      DEMAND2   -155.357       DEMAND1   50.0
+    X212      OBJ       210.204        AVAIL21   36.0
+    X212      DEMAND1   -14.6939       DEMAND2   20.0
+    X221      OBJ       975.862        AVAIL22   56.0
+    X221      DEMAND2   -38.621        DEMAND1   20.0
+    YPLUS1    OBJ       500.0          DEMAND1   1.0
+    YPLUS2    OBJ       250.0          DEMAND2   1.0
+    YMINUS1   DEMAND1   -1.0
+    YMINUS2   DEMAND2   -1.0
+RHS           RIGHT
+    RIGHT     HOURS1    7200.0
+    RIGHT     HOURS2    7200.0
+    RIGHT     DEMAND1   1.0
+    RIGHT     DEMAND2   1.0
+ENDATA

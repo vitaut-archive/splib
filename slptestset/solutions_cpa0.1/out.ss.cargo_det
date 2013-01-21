@@ -1,0 +1,85 @@
+Can't find warm up file cpa.wup.
+Will use default values.
+TIME OF COMPLETION
+Sun Apr  9 13:45:04 2000
+
+
+PARAMETER INFORMATION
+   Master Method:      1
+   Slave Method[0]:    1
+   Slave Method[1]:    1
+   Parallel:           0
+   Optim. Required[0]: 1
+   Optim. Required[1]: 1
+   Input Method:       0
+   Stoch File:         /usr1/felt/research/stochlp/problems/testset/cargo/4node_det.sto
+   warmup File:        cpa.wup
+   checkEpsilon:       0.000100
+
+COMPILE INFORMATION
+   DEBUG:              OFF
+
+RESULTS
+   n Iterations(tot):  42
+   Best Iteration:     41
+   User Time(calc):    7.564000
+   Sys Time(calc):     0.037088
+   Total Time(calc):   7.601088
+   n Type 0 Cuts:      0
+   n Type 1 Cuts:      0
+   n Type 2 Cuts:      41
+   n Type 3 Cuts:      1
+   Objective Value:    79825.547802
+   thetastar:          76669.870879
+   x1star:             0   0.000000   X0.0 
+   x1star:             1   0.968750   X1.0 
+   x1star:             2   0.000000   X2.0 
+   x1star:             3   9.813874   X3.0 
+   x1star:             4   0.000000   X4.0 
+   x1star:             5   3.593750   X5.0 
+   x1star:             6   5.187500   X6.0 
+   x1star:             7   0.000000   X7.0 
+   x1star:             8   0.000000   X8.0 
+   x1star:             9   0.000000   X9.0 
+   x1star:             10   4.656250   X10.0 
+   x1star:             11   1.739354   X11.0 
+   x1star:             12   0.000000   X12.0 
+   x1star:             13   0.000000   X13.0 
+   x1star:             14   0.000000   X14.0 
+   x1star:             15   0.198146   X15.0 
+   x1star:             16   0.000000   X16.0 
+   x1star:             17   4.573146   X17.0 
+   x1star:             18   4.364354   X18.0 
+   x1star:             19   0.000000   X19.0 
+   x1star:             20   1.062500   X20.0 
+   x1star:             21   0.000000   X21.0 
+   x1star:             22   0.000000   X22.0 
+   x1star:             23   3.510646   X23.0 
+   x1star:             24   0.000000   X24.0 
+   x1star:             25   0.000000   X25.0 
+   x1star:             26   0.000000   X0.1 
+   x1star:             27   0.000000   X1.1 
+   x1star:             28   0.000000   X2.1 
+   x1star:             29   2.164835   X3.1 
+   x1star:             30   0.000000   X4.1 
+   x1star:             31   0.000000   X5.1 
+   x1star:             32   0.000000   X6.1 
+   x1star:             33   0.000000   X7.1 
+   x1star:             34   0.000000   X8.1 
+   x1star:             35   0.000000   X9.1 
+   x1star:             36   0.000000   X10.1 
+   x1star:             37   0.000000   X11.1 
+   x1star:             38   0.000000   X12.1 
+   x1star:             39   0.000000   X13.1 
+   x1star:             40   0.000000   X14.1 
+   x1star:             41   0.000000   X15.1 
+   x1star:             42   0.000000   X16.1 
+   x1star:             43   0.000000   X17.1 
+   x1star:             44   0.000000   X18.1 
+   x1star:             45   0.000000   X19.1 
+   x1star:             46   0.000000   X20.1 
+   x1star:             47   0.000000   X21.1 
+   x1star:             48   0.000000   X22.1 
+   x1star:             49   0.000000   X23.1 
+   x1star:             50   14.125000   X24.1 
+   x1star:             51   0.000000   X25.1 

@@ -1,0 +1,10 @@
+TIME  Prob_7 
+PERIODS 
+    C0001001  R0000101                 PERIOD01
+    C0127002  R0000102                 PERIOD02
+    C0127003  R0000103                 PERIOD03
+    C0127004  R0000104                 PERIOD04
+    C0127005  R0000105                 PERIOD05
+    C0127006  R0000106                 PERIOD06
+    C0337007  R0000107                 PERIOD07
+ENDATA 

@@ -1,0 +1,8 @@
+TIME  Prob_5 
+PERIODS 
+    C0001001  R0000101                 PERIOD01
+    C0127002  R0000102                 PERIOD02
+    C0127003  R0000103                 PERIOD03
+    C0127004  R0000104                 PERIOD04
+    C0337005  R0000105                 PERIOD05
+ENDATA 

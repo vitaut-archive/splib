@@ -1,0 +1,37 @@
+Can't find warm up file cpa.wup.
+Will use default values.
+TIME OF COMPLETION
+Sun Apr  9 13:34:49 2000
+
+
+PARAMETER INFORMATION
+   Master Method:      1
+   Slave Method[0]:    1
+   Slave Method[1]:    1
+   Parallel:           0
+   Optim. Required[0]: 1
+   Optim. Required[1]: 1
+   Input Method:       0
+   Stoch File:         /usr1/felt/research/stochlp/problems/testset/airlift/AIRL.sto.second
+   warmup File:        cpa.wup
+   checkEpsilon:       0.000100
+
+COMPILE INFORMATION
+   DEBUG:              OFF
+
+RESULTS
+   n Iterations(tot):  7
+   Best Iteration:     6
+   User Time(calc):    0.099552
+   Sys Time(calc):     0.000976
+   Total Time(calc):   0.100528
+   n Type 0 Cuts:      0
+   n Type 1 Cuts:      0
+   n Type 2 Cuts:      6
+   n Type 3 Cuts:      1
+   Objective Value:    272318.699123
+   thetastar:          3095.819123
+   x1star:             0   20.167400   X11 
+   x1star:             1   20.669600   X12 
+   x1star:             2   0.000000   X21 
+   x1star:             3   0.000000   X22 

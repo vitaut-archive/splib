@@ -1,0 +1,10 @@
+STOCH         HVEX21
+ICC
+ L  ICC1      R1        1
+ L  ICC2      R1        2
+SCENARIOS     DISCRETE
+ SC S1        'ROOT'    0.5            PERIOD1
+ SC S2        S1        0.5            PERIOD2
+    X1        R1         1
+    X2        R1        -2
+ENDATA

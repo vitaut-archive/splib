@@ -1,0 +1,147 @@
+Can't find warm up file cpa.wup.
+Will use default values.
+TIME OF COMPLETION
+Tue Apr 18 08:03:00 2000
+
+
+PARAMETER INFORMATION
+   Master Method:      1
+   Slave Method[0]:    1
+   Slave Method[1]:    1
+   Parallel:           0
+   Optim. Required[0]: 1
+   Optim. Required[1]: 1
+   Input Method:       0
+   Stoch File:         /usr1/felt/research/stochlp/problems/posts/fxm/fxm2_16.sto
+   warmup File:        cpa.wup
+   checkEpsilon:       0.000100
+
+COMPILE INFORMATION
+   DEBUG:              OFF
+
+RESULTS
+   n Iterations(tot):  40
+   Best Iteration:     39
+   User Time(calc):    256.162912
+   Sys Time(calc):     0.520208
+   Total Time(calc):   256.683120
+   n Type 0 Cuts:      1
+   n Type 1 Cuts:      26
+   n Type 2 Cuts:      12
+   n Type 3 Cuts:      1
+   Objective Value:    18416.759028
+   thetastar:          15327.207202
+   x1star:             0   35.760000   1D1IK 
+   x1star:             1   0.000000   1D1IN 
+   x1star:             2   19.919457   1D1MK 
+   x1star:             3   0.000000   1D1YK 
+   x1star:             4   0.000000   1D2ID 
+   x1star:             5   0.000000   1D2IK 
+   x1star:             6   0.000000   1D2IN 
+   x1star:             7   112.926004   1D2LC 
+   x1star:             8   28.756869   1D2MD 
+   x1star:             9   57.840543   1D2MK 
+   x1star:             10   9.040099   1D2PB 
+   x1star:             11   0.000000   1D2US 
+   x1star:             12   24.000000   1D2YD 
+   x1star:             13   48.000000   1D2YK 
+   x1star:             14   0.000000   1D4BY 
+   x1star:             15   55.200000   1DAOU 
+   x1star:             16   105.000000   1DASP 
+   x1star:             17   10.556176   1DBZS 
+   x1star:             18   57.008407   1DC2P 
+   x1star:             19   0.000000   1DC3A 
+   x1star:             20   0.000000   1DC3P 
+   x1star:             21   42.467145   1DC3R 
+   x1star:             22   102.503568   1DC4A 
+   x1star:             23   0.000000   1DC65 
+   x1star:             24   513.300017   1DC75 
+   x1star:             25   21.504651   1DC8U 
+   x1star:             26   0.750000   1DCKP 
+   x1star:             27   1.740615   1DCKS 
+   x1star:             28   54.378686   1DCOU 
+   x1star:             29   0.000000   1DCTL 
+   x1star:             30   10.800000   1DDID 
+   x1star:             31   0.043131   1DDMD 
+   x1star:             32   34.156869   1DDUS 
+   x1star:             33   0.000000   1DDYD 
+   x1star:             34   30.483150   1DFVB 
+   x1star:             35   45.000000   1DGBY 
+   x1star:             36   204.390000   1DGOU 
+   x1star:             37   118.741679   1DH2P 
+   x1star:             38   15.184554   1DHNU 
+   x1star:             39   34.378779   1DHPU 
+   x1star:             40   59.596911   1DI4R 
+   x1star:             41   0.000000   1DIBY 
+   x1star:             42   0.000000   1DICD 
+   x1star:             43   240.000000   1DICG 
+   x1star:             44   0.000000   1DICK 
+   x1star:             45   0.000000   1DIGD 
+   x1star:             46   63.253457   1DLBY 
+   x1star:             47   267.259913   1DLPU 
+   x1star:             48   0.000000   1DMCD 
+   x1star:             49   480.000000   1DMCG 
+   x1star:             50   0.000000   1DMCK 
+   x1star:             51   3929.347036   1DMCST 
+   x1star:             52   0.000000   1DMGD 
+   x1star:             53   59.580983   1DN4R 
+   x1star:             54   13.493845   1DNBY 
+   x1star:             55   39.678210   1DO3R 
+   x1star:             56   0.000000   1DO4N 
+   x1star:             57   48.647356   1DO4R 
+   x1star:             58   170.809992   1DOCST 
+   x1star:             59   42.352922   1DP94 
+   x1star:             60   0.000000   1DP98 
+   x1star:             61   44.099117   1DPAL 
+   x1star:             62   0.000000   1DPC4 
+   x1star:             63   0.000000   1DPCT 
+   x1star:             64   0.000000   1DPIN 
+   x1star:             65   0.000000   1DPOH 
+   x1star:             66   37.338075   1DPPS 
+   x1star:             67   1010.605201   1DPREV 
+   x1star:             68   30.727118   1DPRF 
+   x1star:             69   31.765145   1DPTL 
+   x1star:             70   2.820842   1DPXY 
+   x1star:             71   31.295131   1DPYS 
+   x1star:             72   88.625036   1DR94 
+   x1star:             73   0.000000   1DR98 
+   x1star:             74   0.000000   1DRAL 
+   x1star:             75   28.939913   1DRBT 
+   x1star:             76   26.938593   1DRC4 
+   x1star:             77   274.640731   1DRCT 
+   x1star:             78   0.000000   1DRIN 
+   x1star:             79   17.139934   1DROH 
+   x1star:             80   72.655706   1DRRF 
+   x1star:             81   341.429907   1DRTL 
+   x1star:             82   0.000000   1DRXY 
+   x1star:             83   0.000000   1DS5B 
+   x1star:             84   3.610731   1DS5F 
+   x1star:             85   4.444208   1DS5G 
+   x1star:             86   0.000000   1DS5L 
+   x1star:             87   0.827312   1DS5P 
+   x1star:             88   0.000000   1DS5R 
+   x1star:             89   0.000000   1DS5S 
+   x1star:             90   6.112373   1DS5V 
+   x1star:             91   0.000000   1DS6B 
+   x1star:             92   0.000000   1DS6L 
+   x1star:             93   0.000000   1DS6R 
+   x1star:             94   0.000000   1DS6S 
+   x1star:             95   0.000000   1DS6V 
+   x1star:             96   74.246850   1DSCO 
+   x1star:             97   0.000000   1DSPF 
+   x1star:             98   1.064398   1DSUS 
+   x1star:             99   15.399001   1DSVB 
+   x1star:             100   23.570155   1DTLS 
+   x1star:             101   42.874128   1DV6I 
+   x1star:             102   55.200000   1DV6M 
+   x1star:             103   24.000000   1DV6Y 
+   x1star:             104   0.000000   1DXC3 
+   x1star:             105   0.000000   1DXI4 
+   x1star:             106   0.000000   1DXO4 
+   x1star:             107   0.000000   1DXPY 
+   x1star:             108   3.000000   1DXYS 
+   x1star:             109   0.000000   1DYCD 
+   x1star:             110   480.000000   1DYCG 
+   x1star:             111   0.000000   1DYCK 
+   x1star:             112   36.858349   1DYCO 
+   x1star:             113   0.000000   1DYGD 

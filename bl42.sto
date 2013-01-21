@@ -1,0 +1,23 @@
+STOCH         BL_4_2
+SCENARIOS     DISCRETE
+ SC SCEN1     'ROOT'    0.25           STAGE1
+    RHS       R3        4.8
+    RHS       R4        6
+    RHS       R5        6.4
+    RHS       R6        8
+ SC SCEN2     SCEN1     0.25           STAGE2
+    RHS       R3        4.8
+    RHS       R4        6
+    RHS       R5        3.2
+    RHS       R6        4
+ SC SCEN3     SCEN1     0.25           STAGE2
+    RHS       R3        3.2
+    RHS       R4        4
+    RHS       R5        6.4
+    RHS       R6        8
+ SC SCEN4     SCEN1     0.25           STAGE2
+    RHS       R3        3.2
+    RHS       R4        4
+    RHS       R5        3.2
+    RHS       R6        4
+ENDATA

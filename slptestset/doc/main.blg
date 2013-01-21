@@ -1,0 +1,62 @@
+This is BibTeX, Version 0.99c (Web2C 7.3.1)
+The top-level auxiliary file: main.aux
+A level-1 auxiliary file: intro.aux
+A level-1 auxiliary file: problem-statement.aux
+A level-1 auxiliary file: airlift.aux
+A level-1 auxiliary file: forest.aux
+A level-1 auxiliary file: electric.aux
+A level-1 auxiliary file: hedging.aux
+A level-1 auxiliary file: RY.aux
+A level-1 auxiliary file: chem.aux
+A level-1 auxiliary file: environ.aux
+A level-1 auxiliary file: network.aux
+A level-1 auxiliary file: cargo.aux
+A level-1 auxiliary file: phone.aux
+A level-1 auxiliary file: bonds.aux
+The style file: plain.bst
+Database file #1: stochlp.bib
+Warning--there's a number but no volume in SMPS87
+Warning--there's a number but no volume in more-lin99
+Warning--there's a number but no volume in more-toraldo91
+You've used 23 entries,
+            2118 wiz_defined-function locations,
+            654 strings with 8326 characters,
+and the built_in function-call counts, 7565 in all, are:
+= -- 771
+> -- 356
+< -- 8
++ -- 145
+- -- 116
+* -- 541
+:= -- 1285
+add.period$ -- 74
+call.type$ -- 23
+change.case$ -- 127
+chr.to.int$ -- 0
+cite$ -- 26
+duplicate$ -- 259
+empty$ -- 557
+format.name$ -- 116
+if$ -- 1551
+int.to.chr$ -- 0
+int.to.str$ -- 23
+missing$ -- 14
+newline$ -- 121
+num.names$ -- 48
+pop$ -- 114
+preamble$ -- 1
+purify$ -- 103
+quote$ -- 0
+skip$ -- 183
+stack$ -- 0
+substring$ -- 486
+swap$ -- 50
+text.length$ -- 8
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 92
+warning$ -- 3
+while$ -- 78
+width$ -- 25
+write$ -- 261
+(There were 3 warnings)

@@ -1,0 +1,368 @@
+% cleaned of unnecessary equation numbers 3 June 2000
+\subsection{Cargo network scheduling}%
+\emph{Due to Mulvey and Ruszczy\'{n}ski \cite{mulvey95}}%
+
+\noindent(Two-stage, mixed integer linear or nonlinear stochastic problem)\\
+\noindent\url{/cargo}\url{/4node.cor}, \url{/4node.tim}, $\displaystyle \begin{cases} \text{\url{/4node_det.sto}}\\ \text{\url{/4node.sto.16}}\\ \text{\url{/4node.sto.32}}\\ \text{\url{/4node.sto.64}} \end{cases}$
+
+\vspace{3mm}
+\subsubsection{Description}
+Mul\-vey and Ru\-szczy\'{n}\-ski \cite{mulvey95} provide a two stage network problem for \linebreak scheduling cargo transportation.  The flight schedule is completely determined in stage one, and the amounts of cargo to be shipped are uncertain.  The recourse actions are to determine which cargo to place on which flights.  Transshipment, getting cargo from node $m$ to node $n$ by more than one flight on more than one route, is allowed.  When a transshipment is made, cargo must be unloaded at some intermediate node, so that it may be loaded onto a different route going through the same node.  Such nodes are called transshipment nodes.  Any undelivered cargo costs a penalty.
+
+The notation is introduced in Table \ref{CARGO:notation}.  A route $\pi \in {\cal P}$ is a finite sequence of nodes $(n_1, n_2, \dots, n_l)$ to be visited in the course of flying the route.
+
+
+%\tablecaption{Notation}
+%\tablefirsthead{\hline}
+%\tablehead{\hline \multicolumn{2}{|l|}{Notation (continued)} \\ \hline}
+%\tabletail{\hline \multicolumn{2}{|r|}{(continued on the next page)} \\ \hline}
+%\tablelasttail{\hline}
+%\begin{supertabular}{|>{$}r<{$}@{=}%l%
+%p{3.6in}
+%|}
+\begin{longtable}[c]{|>{$}r<{$}@{=}p{3.6in}|}
+\caption{Notation}\\
+\hline
+\endfirsthead
+\hline \multicolumn{2}{|l|}{Notation (continued)} \\ \hline
+\endhead
+\hline \multicolumn{2}{|r|}{(continued on the next page)} \\ \hline
+\endfoot
+\hline
+\endlastfoot
+{\cal N}	&	the set of nodes\\
+\label{CARGO:notation}
+{\cal P}	&	the set of routes\\
+{\cal A}	&	the set of aircraft types\\
+\rand{b}(m,n)	&	the amount of cargo to be shipped from node $m$ to node $n$\\
+c(a)		&	the cost of an hour of flight time for aircraft type $a$\\
+h(\pi, a)	&	flight hours required for aircraft type $a$ to complete route $\pi$\\
+q			&	the unit cargo cost for loading and unloading an aircraft\\
+\rho		&	the unit penalty for undelivered cargo\\
+v(\pi,j)	&	function which returns the $j$th node in route $\pi$\\
+l(\pi)		&	function which returns the number of nodes in route $\pi$\\
+\sigma(n)	&	the maximum number of landings allowed in node $n$\\
+d(a)		&	the maximum payload of an aircraft of type $a$\\
+f(m,n)		&	the minimum number of flights from node $m$ to node $n$\\
+h^{\text{max}}(a)	&	the maximum flying hours for aircraft of type $a$\\
+h^{\text{min}}(a)	&	the minimum flying hours for aircraft of type $a$\\
+x(\pi,a)	&	the number of aircraft of type $a$ assigned to fly route $\pi$\\
+d(\pi,m,n)	&	the amount of cargo delivered directly from $m$ to $n$ on route $\pi$\\
+t(\pi,m,k,n)	&	the amount of cargo moving from $m$ to $n$ which is moved to transshipment node $k$ on route $\pi$\\
+s(\pi,k,n)	&	the amount of transshipment cargo which is moved from transshipment node $k$ to node $n$ on route $\pi$\\
+y(m,n)		&	the amount of cargo moving from $m$ to $n$ which is undelivered\\
+z(\pi,j)	&	the unused capacity of leg $j$ on route $\pi$\\
+U(m,n)		&	$\{\pi \in {\cal P}: m=v(\pi,j_1), n=v(\pi,j_2), j_1<j_2\}$\\
+V_1(n)		&	$\{\pi \in {\cal P}: n=v(\pi,1)\}$\\
+V_l(n)		&	$\{\pi \in {\cal P}: n=v(\pi,l(\pi))\}$\\
+W(n)		&	$\{\pi \in {\cal P}: n=v(\pi, j) \text{ for some } j\}$\\
+%\end{supertabular}
+\end{longtable}
+
+\vspace{0.5cm}
+
+The first stage constraints include minimum flight requirements
+\begin{equation*}
+\sum_{a\in {\cal A}} \sum_{\pi \in U(m,n)} x(\pi, a) \geq f(m,n), \hspace{3mm} \forall m,n \in {\cal N},
+\end{equation*}
+and maximum landings limits
+\begin{equation*}
+\sum_{a\in {\cal A}} \sum_{\pi \in W(n)} x(\pi, a) \leq \sigma(n), \hspace{3mm} \forall  n \in {\cal N}.
+\end{equation*}
+Assuming the operation is cyclic, we must end the round in the same state as that in which we began the round.  That is,
+\begin{equation*}
+\sum_{\pi \in V_1(n)} x(\pi, a) = \sum_{\pi \in V_l(n)} x(\pi, a), \hspace{3mm} \forall a\in {\cal A},  n \in {\cal N}.
+\end{equation*}
+Flying hours are limited by
+\begin{equation*}
+h^{\text{min}}(a) \leq \sum_{\pi \in {\cal P}} x(\pi, a) h(\pi, a) \leq h^{\text{max}}(a), \hspace{3mm} \forall a\in {\cal A}.
+\end{equation*}
+
+For recourse constraints, a cargo material balance yields
+\begin{equation*}
+\sum_{\pi \in {\cal P}} \left( d(\pi, m, n) + \sum_{k \in {\cal N}} t(\pi, m, k, n) \right) + y(m, n) \geq \rand{b(m, n)}, \quad \forall m,n \in {\cal N}.
+\end{equation*}
+A balance of all transshipments which go through $k$ and wind up at $n$ gives
+\begin{equation*}
+\sum_{\pi \in {\cal P}} \sum_{m \in {\cal N}} t(\pi, m, k, n) = \sum_{\pi \in {\cal P}} s(\pi, k, n), \quad \forall k, n \in {\cal N}.
+\end{equation*}
+
+Finally, consider the loading and unloading which must occur throughout the course of a single route.  At the initial node, we have
+\begin{multline*}
+\sum_{k \in {\cal N}} \left( d(\pi, v(\pi, 1), k) + s(\pi, v(\pi, 1), k) + \sum_{n\in {\cal N}} t(\pi, v(\pi, 1), k, n)\right)\\
+ = \sum_{a\in {\cal A}} d(a) x(\pi, a) - z(\pi, 1), \quad \forall \pi \in {\cal P}.
+\end{multline*}
+For the remaining nodes in the route, a payload balance yields
+\begin{multline*}
+\sum_{k \in {\cal N}} \left( d(\pi, v(\pi, j), k) + s(\pi, v(\pi, j), k) + \sum_{n\in {\cal N}} t(\pi, v(\pi, j), k, n)\right)\\
+- \sum_{k\in {\cal N}} \left( d(\pi, k, v(\pi, j)) + s(\pi, k, v(\pi,j)) + \sum_{n\in {\cal N}} t(\pi, k, v(\pi,j), n) \right)\\
+= z(\pi, j-1) - z(\pi, j), \quad \forall \pi \in {\cal P}, j=2, \ldots (l(\pi) - 1).
+\end{multline*}
+
+The objective is to minimize the costs and penalties.  Mulvey and Ru\-szczy\'{n}\-ski \cite{mulvey95} provide both a linear objective function
+\begin{multline*}
+\text{minimize } Z_1 = \sum_{\pi \in {\cal P}} \sum_{a \in {\cal A}} c(a) h(\pi, a) x(\pi, a) + \\
+\expect[b(m,n)]\left\{ q \sum_{\pi \in {\cal P}} \sum_{(m,n)\in \pi} \left[ d(\pi, m, n) + s(\pi, m, n) + \sum_{k \in {\cal N}} t(\pi, m, n, k) \right] \right.\\
+\left. + \rho \sum_{m \in {\cal N}} \sum_{n \in {\cal N}} y(m,n) \right\},
+\end{multline*}
+and a nonlinear objective function
+\begin{multline*}
+\text{minimize } Z_2 =  \sum_{\pi \in {\cal P}} \sum_{a \in {\cal A}} c(a) h(\pi, a) x(\pi, a) + \\
+\expect[b(m,n)]\left\{\Phi \left( q \sum_{\pi \in {\cal P}} \sum_{(m,n)\in \pi} \left[ d(\pi, m, n) + s(\pi, m, n) + \sum_{k \in {\cal N}} t(\pi, m, n, k) \right] \right. \right.\\
+\left. \left. + \rho \sum_{m \in {\cal N}} \sum_{n \in {\cal N}} y(m,n) \right) \right\},
+\end{multline*}
+where 
+\begin{equation}
+\label{CARGO:phi}
+\Phi(x) = \alpha \exp(\beta x).
+\end{equation}
+
+
+
+\subsubsection{Problem statement}
+
+Given $\Phi$ as either the identity function or as in (\ref{CARGO:phi}), the problem is to
+\begin{multline*}
+\text{minimize } Z =  \sum_{\pi \in {\cal P}} \sum_{a \in {\cal A}} c(a) h(\pi, a) x(\pi, a) + \\
+\expect[b(m,n)]\left\{\Phi \left( q \sum_{\pi \in {\cal P}} \sum_{(m,n)\in \pi} \left[ d(\pi, m, n) + s(\pi, m, n) + \sum_{k \in {\cal N}} t(\pi, m, n, k) \right] \right. \right.\\
+\left. \left. + \rho \sum_{m \in {\cal N}} \sum_{n \in {\cal N}} y(m,n) \right) \right\},
+\end{multline*}
+subject to
+
+
+\begin{equation*}
+\sum_{a\in {\cal A}} \sum_{\pi \in U(m,n)} x(\pi, a) \geq f(m,n), \hspace{3mm} \forall m,n \in {\cal N},
+\end{equation*}
+\begin{equation*}
+\sum_{a\in {\cal A}} \sum_{\pi \in W(n)} x(\pi, a) \leq \sigma(n), \hspace{3mm} \forall  n \in {\cal N},
+\end{equation*}
+\begin{equation*}
+\sum_{\pi \in V_1(n)} x(\pi, a) = \sum_{\pi \in V_l(n)} x(\pi, a), \hspace{3mm} \forall a\in {\cal A},  n \in {\cal N},
+\end{equation*}
+\begin{equation*}
+h^{\text{min}}(a) \leq \sum_{\pi \in {\cal P}} x(\pi, a) h(\pi, a) \leq h^{\text{max}}(a), \hspace{3mm} \forall a\in {\cal A},
+\end{equation*}
+\begin{equation*}
+\sum_{\pi \in {\cal P}} \left( d(\pi, m, n) + \sum_{k \in {\cal N}} t(\pi, m, k, n) \right) + y(m, n) \geq \rand{b(m, n)}, \quad \forall m,n \in {\cal N},
+\end{equation*}
+\begin{equation*}
+\sum_{\pi \in {\cal P}} \sum_{m \in {\cal N}} t(\pi, m, k, n) = \sum_{\pi \in {\cal P}} s(\pi, k, n), \quad \forall k, n \in {\cal N},
+\end{equation*}
+\begin{multline*}
+\sum_{k \in {\cal N}} \left( d(\pi, v(\pi, 1), k) + s(\pi, v(\pi, 1), k) + \sum_{n\in {\cal N}} t(\pi, v(\pi, 1), k, n)\right)\\
+ = \sum_{a\in {\cal A}} d(a) x(\pi, a) - z(\pi, 1), \quad \forall \pi \in {\cal P},
+\end{multline*}
+\begin{multline*}
+\sum_{k \in {\cal N}} \left( d(\pi, v(\pi, j), k) + s(\pi, v(\pi, j), k) + \sum_{n\in {\cal N}} t(\pi, v(\pi, j), k, n)\right)\\
+- \sum_{k\in {\cal N}} \left( d(\pi, k, v(\pi, j)) + s(\pi, k, v(\pi,j)) + \sum_{n\in {\cal N}} t(\pi, k, v(\pi,j), n) \right)\\
+= z(\pi, j-1) - z(\pi, j), \quad \forall \pi \in {\cal P}, j=2, \ldots (l(\pi) - 1),
+\end{multline*}
+\begin{multline*}
+x(\pi, a), d(\pi, m, n), t(\pi, m, k, n), s(\pi, k, n), y(m, n), z(\pi, j) \geq 0\\
+x(\pi, a) \in {\mathbb Z}.
+\end{multline*}
+
+
+
+
+\subsubsection{Numerical examples}
+\label{CARGO:SEC:numex}
+Mul\-vey and Ru\-szczy\'{n}\-ski \cite{mulvey95} did not provide data for the numerical examples that they discuss \cite{mulveynote99}.  Therefore, we have created some examples from a four node network, with node airports A, B, C and E.  All flights $\pi \in {\cal P}$ have two legs.  That is, including the airport of origin, there are three airports in each flight.  No direct legs are allowed between A and E, but all other possibilities are allowed.  Flights are enumerated according to Table \ref{CARGO:flights}.  The notation ``ABA'' means that the flight begins at airport A, flies to airport B, and returns to airport A.
+
+\begin{table}[ht]
+\caption{Possible flights $\pi \in {\cal P}$ for the numerical example}
+\label{CARGO:flights}
+\begin{center}
+\begin{tabular}{|rlrlrlrl|}
+\hline
+0 & ABA & 6 & BAB & 13 & ECE & 19 & CAC\\
+1 & ABE & 7 & BAC & 14 & ECB & 20 & CAB\\
+2 & ABC & 8 & BCA & 15 & ECA & 21 & CBC\\
+3 & ACA & 9 & BCB & 16 & EBE & 22 & CBA\\
+4 & ACE & 10 & BCE & 17 & EBC & 23 & CBE\\
+5 & ACB & 11 & BEB & 18 & EBA & 24 & CEC\\
+  &     & 12 & BEC &    &     & 25 & CEB\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Two types of airplane are considered.  Type 0 plane has a maximum payload of 8, maximum flight hours of 480, and costs 5 per flight hour.  Type 1 plane has a maximum payload of 6, maximum flight hours of 240, but only costs 4 per flight hour.  Both types of airplanes may have flight hours as low as 0.  The unit cost, $q$, for loading and unloading is 1.0, and $\rho$, the penalty for undelivered cargo is 1300.  There are no minimum numbers of flights, and the limit on landings is, for the base problem, 25 for each airport.  Flight times for the two plane types are listed in Table \ref{CARGO:times}.
+
+\begin{table}[ht]
+\caption{Flight times for numerical example}
+\label{CARGO:times}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\multicolumn{5}{c}{Airplane Type 0}\\ \hline
+ & A & B & C & E\\ \hline
+A & - & 5 & 7 & -\\ \hline
+B & 5 & - & 4 & 8\\ \hline
+C & 7 & 4 & - & 5\\ \hline
+E & - & 8 & 5 & -\\ \hline
+\end{tabular}
+\hspace{1cm}
+\begin{tabular}{|c|c|c|c|c|}
+\multicolumn{5}{c}{Airplane Type 1}\\
+\hline
+ & A & B & C & E\\ \hline
+A & - & 6 & 8.4 & -\\ \hline
+B & 6 & - & 4.8 & 9.6\\ \hline
+C & 8.4 & 4.8 & - & 6\\ \hline
+E & - & 9.6 & 6 & -\\ \hline
+\end{tabular}
+\end{center}
+\end{table}%
+
+
+\subsubsection{Notational reconciliation}
+We reconcile the problem in the Numerical examples section to the form of problem (\ref{PROB:mslp}).  Define
+\[
+x_1\assign \left[\ajfbox{x(0,0)\\ x(1,0)\\ \vdots\\ x(25,0)\\x(0,1)\\ x(1,1)\\ \vdots\\ x(25,1)}\right], \qquad \text{and }%
+h_i\assign \left[\ajfbox{h(0,i)\\h(1,i)\\ \vdots\\ h(25,i)}\right],
+\]
+for $i=0,1$, and let $\displaystyle h\assign \left[\ajfbox{h0\\h1}\right]$.  We will make use of the incidence matrices $W, V_i \in \reals^{5\times 26}, i= 1,2,3$, defined by
+\[
+(V_i)_{mn} =\begin{cases} 1 & \text{if node $m$ is the $i$th node in route $n$}\\
+0 & \text{otherwise},\end{cases}
+\]
+and 
+\[
+W_{mn} =\begin{cases} 1 & \text{if node $m$ is in route $n$}\\
+0 & \text{otherwise}.\end{cases}
+\]
+
+We are now ready to define the stage one problem parameters.  Let
+\[
+A_1\assign\left[\begin{array}{cc}
+W & W\\
+(V_1 - V_3) & 0^{5\times 26}\\
+h_1\trp & 0^{1\times 26}\\
+0^{1\times 26} & h_2\trp\\
+-h_1\trp & 0^{1\times26}\\
+0^{1\times 26} & -h_2\trp
+\end{array}\right], \qquad
+b_1\assign\left[\ajfbox{
+\sigma(1)\\
+\vdots\\
+\sigma(5)\\
+0^{10\times 1}\\
+h^{\text{max}}(0)\\
+h^{\text{max}}(1)\\
+-h^{\text{min}}(0)\\
+-h^{\text{min}}(1)}\right],
+\]
+and
+\[
+c_1\assign\left[\ajfbox{c(0) h_0\\ c(1) h_1}\right].
+\]
+
+Stage two is a bit more involved.  We order the stage two variables into $x_2$ as shown below.  When trying to figure out the ordering rationale for the $d,t$ and $s$ variables, it will help to look at Table \ref{CARGO:flights}.
+\[
+x_2\assign\left\lceil\ajfbox{
+d(0,A,B)\\
+d(1,A,B)\\
+d(2,A,B)\\
+\vdots\\
+d(25,C,E)\\
+d(0,B,A)\\
+d(1,B,E)\\
+\vdots\\
+d(25,E,B)\\
+d(1,A,B)\\
+d(2,A,E)\\
+d(4,A,E)\\
+\vdots\\
+d(23,C,E)\\
+d(25,C,B)\\ \hline
+t(0,A,B,C)\\
+t(0A,B,E)\\
+t(1,A,B,C)\\
+t(2,A,B,E)\\
+t(3,A,C,B)\\
+\vdots}\right\rceil \qquad%
+\left\lfloor\ajfbox{
+\vdots\\
+t(24,C,E,B)\\
+t(25,C,E,A)\\ \hline
+s(0,B,A)\\
+s(1,B,E)\\
+\vdots\\
+s(25,E,B)\\ \hline
+y(A,B)\\
+y(A,C)\\
+y(A,E)\\
+y(B,A)\\
+\vdots\\
+y(E,C)\\ \hline
+z(0,1)\\
+z(1,1)\\
+\vdots\\
+z(25,1)\\
+z(0,2)\\
+\vdots\\
+z(25,2)}\right\rfloor
+\]
+
+The $y$ variables follow an ordering we call ``ordering \curly{J},'' the alphabetical ordering on all combinations of two nodes.  We will make use of the following incidence matrices, defined as
+\[
+\ajfbox{%\renewcommand{\arraystretch}{1.2}
+U_1\in\reals^{12\times 68},\qquad (U_1)_{ij}\assign\left\{\begin{array}{lp{3in}}%
+1 & \parbox[t]{3.0in}{if the $i$th pair of \curly{J} is served by the $j$th element of $x_2$, }\\
+0 & \text{otherwise},%
+\end{array}\right.\\
+U_2\in\reals^{12\times 36},\qquad (U_2)_{ij}\assign\left\{\begin{array}{lp{3in}}%
+1 & \parbox[t]{3in}{if the $i$th pair of \curly{J} is $(m,n)$ in the $j$th $t(\pi,m,k,n)$,}\\
+0 & \text{otherwise},%
+\end{array}\right.\\
+U_3\in\reals^{12\times 36},\qquad (U_3)_{ij}\assign\left\{\begin{array}{lp{3in}}%
+1 & \parbox[t]{3in}{if the $i$th pair in \curly{J} is $(k,n)$ in the $j$th $t(\pi,m,k,n)$,}\\
+0 & \text{otherwise},%
+\end{array}\right.\\
+U_4\in\reals^{12\times 26},\qquad (U_4)_{ij}\assign\left\{\begin{array}{lp{3in}}%
+1 & \parbox[t]{3in}{if the $i$th pair in \curly{J} is $(k,n)$ in the $j$th $s(\pi,k,n)$,}\\
+0 & \text{otherwise},%
+\end{array}\right.\\
+U_5\in\reals^{26\times 36},\qquad (U_5)_{\pi j}\assign\left\{\begin{array}{lp{3in}}%
+1 & \parbox[t]{3in}{if the $j$th $t(p,m,k,n)$ has $m=v(\pi,1)$ and $p=\pi$,}\\
+0 & \text{otherwise},%
+\end{array}\right.\\
+U_6\in\reals^{26\times 16},\qquad (U_6)_{\pi j}\assign\left\{\begin{array}{lp{3in}}%
+1 & \parbox[t]{3in}{if the $(52+j)$th element of $x_2$ is $d(\pi,m,n)$,}\\
+0 & \text{otherwise},%
+\end{array}\right.}%\renewcommand{\arraystretch}{1.0}
+\]
+and
+\[
+U_7\in\reals^{26\times 36},\qquad (U_7)_{\pi j}\assign\left\{\begin{array}{lp{3in}}%
+1 & \parbox[t]{3in}{if the $j$th $t(p,m,k,n)$ has $k=v(\pi,2)$ and $p=\pi$,}\\
+0 & \text{otherwise}.%
+\end{array}\right.
+\]
+
+We are finished putting the problem into the form (\ref{PROB:mslp}) if we let
+\[
+A_2\assign\left[\begin{array}{c|c|c|c|c}
+U_1 & U_2 & 0^{12\times 26} & I^{12\times 12} & 0^{12\times 52}\\
+0^{12\times 68} & U_3 & -U_4 & 0^{12\times 12} & 0^{12\times 52}\\
+\begin{array}{ccc} I^{26\times 26} & 0^{26\times 26} & U_6\end{array} & U_5 & 0^{26\times 26} & 0^{26\times 12} & \begin{array}{cc} I^{26\times 26} & 0^{26\times 26}\end{array}\\
+\begin{array}{ccc} -I^{26\times 26} & I^{26\times 26} & 0^{26\times 26}\end{array} & -U_7 & I^{26\times 26} & 0^{26\times 12} & \begin{array}{cc} -I^{26\times 26} & I^{26\times 26}\end{array}
+\end{array}\right],
+\]
+\[
+c_2\assign\left[\begin{array}{c|c|c|c|c}
+q(1^{1\times 68}) & q(1^{1\times 36}) & q(1^{1\times 26}) & \rho(a^{1\times 12}) & 0^{1\times 52}\end{array}\right],\qquad%
+\rand{b_2}\assign\left[\ajfbox{\rand{b}\\ 0^{12\times 1}\\ 0^{26\times 1}\\ 0^{26\times 1}}\right],
+\]
+and
+\[
+T_2\assign\left[\begin{array}{c}
+0^{12\times 52}\\
+0^{12\times 52}\\
+\begin{array}{cc}
+-d(0) I^{26\times 26} & -d(1) I^{26\times 26} \end{array}\\
+0^{26\times 52}
+\end{array}\right].
+\]
+
+

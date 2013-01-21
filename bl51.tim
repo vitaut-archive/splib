@@ -1,0 +1,5 @@
+TIME          BL_5_1
+PERIODS
+    X         OBJ                      T1
+    Y         R1                       T2
+ENDATA

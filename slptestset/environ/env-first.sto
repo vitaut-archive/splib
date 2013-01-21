@@ -1,0 +1,8 @@
+STOCH         ENV   
+INDEP         DISCRETE
+    RIGHT     CO2LIM2     800.0        PERIOD2   0.20
+    RIGHT     CO2LIM2     600.0        PERIOD2   0.20
+    RIGHT     CO2LIM2     590.0        PERIOD2   0.20
+    RIGHT     CO2LIM2     530.0        PERIOD2   0.20
+    RIGHT     CO2LIM2     500.0        PERIOD2   0.20
+ENDATA  
