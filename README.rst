@@ -23,7 +23,7 @@ Sources:
 * wright: `SP problems by Stephen Wright
   <http://pages.cs.wisc.edu/~swright/stochastic/sampling/>`__
 
-The posts, rand, saphir and slptestset have been used in the paper
+The posts, rand, saphir and slptestset problems have been used in the paper
 "A computational study of a solver system for processing two-stage stochastic
 LPs with enhanced Benders decomposition" by Victor Zverovich, Csaba I. Fábián,
 Eldon F. D. Ellison, and Gautam Mitra. Mathematical Programming Computation
