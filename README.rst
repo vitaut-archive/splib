@@ -8,7 +8,7 @@ Sources:
 * posts: `A (PO)rtable (S)tochastic programming (T)est (S)et (POSTS)
   <http://users.iems.northwestern.edu/~jrbirge/html/dholmes/post.html>`__
 
-* rand: Randomly generated problems used in the paper
+* rand: Randomly generated problems
 
 * saphir: Gas portfolio planning problem
 
