@@ -83,7 +83,7 @@ var flights{i in AircraftTypes, j in Routes} >= 0;
 
 # Increase in the number of flights for route k flown by aircraft type i,
 # because of being switched from route j (x_{ijk}).
-var switched_flights{(i, j, k) in Switches, s in Scen} >= 0;
+var switched_flights{(i, j, k) in Switches, s in Scen} >= 0, suffix stage 2;
 
 # The load originally scheduled to be carried on route j (i.e. the "best guess"
 # of the demand).
@@ -93,19 +93,19 @@ var load{j in Routes} = sum{i in AircraftTypes} Capacity[i, j] * flights[i, j];
 var capacity_out{j in Routes, s in Scen} =
   sum{i in AircraftTypes, k in Routes: k != j}
     Capacity[i, j] * (SwitchedHours[i, j, k] / Hours[i, j]) *
-      switched_flights[i, j, k, s];
+      switched_flights[i, j, k, s], suffix stage 2;
 
 # The carrying capacity switched to route j.
 var capacity_in{j in Routes, s in Scen} =
   sum{i in AircraftTypes, k in Routes: k != j}
-    Capacity[i, j] * switched_flights[i, k, j, s];
+    Capacity[i, j] * switched_flights[i, k, j, s], suffix stage 2;
 
 # The demand for route j which is contracted commercially in the
 # recourse (y^+_j).
-var contracted{j in Routes, s in Scen} >= 0;
+var contracted{j in Routes, s in Scen} >= 0, suffix stage 2;
 
 # The unused capacity assigned to route j (y^-_j),
-var unused{j in Routes, s in Scen} >= 0;
+var unused{j in Routes, s in Scen} >= 0, suffix stage 2;
 
 minimize expected_cost:
   sum{i in AircraftTypes, j in Routes} AssignCost[i, j] * flights[i, j] +
