@@ -1,4 +1,4 @@
-# Airlift operation scheduling.
+# Airlift operation scheduling
 #
 # In scheduling monthly airlift operations, demands for specific routes can be
 # predicted. Actual requirements will be known in the future, and they may
@@ -72,7 +72,7 @@ param NumScen > 0;
 set Scen := 1..NumScen;
 
 # The probability of scenario s.
-param P{s in Scen} = 1 / NumScen >= 0 <= 1;
+param P{s in Scen} default 1 / NumScen >= 0 <= 1;
 
 # The random variable (parameter) representing the demand for route j (d_j).
 param Demand{j in Routes, s in Scen} >= 0;

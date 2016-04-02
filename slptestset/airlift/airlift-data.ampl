@@ -1,4 +1,4 @@
-# Data for the airlift problem.
+# Data for the airlift problem
 
 set Routes := 1 2;
 

@@ -1,4 +1,13 @@
-# Airlift operation scheduling problem with the first data set.
+# Airlift operation scheduling problem with the first data set
+#
+# Solution:
+# expected_cost = 249102
+# flights :=
+# 1 1   18.9341
+# 1 2   20.1196
+# 2 1    0
+# 2 2    0
+# thetastar = -7941.68
 
 model airlift.ampl;
 data airlift-data.ampl;
