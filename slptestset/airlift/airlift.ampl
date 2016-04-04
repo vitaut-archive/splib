@@ -26,6 +26,8 @@
 #
 # AMPL coding by Victor Zverovich.
 
+function random;
+
 set AircraftTypes;
 set Routes;
 
@@ -83,29 +85,29 @@ var flights{i in AircraftTypes, j in Routes} >= 0;
 
 # Increase in the number of flights for route k flown by aircraft type i,
 # because of being switched from route j (x_{ijk}).
-var switched_flights{(i, j, k) in Switches, s in Scen} >= 0, suffix stage 2;
+var switched_flights{(i, j, k) in Switches} >= 0, suffix stage 2;
 
 # The load originally scheduled to be carried on route j (i.e. the "best guess"
 # of the demand).
 var load{j in Routes} = sum{i in AircraftTypes} Capacity[i, j] * flights[i, j];
 
 # The total carrying capacity switched away from route j in the recourse action.
-var capacity_out{j in Routes, s in Scen} =
+var capacity_out{j in Routes} =
   sum{i in AircraftTypes, k in Routes: k != j}
     Capacity[i, j] * (SwitchedHours[i, j, k] / Hours[i, j]) *
-      switched_flights[i, j, k, s], suffix stage 2;
+      switched_flights[i, j, k], suffix stage 2;
 
 # The carrying capacity switched to route j.
-var capacity_in{j in Routes, s in Scen} =
+var capacity_in{j in Routes} =
   sum{i in AircraftTypes, k in Routes: k != j}
-    Capacity[i, j] * switched_flights[i, k, j, s], suffix stage 2;
+    Capacity[i, j] * switched_flights[i, k, j], suffix stage 2;
 
 # The demand for route j which is contracted commercially in the
 # recourse (y^+_j).
-var contracted{j in Routes, s in Scen} >= 0, suffix stage 2;
+var contracted{j in Routes} >= 0, suffix stage 2;
 
 # The unused capacity assigned to route j (y^-_j),
-var unused{j in Routes, s in Scen} >= 0, suffix stage 2;
+var unused{j in Routes} >= 0, suffix stage 2;
 
 minimize expected_cost:
   sum{i in AircraftTypes, j in Routes} AssignCost[i, j] * flights[i, j] +
@@ -113,9 +115,9 @@ minimize expected_cost:
     sum{(i, j, k) in Switches}
       (SwitchCost[i, j, k] -
         AssignCost[i, j] * (SwitchedHours[i, j, k] / Hours[i, j])) *
-      switched_flights[i, j, k, s] +
-    sum{j in Routes} ContractedCost[j] * contracted[j, s] +
-    sum{j in Routes} UnusedCost[j] * unused[j, s]);
+      switched_flights[i, j, k] +
+    sum{j in Routes} ContractedCost[j] * contracted[j] +
+    sum{j in Routes} UnusedCost[j] * unused[j]);
 
 # The first-stage constraint.
 s.t. flight_hours{i in AircraftTypes}:
@@ -124,11 +126,11 @@ s.t. flight_hours{i in AircraftTypes}:
 # The second-stage constraint: we cannot switch away more flight hours from
 # aircraft of type i and from route j, than we have originally scheduled for
 # such.
-s.t. switch_flight_hours{i in AircraftTypes, j in Routes, s in Scen}:
-  sum{k in Routes: k != j} SwitchedHours[i, j, k] * switched_flights[i, j, k, s]
+s.t. switch_flight_hours{i in AircraftTypes, j in Routes}:
+  sum{k in Routes: k != j} SwitchedHours[i, j, k] * switched_flights[i, j, k]
       <= Hours[i, j] * flights[i, j];
 
 # The recourse constraint that the demand for each route must be met.
-s.t. satisfy_demand{j in Routes, s in Scen}:
-  load[j] - capacity_out[j, s] + capacity_in[j, s] +
-    contracted[j, s] - unused[j, s] = Demand[j, s];
+s.t. satisfy_demand{j in Routes}:
+  load[j] - capacity_out[j] + capacity_in[j] + contracted[j] - unused[j]
+    = random({s in Scen} Demand[j, s]);
