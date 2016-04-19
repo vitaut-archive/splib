@@ -26,6 +26,7 @@
 #
 # AMPL coding by Victor Zverovich.
 
+function expectation;
 function random;
 
 set AircraftTypes;
@@ -111,7 +112,7 @@ var unused{j in Routes} >= 0, suffix stage 2;
 
 minimize expected_cost:
   sum{i in AircraftTypes, j in Routes} AssignCost[i, j] * flights[i, j] +
-  sum{s in Scen} P[s] * (
+  expectation({s in Scen} P[s],
     sum{(i, j, k) in Switches}
       (SwitchCost[i, j, k] -
         AssignCost[i, j] * (SwitchedHours[i, j, k] / Hours[i, j])) *
