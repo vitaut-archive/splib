@@ -27,7 +27,6 @@
 # AMPL coding by Victor Zverovich.
 
 function expectation;
-function random;
 
 set AircraftTypes;
 set Routes;
@@ -68,18 +67,6 @@ param ContractedCost{j in Routes} >= 0;
 # The cost per ton of unused capacity on route j (c^-_j).
 param UnusedCost{j in Routes} >= 0;
 
-# The number of scenarios.
-param NumScen > 0;
-
-# The set of scenarios.
-set Scen := 1..NumScen;
-
-# The probability of scenario s.
-param P{s in Scen} default 1 / NumScen >= 0 <= 1;
-
-# The random variable (parameter) representing the demand for route j (d_j).
-param Demand{j in Routes, s in Scen} >= 0;
-
 # The number of flights originally planned for route j using aircraft of
 # type i (x_{ij}).
 var flights{i in AircraftTypes, j in Routes} >= 0;
@@ -110,9 +97,22 @@ var contracted{j in Routes} >= 0, suffix stage 2;
 # The unused capacity assigned to route j (y^-_j),
 var unused{j in Routes} >= 0, suffix stage 2;
 
+# The number of scenarios.
+param NumScen >= 0 default 0;
+
+# The random variable (parameter) representing the demand for route j (d_j).
+var RandomDemand{j in Routes};
+
+# Realizations of the demand for route j (d_j).
+param Demand{j in Routes, s in 1..NumScen};
+
+# Specifies whether independent random variables are used.
+# This affects the way probabilities are passed.
+param IndependentRV = 0;
+
 minimize expected_cost:
   sum{i in AircraftTypes, j in Routes} AssignCost[i, j] * flights[i, j] +
-  expectation({s in Scen} P[s],
+  expectation({s in 1..NumScen: !IndependentRV} 1 / NumScen,
     sum{(i, j, k) in Switches}
       (SwitchCost[i, j, k] -
         AssignCost[i, j] * (SwitchedHours[i, j, k] / Hours[i, j])) *
@@ -129,9 +129,9 @@ s.t. flight_hours{i in AircraftTypes}:
 # such.
 s.t. switch_flight_hours{i in AircraftTypes, j in Routes}:
   sum{k in Routes: k != j} SwitchedHours[i, j, k] * switched_flights[i, j, k]
-      <= Hours[i, j] * flights[i, j];
+    <= Hours[i, j] * flights[i, j];
 
 # The recourse constraint that the demand for each route must be met.
 s.t. satisfy_demand{j in Routes}:
   load[j] - capacity_out[j] + capacity_in[j] + contracted[j] - unused[j]
-    = random({s in Scen} Demand[j, s]);
+    = RandomDemand[j];

@@ -12,7 +12,13 @@
 model airlift.ampl;
 data airlift-data.ampl;
 
+function random;
+demand{j in Routes}: RandomDemand[j] = random({s in 1..NumScen} Demand[j, s]);
+
 data;
+
+param NumScen := 25;
+
 param Demand (tr):
          1          2 :=
   1  927.758357 1433.626750

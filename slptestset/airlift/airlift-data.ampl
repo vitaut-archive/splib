@@ -21,5 +21,3 @@ param: SwitchedHours SwitchCost :=
   1 2 1     29          8200
   2 1 2     36          5500
   2 2 1     56          8700;
-
-param NumScen := 25;

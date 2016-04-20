@@ -12,35 +12,28 @@
 model airlift.ampl;
 data airlift-data.ampl;
 
-# Independent scenarios.
-set IndepScen;
-param IndepP{IndepScen};
-param IndepDemand{j in Routes, s in IndepScen};
+# Scenario probabilities.
+param P{1..NumScen};
+
+function indep_random;
+demand{j in Routes}: RandomDemand[j] = indep_random({s in 1..NumScen} (P[s], Demand[j, s]));
 
 data;
 
-param:
-  IndepScen: IndepP :=
-      1      0.0668
-      2      0.2417
-      3      0.3830
-      4      0.2417
-      5      0.0668;
+# The number of independent scenarios.
+param NumScen := 5;
 
-param IndepDemand (tr):
-           1        2 :=
-  1      988.16  1428.94
-  2      989.98  1439.86
-  3      994.92  1469.54
-  4     1008.37  1550.22
-  5     1044.92  1769.54;
+param P :=
+  1  0.0668
+  2  0.2417
+  3  0.3830
+  4  0.2417
+  5  0.0668;
 
-let NumScen := card(IndepScen) ^ 2;
-
-param index;
-for {i in IndepScen, j in IndepScen} {
-  let index := (i - 1) * card(IndepScen) + j;
-  let P[index] := IndepP[i] * IndepP[j];
-  let Demand[1, index] := IndepDemand[1, i];
-  let Demand[2, index] := IndepDemand[2, j];
-}
+param Demand (tr):
+        1        2 :=
+  1   988.16  1428.94
+  2   989.98  1439.86
+  3   994.92  1469.54
+  4  1008.37  1550.22
+  5  1044.92  1769.54;
