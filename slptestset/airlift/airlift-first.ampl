@@ -13,7 +13,7 @@ model airlift.ampl;
 data airlift-data.ampl;
 
 function random;
-demand{j in Routes}: RandomDemand[j] = random({s in 1..NumScen} Demand[j, s]);
+demand: random({j in Routes} (RandomDemand[j], {s in 1..NumScen} Demand[j, s]));
 
 data;
 

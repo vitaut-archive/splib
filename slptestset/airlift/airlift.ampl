@@ -106,13 +106,9 @@ var RandomDemand{j in Routes};
 # Realizations of the demand for route j (d_j).
 param Demand{j in Routes, s in 1..NumScen};
 
-# Specifies whether independent random variables are used.
-# This affects the way probabilities are passed.
-param IndependentRV = 0;
-
 minimize expected_cost:
   sum{i in AircraftTypes, j in Routes} AssignCost[i, j] * flights[i, j] +
-  expectation({s in 1..NumScen: !IndependentRV} 1 / NumScen,
+  expectation(
     sum{(i, j, k) in Switches}
       (SwitchCost[i, j, k] -
         AssignCost[i, j] * (SwitchedHours[i, j, k] / Hours[i, j])) *

@@ -15,8 +15,9 @@ data airlift-data.ampl;
 # Scenario probabilities.
 param P{1..NumScen};
 
-function indep_random;
-demand{j in Routes}: RandomDemand[j] = indep_random({s in 1..NumScen} (P[s], Demand[j, s]));
+function random;
+demand{j in Routes}: random(
+  {s in 1..NumScen} P[s], RandomDemand[j], {s in 1..NumScen} Demand[j, s]);
 
 data;
 
