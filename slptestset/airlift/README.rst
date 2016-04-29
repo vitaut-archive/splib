@@ -1,11 +1,11 @@
 Airlift scheduling problem
 --------------------------
 
-* ``airlift.ampl``: model file
-* ``airlift-data.ampl``: non-random data
-* ``airlift-first.ampl``: airlift problem with the first data set
-* ``airlift-second.ampl``: airlift problem with the second data set
-* ``airlift-randgen.ampl``: airlift problem with a randomly generated data set
+* `airlift.ampl <airlift.ampl>`_: model file
+* `airlift-data.ampl <airlift-data.ampl>`_: non-random data
+* `airlift-first.ampl <airlift-first.ampl>`_: airlift problem with the first data set
+* `airlift-second.ampl <airlift-second.ampl>`_: airlift problem with the second data set
+* `airlift-randgen.ampl <airlift-randgen.ampl>`_: airlift problem with a randomly generated data set
 
 Usage::
 
@@ -13,7 +13,7 @@ Usage::
   ampl: write gtest;
 
 Replace ``airlift-first.ampl`` with ``airlift-second.ampl`` or ``airlift-randgen.ampl``
-to use a different data set. ``airlift-randgen.ampl`` accepts option ``rangen_method``
+to use a different data set. ``airlift-randgen.ampl`` accepts option ``randgen_method``
 with takes one of the following values:
 
 1. Generate block independent random variables/parameters (default)
