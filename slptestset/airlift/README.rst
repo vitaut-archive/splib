@@ -1,5 +1,5 @@
-Airlift scheduling problem
---------------------------
+Airlift operation scheduling problem
+------------------------------------
 
 * `airlift.ampl <airlift.ampl>`_: model file
 * `airlift-data.ampl <airlift-data.ampl>`_: non-random data
