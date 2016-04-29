@@ -3,10 +3,6 @@
 #
 # The original comment from randgen.f:
 #
-#   This file makes (non-block) indep vars, which is not what Midler
-#   and Wollmer did, I think.  But it makes an interesting case, since
-#   simplex/simplex takes 14 iterations
-#
 #   This file generates the stoch file of the airlift problem given
 #   by Midler, J.L. and Wollmer, R.D., Stochastic programming models
 #   for scheduling airlift operations, Naval Research Logistics Quarterly,
@@ -34,12 +30,10 @@ data airlift-data.ampl;
 function random;
 demand{j in Routes}: RandomDemand[j] = random({s in 1..NumScen} Demand[j, s]);
 
-let NumScen := 26;
-
 param mu = 0;
 param sigma = 1;
-param Lmu default 1000;
-param Lsigma default 50.0;
+param Lmu{1..2} default 1000;
+param Lsigma{1..2} default 50;
 param Cmu = exp(mu + sigma^2 / 2);
 param Csigma = sqrt(exp(2 * mu + sigma^2) * (exp(sigma^2) - 1));
 param variance;
@@ -50,6 +44,25 @@ param indices{1..2};
 param carry default 0;
 param count;
 param seeds{1..24};
+
+# Method to use for generating random data. Possible values:
+#
+# 1: Block indep vars, similar, according to the author of randgenReal.f, to
+#    those of Midler and Wollmer.
+#
+# 2: (Non-block) indep vars, which, according to the author of rangen.f, is
+#    not what Midler and Wollmer did.
+param randgen_method in 1..2 default 1;
+
+if $randgen_method != '' then
+  let randgen_method := num($randgen_method);
+
+let NumScen := 26;
+if randgen_method = 1 then {
+  let NumScen := 25;
+  let Lmu[2] := 1500;
+  let Lsigma[2] := 300;
+}
 
 data;
 
@@ -65,10 +78,10 @@ param seeds :=
  21 0.409610003233 22 0.980735301971 23 0.268991500139 24 0.514035701752;
 
 # The outer loop allows for doing more than one run with different seeds.
-for {m in Routes} {
+for {m in 1..randgen_method} {
   if m = 2 then {
-    let Lmu := 1500;
-    let Lsigma := 300;
+    let{k in 1..2} Lmu[k] := 1500;
+    let{k in 1..2} Lsigma[k] := 300;
   }
   let count := 0;
   repeat while count < NumScen {
@@ -90,9 +103,12 @@ for {m in Routes} {
     let W := sum{k in 1..2} V[k]^2;
     if W < 1 then {
       let{k in 1..2} X[k] := mu + V[k] * sigma * sqrt(-2 * log(W) / W);
-      let{k in 1..2}
-        Demand[m, count + k] := ((X[k] - Cmu) / Csigma) * Lsigma + Lmu;
-      let count := count + 2;
+      let{k in 1..2} X[k] := ((X[k] - Cmu) / Csigma) * Lsigma[k] + Lmu[k];
+      if randgen_method = 2 then
+        let{k in 1..2} Demand[m, count + k] := X[k];
+      else
+        let{k in 1..2} Demand[k, count + 1] := X[k];
+      let count := count + randgen_method;
     }
   }
   #print 'Sample mean for run', m, 'is',

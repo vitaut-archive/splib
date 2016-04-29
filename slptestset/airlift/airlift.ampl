@@ -1,4 +1,4 @@
-# Airlift operation scheduling
+# Airlift operation scheduling model
 #
 # In scheduling monthly airlift operations, demands for specific routes can be
 # predicted. Actual requirements will be known in the future, and they may not
