@@ -28,7 +28,9 @@ model airlift.ampl;
 data airlift-data.ampl;
 
 function random;
-demand{j in Routes}: random(RandomDemand[j], {s in 1..NumScen} Demand[j, s]);
+
+demand_indep{j in Routes}: random(RandomDemand[j], {s in 1..NumScen} Demand[j, s]);
+demand: random({j in Routes} (RandomDemand[j], {s in 1..NumScen} Demand[j, s]));
 
 param mu = 0;
 param sigma = 1;
@@ -62,6 +64,9 @@ if randgen_method = 1 then {
   let NumScen := 25;
   let Lmu[2] := 1500;
   let Lsigma[2] := 300;
+  drop demand_indep;
+} else {
+  drop demand;
 }
 
 data;
