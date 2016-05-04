@@ -13,11 +13,16 @@
 #
 # 2. H. I. Gassmann. Optimal harvest of a forest in the presence of uncertainty.
 #    Canadian Journal of Forest Research, 19:1267–1274, 1989.
+#
+# AMPL coding by Victor Zverovich.
+
+# The number of age groups (K).
+param NumAgeGroups;
 
 # A set of age classifications of equal length (e.g. 20 years). Each portion
 # of the forest is placed into one of the groups, according to the age of the
-# trees within. Denoted by 1..K in [1].
-set AgeGroups;
+# trees within.
+set AgeGroups = 1..NumAgeGroups;
 
 # The future planning horizon is divided into T rounds, each with a time length
 # equal to that of each age classification. That is, in one time round, any
@@ -36,7 +41,7 @@ var harvested{g in AgeGroups, t in 1..T} >= 0 suffix stage t;
 
 # A random proportion of the area of unharvested trees
 # area[g, t] - harvested[g, t] destroyed by fire in round t (P_t).
-param Destroyed{g in AgeGroups, t in 1..T} >= 0 <= 1;
+param FireRate{g in AgeGroups, t in 1..T} >= 0 <= 1;
 
 # The yield in units currency / hectacre of forest harvested (y).
 param Yield{AgeGroups} >= 0;
@@ -69,9 +74,9 @@ function expectation;
 
 # Maximize the value of timber, both cut and remaining after round T.
 maximize total_value:
-  expectation(
+  #expectation(
     sum{t in 1..T} present_value[t] +
-    DiscountFactor^T * sum{g in AgeGroups} Value[g] * area[g, T + 1]);
+    DiscountFactor^T * sum{g in AgeGroups} Value[g] * area[g, T + 1];
 
 s.t. initial_area{g in AgeGroups}: area[g, 1] = InitialArea[g];
 
@@ -79,16 +84,16 @@ s.t. harvest_limit{g in AgeGroups, t in 1..T}: harvested[g, t] <= area[g, t];
 
 # All harvested and burned areas are immediately replanted, and therefore wind
 # up in age group 1.
-s.t. replant{t in 1..T - 1}:
+s.t. replant{t in 1..T}:
   area[1, t + 1] =
     sum{g in AgeGroups}
-      (Destroyed[g, t] * (area[g, t] - harvested[g, t]) + harvested[g, t]);
+      (FireRate[g, t] * (area[g, t] - harvested[g, t]) + harvested[g, t]);
 
 # The material balance constraint.
 s.t. balance{g in AgeGroups, t in 1..T: g != 1}:
-  area[g, t + 1] = (1 - Destroyed[g, t]) * (area[g, t] - harvested[g, t]);
+  area[g, t + 1] = (1 - FireRate[g, t]) * (area[g, t] - harvested[g, t]);
 
-# Constraints purchase_decrease and purchase_increase might represent limits
+# Constraints purchase_lower and purchase_upper might represent limits
 # on how fast the timber industry can change its purchasing volume from one
 # time period to the next.
 s.t. purchase_lower{t in 2..T}:
