@@ -14,28 +14,32 @@
 # 2. H. I. Gassmann. Optimal harvest of a forest in the presence of uncertainty.
 #    Canadian Journal of Forest Research, 19:1267–1274, 1989.
 
-# A set of age classifications of equal length (e.g. 20 years).
-# Each portion of the forest is placed into one of the classes,
-# according to the age of the trees within.
-set AgeClasses;
+# A set of age classifications of equal length (e.g. 20 years). Each portion
+# of the forest is placed into one of the groups, according to the age of the
+# trees within. Denoted by 1..K in [1].
+set AgeGroups;
 
 # The future planning horizon is divided into T rounds, each with a time length
 # equal to that of each age classification. That is, in one time round, any
-# trees that are not destroyed or harvested will move to the next age class.
+# trees that are not destroyed or harvested will move to the next age group.
 param T >= 0;
 
-# The total amount of area of the forest in each age class in round t (s_t).
-param Area{AgeClasses, t in 1..T} >= 0;
+# The area of forest covered with timber in the different age groups at the
+# beginning of time period 1.
+param InitialArea{AgeGroups} >= 0;
 
-# The area of the forest harvested in each age class in round t (x_t).
-var harvested{c in AgeClasses, t in 1..T} >= 0 <= Area[c, t];
+# The total amount of area of the forest in each age group in round t (s_t).
+var area{AgeGroups, t in 1..T + 1} >= 0 suffix stage t;
+
+# The area of the forest harvested in each age group in round t (x_t).
+var harvested{g in AgeGroups, t in 1..T} >= 0 suffix stage t;
 
 # A random proportion of the area of unharvested trees
-# Area[c, t] - harvested[c, t] destroyed by fire in round t (P_t).
-param Destroyed{c in AgeClasses, t in 1..T} >= 0 <= 1;
+# area[g, t] - harvested[g, t] destroyed by fire in round t (P_t).
+param Destroyed{g in AgeGroups, t in 1..T} >= 0 <= 1;
 
 # The yield in units currency / hectacre of forest harvested (y).
-param Yield{c in AgeClasses} >= 0;
+param Yield{AgeGroups} >= 0;
 
 # Smallest fraction of the purchasing volume by which the latter can change
 # from one time period to the next (\alpha).
@@ -46,18 +50,43 @@ param PurchaseLower >= 0;
 param PurchaseUpper >= 0;
 
 # The purchasing volume in currency units.
-var purchase{t in 1..T} = sum{c in AgeClasses} Yield[c, t] * harvested[c, t];
+var purchase{t in 1..T} = sum{g in AgeGroups} Yield[g] * harvested[g, t];
+
+# Monetary values in future round t are discounted to current monetary scales
+# by multiplying by DiscountFactor^(t - 1). For example, if each round is 20
+# years long, for interest (or inflation) rate i, DiscountFactor = (1 - i)^20.
+# Denoted by \delta in [1].
+param DiscountFactor >= 0;
+
+# The value of the trees standing after round T (v).
+param Value{AgeGroups} >= 0;
+
+# The present value of timber harvested in round t.
+var present_value{t in 1..T} =
+  DiscountFactor^(t - 1) * sum{g in AgeGroups} Yield[g] * harvested[g, t];
+
+function expectation;
+
+# Maximize the value of timber, both cut and remaining after round T.
+maximize total_value:
+  expectation(
+    sum{t in 1..T} present_value[t] +
+    DiscountFactor^T * sum{g in AgeGroups} Value[g] * area[g, T + 1]);
+
+s.t. initial_area{g in AgeGroups}: area[g, 1] = InitialArea[g];
+
+s.t. harvest_limit{g in AgeGroups, t in 1..T}: harvested[g, t] <= area[g, t];
 
 # All harvested and burned areas are immediately replanted, and therefore wind
-# up in age class 1.
+# up in age group 1.
 s.t. replant{t in 1..T - 1}:
-  Area[1, t + 1] =
-    sum{c in AgeClasses}
-      (Destroyed[c, t] * (Area[c, t] - harvested[c, t]) + harvested[c, t]);
+  area[1, t + 1] =
+    sum{g in AgeGroups}
+      (Destroyed[g, t] * (area[g, t] - harvested[g, t]) + harvested[g, t]);
 
 # The material balance constraint.
-s.t. balance{c in AgeClasses, t in 1..T - 1: c != 1}:
-  Area[c, t + 1] = (1 - Destroyed[c, t]) * (Area[c, t] - harvested[c, t]);
+s.t. balance{g in AgeGroups, t in 1..T: g != 1}:
+  area[g, t + 1] = (1 - Destroyed[g, t]) * (area[g, t] - harvested[g, t]);
 
 # Constraints purchase_decrease and purchase_increase might represent limits
 # on how fast the timber industry can change its purchasing volume from one
@@ -66,5 +95,3 @@ s.t. purchase_lower{t in 2..T}:
   purchase[t] >= PurchaseLower * purchase[t - 1];
 s.t. purchase_upper{t in 2..T}:
   purchase[t] <= PurchaseUpper * purchase[t - 1];
-
-# TODO
