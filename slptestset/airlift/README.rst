@@ -5,7 +5,7 @@ Airlift operation scheduling
 * `airlift-data.ampl <airlift-data.ampl>`_: non-random data
 * `airlift-first.ampl <airlift-first.ampl>`_: airlift problem with the first data set
 * `airlift-second.ampl <airlift-second.ampl>`_: airlift problem with the second data set
-* `airlift-randgen.ampl <airlift-randgen.ampl>`_: airlift problem with a randomly generated data set
+* `airlift-randgen.ampl <airlift-randgen.ampl>`_: airlift problem with randomly generated data sets
 
 Usage::
 
