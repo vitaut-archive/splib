@@ -1,4 +1,4 @@
-# Airlift operation scheduling model
+# Airlift operation scheduling stochastic programming model in AMPL
 #
 # In scheduling monthly airlift operations, demands for specific routes can be
 # predicted. Actual requirements will be known in the future, and they may not
@@ -98,7 +98,7 @@ var contracted{j in Routes} >= 0, suffix stage 2;
 var unused{j in Routes} >= 0, suffix stage 2;
 
 # The number of scenarios.
-param NumScen >= 0 default 0;
+param NumScen >= 0;
 
 # The random variable (parameter) representing the demand for route j (d_j).
 var RandomDemand{j in Routes};
