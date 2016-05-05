@@ -90,8 +90,8 @@ s.t. replant{t in 1..T}:
       (FireRate[g, t] * (area[g, t] - harvested[g, t]) + harvested[g, t]);
 
 # The material balance constraint.
-s.t. balance{g in AgeGroups, t in 1..T: g != 1}:
-  area[g, t + 1] = (1 - FireRate[g, t]) * (area[g, t] - harvested[g, t]);
+s.t. balance{g in 1..NumAgeGroups - 1, t in 1..T}:
+  area[g + 1, t + 1] = (1 - FireRate[g, t]) * (area[g, t] - harvested[g, t]);
 
 # Constraints purchase_lower and purchase_upper might represent limits
 # on how fast the timber industry can change its purchasing volume from one
