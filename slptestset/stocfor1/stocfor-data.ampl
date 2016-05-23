@@ -1,4 +1,4 @@
-model stocfor.ampl;
+# Common data for forest planning problem instances
 
 data;
 
@@ -22,5 +22,3 @@ param:
   6  564.9294    16.385      275
   7  587.9294     2.815      298
   8  595.9294    61.995      306;
-
-let{g in AgeGroups, t in 1..T} FireRate[g, t] := 0.06258;
