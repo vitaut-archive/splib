@@ -69,7 +69,6 @@ param Value{AgeGroups} >= 0;
 # The amounts by which the purchasing volume goes below/above the soft limits.
 var shortfall{2..T} >= 0;
 var surplus{2..T} >= 0;
-fix surplus;
 
 # Coefficient of the shortfall/surplus penalty term in the coefficient.
 param Penalty default 50;
