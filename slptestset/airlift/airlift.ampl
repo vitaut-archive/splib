@@ -27,6 +27,7 @@
 # AMPL coding by Victor Zverovich.
 
 function expectation;
+suffix stage IN;
 
 set AircraftTypes;
 set Routes;
