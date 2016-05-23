@@ -66,17 +66,24 @@ param DiscountFactor >= 0;
 # The value of the trees standing after round T (v).
 param Value{AgeGroups} >= 0;
 
-# The present value of timber harvested in round t.
-var present_value{t in 1..T} =
-  DiscountFactor^(t - 1) * sum{g in AgeGroups} Yield[g] * harvested[g, t];
+# The amounts by which the purchasing volume goes below/above the soft limits.
+var shortfall{2..T} >= 0;
+var surplus{2..T} >= 0;
+fix surplus;
+
+# Coefficient of the shortfall/surplus penalty term in the coefficient.
+param Penalty default 50;
 
 function expectation;
 
 # Maximize the value of timber, both cut and remaining after round T.
 maximize total_value:
-  #expectation(
-    sum{t in 1..T} present_value[t] +
-    DiscountFactor^T * sum{g in AgeGroups} Value[g] * area[g, T + 1];
+  expectation(
+    sum{t in 1..T} DiscountFactor^(t - 1) * purchase[t] +
+    DiscountFactor^T *
+      sum{g in AgeGroups} Value[g] * (area[g, T] - harvested[g, T]) -
+    sum{t in 2..T}
+      DiscountFactor^(t - 2) * Penalty * (shortfall[t] + surplus[t]));
 
 s.t. initial_area{g in AgeGroups}: area[g, 1] = InitialArea[g];
 
@@ -90,13 +97,15 @@ s.t. replant{t in 1..T}:
       (FireRate[g, t] * (area[g, t] - harvested[g, t]) + harvested[g, t]);
 
 # The material balance constraint.
-s.t. balance{g in 1..NumAgeGroups - 1, t in 1..T}:
-  area[g + 1, t + 1] = (1 - FireRate[g, t]) * (area[g, t] - harvested[g, t]);
+s.t. balance{g in 1..NumAgeGroups - 1, t in 1..T - 1}:
+  area[g + 1, t + 1] = (1 - FireRate[g, t]) * (area[g, t] - harvested[g, t]) +
+  if g == NumAgeGroups - 1 then
+    (1 - FireRate[g + 1, t]) * (area[g + 1, t] - harvested[g + 1, t]);
 
 # Constraints purchase_lower and purchase_upper might represent limits
 # on how fast the timber industry can change its purchasing volume from one
 # time period to the next.
 s.t. purchase_lower{t in 2..T}:
-  purchase[t] >= PurchaseLower * purchase[t - 1];
+  PurchaseLower * purchase[t - 1] - purchase[t] <= shortfall[t];
 s.t. purchase_upper{t in 2..T}:
-  purchase[t] <= PurchaseUpper * purchase[t - 1];
+  purchase[t] - PurchaseUpper * purchase[t - 1] <= surplus[t];
