@@ -12,6 +12,9 @@ demand{t in 2..T}: random(
   {s in 1..NumScen} P[s],
   {g in AgeGroups} (FireRate[g, t], {s in 1..NumScen} FireRateData[s]));
 
+let{g in AgeGroups, t in 2..T + 1} area[g, t].stage := 2;
+let{g in AgeGroups, t in 2..T} harvested[g, t].stage := 2;
+
 data;
 
 param:

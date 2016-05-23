@@ -37,7 +37,7 @@ param T >= 0;
 param InitialArea{AgeGroups} >= 0;
 
 # The total amount of area of the forest in each age group in round t (s_t).
-var area{AgeGroups, t in 1..T + 1} >= 0 suffix stage t;
+var area{g in AgeGroups, t in 1..T + 1} >= 0 suffix stage t;
 
 # The area of the forest harvested in each age group in round t (x_t).
 var harvested{g in AgeGroups, t in 1..T} >= 0 suffix stage t;
