@@ -16,6 +16,9 @@
 #
 # AMPL coding by Victor Zverovich.
 
+function expectation;
+suffix stage IN;
+
 # The number of age groups (K).
 param NumAgeGroups;
 
@@ -41,7 +44,7 @@ var harvested{g in AgeGroups, t in 1..T} >= 0 suffix stage t;
 
 # A random proportion of the area of unharvested trees
 # area[g, t] - harvested[g, t] destroyed by fire in round t (P_t).
-param FireRate{g in AgeGroups, t in 1..T} >= 0 <= 1;
+var FireRate{g in AgeGroups, t in 1..T} >= 0 <= 1;
 
 # The yield in units currency / hectacre of forest harvested (y).
 param Yield{AgeGroups} >= 0;
@@ -72,8 +75,6 @@ var surplus{2..T} >= 0;
 
 # Coefficient of the shortfall/surplus penalty term in the coefficient.
 param Penalty default 50;
-
-function expectation;
 
 # Maximize the value of timber, both cut and remaining after round T.
 maximize total_value:
