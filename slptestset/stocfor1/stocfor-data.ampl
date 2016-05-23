@@ -4,7 +4,10 @@ data;
 
 param T := 7;
 param NumAgeGroups := 8;
-param DiscountFactor := 0.905;
+
+# Use more exact value to match the data in stocfor1.cor.
+param DiscountFactor := 0.9050629;
+
 param PurchaseLower := 0.9;
 param PurchaseUpper := 1.1;
 
